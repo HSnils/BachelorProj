@@ -1,0 +1,592 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"space",
+				"space-between"
+			],
+			[
+				"juist",
+				"justify-content"
+			],
+			[
+				"flex",
+				"flex-direction"
+			],
+			[
+				"hi",
+				"highlight"
+			],
+			[
+				"hig",
+				"highlightedDoc"
+			],
+			[
+				"high",
+				"highlighting"
+			],
+			[
+				"doc",
+				"documentFileName"
+			],
+			[
+				"documen",
+				"documentID"
+			],
+			[
+				"html",
+				"htmlentities"
+			],
+			[
+				"htm",
+				"htmlentities"
+			],
+			[
+				"spa",
+				"space-around"
+			],
+			[
+				"just",
+				"justify-content"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"alig",
+				"align-items"
+			],
+			[
+				"in",
+				"inline-flex"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"flex-",
+				"flex-wrap"
+			],
+			[
+				"background-c",
+				"background-color"
+			],
+			[
+				"border",
+				"border-color"
+			],
+			[
+				"fl",
+				"flex"
+			],
+			[
+				"fle",
+				"flex-end"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"box",
+				"box-sizing"
+			],
+			[
+				"margi",
+				"margin-left"
+			],
+			[
+				"searc",
+				"searchItem"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"dc",
+				"document"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"ali",
+				"align-items"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"bu",
+				"building"
+			],
+			[
+				"builing",
+				"buildingSelect"
+			],
+			[
+				"time",
+				"timeTo"
+			],
+			[
+				"text-a",
+				"text-align"
+			],
+			[
+				"booked",
+				"bookedFrom"
+			],
+			[
+				"paddi",
+				"padding-right"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"delete",
+				"deletebutton"
+			],
+			[
+				"all",
+				"allItems"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"dis",
+				"displayEnd"
+			],
+			[
+				"jquer",
+				"jquery-ui"
+			],
+			[
+				"bl",
+				"block"
+			],
+			[
+				"user",
+				"userID"
+			],
+			[
+				"edit",
+				"editForm"
+			],
+			[
+				"text",
+				"text-decoration"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 443.0,
+		"last_filter": "mater",
+		"selected_items":
+		[
+			[
+				"mater",
+				"Material Theme: Configuration"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package co",
+				"Package Control: List Packages"
+			],
+			[
+				"project",
+				"Project: Save As"
+			],
+			[
+				"snippe",
+				"Snippet: html"
+			],
+			[
+				"pack",
+				"BracketHighlighter: Swap Brackets"
+			],
+			[
+				"laravel art: db",
+				"Laravel Artisan 5: DB:Seed"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"package control",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"gitgutter",
+				"GitGutter: Compare Against File Commit"
+			],
+			[
+				"pacage contr",
+				"Package Control: Install Package"
+			],
+			[
+				"package controll",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"package control:",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 585.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Programs/Xampp/htdocs/BachelorProj"
+	],
+	"file_history":
+	[
+		"/C/Users/Henrik/Downloads/csync (1).php",
+		"/D/Henrik/Documents/Phonegap projects/CamelClub Dagsplan/www/js/script.js",
+		"/D/Henrik/Documents/Phonegap projects/CamelClub Dagsplan/www/css/style.css",
+		"/D/Henrik/Documents/Phonegap projects/CamelClub Dagsplan/www/index.html",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/logout.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/setup.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/css/main.css",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/admin.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/.gitignore",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/editmeta.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/partials/nav.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/solr-6.6.1/server/solr/safety/conf/managed-schema",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/README.md",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/edit_handler.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/upload_handler.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/search.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/partials/search_query.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/index.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/partials/search_test.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/partials/delete_handler.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/search.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/test.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/test.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/solr-6.6.1/webproj3/documents/conf/managed-schema",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/classes.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/solr-6.6.1/webproj3/documents/documents.csv",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/partials/header.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/dblogon.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/classes/classes.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/css/login.css",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/connect.php",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/findroom.php",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/partials/header.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/login.php",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/.git/info/exclude",
+		"/D/Programs/Xampp/htdocs/tinder/.gitignore",
+		"/D/Programs/Xampp/htdocs/tinder/.gitattributes",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/css/main.css",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/pages/upload.php",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/.gitignore",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/login.php",
+		"/D/Programs/Xampp/htdocs/oblig2/js/validateRegister.js",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/css/login.css",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/css/header.css",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/mazemap/index.html",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/mazemap/script.js",
+		"/D/Programs/Xampp/htdocs/oblig2/setup.php",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/dblogon.php",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/setup.php",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/index.php",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/partials/phphead.php",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/room.php",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/register.php",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/classes.php",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/css/fonts.css",
+		"/D/Programs/Xampp/htdocs/oblig2/index.php",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/script_that_receives_value.php",
+		"/D/Programs/Xampp/htdocs/oblig3/public/js/ajax.js",
+		"/D/Henrik/Skole/Fag/Webutvikling/Oblig3 v2016/js/script.js",
+		"/D/Programs/Xampp/htdocs/ExperienceDesign/admin.php",
+		"/D/Programs/PokeMMO/data/themes/HD-res/theme.xml",
+		"/D/Programs/PokeMMO/data/themes/HD-res/fonts.xml",
+		"/D/Programs/PokeMMO/data/themes/Bryen-Flat-GUI - Copy/init.xml",
+		"/D/Programs/PokeMMO/data/themes/Bryen-Flat-GUI/twl-themer-load.xml",
+		"/D/Programs/PokeMMO/data/themes/default-dark/fonts.xml",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/solr-6.6.1/webproj3/conf/managed-schema",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/solr-6.6.1/webproj3/documents.csv",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/solr-6.6.1/example/exampledocs/money.xml",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/solr-6.6.1/webproj3/cars.csv",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/solr-6.6.1/webproj3/conf/managed-schema~",
+		"/D/Henrik/Documents/Webprosjekter/Solr/SolrTraining/cars/cars.csv",
+		"/D/Programs/Xampp/htdocs/Webprosjekt3/solr-6.6.1/webproj3/conf/elevate.xml",
+		"/D/Henrik/Documents/Webprosjekter/Solr/SolrTraining/cars/conf/managed-schema",
+		"/D/Henrik/Documents/Webprosjekter/Solr/SolrTraining/cars/.DS_Store",
+		"/D/Programs/Xampp/htdocs/oblig3/app/User.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/layouts/template.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/app/Http/Controllers/AjaxController.php",
+		"/D/Programs/Xampp/htdocs/oblig3/routes/web.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/admin/index.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/home/index.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/public/js/deleteAlert.js",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/profile/index.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/profile/itemsTablerow.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/app/Item.php",
+		"/D/Programs/Xampp/htdocs/oblig3/public/css/main.css",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/items/post.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/app/Http/Controllers/AdminController.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/items/show.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/app/Http/Controllers/ItemController.php",
+		"/D/Programs/Xampp/htdocs/oblig3/database/migrations/2017_05_26_161502_create_items_table.php",
+		"/D/Programs/Xampp/htdocs/oblig3/app/Category.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/admin/categoryTablerow.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/admin/users.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/app/Http/Controllers/ProfileController.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/profile/settings.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/items/edit.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/admin/usersTablerow.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/admin/itemsTablerow.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/app/Admin.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/layouts/notifyFlash.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/inbox/index.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/setup.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/layouts/nav.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/app/Http/Controllers/MessageController.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/items/create.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/layouts/flash.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/.git/description",
+		"/D/Programs/Xampp/htdocs/oblig3/.git/config",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/profile/show.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/home.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/app/Http/Controllers/HomeController.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/ajax/show.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/public/js/script.js",
+		"/D/Programs/Xampp/htdocs/oblig3/storage/framework/views/a21820ca10357a8741a86f007eae30c0b1891211.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/ajax.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/views/items/singularShow.blade.php",
+		"/D/Programs/Xampp/htdocs/oblig3/storage/framework/views/b969d01df046c7faac6e6fc3e149db7208feb49a.php",
+		"/D/Programs/Xampp/htdocs/oblig3/1_backup/edititem.php",
+		"/D/Programs/Xampp/htdocs/oblig3/1_backup/profile.php",
+		"/D/Programs/Xampp/htdocs/oblig3/1_backup/setup.php",
+		"/D/Programs/Xampp/htdocs/oblig3/storage/logs/laravel.log",
+		"/D/Programs/Xampp/htdocs/oblig3/storage/framework/views/0fe4e230e7d514a31b70aea96e28d0b2c54f78a6.php",
+		"/D/Programs/Xampp/htdocs/oblig3/storage/framework/views/43b942e32685388298cfb79721796fc814ee8fee.php",
+		"/D/Programs/Xampp/htdocs/oblig3/storage/framework/views/d8e72468f55690148689f6c3147ddf1d84e9be8a.php",
+		"/D/Programs/Xampp/htdocs/oblig3/artisan",
+		"/D/Programs/Xampp/htdocs/oblig3/1_backup/css/index.css",
+		"/D/Programs/Xampp/htdocs/oblig3/resources/assets/css/main.css",
+		"/D/Programs/Xampp/htdocs/oblig3/app/DisplayItems.php"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 82.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "bachelor.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"s",
+				"search.php"
+			],
+			[
+				"",
+				"findroom.php"
+			],
+			[
+				"a21820ca10357a8741a86f007eae30c0b1891211.php",
+				"storage\\framework\\views\\a21820ca10357a8741a86f007eae30c0b1891211.php"
+			],
+			[
+				"b969d01df046c7faac6e6fc3e149db7208feb49a.php",
+				"storage\\framework\\views\\b969d01df046c7faac6e6fc3e149db7208feb49a.php"
+			],
+			[
+				"setup",
+				"resources\\views\\setup.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 625.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\Programs\\Sublime Text 3\\ExperienceDesgin.sublime-project"
+			]
+		],
+		"width": 475.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 373.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
