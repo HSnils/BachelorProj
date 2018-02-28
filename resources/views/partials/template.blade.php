@@ -21,6 +21,7 @@
     
     
     <!-- Styles -->
+    <link href="{{ asset('css/normalize.css') }}?<?php echo time();?>" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}?<?php echo time();?>" rel="stylesheet">
     <script src="{{ URL::asset('js/app.js') }}"></script>
     
