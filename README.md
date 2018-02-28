@@ -1,9 +1,9 @@
 # BachelorProj
-Bachelor project repository for Henrik Reff Snilsberg, Ole Martin Ibsen og Fredrik Paulsen.
+Bachelor project repository for *Henrik Reff Snilsberg*, *Ole Martin Ibsen* og *Fredrik Paulsen*.
 
-This project is made for the **ColorLab at NTNU Gjøvik**. The representative for the Color Lab and our client is Marius Pedersen. 
+This project is made for the **ColorLab at NTNU Gjøvik**. The representative for the Color Lab and our client is *Marius Pedersen*. 
 
-Our supervisor for the Bachelor project is Carlos Vicient-Monllaó.
+Our supervisor for the Bachelor project is *Carlos Vicient-Monllaó*.
 
 
 ## NTNU Color Lab and their needs
@@ -25,7 +25,7 @@ Once set up, one can go to either ```localhost/Bachelorproj/public``` or ```loca
 to get to the frontpage.
 
 If one wishes to make use of the user accounts in the database seeds, then the login information
-can be found in the database/seeds/UserTableSeeder.php file.
+can be found in the ```database/seeds/UserTableSeeder``` php file.
 
 ## Setting up the project---
 For this project we've used **XAMMP**, so this guide will be specific to that software.
