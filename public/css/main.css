@@ -1,3 +1,5 @@
+/*----BASIC STUFF----*/
+
 footer{
 	position: absolute;
 	bottom: 0;
@@ -5,9 +7,21 @@ footer{
 	height: ;
 }
 
+#notifyUser{
+	position: absolute;
+	bottom: 2em;
+	right: 2em;
+	z-index: 10;
+}
+
+/*----------------*/
+
+/*----BUTTONS----*/
+
 .roundButton{
 	position: fixed;
 	bottom: 3rem;
 	right: 3rem;
 	z-index: 100;
 }
+/*----------------*/

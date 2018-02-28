@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-orange.min.css" />
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 
     <link href="{{ url('/') }}/css/main.css?<?php echo time();?>" rel="stylesheet">
 </head>
@@ -42,17 +43,12 @@
          <!-- Navbar -->
         @include('partials.nav')
 
-            <div class="page-content"><!-- Your content goes here -->  @yield('content')</div>
+            <div class="page-content"><!-- Your content goes here -->  
+                @yield('content')<!-- Content spesifikt til hver underside -->
+            </div>
           </main>
         </div>
-        <!-- Content spesifikt til hver underside -->
-        <!--<div class="container">
-            <div class="row">
-                <div class="panel panel-default">
-                   
-                </div>
-            </div>
-        </div>-->
+        
     </div>
 
     <!-- Footer -->
