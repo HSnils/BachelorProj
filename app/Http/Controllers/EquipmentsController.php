@@ -13,8 +13,6 @@ class EquipmentsController extends Controller
      */
     public function index()
     {
-        //$allCategories = Category::all();
-       // $allItems = Item::where('status', 'Open')->latest()->take(20)->get();
-		return view('equipments.index'/*, compact('allCategories', 'allItems')*/);
+		return view('equipments.index');
     }
 }

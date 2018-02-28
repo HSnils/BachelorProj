@@ -15,13 +15,13 @@ Auth::routes();
 
 //Sends you to home
 Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index')->name('home');
-
-// Equipments
-Route::get('/equipments', 'EquipmentsController@index')->name('equipments');
+Route::get('home', 'HomeController@index')->name('home');
 
 // Rooms
-Route::get('/rooms', 'RoomsController@index')->name('rooms');
+Route::get('rooms', 'RoomsController@index')->name('rooms');
+
+// Equipments
+Route::get('equipments', 'EquipmentsController@index')->name('equipments');
 
 /*Route::get('/', function () {
     return view('welcome');

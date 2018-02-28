@@ -8,6 +8,7 @@
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="{{ route('home') }}">Home</a>
         <a class="mdl-navigation__link" href="{{ route('rooms') }}">Rooms</a>
         <a class="mdl-navigation__link" href="{{ route('equipments') }}">Equipments</a>
         <a class="mdl-navigation__link" href="">Profile</a>
@@ -18,6 +19,7 @@
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Colorlab</span>
     <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="{{ route('home') }}">Home</a>
         <a class="mdl-navigation__link" href="{{ route('rooms') }}">Rooms</a>
         <a class="mdl-navigation__link" href="{{ route('equipments') }}">Equipments</a>
         <a class="mdl-navigation__link" href="">Profile</a>

@@ -13,8 +13,6 @@ class RoomsController extends Controller
      */
     public function index()
     {
-        //$allCategories = Category::all();
-       // $allItems = Item::where('status', 'Open')->latest()->take(20)->get();
-		return view('rooms.index'/*, compact('allCategories', 'allItems')*/);
+		return view('rooms.index');
     }
 }
