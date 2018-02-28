@@ -1,7 +1,9 @@
 # BachelorProj
 Bachelor project repository for Henrik Reff Snilsberg, Ole Martin Ibsen og Fredrik Paulsen.
 
-This project is made for the **ColorLab at NTNU Gjøvik**. 
+This project is made for the **ColorLab at NTNU Gjøvik**. The representative for the Color Lab and our client is Marius Pedersen. 
+
+Our supervisor for the Bachelor project is Carlos Vicient-Monllaó.
 
 
 ## NTNU Color Lab and their needs
@@ -11,7 +13,7 @@ The Colorlab has been using a book for 17 years when booking and cataloging the 
 
 The Colorlab also needs to log hours that has been used in the lab and with equipment to know what is being used alot and what isn't being used as frequently. When there is a project with EU it is required to log all hours you have worked on the project.
 
-The administrator can then see this log and figure out what equipment they need more of , - this will also help making an argument to the school administration as to why they could need more equipment.
+The administrator can then see this log and figure out what equipment they need more of, — this will also help making an argument to the school administration as to why they could need more equipment.
 
 Another issue brought up by the employer is that equipment which is broken or missing need to be brought to their attention. Currently there is no easy way to report this, which can cause problems when the equipment is needed by the Colorlab.
 
@@ -19,7 +21,7 @@ Another issue brought up by the employer is that equipment which is broken or mi
 To solve these issues, the Colorlab want a new, responsive system that works on all devices and is easy and fast to use to ensure that everyone uses it. They are going to put tablets outside (and inside) the labs so that you can easily log your usage even if you haven't booked it prior. The system needs to contain different roles so that they can log what equipment or rooms different roles use the most. They want it to be flexible for administrators to add new equipment and rooms if necessary.
 
 ## General Information
-Once set up, one can go to either localhost/Bachelorproj/public or localhost/Bachelorproj/public/home 
+Once set up, one can go to either ```localhost/Bachelorproj/public``` or ```localhost/Bachelorproj/public/home``` 
 to get to the frontpage.
 
 If one wishes to make use of the user accounts in the database seeds, then the login information
@@ -36,7 +38,7 @@ Step 2:
 
 Step 3:
 	Open the command line/terminal and navigate to the project folder in htdocs.
-	Once there, type 'composer install' and hit enter.
+	Once there, type ```composer install``` and hit enter.
 
 Thats it!
 
@@ -53,7 +55,7 @@ the necessary migrations.
 
 Step 3 (Optional):
 	During the project, we've operated with a simple test environment.
-	Simply type 'php artisan db:seed' to fill the database with dummy data.
+	Simply type ```php artisan db:seed``` to fill the database with dummy data.
 
 
 
