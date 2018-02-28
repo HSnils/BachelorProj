@@ -11,3 +11,9 @@ footer{
 	right: 3rem;
 	z-index: 100;
 }
+
+a:hover {
+	text-decoration: none;
+	color: gray;
+	
+}
