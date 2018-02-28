@@ -47,7 +47,7 @@ Step 1:
 
 Step 2:
 	Open the command line/terminal and navigate to the project folder in htdocs.
-	Once there, type 'php artisan make:database'. 
+	Once there, type ```php artisan make:database```. 
 	This will create the database based on the details in the .env file, as well as run
 the necessary migrations.
 
