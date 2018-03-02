@@ -21,10 +21,10 @@ class CreateEquipmentsTable extends Migration
             $table->boolean('status')->default(false);
             $table->string('desc', 155);
             $table->boolean('lockdown')->default(false);
-            $table->image('image');
+            $table->string('image', 255);
             $table->timestamps();
 
-            $table->foreign('location')->references('room_number')->on('rooms')->onUpdate('cascade')->onDelete('SET NULL');
+            $table->foreign('location')->references('room_number')->on('rooms')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
