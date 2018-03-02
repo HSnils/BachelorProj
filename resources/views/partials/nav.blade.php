@@ -11,8 +11,8 @@
         <a class="mdl-navigation__link" href="{{ route('home') }}">Home</a>
         <a class="mdl-navigation__link" href="{{ route('rooms') }}">Rooms</a>
         <a class="mdl-navigation__link" href="{{ route('equipments') }}">Equipments</a>
-        <a class="mdl-navigation__link" href="">Profile</a>
-        <a class="mdl-navigation__link" href="">Sign in</a>
+        <a class="mdl-navigation__link" href="{{ route('login') }}">Profile</a>
+        <a class="mdl-navigation__link" href="{{ route('login') }}">Sign in</a>
       </nav>
     </div>
   </header>
