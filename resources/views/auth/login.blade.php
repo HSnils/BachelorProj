@@ -1,6 +1,41 @@
 @extends('layouts.template')
 
 @section('content')
+
+    
+<div class="mdl-card mdl-shadow--4dp">
+    <!--<div class="mdl-card__media"><img src="skytower.jpg" width="173" height="157" border="0"
+    alt="" style="padding:10px;">
+    </div>-->
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Sign in</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+        <form action="#">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="email" id="email">
+                <label class="mdl-textfield__label" for="email">E-mail</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="password" id="password">
+                <label class="mdl-textfield__label" for="password">Password...</label>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class="mdl-card__actions mdl-card--border">
+        <!-- Accent-colored raised button with ripple -->
+        <!-- Accent-colored flat button -->
+        <button class="mdl-button mdl-js-button mdl-button--accent mdl-js-ripple-effect">
+            Sign in
+        </button>
+        <!-- Flat button with ripple -->
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+            Register
+        </button>
+    </div>
+</div>
+
     <div class="panel-heading">Login</div>
     <div class="panel-body">
         <div class="slim-container">

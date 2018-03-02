@@ -9,11 +9,7 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    /**
-     * Fetches all categories and items which are open from the database.
-     * @return callable Returns the home.index view along with the categories
-     * and items.
-     */
+   
     
      public function index()
     {

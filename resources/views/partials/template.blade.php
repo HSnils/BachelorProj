@@ -15,15 +15,17 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Colorlab booking') }}</title>
 
     
     
     
     <!-- Styles -->
     <link href="{{ asset('css/normalize.css') }}?<?php echo time();?>" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}?<?php echo time();?>" rel="stylesheet">
-    <script src="{{ URL::asset('js/app.js') }}"></script>
+
+    <!--bootstrap -->
+    <!--<link href="{{ asset('css/app.css') }}?<?php echo time();?>" rel="stylesheet">
+    <script src="{{ URL::asset('js/app.js') }}"></script>-->
     
     <!-- GETMDL.IO-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

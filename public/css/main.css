@@ -5,6 +5,7 @@ footer{
 	bottom: 0;
 	width: 100%;
 	height: ;
+	box-sizing: border-box;
 }
 
 #notifyUser{
@@ -18,6 +19,17 @@ a:hover {
 	text-decoration: none;
 	color: gray;
 	
+}
+
+main{
+	margin-top: 2em;
+	box-sizing: border-box;
+	padding: 0 10% 0 10%;
+
+}
+.page-content{
+	display: flex;
+	justify-content: center;
 }
 
 /*----------------*/
