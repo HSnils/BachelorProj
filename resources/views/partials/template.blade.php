@@ -17,6 +17,7 @@
 
     <title>{{ config('app.name', 'Colorlab booking') }}</title>
 
+
     
     
     
@@ -27,13 +28,14 @@
     <!--<link href="{{ asset('css/app.css') }}?<?php echo time();?>" rel="stylesheet">
     <script src="{{ URL::asset('js/app.js') }}"></script>-->
     
+    
     <!-- GETMDL.IO-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-orange.min.css" />
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 
-    <link href="{{ url('/') }}/css/main.css?<?php echo time();?>" rel="stylesheet">
+    <link href="{{ url('/') }}/css/style.css?<?php echo time();?>" rel="stylesheet">
 </head>
 <body>
     <div id="app">
