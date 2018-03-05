@@ -16,7 +16,9 @@ class CreateRolesTable extends Migration
     {
 
         Schema::create('roles', function (Blueprint $table) {
+			  
             $table->string('role', 30)->primary();
+			  
         });
 
         Roles::create(['role' => 'Guest']);
