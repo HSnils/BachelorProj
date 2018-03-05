@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Roles;
 
 class CreateRolesTable extends Migration
 {
@@ -19,6 +20,11 @@ class CreateRolesTable extends Migration
             $table->string('role', 30)->primary();
 			  
         });
+
+        Roles::create(['role' => 'Guest']);
+        Roles::create(['role' => 'Student']);
+        Roles::create(['role' => 'Employee']);
+        Roles::create(['role' => 'Admin']);
 
     }
 
