@@ -2,6 +2,6 @@
 
 @section('content')
 	<div>
-		ROOMS 
+		ROOMS <!--Test-->
 	</div>
 @endsection
