@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -13,7 +14,8 @@ class HomeController extends Controller
     
      public function index()
     {
-        return view('home.index');
+        $allUsers = User::all();
+        return view('home.index', compact('allUsers'));
     }
     /*
     public function index()

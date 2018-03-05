@@ -23,6 +23,9 @@ Route::get('rooms', 'RoomsController@index')->name('rooms');
 // Equipments
 Route::get('equipments', 'EquipmentsController@index')->name('equipments');
 
+// Routes to profile
+Route::get('/profile', 'ProfileController@index')->name('profile');
+
 /*Route::get('/', function () {
     return view('welcome');
 });*/

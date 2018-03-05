@@ -29,7 +29,19 @@ main{
 }
 .page-content{
 	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	align-content: center;
 	justify-content: center;
+}
+
+.flex100{
+	flex-basis: 100%;
+}
+
+.width100{
+	width: 100%;
 }
 
 /*----------------*/

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Equipments;
 
 class EquipmentsController extends Controller
 {
@@ -13,6 +14,7 @@ class EquipmentsController extends Controller
      */
     public function index()
     {
-		return view('equipments.index');
+    	$allEquipments = Equipments::all();
+		return view('equipments.index', compact('allEquipments'));
     }
 }
