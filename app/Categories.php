@@ -31,7 +31,7 @@ class Categories extends Model
      * @param array $category An array containing the name of the new category. 
     */
     public function createCategory($category) {
-    	Category::create([
+    	Categories::create([
     		'category' => $category['category']
     	]);
     }

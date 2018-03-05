@@ -34,4 +34,32 @@ class User extends Authenticatable
     public function bookings() {
         return $this->hasMany(Bookings::class);
     }
+
+    /**
+     * Updates a users' username.
+     * @param array $user An array containing information about the specified user. 
+     */
+    public function updateUsername($user){
+        User::where('id', $this->id)
+            ->update([
+                'name' => $user['username']
+        ]);
+    }
+
+     /**
+     * [updatePassword updates password for the user and hashes it]
+     * @param  [int] $user [gets it from url with wildcard]
+     * @return [updated password]
+     */
+
+    /**
+     * Updates a users' password after hashing it.
+     * @param array $user An array containing information about a specified user. 
+     */
+    public function updatePassword($user){
+        User::where('id', $this->id)
+            ->update([
+                'password' => bcrypt($user['password'])
+        ]);
+    }
 }
