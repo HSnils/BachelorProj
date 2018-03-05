@@ -20,9 +20,11 @@ class CreateEquipmentsTable extends Migration
             $table->string('location', 30);
             $table->string('type', 30);
             $table->boolean('status')->default(false);
+			  	$table->string('ntnu_id', 50)->nullable();
             $table->string('desc', 155);
             $table->boolean('lockdown')->default(false);
-            $table->string('image', 255);
+			  	$table->dateTime('last_service')->nullable();
+			   $table->string('other_documentation')->default('No description.');
             $table->timestamps();
 
             $table->foreign('location')->references('room_number')->on('rooms')->onUpdate('cascade')->onDelete('cascade');

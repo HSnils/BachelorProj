@@ -55,9 +55,9 @@
                     Sign in
                 </button>
                 <!-- Flat button with ripple -->
-                <button class="mdl-button mdl-js-button mdl-js-ripple-effect" style="float:right">
+                <a href="{{ route ('register') }}" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="float:right">
                     Register
-                </button>
+                </a>
             </div>
         </form>
     </div>

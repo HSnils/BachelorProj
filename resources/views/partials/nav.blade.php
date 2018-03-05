@@ -11,8 +11,29 @@
         <a class="mdl-navigation__link" href="{{ route('home') }}">Home</a>
         <a class="mdl-navigation__link" href="{{ route('rooms') }}">Rooms</a>
         <a class="mdl-navigation__link" href="{{ route('equipments') }}">Equipments</a>
-        <a class="mdl-navigation__link" href="{{ route('login') }}">Profile</a>
-        <a class="mdl-navigation__link" href="{{ route('login') }}">Sign in</a>
+
+        @if (Auth::guest())
+			<a class="mdl-navigation__link signInNav" href="{{ route('login') }}">Sign in</a>
+        @else
+			<a class="mdl-navigation__link" href="{{ route('profile') }}">Profile</a>
+			
+			@if (Auth::user()->role == 'Admin')
+			<a href="#" class="mdl-navigation__link">
+				Admin
+			</a>
+			@endif
+
+			<a class="mdl-navigation__link signInNav" href="{{ route('logout') }}" onclick="
+				event.preventDefault();
+				document.getElementById('logout-form').submit();">
+			Sign out
+        	</a>
+
+			<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+			    {{ csrf_field() }}
+			</form>
+        @endif
+
       </nav>
     </div>
   </header>
@@ -22,8 +43,32 @@
         <a class="mdl-navigation__link" href="{{ route('home') }}">Home</a>
         <a class="mdl-navigation__link" href="{{ route('rooms') }}">Rooms</a>
         <a class="mdl-navigation__link" href="{{ route('equipments') }}">Equipments</a>
-        <a class="mdl-navigation__link" href="{{ route('login') }}">Profile</a>
-        <a class="mdl-navigation__link" href="{{ route('login') }}">Sign in</a>
+
+        <!-- Checks if the user hasnt logged in-->
+        @if (Auth::guest())
+        	<hr>
+			<a class="mdl-navigation__link" href="{{ route('login') }}">Sign in</a>
+        @else<!-- Show this if user is logged in -->
+			<a class="mdl-navigation__link" href="{{ route('profile') }}">Profile</a>
+			
+			<!-- Show this if the user is admin -->
+			@if (Auth::user()->role == 'Admin')
+			<a href="#" class="mdl-navigation__link">
+				Admin
+			</a>
+			@endif
+			
+			<hr>
+			<a class="mdl-navigation__link" href="{{ route('logout') }}" onclick="
+				event.preventDefault();
+				document.getElementById('logout-form').submit();">
+			Sign out
+        	</a>
+
+			<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+			    {{ csrf_field() }}
+			</form>
+        @endif
       </nav>
   </div>
   <main class="mdl-layout__content">

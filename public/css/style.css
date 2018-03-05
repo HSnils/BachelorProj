@@ -13,6 +13,7 @@ footer{
 	bottom: 2em;
 	right: 2em;
 	z-index: 10;
+	background-color: #fff;
 }
 
 a:hover {
@@ -29,8 +30,35 @@ main{
 }
 .page-content{
 	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	align-content: center;
 	justify-content: center;
 }
+
+.flex100{
+	flex-basis: 100%;
+}
+
+.width100{
+	width: 100%;
+}
+
+.tableRow{
+	display: flex;
+	justify-content: space-around;
+}
+
+.tableHead{
+	border-bottom: 1px solid gray;
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+}
+
+/*.signInNav{
+	border-left: 1px solid #fff;
+}*/
 
 /*----------------*/
 

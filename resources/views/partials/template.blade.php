@@ -39,9 +39,7 @@
 </head>
 <body>
     <div id="app">
-
-       
-
+    
         <!-- Display for the notification flash send to the user -->
         @include('partials.notifyFlash')
 
@@ -50,6 +48,8 @@
 
             <div class="page-content"><!-- Your content goes here -->  
                 @yield('content')<!-- Content spesifikt til hver underside -->
+                
+
             </div>
           </main>
         </div>
