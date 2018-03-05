@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('partials.template')
 
 @section('content')
     <div class="panel-heading">Register</div>
@@ -39,7 +39,7 @@
                     <label for="password" class="col-md-4 control-label">Password</label>
 
                     <div class="col-md-6">
-                        <input id="password" type="password" class="form-control" name="password" minlength="6" maxlength="255" required>
+                        <input id="password" type="password" class="form-control" name="password" minlength="3" maxlength="255" required>
 
                         @if ($errors->has('password'))
                             <span class="help-block">
@@ -56,23 +56,8 @@
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="password-confirm" class="col-md-4 control-label">Role (For demonstration purposes only)</label>
-
-                    <div class="col-md-6">
-                        <ul class="flex-cont-center">
-                            <li>
-                                <input type="radio" id="Member" name="role" value="Member" checked>
-                                <label for="Member">Member</label>
-                            </li>
-                            <li>
-                                <input type="radio" id="Admin" name="role" value="Admin">
-                                <label for="Admin">Admin</label>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                
+                <br>
 
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">

@@ -22,18 +22,18 @@
 		</thead>
 		<tbody class="width100">
 			@foreach ($allEquipments as $equipment)
-			<tr class="tableRow">
-				<td >{{$equipment->id}}</td>
-				<td >{{$equipment->name}}</td>
-				<td >{{$equipment->type}}</td>
-				<td >{{$equipment->location}}</td>
-				<td >{{$equipment->desc}}</td>
-				<td >{{$equipment->lockdown}}</td>
-				<td >{{$equipment->status}}</td>
-				<td >{{$equipment->image}}</td>
-				<td >{{$equipment->created_at}}</td>
-				<td >{{$equipment->updated_at}}</td>
-			</tr>
+				<tr class="tableRow">
+					<td >{{$equipment->id}}</td>
+					<td >{{$equipment->name}}</td>
+					<td >{{$equipment->type}}</td>
+					<td >{{$equipment->location}}</td>
+					<td >{{$equipment->desc}}</td>
+					<td >{{$equipment->lockdown}}</td>
+					<td >{{$equipment->status}}</td>
+					<td >{{$equipment->image}}</td>
+					<td >{{$equipment->created_at}}</td>
+					<td >{{$equipment->updated_at}}</td>
+				</tr>
 			@endforeach
 		</tbody>	
 	</table>
