@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Defines the eloquent relationship between a user and items.
+     * A user can have many items.
+     */
+    public function bookings() {
+        return $this->hasMany(Bookings::class);
+    }
 }

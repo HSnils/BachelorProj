@@ -17,4 +17,22 @@ class Categories extends Model
      */
 	protected $primaryKey = 'category';
  	public $incrementing = false;
+
+ 	/**
+     * Defines the eloquent relationship between a category and items.
+     * One category can have many items.
+     */
+    public function bookings() {
+        return $this->hasMany(Bookings::class, 'category');
+    }
+
+    /**
+     * Creates a new category with the passed variable.
+     * @param array $category An array containing the name of the new category. 
+    */
+    public function createCategory($category) {
+    	Category::create([
+    		'category' => $category['category']
+    	]);
+    }
 }
