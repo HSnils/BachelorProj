@@ -26,6 +26,10 @@ Route::get('equipments', 'EquipmentsController@index')->name('equipments');
 // Routes to profile
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
+// Profile - Update user info
+Route::post('/profile/settings/update/username/{user}', 'ProfileController@updateUsername');
+Route::post('/profile/settings/update/password/{user}', 'ProfileController@updatePassword');
+
 /*Route::get('/', function () {
     return view('welcome');
 });*/
