@@ -14,20 +14,14 @@ class CreateBookingsTable extends Migration
     public function up()
     {
         Schema::create('bookings', function (Blueprint $table) {
+			  
             $table->increments('id');
-			  
-			  	$table->string('type', 30);
-			  
-			  	$table->string('category', 30);
-			  
-			   $table->dateTime('from_date');
-			  
-            $table->dateTime('to_date');
-			  
-			  	$table->string('room_number', 30);
-			  
-			  	$table->integer('user_id')->unsigned();
-			  
+			  	$table->string('type', 30);			  
+			  	$table->string('category', 30);			  
+			   $table->dateTime('from_date');			  
+            $table->dateTime('to_date');		  
+			  	$table->string('room_number', 30);			  
+			  	$table->integer('user_id')->unsigned();			  
             $table->timestamps();
 			  
 			  $table->foreign('room_number')->references('room_number')->on('rooms')->onUpdate('cascade')->onDelete('cascade');
