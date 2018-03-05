@@ -7,20 +7,22 @@
 
 	<table class="mdl-card mdl-shadow--4dp flex100">
 		<thead class="width100">
-			<td>ID</td>
-			<td>Name</td>
-			<td>Type</td>
-			<td>Location</td>
-			<td>Description</td>
-			<td>Lockdown</td>
-			<td>Status</td>
-			<td>Image</td>
-			<td>Created at</td>
-			<td>Updated at</td>
+			<tr class="tableRow tableHead">
+				<td>ID</td>
+				<td>Name</td>
+				<td>Type</td>
+				<td>Location</td>
+				<td>Description</td>
+				<td>Lockdown</td>
+				<td>Status</td>
+				<td>Image</td>
+				<td>Created at</td>
+				<td>Updated at</td>
+			</tr>
 		</thead>
 		<tbody class="width100">
 			@foreach ($allEquipments as $equipment)
-			<tr>
+			<tr class="tableRow">
 				<td >{{$equipment->id}}</td>
 				<td >{{$equipment->name}}</td>
 				<td >{{$equipment->type}}</td>

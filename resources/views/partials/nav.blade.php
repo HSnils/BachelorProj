@@ -13,7 +13,7 @@
         <a class="mdl-navigation__link" href="{{ route('equipments') }}">Equipments</a>
 
         @if (Auth::guest())
-			<a class="mdl-navigation__link" href="{{ route('login') }}">Sign in</a>
+			<a class="mdl-navigation__link signInNav" href="{{ route('login') }}">Sign in</a>
         @else
 			<a class="mdl-navigation__link" href="{{ route('profile') }}">Profile</a>
 			
@@ -23,7 +23,7 @@
 			</a>
 			@endif
 
-			<a class="mdl-navigation__link" href="{{ route('logout') }}" onclick="
+			<a class="mdl-navigation__link signInNav" href="{{ route('logout') }}" onclick="
 				event.preventDefault();
 				document.getElementById('logout-form').submit();">
 			Sign out
