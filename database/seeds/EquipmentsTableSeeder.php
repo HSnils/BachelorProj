@@ -15,8 +15,7 @@ class EquipmentsTableSeeder extends Seeder
 			'name' => 'Canon 50D',
 			'location' => 'A002',
 			'type' => 'Kamera',
-			'desc' => 'Dette er et smud kamera!',
-			'image' => 'Her skal det være bilde'
+			'desc' => 'Dette er et smud kamera!'
 		]);
     }
 }
