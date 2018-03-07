@@ -30,6 +30,9 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::post('/profile/settings/update/username/{user}', 'ProfileController@updateUsername');
 Route::post('/profile/settings/update/password/{user}', 'ProfileController@updatePassword');
 
+//Routes to admin
+Route::get('/admin', 'AdminController@index')->name('admin');
+
 /*Route::get('/', function () {
     return view('welcome');
 });*/

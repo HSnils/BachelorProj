@@ -18,7 +18,7 @@
 			<a class="mdl-navigation__link" href="{{ route('profile') }}">Profile</a>
 			
 			@if (Auth::user()->role == 'Admin')
-			<a href="#" class="mdl-navigation__link">
+			<a href="{{ route('admin') }}" class="mdl-navigation__link">
 				Admin
 			</a>
 			@endif
@@ -53,7 +53,7 @@
 			
 			<!-- Show this if the user is admin -->
 			@if (Auth::user()->role == 'Admin')
-			<a href="#" class="mdl-navigation__link">
+			<a href="{{ route('admin') }}" class="mdl-navigation__link">
 				Admin
 			</a>
 			@endif
