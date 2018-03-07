@@ -12,8 +12,8 @@
 					<tr>
 						<td class="mdl-data-table__cell--non-numeric">
 							{{$booking->room_number}}
-						</td class="mdl-data-table__cell--non-numeric">
-						<td>
+						</td>
+						<td class="mdl-data-table__cell--non-numeric">
 							{{$booking->name}}
 						</td>
 						<td class="mdl-data-table__cell--non-numeric">
