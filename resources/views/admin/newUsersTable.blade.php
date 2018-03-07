@@ -37,7 +37,7 @@
 
 					</td>
 					<td class="mdl-data-table__cell--non-numeric">
-						<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary">
+						<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary approveButton">
 							<i class="material-icons">done</i>
 						</button>
 					</td>
