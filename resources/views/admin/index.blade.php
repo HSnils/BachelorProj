@@ -6,7 +6,7 @@
 	Admin
 </div>
 	
-	<div>
+	<div class="flex100">
 		<span>New Users</span>
 		<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp ">
 			<thead>
