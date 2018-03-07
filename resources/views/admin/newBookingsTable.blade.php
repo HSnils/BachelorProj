@@ -18,7 +18,11 @@
 						</td>
 						<td class="mdl-data-table__cell--non-numeric">
 							{{$booking->room_number}}
+<<<<<<< HEAD
+						</td>
+=======
 						</td >
+>>>>>>> c89ddb86da19aa837da5fcfaf9a4968a3b913777
 						<td class="mdl-data-table__cell--non-numeric">
 							{{$booking->name}}
 						</td>
