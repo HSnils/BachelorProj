@@ -31,5 +31,19 @@ class UserTableSeeder extends Seeder
 			'password' => bcrypt('123'),
 			'role' => 'Admin'
 		]);
+
+		User::create([
+			'name' => 'Omi',
+			'email' => 'omi@ntnu.no',
+			'password' => bcrypt('123'),
+			'role' => 'Admin'
+		]);
+
+		User::create([
+			'name' => 'Guestboi guesterson',
+			'email' => 'guest@ntnu.no',
+			'password' => bcrypt('123'),
+			'role' => 'Guest'
+		]);
     }
 }
