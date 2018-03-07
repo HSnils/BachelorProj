@@ -24,4 +24,12 @@ $(document).ready(function () {
 			return false;
 		}
 	});
+
+	$('.approveButton').click(function(e){
+		//if they click cancel, prevents the default behavior and returns false.
+		if(!confirm('Are you sure you want approve this user?')) {
+			e.preventDefault();
+			return false;
+		}
+	});
 });
