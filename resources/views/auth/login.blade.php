@@ -2,65 +2,66 @@
 
 @section('content')
 
-    
-<div class="mdl-card mdl-shadow--4dp">
-    <!--<div class="mdl-card__media"><img src="skytower.jpg" width="173" height="157" border="0"
-    alt="" style="padding:10px;">
-    </div>-->
-    <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">Sign in</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-        <form role="form" method="POST" action="{{ route('login') }}">
-            {{ csrf_field() }}
+<div class="flex-container">
+	<div class="mdl-card mdl-shadow--4dp flex-item">
+		 <!--<div class="mdl-card__media"><img src="skytower.jpg" width="173" height="157" border="0"
+		 alt="" style="padding:10px;">
+		 </div>-->
+		 <div class="mdl-card__title">
+			  <h2 class="mdl-card__title-text">Sign in</h2>
+		 </div>
+		 <div class="mdl-card__supporting-text">
+			  <form role="form" method="POST" action="{{ route('login') }}">
+					{{ csrf_field() }}
 
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('email') ? ' has-error' : '' }}">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('email') ? ' has-error' : '' }}">
 
-                <input class="mdl-textfield__input" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-                <label class="mdl-textfield__label" for="email">E-mail</label>
+						 <input class="mdl-textfield__input" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+						 <label class="mdl-textfield__label" for="email">E-mail</label>
 
-                @if ($errors->has('email'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
-                    </span>
-                @endif
-            </div>
+						 @if ($errors->has('email'))
+							  <span class="help-block">
+									<strong>{{ $errors->first('email') }}</strong>
+							  </span>
+						 @endif
+					</div>
 
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('password') ? ' has-error' : '' }}">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('password') ? ' has-error' : '' }}">
 
-                <input class="mdl-textfield__input" type="password" id="password" name="password" required>
-                <label class="mdl-textfield__label" for="password">Password...</label>
+						 <input class="mdl-textfield__input" type="password" id="password" name="password" required>
+						 <label class="mdl-textfield__label" for="password">Password...</label>
 
-                @if ($errors->has('password'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
-                @endif
-            </div>
+						 @if ($errors->has('password'))
+							  <span class="help-block">
+									<strong>{{ $errors->first('password') }}</strong>
+							  </span>
+						 @endif
+					</div>
 
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="mdl-card__actions mdl-card--border" >
-                <!-- Accent-colored raised button with ripple -->
-                <!-- Accent-colored flat button -->
-                <button type="submit" class="mdl-button mdl-js-button mdl-button--accent mdl-js-ripple-effect" style="float:right">
-                    Sign in
-                </button>
-                <!-- Flat button with ripple -->
-                <a href="{{ route ('register') }}" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="float:right">
-                    Register
-                </a>
-            </div>
-        </form>
-    </div>
-    
+					<div class="form-group">
+						 <div class="col-md-6 col-md-offset-4">
+							  <div class="checkbox">
+									<label>
+										 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+									</label>
+							  </div>
+						 </div>
+					</div>
+					<br>
+					<div class="mdl-card__actions mdl-card--border" >
+						 <!-- Accent-colored raised button with ripple -->
+						 <!-- Accent-colored flat button -->
+						 <button type="submit" class="mdl-button mdl-js-button mdl-button--accent mdl-js-ripple-effect" style="float:right">
+							  Sign in
+						 </button>
+						 <!-- Flat button with ripple -->
+						 <a href="{{ route ('register') }}" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="float:right">
+							  Register
+						 </a>
+					</div>
+			  </form>
+		 </div>
+
+	</div>
 </div>
 @endsection

@@ -40,9 +40,20 @@ main{
 .flex100{
 	flex-basis: 100%;
 }
+.flex50{
+	flex-basis:  50%;
+}
+
+.flex45{
+	flex-basis: 45%;
+}
 
 .width100{
 	width: 100%;
+}
+
+.width45{
+	width: 45%;
 }
 
 .tableRow{
@@ -56,6 +67,23 @@ main{
 	font-weight: 600;
 }
 
+.form-control {
+	
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.flex-item {
+
+}
+
+.mdl-button {
+   min-width: inherit;
+   
+}
 /*.signInNav{
 	border-left: 1px solid #fff;
 }*/
@@ -70,6 +98,7 @@ main{
 	right: 3rem;
 	z-index: 100;
 }
+
 
 /*----------------*/
 

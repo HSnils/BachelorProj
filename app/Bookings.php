@@ -17,7 +17,7 @@ class Bookings extends Model
      * A item belongs to a user.
      */
     public function user() { 
-    	return $this->belongsTo(User::class)->select('id', 'name');
+    	return $this->belongsTo(User::class)->select('id', 'name', 'role');
     }
 
      /**
