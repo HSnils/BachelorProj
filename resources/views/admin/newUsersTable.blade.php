@@ -25,11 +25,16 @@
 				<form action="{{url('admin/approve/user')}}/{{$user->id}}" method="post">
 					{{ csrf_field() }}
 					<td class="mdl-data-table__cell--non-numeric">
-						<select name="role" required>
+						<select id="selectRole" name="role" required>
 							@foreach ($allRoles as $role)
 								<option value="{{$role->role}}">{{$role->role}}</option>
 							@endforeach
 						</select>
+						<!-- Simple Tooltip -->
+						<div class="mdl-tooltip" data-mdl-for="selectRole">
+						Select role
+						</div>
+
 					</td>
 					<td class="mdl-data-table__cell--non-numeric">
 						<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary">

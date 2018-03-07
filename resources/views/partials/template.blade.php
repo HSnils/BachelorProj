@@ -53,9 +53,7 @@
         @include('partials.nav')
 
             <div class="page-content"><!-- Your content goes here -->  
-                @yield('content')<!-- Content spesifikt til hver underside -->
-                
-
+                @yield('content')<!-- Content for each page -->
             </div>
           </main>
         </div>
