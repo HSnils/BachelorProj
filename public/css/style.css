@@ -40,9 +40,20 @@ main{
 .flex100{
 	flex-basis: 100%;
 }
+.flex50{
+	flex-basis:  50%;
+}
+
+.flex45{
+	flex-basis: 45%;
+}
 
 .width100{
 	width: 100%;
+}
+
+.width45{
+	width: 45%;
 }
 
 .tableRow{
