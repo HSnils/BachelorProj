@@ -16,8 +16,8 @@
 				<td>Lockdown</td>
 				<td>Status</td>
 				<td class="mdl-data-table__cell--non-numeric">Image</td>
-				<td>Created at</td>
-				<td>Updated at</td>
+				<td class="mdl-data-table__cell--non-numeric">Created</td>
+				<td class="mdl-data-table__cell--non-numeric">Updated</td>
 			</tr>
 		</thead>
 		<tbody class="">
@@ -31,8 +31,8 @@
 					<td >{{$equipment->lockdown}}</td>
 					<td >{{$equipment->status}}</td>
 					<td class="mdl-data-table__cell--non-numeric">{{$equipment->image}}</td>
-					<td >{{$equipment->created_at}}</td>
-					<td >{{$equipment->updated_at}}</td>
+					<td class="mdl-data-table__cell--non-numeric">{{$equipment->created_at->diffForHumans()}}</td>
+					<td class="mdl-data-table__cell--non-numeric">{{$equipment->updated_at->diffForHumans()}}</td>
 				</tr>
 			@endforeach
 		</tbody>	

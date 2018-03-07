@@ -49,4 +49,25 @@ class AdminController extends Controller
         }
     }
 
+    /**
+     * Deletes a specified user.
+     * @param array $user An array containing information about the specified user.
+     * @return callable Calls a function that redirects the user to the admin page.
+     */
+    public function deleteUser(User $user) {
+        //checks if the user that is logged in has the role Admin
+        $isAdmin = auth()->user()->role == 'Admin';
+        //if statement to check if $isAdmin is true
+        if ($isAdmin){
+            User::where('id', $user->id)->delete();
+
+            //flashes the session with a value for notify user
+            //flash only lasts for 1 redriect
+            session()->flash('notifyUser', 'User deleted!');
+            return redirect()->route('admin');
+        } else {
+            echo 'You are not an admin!';
+        }
+    }
+
 }
