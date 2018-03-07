@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>
+    <!--Standard stuff -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +15,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    
+    <!-- Tab title -->
     <title>{{ config('app.name', 'Colorlab booking') }}</title>
 
 
@@ -24,7 +26,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/normalize.css') }}?<?php echo time();?>" rel="stylesheet">
 
-    <!--bootstrap -->
+    <!--Bootstrap (not in use) -->
     <!--<link href="{{ asset('css/app.css') }}?<?php echo time();?>" rel="stylesheet">
     <script src="{{ URL::asset('js/app.js') }}"></script>-->
     
@@ -35,6 +37,10 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 
+    <!--Font awesome -->
+    <!--<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>-->
+
+    <!-- Our css -->
     <link href="{{ url('/') }}/css/style.css?<?php echo time();?>" rel="stylesheet">
 </head>
 <body>
