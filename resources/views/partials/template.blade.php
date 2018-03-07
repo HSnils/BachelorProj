@@ -63,7 +63,7 @@
     <!-- Footer -->
     @include('partials.footer')
     <!-- Scripts -->
-    <script src="{{ URL::asset('js/freebies.js') }}"></script>
+   
     <script src="{{ URL::asset('js/ajax.js') }}"></script>
     <script src="{{ URL::asset('js/deleteAlert.js') }}"></script>
 </body>

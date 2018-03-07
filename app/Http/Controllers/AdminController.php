@@ -43,7 +43,7 @@ class AdminController extends Controller
 
             //Flashes the session with a value for notify user
             //Flash only lasts for 1 redriect
-            session()->flash('notifyUser', 'User approves, role updated!');
+            session()->flash('notifyUser', 'User approved & role updated!');
             return redirect()->route('admin');
             //User::where('id', $user->id)
         }
