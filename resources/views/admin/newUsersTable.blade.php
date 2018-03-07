@@ -17,9 +17,10 @@
 						<td>
 							{{$user->email}}
 						</td>
-						<form action="" method="post">
+						<form action="{{url('admin/approve/user')}}/{{$user->id}}" method="post">
+							{{ csrf_field() }}
 							<td class="mdl-data-table__cell--non-numeric">
-								<select>
+								<select name="role" required>
 									@foreach ($allRoles as $role)
 										<option value="{{$role->role}}">{{$role->role}}</option>
 									@endforeach
@@ -27,7 +28,7 @@
 									
 							</td>
 							<td class="mdl-data-table__cell--non-numeric">
-								<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary" >
+								<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary">
 									<i class="material-icons">done</i>
 								</button>
 							</td>

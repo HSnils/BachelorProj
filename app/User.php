@@ -62,4 +62,15 @@ class User extends Authenticatable
                 'password' => bcrypt($user['password'])
         ]);
     }
+    /**
+     * [approveUser description]
+     * @param  [type] $user [description]
+     * @return [type]       [description]
+     */
+    public function approveUser($user){
+        User::where('id', $this->id)
+            ->update([
+                'role' => $user['role']
+            ]);
+    }
 }

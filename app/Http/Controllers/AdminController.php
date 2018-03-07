@@ -32,4 +32,21 @@ class AdminController extends Controller
 
     }
 
+    public function approveUser(User $user){
+        $this->validate(request(), [
+            'role' => 'required'
+        ]);
+        $isAdmin = auth()->user()->role == 'Admin';
+
+        if ($isAdmin){
+            $user->approveUser(request(['role']));
+
+            //Flashes the session with a value for notify user
+            //Flash only lasts for 1 redriect
+            session()->flash('notifyUser', 'User approves, role updated!');
+            return redirect()->route('admin');
+            //User::where('id', $user->id)
+        }
+    }
+
 }
