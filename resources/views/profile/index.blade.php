@@ -12,7 +12,7 @@
 				{{ csrf_field() }}
 
 				<div class="form-group mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<label for="username" class="mdl-textfield__label">Update Username:</label>
+					<label for="username" class=" form-control mdl-textfield__label">Update Username:</label>
 					<input type="text" class="form-control mdl-textfield__input" id="username" name="username" minlength="2" maxlength="30">
 				</div>
 
