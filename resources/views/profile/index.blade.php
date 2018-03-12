@@ -1,12 +1,11 @@
 @extends('partials.template')
 
 @section('content')
-	<div class="panel-heading"> {{ Auth::user()->name }}'s Profile</div>
 
-	<div class="panel-heading">Settings</div>
-	<div class="panel-body">
+<div class="flex-container">
+	<div> {{ Auth::user()->name }}'s Profile Settings <br> </div>
 		<div class="slim-container">
-			<div class="mdl-typography--display-2-color-contrast">Update your userdetails:</div>
+			<div class="mdl-typography--display-2-color-contrast">Update your user details:</div>
 
 			<form method="POST" action="{{ url('profile/settings/update/username')}}/{{ Auth::user()->id }}">
 				{{ csrf_field() }}
@@ -38,5 +37,5 @@
 
 			@include('partials.errors')
 		</div>
-	</div>
+</div>
 @endsection
