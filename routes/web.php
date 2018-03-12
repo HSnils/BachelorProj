@@ -38,7 +38,7 @@ Route::get('/admin', 'AdminController@index')->name('admin')->middleware('auth')
 Route::post('/admin/approve/user/{user}', 'AdminController@approveUser')->middleware('auth');
 
 //Admin - delete user
-Route::get('admin/delete/user/{user}', 'AdminController@deleteUser')->middleware('auth');
+Route::delete('admin/delete/user/{user}', 'AdminController@deleteUser')->middleware('auth');
 
 /*Route::get('/', function () {
     return view('welcome');
