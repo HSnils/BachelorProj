@@ -10,7 +10,7 @@
 		 <div class="mdl-card__title">
 			  <h2 class="mdl-card__title-text">Sign in</h2>
 		 </div>
-		@if (session('status'))
+					@if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
