@@ -51,7 +51,7 @@
 
         <!-- Navbar -->
 		<!-- If user is a the admin page they get a different navigation -->
-        @if(\Route::current()->getName() == 'admin')
+		@if(session('adminDashboard') == 'true')
 			@include('partials.navAdmin')
         @else
         	@include('partials.nav')

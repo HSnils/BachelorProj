@@ -25,6 +25,7 @@ class AdminController extends Controller
 
             $newBookings = Bookings::join('users', 'bookings.user_id', '=', 'users.id')->where('users.role', 'student')->orderBy('bookings.created_at', 'desc')->take(5)->get();
 
+            session(['adminDashboard' => 'true']);
             return view('admin.index', compact('newUsers', 'allRoles', 'newBookings'));
         } else {
             return redirect()->route('home');
