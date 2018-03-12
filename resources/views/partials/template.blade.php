@@ -49,8 +49,13 @@
         <!-- Display for the notification flash send to the user -->
         @include('partials.notifyFlash')
 
-         <!-- Navbar -->
-        @include('partials.nav')
+        <!-- Navbar -->
+		<!-- If user is a the admin page they get a different navigation -->
+        @if(\Route::current()->getName() == 'admin')
+			@include('partials.navAdmin')
+        @else
+        	@include('partials.nav')
+        @endif
 
             <div class="page-content"><!-- Your content goes here -->  
                 @yield('content')<!-- Content for each page -->
