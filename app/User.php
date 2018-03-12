@@ -78,6 +78,12 @@ class User extends Authenticatable
             ]);
     }
 
+	
+	public function verifyUser()
+    {
+        return $this->hasOne('App\VerifyUser');
+    }
+
     public function deleteUser($user){
         User::where('id', $this->id)
             ->update([
