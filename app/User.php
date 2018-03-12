@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Auth;
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -15,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'last_login',
     ];
 
     /**
@@ -24,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'card_id', 
     ];
 
     /**
@@ -42,7 +44,8 @@ class User extends Authenticatable
     public function updateUsername($user){
         User::where('id', $this->id)
             ->update([
-                'name' => $user['username']
+                'name' => $user['username'],
+                'updated_by' => $user['username']
         ]);
     }
 
@@ -59,7 +62,8 @@ class User extends Authenticatable
     public function updatePassword($user){
         User::where('id', $this->id)
             ->update([
-                'password' => bcrypt($user['password'])
+                'password' => bcrypt($user['password']),
+                'updated_by' => $this->name
         ]);
     }
     /**
@@ -72,5 +76,14 @@ class User extends Authenticatable
             ->update([
                 'role' => $user['role']
             ]);
+    }
+
+    public function deleteUser($user){
+        User::where('id', $this->id)
+            ->update([
+                'status' => "Deleted",
+                'deleted_at' => now(),
+                'deleted_by' => Auth::user()->name
+        ]);
     }
 }

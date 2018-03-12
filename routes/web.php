@@ -34,12 +34,16 @@ Route::post('/profile/settings/update/password/{user}', 'ProfileController@updat
 //Routes to admin
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('auth');
 
+//Admin views
+Route::get('admin/rooms', 'RoomsController@indexAdmin')->name('roomsAdmin')->middleware('auth');
+Route::get('admin/equipments', 'EquipmentsController@indexAdmin')->name('equipmentsAdmin')->middleware('auth');
+Route::get('admin/users', 'UsersController@index')->name('users')->middleware('auth');
+Route::get('admin/logg', 'AdminController@indexLoggAdmin')->name('logg')->middleware('auth');
+
 //Admin - approve user
 Route::post('/admin/approve/user/{user}', 'AdminController@approveUser')->middleware('auth');
 
-//Admin - delete user
-Route::get('admin/delete/user/{user}', 'AdminController@deleteUser')->middleware('auth');
+Route::post('/admin/edit/user/{user}', 'AdminController@editUser')->middleware('auth');
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
+//Admin - delete user
+Route::delete('admin/delete/user/{user}', 'AdminController@deleteUser')->middleware('auth');
