@@ -14,9 +14,11 @@ class UserTableSeeder extends Seeder
 		User::create([
 			'name' => 'John Doe',
 			'email' => 'john@example.com',
-			'password' => bcrypt('Testing123'),
+
+			'password' => bcrypt('123'),
 			'role' => 'Student',
-			'last_login' => now()			
+			'verified' => 1,
+      'last_login' => now()	
 		]);
 
 		User::create([
@@ -24,7 +26,8 @@ class UserTableSeeder extends Seeder
 			'email' => 'snils@ntnu.no',
 			'password' => bcrypt('123'),
 			'role' => 'Admin',
-			'last_login' => now()
+			'verified' => 1,
+      'last_login' => now()	
 		]);
 
 		User::create([
@@ -32,7 +35,8 @@ class UserTableSeeder extends Seeder
 			'email' => 'fred@ntnu.no',
 			'password' => bcrypt('123'),
 			'role' => 'Admin',
-			'last_login' => now()
+			'verified' => 1,
+      'last_login' => now()	
 		]);
 
 		User::create([
@@ -40,7 +44,8 @@ class UserTableSeeder extends Seeder
 			'email' => 'omi@ntnu.no',
 			'password' => bcrypt('123'),
 			'role' => 'Admin',
-			'last_login' => now()
+			'verified' => 1,
+      'last_login' => now()	
 		]);
 
 		User::create([
@@ -48,7 +53,8 @@ class UserTableSeeder extends Seeder
 			'email' => 'guest@ntnu.no',
 			'password' => bcrypt('123'),
 			'role' => 'Guest',
-			'last_login' => now()
+			'verified' => 1,
+      'last_login' => now()	
 		]);
     }
 }

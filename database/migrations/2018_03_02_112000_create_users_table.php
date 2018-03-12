@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
 		$table->string('password', 255);
 		$table->string('role', 30)->default('Guest');
 		$table->string('token', 100)->nullable();
+    $table->boolean('verified')->default(false);
 		$table->string('status', 30)->default('Active');
 		$table->string('card_id', 50)->nullable();
 		$table->dateTime('last_login');
@@ -29,6 +30,7 @@ class CreateUsersTable extends Migration
 		$table->dateTime('deleted_at')->nullable();
 		$table->string('deleted_by', 30)->nullable();
 		$table->rememberToken();
+
 
 		$table->foreign('role')->references('role')->on('roles')->onUpdate('cascade')->onDelete('cascade');
 		});
