@@ -6,12 +6,12 @@
 	Admin
 </div>
 
-<div class="flex50">
+<div class="">
 	<span>New Users</span>
 	@include('admin.newUsersTable')
 </div>
 
-<div class="flex50">
+<div class="marginL">
 	<span>New Student-bookings</span>
 	@include('admin.newBookingsTable')
 </div>
