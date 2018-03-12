@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Rooms;
+use App\User;
+use App\Roles;
 
-class RoomsController extends Controller
+class UsersController extends Controller
 {
 	/**
 	 * Fetches all categories and items which are open from the database.
@@ -14,12 +15,8 @@ class RoomsController extends Controller
 	 */
 	public function index()
 	{
-		$allRooms = Rooms::all();
-		return view('rooms.index', compact('allRooms'));
-	}
-
-	public function indexAdmin(){
-		$allRooms = Rooms::all();
-		return view('rooms.admin', compact('allRooms'));
+		$allUsers = User::orderBy('created_at', 'desc')->get();
+		$allRoles = Roles::all();
+		return view('admin.users', compact('allUsers', 'allRoles'));
 	}
 }

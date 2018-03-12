@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -46,5 +45,11 @@ class LoginController extends Controller
             return back()->with('warning', 'You need to confirm your account. We have sent you an activation code, please check your email.');
         }
         return redirect()->intended($this->redirectPath());
+    }
+
+    protected function credentials(Request $request) {
+        return array_merge($request->only($this->username(), 'password'), ['status' => "Active"]);
+        //, ['verified' => 1] <- maybe add this if needed for authentication on users who are verified.
+
     }
 }

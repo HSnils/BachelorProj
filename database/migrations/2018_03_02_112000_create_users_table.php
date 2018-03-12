@@ -6,42 +6,43 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('users', function (Blueprint $table) {
-			  
-			$table->increments('id');			  
-			$table->string('name', 30);		  
-			$table->string('email', 100)->unique();
-			$table->string('password', 255);
-			$table->string('role', 30)->default('Guest');
-			$table->string('token', 100)->nullable();
-			$table->boolean('verified')->default(false);
-			$table->string('status', 30)->default('active');
-			$table->string('card_id', 50)->nullable();
-			$table->dateTime('last_login')->nullable();
-			$table->dateTime('updated_by')->nullable();
-			$table->dateTime('deleted_at')->nullable();
-			$table->dateTime('deleted_by')->nullable();
-			$table->rememberToken();
-			$table->timestamps();
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('users', function (Blueprint $table) {
 
-			$table->foreign('role')->references('role')->on('roles')->onUpdate('cascade')->onDelete('cascade');
-        });
-    }
+		$table->increments('id');
+		$table->string('name', 30);
+		$table->string('email', 100)->unique();
+		$table->string('password', 255);
+		$table->string('role', 30)->default('Guest');
+		$table->string('token', 100)->nullable();
+    $table->boolean('verified')->default(false);
+		$table->string('status', 30)->default('Active');
+		$table->string('card_id', 50)->nullable();
+		$table->dateTime('last_login');
+		$table->timestamps();
+		$table->string('updated_by', 30)->nullable();
+		$table->dateTime('deleted_at')->nullable();
+		$table->string('deleted_by', 30)->nullable();
+		$table->rememberToken();
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('users');
-    }
+
+		$table->foreign('role')->references('role')->on('roles')->onUpdate('cascade')->onDelete('cascade');
+		});
+	}
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::dropIfExists('users');
+	}
 }

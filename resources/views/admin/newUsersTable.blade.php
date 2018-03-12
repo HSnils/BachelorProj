@@ -44,9 +44,14 @@
 				</form>
 
 				<td class="mdl-data-table__cell--non-numeric ">
-					<a href="{{url('admin/delete/user')}}/{{$user->id}}" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent deleteUserButton">
-						<i class="material-icons">clear</i>
-					</a>
+					<form action=" {{url('admin/delete/user')}}/{{$user->id}}" method="post">
+						@method('delete')
+						@csrf
+
+						<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent deleteUserButton">
+							<i class="material-icons">clear</i>
+						</button>
+					</form>
 				</td>
 			</tr>
 		@endforeach

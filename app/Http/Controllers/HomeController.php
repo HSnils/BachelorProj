@@ -15,6 +15,7 @@ class HomeController extends Controller
      public function index()
     {
         $allUsers = User::all();
+        session()->forget('adminDashboard');
         return view('home.index', compact('allUsers'));
     }
     /*

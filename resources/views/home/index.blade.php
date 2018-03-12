@@ -8,9 +8,4 @@
 		{{", ".Auth::user()->name}}
 	@endif
 </div>
-	
-	
-
-
-  @include('../partials.mdl-button')
 @endsection

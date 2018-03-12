@@ -27,7 +27,15 @@ $(document).ready(function () {
 
 	$('.approveButton').click(function(e){
 		//if they click cancel, prevents the default behavior and returns false.
-		if(!confirm('Are you sure you want approve this user?')) {
+		if(!confirm('Are you sure you want to approve this user?')) {
+			e.preventDefault();
+			return false;
+		}
+	});
+
+	$('.editButton').click(function(e){
+		//if they click cancel, prevents the default behavior and returns false.
+		if(!confirm('Are you sure you want to edit this user?')) {
 			e.preventDefault();
 			return false;
 		}

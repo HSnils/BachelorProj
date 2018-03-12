@@ -23,5 +23,34 @@ class RoomsTableSeeder extends Seeder
 			'building' => 'A'
 		]);
 
+		Rooms::create([
+			'room_number' => 'A003',
+			'type' => 'Videolab',
+			'building' => 'A'
+		]);
+
+		Rooms::create([
+			'room_number' => 'A004',
+			'type' => 'Videolab',
+			'building' => 'A'
+		]);
+
+		Rooms::create([
+			'room_number' => 'B015',
+			'type' => 'Colorlab',
+			'building' => 'B'
+		]);
+
+		Rooms::create([
+			'room_number' => 'G00K',
+			'type' => 'Kjøkkenlab',
+			'building' => 'G'
+		]);
+
+		Rooms::create([
+			'room_number' => 'K114',
+			'type' => '3D-printer lab',
+			'building' => 'K'
+		]);
     }
 }
