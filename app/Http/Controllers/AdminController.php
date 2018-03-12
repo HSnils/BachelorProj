@@ -19,7 +19,7 @@ class AdminController extends Controller
         $isAdmin = auth()->user()->role == 'Admin';
 
         if ($isAdmin){
-            $newUsers = User::orderBy('created_at', 'desc')->where('role', 'guest')->take(5)->get();
+            $newUsers = User::orderBy('created_at', 'desc')->where('role', 'guest')->where('status', '=', 'Active')->take(5)->get();
 
             $allRoles = Roles::where('role', '!=', 'guest')->orderBy('role', 'desc')->get();
 
@@ -50,6 +50,23 @@ class AdminController extends Controller
         }
     }
 
+    public function editUser(User $user){
+        $this->validate(request(), [
+            'role' => 'required'
+        ]);
+        $isAdmin = auth()->user()->role == 'Admin';
+
+        if ($isAdmin){
+            $user->approveUser(request(['role']));
+
+            //Flashes the session with a value for notify user
+            //Flash only lasts for 1 redriect
+            session()->flash('notifyUser', 'Users role updated!');
+            return redirect()->route('users');
+            //User::where('id', $user->id)
+        }
+    }
+
     /**
      * Deletes a specified user.
      * @param array $user An array containing information about the specified user.
@@ -60,7 +77,8 @@ class AdminController extends Controller
         $isAdmin = auth()->user()->role == 'Admin';
         //if statement to check if $isAdmin is true
         if ($isAdmin){
-            User::where('id', $user->id)->delete();
+            $user->deleteUser($user->id);
+            //User::where('id', $user->id)->delete();
 
             //flashes the session with a value for notify user
             //flash only lasts for 1 redriect

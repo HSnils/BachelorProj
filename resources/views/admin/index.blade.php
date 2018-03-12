@@ -16,5 +16,4 @@
 	@include('admin.newBookingsTable')
 </div>
 
-  @include('../partials.mdl-button')
 @endsection
