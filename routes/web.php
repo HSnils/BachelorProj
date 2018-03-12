@@ -40,6 +40,9 @@ Route::post('/admin/approve/user/{user}', 'AdminController@approveUser')->middle
 //Admin - delete user
 Route::get('admin/delete/user/{user}', 'AdminController@deleteUser')->middleware('auth');
 
+//Email Verification
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+
 /*Route::get('/', function () {
     return view('welcome');
 });*/
