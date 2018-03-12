@@ -33,7 +33,7 @@
 				</td>
 
 				<td class="mdl-data-table__cell--non-numeric">
-					@if($user->status != "active")
+					@if($user->status != "Active")
 						<span style="color: red;">{{$user->status}}</span>
 					@else
 						<span style="color: green;" >{{$user->status}}</span>
@@ -43,7 +43,7 @@
 				<form action="{{url('admin/edit/user')}}/{{$user->id}}" method="post">
 					{{ csrf_field() }}
 					<td class="mdl-data-table__cell--non-numeric">
-						<select id="selectRole" name="role" class="roleSelect" required>
+						<select id="selectRole{{$user->id}}" name="role" class="roleSelect" required>
 							@foreach ($allRoles as $role)
 								@if($user->role == $role->role)
 									<option selected value="{{$role->role}}">{{$role->role}}</option>
@@ -53,7 +53,7 @@
 							@endforeach
 						</select>
 						<!-- Simple Tooltip -->
-						<div class="mdl-tooltip" data-mdl-for="selectRole">
+						<div class="mdl-tooltip" data-mdl-for="selectRole{{$user->id}}">
 						Select role
 						</div>
 
