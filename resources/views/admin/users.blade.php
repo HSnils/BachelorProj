@@ -13,8 +13,8 @@
 			<th class="mdl-data-table__cell--non-numeric">Name</th>
 			<th class="mdl-data-table__cell--non-numeric ">E-Mail</th>
 			<th class="mdl-data-table__cell--non-numeric mdl-data-table__header--sorted-descending">Created</th>
-			<th class="mdl-data-table__cell--non-numeric">Role</th>
 			<th class="mdl-data-table__cell--non-numeric">Status</th>
+			<th class="mdl-data-table__cell--non-numeric">Role</th>
 			<th class="mdl-data-table__cell--non-numeric">Edit</th>
 			<th class="mdl-data-table__cell--non-numeric">Delete</th>
 		</tr>
@@ -30,10 +30,6 @@
 				</td>
 				<td class="mdl-data-table__cell--non-numeric">
 					{{$user->created_at->diffForHumans()}}
-				</td>
-
-				<td class="mdl-data-table__cell--non-numeric">
-					{{$user->role}}
 				</td>
 
 				<td class="mdl-data-table__cell--non-numeric">
