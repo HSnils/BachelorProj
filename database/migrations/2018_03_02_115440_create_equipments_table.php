@@ -15,19 +15,19 @@ class CreateEquipmentsTable extends Migration
     {
         Schema::create('equipments', function (Blueprint $table) {
 			  
-            $table->increments('id');
-            $table->string('name', 30);
-            $table->string('location', 30);
-            $table->string('type', 30);
-            $table->boolean('status')->default(false);
-			  	$table->string('ntnu_id', 50)->nullable();
-            $table->string('desc', 155);
-            $table->boolean('lockdown')->default(false);
-			  	$table->dateTime('last_service')->nullable();
-			   $table->string('other_documentation')->default('No description.');
-            $table->timestamps();
+			$table->increments('id');
+			$table->string('name', 30);
+			$table->string('location', 30);
+			$table->string('type', 30);
+			$table->boolean('status')->default(false);
+			$table->string('ntnu_id', 50)->nullable();
+			$table->string('desc', 155);
+			$table->boolean('lockdown')->default(false);
+			$table->dateTime('last_service')->nullable();
+			$table->string('other_documentation')->default('No description.');
+			$table->timestamps();
 
-            $table->foreign('location')->references('room_number')->on('rooms')->onUpdate('cascade')->onDelete('cascade');
+			$table->foreign('location')->references('room_number')->on('rooms')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
