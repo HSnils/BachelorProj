@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use App\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -44,6 +45,8 @@ class LoginController extends Controller
             auth()->logout();
             return back()->with('warning', 'You need to confirm your account. We have sent you an activation code, please check your email.');
         }
+        $user->updateLogin($user->id);
+
         return redirect()->intended($this->redirectPath());
     }
 

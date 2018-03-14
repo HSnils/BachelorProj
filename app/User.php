@@ -37,6 +37,11 @@ class User extends Authenticatable
         return $this->hasMany(Bookings::class);
     }
 
+    public function verifyUser(){
+        return $this->hasOne('App\VerifyUser');
+    }
+
+
     /**
      * Updates a users' username.
      * @param array $user An array containing information about the specified user. 
@@ -78,18 +83,19 @@ class User extends Authenticatable
             ]);
     }
 
-	
-	public function verifyUser()
-    {
-        return $this->hasOne('App\VerifyUser');
-    }
-
     public function deleteUser($user){
         User::where('id', $this->id)
             ->update([
                 'status' => "Deleted",
                 'deleted_at' => now(),
                 'deleted_by' => Auth::user()->name
+        ]);
+    }
+
+    public function updateLogin($user){
+        User::where('id', $this->id)
+            ->update([
+                'last_login' => now()
         ]);
     }
 }
