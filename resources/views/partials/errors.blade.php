@@ -1,6 +1,6 @@
 @if (count($errors))
 	<div class="form-group">
-		<div class="alert alert-danger">
+		<div class="alertBox alertRed">
 			<ul>
 				@foreach($errors->all() as $error)
 					<li>{{$error}}</li>

@@ -13,80 +13,80 @@ use App\Http\Controllers\Controller;
 class AdminController extends Controller
 {
    
-    
-     public function index()
-    {
-        $isAdmin = auth()->user()->role == 'Admin';
+	
+	 public function index()
+	{
+		$isAdmin = auth()->user()->role == 'Admin';
 
-        if ($isAdmin){
-            $newUsers = User::orderBy('created_at', 'desc')->where('role', 'guest')->where('status', '=', 'Active')->take(5)->get();
+		if ($isAdmin){
+			$newUsers = User::orderBy('created_at', 'desc')->where('role', 'guest')->where('status', '=', 'Active')->take(5)->get();
 
-            $allRoles = Roles::where('role', '!=', 'guest')->orderBy('role', 'desc')->get();
+			$allRoles = Roles::where('role', '!=', 'guest')->orderBy('role', 'desc')->get();
 
-            $newBookings = Bookings::join('users', 'bookings.user_id', '=', 'users.id')->where('users.role', 'student')->orderBy('bookings.created_at', 'desc')->take(5)->get();
+			$newBookings = Bookings::join('users', 'bookings.user_id', '=', 'users.id')->where('users.role', 'student')->orderBy('bookings.created_at', 'desc')->take(5)->get();
 
-            session(['adminDashboard' => 'true']);
-            return view('admin.index', compact('newUsers', 'allRoles', 'newBookings'));
-        } else {
-            return redirect()->route('home');
-        }
+			session(['adminDashboard' => 'true']);
+			return view('admin.index', compact('newUsers', 'allRoles', 'newBookings'));
+		} else {
+			return redirect()->route('home');
+		}
 
-    }
+	}
 
-    public function approveUser(User $user){
-        $this->validate(request(), [
-            'role' => 'required'
-        ]);
-        $isAdmin = auth()->user()->role == 'Admin';
+	public function approveUser(User $user){
+		$this->validate(request(), [
+			'role' => 'required'
+		]);
+		$isAdmin = auth()->user()->role == 'Admin';
 
-        if ($isAdmin){
-            $user->approveUser(request(['role']));
+		if ($isAdmin){
+			$user->approveUser(request(['role']));
 
-            //Flashes the session with a value for notify user
-            //Flash only lasts for 1 redriect
-            session()->flash('notifyUser', 'User approved and role updated!');
-            return redirect()->route('admin');
-            //User::where('id', $user->id)
-        }
-    }
+			//Flashes the session with a value for notify user
+			//Flash only lasts for 1 redriect
+			session()->flash('notifyUser', 'User approved and role updated!');
+			return redirect()->route('admin');
+			//User::where('id', $user->id)
+		}
+	}
 
-    public function editUser(User $user){
-        $this->validate(request(), [
-            'role' => 'required'
-        ]);
-        $isAdmin = auth()->user()->role == 'Admin';
+	public function editUser(User $user){
+		$this->validate(request(), [
+			'role' => 'required'
+		]);
+		$isAdmin = auth()->user()->role == 'Admin';
 
-        if ($isAdmin){
-            $user->approveUser(request(['role']));
+		if ($isAdmin){
+			$user->approveUser(request(['role']));
 
-            //Flashes the session with a value for notify user
-            //Flash only lasts for 1 redriect
-            session()->flash('notifyUser', 'Users role updated!');
-            return redirect()->route('users');
-            //User::where('id', $user->id)
-        }
-    }
+			//Flashes the session with a value for notify user
+			//Flash only lasts for 1 redriect
+			session()->flash('notifyUser', 'Users role updated!');
+			return redirect()->route('users');
+			//User::where('id', $user->id)
+		}
+	}
 
-    /**
-     * Deletes a specified user.
-     * @param array $user An array containing information about the specified user.
-     * @return callable Calls a function that redirects the user to the admin page.
-     */
-    public function deleteUser(User $user) {
-        //checks if the user that is logged in has the role Admin
-        $isAdmin = auth()->user()->role == 'Admin';
-        //if statement to check if $isAdmin is true
-        if ($isAdmin){
-            $user->deleteUser($user->id);
-            //User::where('id', $user->id)->delete();
+	/**
+	 * Deletes a specified user.
+	 * @param array $user An array containing information about the specified user.
+	 * @return callable Calls a function that redirects the user to the admin page.
+	 */
+	public function deleteUser(User $user) {
+		//checks if the user that is logged in has the role Admin
+		$isAdmin = auth()->user()->role == 'Admin';
+		//if statement to check if $isAdmin is true
+		if ($isAdmin){
+			$user->deleteUser($user->id);
+			//User::where('id', $user->id)->delete();
 
-            //flashes the session with a value for notify user
-            //flash only lasts for 1 redriect
-            session()->flash('notifyUser', 'User deleted!');
-            return redirect()->route('admin');
-        } else {
-            echo 'You are not an admin!';
-        }
-    }
+			//flashes the session with a value for notify user
+			//flash only lasts for 1 redriect
+			session()->flash('notifyUser', 'User deleted!');
+			return redirect()->route('admin');
+		} else {
+			echo 'You are not an admin!';
+		}
+	}
 
 }

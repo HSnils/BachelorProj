@@ -16,4 +16,5 @@
 	@include('admin.newBookingsTable')
 </div>
 
+
 @endsection
