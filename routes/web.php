@@ -45,9 +45,11 @@ Route::post('/admin/approve/user/{user}', 'AdminController@approveUser')->middle
 Route::post('/admin/edit/user/{user}', 'AdminController@editUser')->middleware('auth');
 Route::delete('admin/delete/user/{user}', 'AdminController@deleteUser')->middleware('auth');
 
-//Admin - Create
+//Admin - Create/edit rooms
 Route::get('admin/rooms/newRoom', 'RoomsController@newRoom')->name('newRoom')->middleware('auth');
 Route::post('admin/rooms/create', 'RoomsController@createRoom')->middleware('auth');
+Route::get('admin/rooms/edit/{room_number}', 'RoomsController@showEdit')->middleware('auth');
+Route::post('admin/rooms/edit', 'RoomsController@editRoom')->middleware('auth');
 
 // Email Verification
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');

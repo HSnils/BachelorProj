@@ -23,8 +23,8 @@
 					<td class="mdl-data-table__cell--non-numeric">{{$room->room_number}}</td>
 					<td class="mdl-data-table__cell--non-numeric">{{$room->type}}</td>
 					<td class="mdl-data-table__cell--non-numeric">{{$room->building}}</td>
-					<td class="mdl-data-table__cell--non-numeric mdl-button--primary" >
-						<i class="material-icons">edit</i>
+					<td class="mdl-data-table__cell--non-numeric " >
+						<a href="{{ url('admin/rooms/edit') }}/{{$room->room_number}}" ><i class="material-icons mdl-button--primary">edit</i></a>
 					</td>
 				</tr>
 				@endforeach

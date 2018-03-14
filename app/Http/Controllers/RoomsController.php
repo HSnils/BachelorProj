@@ -48,5 +48,33 @@ class RoomsController extends Controller
 			echo 'You are not administrator!';
 		}
 	}
+
+	public function showEdit($room){
+		$roomNumber = $room;
+		$thisRoom = Rooms::where('room_number', $roomNumber)->get();
+		return view('rooms.edit', compact('thisRoom'));
+	}
+
+	public function editRoom(){
+		$this->validate(request(), [
+        	'room_number' => 'required|min:4|max:30',
+        	'building' => 'required|min:1|max:1',
+        	'type' => 'required',
+        ]);
+
+		$isAdmin = auth()->user()->role == 'Admin';
+
+		if ($isAdmin){
+			$room = new Rooms();
+			$room->updateRoom(request());
+
+			//Flashes the session with a value for notify user
+			//Flash only lasts for 1 redriect
+			session()->flash('notifyUser', 'Room updated!');
+			return redirect()->route('roomsAdmin');
+		} else {
+			echo 'You are not administrator!';
+		}
+	}
 	
 }
