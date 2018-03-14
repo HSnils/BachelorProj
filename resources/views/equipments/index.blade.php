@@ -1,8 +1,10 @@
 @extends('partials.template')
 
 @section('content')
-	<div class="mdl-typography--display-4 mdl-color-text--grey-600 flex100">
-    	EQUIPMENTS 
+
+<div class="flex-container">
+	<div class="mdl-typography--display-4 mdl-color-text--grey-600 flex100 flex-container">
+    	EQUIPMENT
 	</div>
 
 	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp  ">
@@ -25,4 +27,5 @@
 			@endforeach
 		</tbody>	
 	</table>
+</div>
 @endsection

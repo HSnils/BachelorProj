@@ -29,7 +29,7 @@
 		<!--<img class="profilePicture" height="100px" width="100px">-->
 	</div>
 	<div class="slim-container">
-		<div class="mdl-typography--display-1-color-contrast">Update your user details:</div>
+		<div class="mdl-typography--display-1-color-contrast">Update your user details</div>
 
 		<form method="POST" action="{{ url('profile/settings/update/username')}}/{{ Auth::user()->id }}">
 			{{ csrf_field() }}
