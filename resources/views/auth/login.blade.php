@@ -53,7 +53,7 @@
 							  <div class="checkbox">
 									<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="remember">
 										<input class="mdl-checkbox__input" type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
-										<span class="mdl-checkbox__label">Remember Me</span>
+										<span class="mdl-checkbox__label">Remember me</span>
 									</label>
 							  </div>
 						 </div>
