@@ -32,4 +32,9 @@ class Bookings extends Model
 		return $this->hasOne(bookings_equipment::class);
 		
 	}
+	
+	public function bookingRoom() {
+		return $this->hasOne(bookings_room::class);
+		
+	}
 }

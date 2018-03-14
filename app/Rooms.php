@@ -17,4 +17,11 @@ class Rooms extends Model
      */
 	protected $primaryKey = 'room_number';
  	public $incrementing = false;
+	
+	
+	public function roomBooking() {
+		return $this->hasMany(Bookings_room::class);
+		
+	}
+	
 }
