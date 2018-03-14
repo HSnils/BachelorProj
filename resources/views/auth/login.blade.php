@@ -7,19 +7,19 @@
 		 <!--<div class="mdl-card__media"><img src="skytower.jpg" width="173" height="157" border="0"
 		 alt="" style="padding:10px;">
 		 </div>-->
-		 <div class="mdl-card__title">
-			  <h2 class="mdl-card__title-text">Sign in</h2>
-		 </div>
-					@if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    @if (session('warning'))
-                        <div class="alert alert-warning">
-                            {{ session('warning') }}
-                        </div>
-                    @endif
+		<div class="mdl-card__title">
+			<h2 class="mdl-card__title-text">Sign in</h2>
+		</div>
+		@if (session('status'))
+			<div class="alertBox alertGreen">
+				{{ session('status') }}
+			</div>
+		@endif
+		@if (session('warning'))
+			<div class="alertBox alertYellow">
+				{{ session('warning') }}
+			</div>
+		@endif
 		 <div class="mdl-card__supporting-text">
 			  <form role="form" method="POST" action="{{ route('login') }}">
 					{{ csrf_field() }}

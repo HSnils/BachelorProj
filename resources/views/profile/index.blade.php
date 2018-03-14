@@ -4,7 +4,7 @@
 
 <div class="flex-container">
 	<div class="profileDiv">
-		<div class="mdl-typography--display-1-color-contrast"> {{ Auth::user()->name }}'s Profile Settings <br> </div>
+		<div class="mdl-typography--display-1-color-contrast"> {{ Auth::user()->name }}'s Profile<br> </div>
 		<ul>
 			<li>
 				<b>Role:</b> 
@@ -25,7 +25,7 @@
 				{{ Auth::user()->last_login }}
 			</li>
 		</ul>
-		<i class="material-icons profilePicture square100">account_box</i>
+		<!--<i class="material-icons profilePicture square100">account_box</i>-->
 		<!--<img class="profilePicture" height="100px" width="100px">-->
 	</div>
 	<div class="slim-container">
