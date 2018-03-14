@@ -9,14 +9,14 @@ footer{
 	bottom: 0;
 	width: 100%;
 	box-sizing: border-box;
-	z-index: 150;
+	z-index: 1;
 }
 
 #notifyUser{
 	position: absolute;
 	bottom: 2em;
 	right: 2em;
-	z-index: 10;
+	z-index: 100;
 	background-color: #fff;
 }
 

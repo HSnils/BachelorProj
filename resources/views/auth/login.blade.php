@@ -26,7 +26,7 @@
 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('email') ? ' has-error' : '' }}">
 
-						 <input class="mdl-textfield__input" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+						 <input class="mdl-textfield__input" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}"  autofocus>
 						 <label class="mdl-textfield__label" for="email">E-mail</label>
 
 						 @if ($errors->has('email'))
@@ -38,7 +38,7 @@
 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('password') ? ' has-error' : '' }}">
 
-						 <input class="mdl-textfield__input" type="password" id="password" name="password" required>
+						 <input class="mdl-textfield__input" type="password" id="password" name="password" >
 						 <label class="mdl-textfield__label" for="password">Password...</label>
 
 						 @if ($errors->has('password'))
