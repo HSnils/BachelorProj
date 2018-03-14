@@ -51,8 +51,9 @@
 					<div class="form-group">
 						 <div class="col-md-6 col-md-offset-4">
 							  <div class="checkbox">
-									<label>
-										 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+									<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="remember">
+										<input class="mdl-checkbox__input" type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+										<span class="mdl-checkbox__label">Remember Me</span>
 									</label>
 							  </div>
 						 </div>
