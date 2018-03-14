@@ -32,8 +32,8 @@ main{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	align-items: center;
-	align-content: center;
+	/*align-items: center;
+	align-content: center;*/
 	justify-content: center;
 }
 
@@ -74,7 +74,9 @@ main{
 .flex-container {
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+	/*align-items: center;*/
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 .flex-item {
 
@@ -104,8 +106,48 @@ main{
 }
 
 
+
+.profilePicture{
+	/*background-color: blue;*/
+	float: right;
+	position: absolute;
+	right:  1em;
+	top: 4em;
+	border-radius: 1em;
+}
+
+.profileDiv{
+	position: relative;
+}
+
+.square100{
+	height: 100px;
+	width: 100px;
+}
+
+.relative{
+	position: relative;
+}
+
+.knappis{
+	position: absolute;
+	bottom: -1.7em;
+	right:  0.3em;
+
+}
+
+
+
+
 /*----------------*/
 
 
+/* TEST FOR Å PRØVE Å FIKSE FOOTER
+.mdl-layout__content {
+  flex: 1 0 auto;
+}
 
+.mdl-mini-footer {
+  flex: 0 0 auto;
+}*/
 

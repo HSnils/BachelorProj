@@ -1,13 +1,13 @@
 @extends('partials.template')
 
 @section('content')
-	<div class="mdl-typography--display-4 mdl-color-text--grey-600">
+	<div class="mdl-typography--display-4 mdl-color-text--grey-600 flex100">
 		ROOMS
 	</div>
 
 	<br>
 
-	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp flex100">
+	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp ">
 		<thead class="" >
 			<tr class="">
 				<th class="mdl-data-table__cell--non-numeric">Room</th>
