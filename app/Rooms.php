@@ -17,11 +17,26 @@ class Rooms extends Model
      */
 	protected $primaryKey = 'room_number';
  	public $incrementing = false;
-	
-	
+
 	public function roomBooking() {
 		return $this->hasMany(Bookings_room::class);
 		
 	}
-	
+
+	public function createRoom($newRoom){
+		Rooms::create([
+				'room_number' => $newRoom['room_number'],
+				'type' => $newRoom['type'],
+				'building' => $newRoom['building']
+		]);
+	}
+
+	public function updateRoom($room){
+		Rooms::where('room_number', $room['room_number'])
+			->update([
+				'room_number' => $room['room_number'],
+				'type' => $room['type'],
+				'building' => $room['building']
+		]);
+	}
 }

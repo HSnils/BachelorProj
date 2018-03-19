@@ -32,7 +32,7 @@
 		</h2>
 	</div>
 	<div class="mdl-card__supporting-text">
-		Booking comming soon...
+		Booking coming soon...
 	</div>
 	<div class="mdl-card__actions mdl-card--border">
 		<a class="mdl-button mdl-button--primary mdl-js-button mdl-js-ripple-effect">

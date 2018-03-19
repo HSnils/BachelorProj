@@ -9,14 +9,14 @@ footer{
 	bottom: 0;
 	width: 100%;
 	box-sizing: border-box;
-	z-index: 150;
+	z-index: 1;
 }
 
 #notifyUser{
 	position: absolute;
 	bottom: 2em;
 	right: 2em;
-	z-index: 10;
+	z-index: 100;
 	background-color: #fff;
 }
 
@@ -108,10 +108,15 @@ main{
 	position: fixed;
 	bottom: 3rem;
 	right: 3rem;
-	z-index: 100;
+	z-index: 200;
 }
 
-
+.formStyle{
+	display: flex;
+	flex-flow: column wrap;
+	width: 100%;
+	flex-basis: 100%;
+}
 
 .profilePicture{
 	/*background-color: blue;*/
@@ -132,7 +137,6 @@ main{
 .square100{
 	height: 100px;
 	width: 100px;
-	width:  50%;
 }
 
 .relative{

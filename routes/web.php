@@ -37,15 +37,19 @@ Route::get('/admin', 'AdminController@index')->name('admin')->middleware('auth')
 Route::get('admin/rooms', 'RoomsController@indexAdmin')->name('roomsAdmin')->middleware('auth');
 Route::get('admin/equipments', 'EquipmentsController@indexAdmin')->name('equipmentsAdmin')->middleware('auth');
 Route::get('admin/users', 'UsersController@index')->name('users')->middleware('auth');
+Route::get('admin/bookings', 'BookingsController@index')->name('bookings')->middleware('auth');
 Route::get('admin/logg', 'AdminController@indexLoggAdmin')->name('logg')->middleware('auth');
 
-// Admin - approve user
+// Admin - approve/edit/delete user
 Route::post('/admin/approve/user/{user}', 'AdminController@approveUser')->middleware('auth');
-
 Route::post('/admin/edit/user/{user}', 'AdminController@editUser')->middleware('auth');
-
-// Admin - delete user
 Route::delete('admin/delete/user/{user}', 'AdminController@deleteUser')->middleware('auth');
+
+//Admin - Create/edit rooms
+Route::get('admin/rooms/newRoom', 'RoomsController@newRoom')->name('newRoom')->middleware('auth');
+Route::post('admin/rooms/create', 'RoomsController@createRoom')->middleware('auth');
+Route::get('admin/rooms/edit/{room_number}', 'RoomsController@showEdit')->middleware('auth');
+Route::post('admin/rooms/edit', 'RoomsController@editRoom')->middleware('auth');
 
 // Email Verification
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');

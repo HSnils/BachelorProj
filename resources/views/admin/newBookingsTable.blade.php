@@ -16,6 +16,7 @@
 						<td>
 							{{$booking->type}}
 						</td>
+						
 						<td class="mdl-data-table__cell--non-numeric">
 							{{$booking->room_number}}
 						</td>
@@ -27,9 +28,11 @@
 						<td>
 							{{$booking->from_date}}
 						</td>
+
 						<td>
 							{{$booking->to_date}}
 						</td>
+
 						<td class="mdl-data-table__cell--non-numeric">
 							<a href="#"><i class="material-icons">done</i></a>
 						</td>

@@ -26,7 +26,7 @@
 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('email') ? ' has-error' : '' }}">
 
-						 <input class="mdl-textfield__input" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+						 <input class="mdl-textfield__input" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}"  autofocus>
 						 <label class="mdl-textfield__label" for="email">E-mail</label>
 
 						 @if ($errors->has('email'))
@@ -38,7 +38,7 @@
 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('password') ? ' has-error' : '' }}">
 
-						 <input class="mdl-textfield__input" type="password" id="password" name="password" required>
+						 <input class="mdl-textfield__input" type="password" id="password" name="password" >
 						 <label class="mdl-textfield__label" for="password">Password...</label>
 
 						 @if ($errors->has('password'))
@@ -51,8 +51,9 @@
 					<div class="form-group">
 						 <div class="col-md-6 col-md-offset-4">
 							  <div class="checkbox">
-									<label>
-										 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+									<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="remember">
+										<input class="mdl-checkbox__input" type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+										<span class="mdl-checkbox__label">Remember me</span>
 									</label>
 							  </div>
 						 </div>

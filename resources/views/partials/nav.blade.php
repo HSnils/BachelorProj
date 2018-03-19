@@ -15,7 +15,7 @@
 				<a class="mdl-navigation__link" href="{{ route('login') }}">Sign in</a>
 			@else
 				<!-- Show this if user is logged in -->
-				<a class="mdl-navigation__link" href="{{ route('home') }}">Home</a>
+				<a class="mdl-navigation__link" href="{{ route('home') }}">Bookings</a>
 				<a class="mdl-navigation__link" href="{{ route('rooms') }}">Rooms</a>
 				<a class="mdl-navigation__link" href="{{ route('equipments') }}">Equipments</a>
 				<a class="mdl-navigation__link" href="{{ route('profile') }}">Profile</a>
@@ -52,7 +52,7 @@
 				<a class="mdl-navigation__link" href="{{ route('login') }}">Sign in</a>
 			@else
 				<!-- Show this if user is logged in -->
-				<a class="mdl-navigation__link" href="{{ route('home') }}">Home</a>
+				<a class="mdl-navigation__link" href="{{ route('home') }}">Bookings</a>
 				<a class="mdl-navigation__link" href="{{ route('rooms') }}">Rooms</a>
 				<a class="mdl-navigation__link" href="{{ route('equipments') }}">Equipments</a>
 				<a class="mdl-navigation__link" href="{{ route('profile') }}">Profile</a>

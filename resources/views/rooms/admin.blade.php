@@ -21,10 +21,10 @@
 				@foreach ($allRooms as $room)
 				<tr class="">
 					<td class="mdl-data-table__cell--non-numeric">{{$room->room_number}}</td>
-					<td class="mdl-data-table__cell--non-numeric"class="mdl-data-table__cell--non-numeric">{{$room->type}}</td>
+					<td class="mdl-data-table__cell--non-numeric">{{$room->type}}</td>
 					<td class="mdl-data-table__cell--non-numeric">{{$room->building}}</td>
-					<td class="mdl-data-table__cell--non-numeric mdl-button--primary" >
-						<i class="material-icons">edit</i>
+					<td class="mdl-data-table__cell--non-numeric " >
+						<a href="{{ url('admin/rooms/edit') }}/{{$room->room_number}}" ><i class="material-icons mdl-button--primary">edit</i></a>
 					</td>
 				</tr>
 				@endforeach
@@ -34,10 +34,11 @@
 			<i class="material-icons">add</i>
 		</button>
 	</div>
-
-	<!-- Colored FAB button with ripple -->
-	<button class="roundButton mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-		<i class="material-icons">add</i>
-	</button>
-
+	
+	<script>
+		$('.knappis').click(function(){
+			document.location.href="{{route('newRoom')}}";
+			
+		});
+	</script>
 @endsection
