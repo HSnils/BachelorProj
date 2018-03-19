@@ -19,7 +19,8 @@ class CreateBookingsTable extends Migration
 			$table->string('type', 30);
 			$table->string('category', 30);
 			$table->dateTime('from_date');	  
-            $table->dateTime('to_date');	  
+            $table->dateTime('to_date');
+			$table->string('status', 30)->default('Active');
 			$table->integer('user_id')->unsigned();
             $table->timestamps();
 			  
