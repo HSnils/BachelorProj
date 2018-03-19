@@ -2,80 +2,52 @@
 
 @section('content')
 
-<div class="flex-container">
-	
-	<div class="demo-card-square mdl-card mdl-shadow--2dp">
-		<div class="mdl-card__title mdl-card--expand">
-			<h2 class="mdl-card__title-text"> {{ ucfirst(Auth::user()->name) }}'s Profile </h2>
-		</div>
-		<div class="mdl-card__supporting-text">
-			<br>
-			<div class="mdl-typography--headline-color-contrast">
-				<b>
-					<i class="material-icons">assignment_ind</i>
-					Role:
-				</b> 
-				{{ Auth::user()->role }}
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--2-col">
+	</div>
+	<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone">
+		<div class="demo-card-square postIt mdl-card postIt mdl-shadow--2dp">
+			<div class="mdl-card__title postIt mdl-card--expand">
+				<h2 class="mdl-card__title-text"> {{ ucfirst(Auth::user()->name) }}'s Profile </h2>
 			</div>
-			<br>
-			<div class="mdl-typography--headline-color-contrast">
-				<b>
-					<i class="material-icons">mail_outline</i> 
-					E-mail:
-				</b> 
-				{{ Auth::user()->email }}
-				
+			<div class="mdl-card__supporting-text postIt">
+				<br>
+				<div class="mdl-typography--headline bulletColor">
+					<b>
+						<i class="material-icons">assignment_ind</i>
+						Role:
+					</b> 
+					{{ Auth::user()->role }}
+				</div>
+				<br>
+				<div class="mdl-typography--headline bulletColor">
+					<b>
+						<i class="material-icons">mail_outline</i> 
+						E-mail:
+					</b> 
+					{{ Auth::user()->email }}
+
+				</div>
+				<br>
+				<br>
 			</div>
-			<br>
-			<br>
-		</div>
-		<div class="mdl-card__actions mdl-card--border">
-			<ul id="noBulletPoints" class="bulletColor">
-				<li>
-					<b>Account status:</b>
-					{{ Auth::user()->status }}
-				</li>
-				<li>
-					<b>Last login:</b>
-					{{ Auth::user()->last_login }}
-				</li>
-			</ul>
+			<div class="mdl-card__actions postIt mdl-card--border">
+				<ul id="noBulletPoints" class="bulletColor">
+					<li>
+						<b>Account status:</b>
+						{{ Auth::user()->status }}
+					</li>
+					<li>
+						<b>Last login:</b>
+						{{ Auth::user()->last_login }}
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
-	<!--<div class="profileDiv">
-		<div class="mdl-typography--display-1-color-contrast"> {{ Auth::user()->name }}'s Profile<br> </div>
-		<ul id="noBulletPoints">
-			<li class="mdl-typography--headline-color-contrast">
-				<b>
-					<i class="material-icons">assignment_ind</i>
-					Role:
-				</b> 
-				{{ Auth::user()->role }}
-			</li>
-			<br>
-			<li class="mdl-typography--headline-color-contrast">
-				<b>
-					<i class="material-icons">mail_outline</i> 
-					E-mail:
-				</b> 
-				{{ Auth::user()->email }}
-				
-			</li>
-			<br>
-			<hr>
-			<li>
-				<b>Account status:</b>
-				{{ Auth::user()->status }}
-			</li>
-			<li>
-				<b>Last login:</b>
-				{{ Auth::user()->last_login }}
-			</li>
-		</ul>
-		<i class="material-icons profilePicture square100">account_box</i>
-		<img class="profilePicture" height="100px" width="100px">
-	</div> -->
-	<div class="slim-container">
+	<div class="mdl-cell mdl-cell--1-col">
+	</div>
+	<div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
 		<div class="mdl-typography--display-1-color-contrast">Update your user details</div>
 
 		<form method="POST" action="{{ url('profile/settings/update/username')}}/{{ Auth::user()->id }}">
@@ -108,6 +80,8 @@
 		</form>
 
 		@include('partials.errors')
+	</div>
+	<div class="mdl-cell mdl-cell--2-col">
 	</div>
 </div>
 @endsection
