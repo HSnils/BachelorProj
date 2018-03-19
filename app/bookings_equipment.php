@@ -9,12 +9,12 @@ class bookings_equipment extends Model
     protected $guarded = [];
 	
 	public function booking() {
-		return $this->hasOne(Bookings::class);
+		return $this->belongsTo(Bookings::class, 'id');
 		
 	}
 	
 	public function equipment() {
-		return $this->hasMany(Equipments::class, 'equipment_id');
+		return $this->belongsTo(Equipments::class, 'equipment_id');
 		
 	}
 }

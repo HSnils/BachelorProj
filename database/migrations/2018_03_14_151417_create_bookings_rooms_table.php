@@ -14,11 +14,11 @@ class CreateBookingsRoomsTable extends Migration
     public function up()
     {
         Schema::create('bookings_rooms', function (Blueprint $table) {
-            $table->increments('booking_id');
+            $table->increments('bookings_id');
 			$table->string('room_number', 30);
             $table->timestamps();
 			
-			$table->foreign('booking_id')->references('id')->on('bookings')->onUpdate('cascade')->onDelete('cascade');
+			$table->foreign('bookings_id')->references('id')->on('bookings')->onUpdate('cascade')->onDelete('cascade');
 			
 			$table->foreign('room_number')->references('room_number')->on('rooms')->onUpdate('cascade')->onDelete('cascade');
         });

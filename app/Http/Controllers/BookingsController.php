@@ -25,7 +25,7 @@ class BookingsController extends Controller
 		$dateFrom = $request->input('dateFrom') . ' ' . $request->input('timeFrom').":00";
 		$dateTo = $request->input('dateTo') . ' ' . $request->input('timeTo').":00";
 
-		$checkAvalibility = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.booking_id')->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')->where('from_date', '<=', $dateTo)->where('to_date','>=', $dateFrom)->where('rooms.room_number', '=', $roomNumber)->count();
+		$checkAvalibility = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')->where('from_date', '<=', $dateTo)->where('to_date','>=', $dateFrom)->where('rooms.room_number', '=', $roomNumber)->count();
 
 		$user = Auth::user()->id;
 		$userRole = Auth::user()->role;
@@ -53,7 +53,7 @@ class BookingsController extends Controller
 			$bookingId = $thisBooking->id;
 			//create
 			bookings_room::create([
-				'booking_id' => $bookingId,
+				'bookings_id' => $bookingId,
 				'room_number' => $roomNumber,
 			]);
 

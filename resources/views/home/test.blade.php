@@ -3,8 +3,8 @@
 @section('content')
 
 	{{$checkAvalibility}}
-
-	IF NUMBER IS <strong>0</strong> YOU HAVE BOOKED A ROOM <br>
-	IF NUMBER IS <strong>1</strong> THERE WAS ALLREADY A BOOKING
+	<br>
+	IF NUMBER IS <b>0</b> YOU HAVE BOOKED A ROOM <br>
+	IF NUMBER IS <b>1</b> THERE WAS ALLREADY A BOOKING
 
 @endsection

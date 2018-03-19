@@ -18,7 +18,7 @@
 						</td>
 						
 						<td class="mdl-data-table__cell--non-numeric">
-							{{$booking->room_number}}
+							{{$booking->bookedRoom->room_number or "Can't find"}}
 						</td>
 
 						<td class="mdl-data-table__cell--non-numeric">
