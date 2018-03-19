@@ -5,11 +5,13 @@ body{
 }
 
 footer{
-	position: absolute;
-	bottom: 0;
+	/*position: absolute;
+	bottom: 0;*/
 	width: 100%;
+	flex-basis: 100%;
 	box-sizing: border-box;
-	z-index: 1;
+
+	margin-top: 16em;
 }
 
 #notifyUser{
@@ -27,15 +29,16 @@ a:hover {
 }
 
 main{
-	margin-top: 2em;
-	box-sizing: border-box;
-	padding: 0 10% 0 10%;
 
 }
+
 .page-content{
+	margin-top: 2em;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	box-sizing: border-box;
+	padding: 0 10% 0 10%;
 	/*align-items: center;
 	align-content: center;*/
 	justify-content: center;

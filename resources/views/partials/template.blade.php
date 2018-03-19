@@ -61,12 +61,10 @@
 				<div class="page-content"><!-- Your content goes here -->  
 					@yield('content')<!-- Content for each page -->
 				</div>
+				<!-- Footer -->
+				@include('partials.footer')
 		  	</main>
-		  
-			
-		</div>
-			<!-- Footer -->
-			@include('partials.footer')
+		</div>	
 	</div>
 
 
