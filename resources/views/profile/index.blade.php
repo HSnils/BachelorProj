@@ -31,7 +31,7 @@
 				<br>
 				<br>
 			</div>
-			<div class="mdl-card__actions postIt mdl-card--border">
+			<div class="mdl-card__actions postIt">
 				<ul id="noBulletPoints" class="bulletColor">
 					<li>
 						<b>Account status:</b>
