@@ -2,6 +2,6 @@
 
 @section('content')
 
-	@include('home.booking')
+	{{$checkAvalibility}}
 
 @endsection

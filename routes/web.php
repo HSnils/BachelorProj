@@ -17,6 +17,10 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->middleware('auth');
 Route::get('home', 'HomeController@index')->name('home')->middleware('auth');
 
+
+//Create a booking
+Route::post('booking/create', 'BookingsController@create')->middleware('auth');
+
 // Rooms
 Route::get('rooms', 'RoomsController@index')->name('rooms')->middleware('auth');
 
