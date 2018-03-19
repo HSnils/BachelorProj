@@ -179,6 +179,33 @@ main{
 	border: 1px solid #FFB300;
 	background-color: rgba(255, 193, 7, 0.2) ;
 }
+
+#noBulletPoints li {
+	list-style-type: none;
+}
+
+.demo-card-square.mdl-card {
+  width: auto;
+  height: auto;
+}
+.demo-card-square > .mdl-card__title {
+  color: #757575;
+  background-color: RGB(241, 210, 130);
+}
+
+.mdl-card__supporting-text {
+	background-color: RGBA(241, 210, 130, 0.75);
+}
+
+.mdl-card__actions {
+	
+	background-color: RGBA(241, 210, 130, 0.75);
+}
+
+.bulletColor {
+	color: #757575;
+	
+}
 /*----------------*/
 
 

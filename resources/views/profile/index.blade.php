@@ -3,31 +3,78 @@
 @section('content')
 
 <div class="flex-container">
-	<div class="profileDiv">
+	
+	<div class="demo-card-square mdl-card mdl-shadow--2dp">
+		<div class="mdl-card__title mdl-card--expand">
+			<h2 class="mdl-card__title-text"> {{ ucfirst(Auth::user()->name) }}'s Profile </h2>
+		</div>
+		<div class="mdl-card__supporting-text">
+			<br>
+			<div class="mdl-typography--headline-color-contrast">
+				<b>
+					<i class="material-icons">assignment_ind</i>
+					Role:
+				</b> 
+				{{ Auth::user()->role }}
+			</div>
+			<br>
+			<div class="mdl-typography--headline-color-contrast">
+				<b>
+					<i class="material-icons">mail_outline</i> 
+					E-mail:
+				</b> 
+				{{ Auth::user()->email }}
+				
+			</div>
+			<br>
+			<br>
+		</div>
+		<div class="mdl-card__actions mdl-card--border">
+			<ul id="noBulletPoints" class="bulletColor">
+				<li>
+					<b>Account status:</b>
+					{{ Auth::user()->status }}
+				</li>
+				<li>
+					<b>Last login:</b>
+					{{ Auth::user()->last_login }}
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--<div class="profileDiv">
 		<div class="mdl-typography--display-1-color-contrast"> {{ Auth::user()->name }}'s Profile<br> </div>
-		<ul>
-			<li>
-				<b>Role:</b> 
+		<ul id="noBulletPoints">
+			<li class="mdl-typography--headline-color-contrast">
+				<b>
+					<i class="material-icons">assignment_ind</i>
+					Role:
+				</b> 
 				{{ Auth::user()->role }}
 			</li>
 			<br>
-			<li>
-				<b>E-mail:</b> 
+			<li class="mdl-typography--headline-color-contrast">
+				<b>
+					<i class="material-icons">mail_outline</i> 
+					E-mail:
+				</b> 
 				{{ Auth::user()->email }}
+				
 			</li>
+			<br>
+			<hr>
 			<li>
 				<b>Account status:</b>
 				{{ Auth::user()->status }}
 			</li>
-			<hr>
 			<li>
 				<b>Last login:</b>
 				{{ Auth::user()->last_login }}
 			</li>
 		</ul>
-		<!--<i class="material-icons profilePicture square100">account_box</i>-->
-		<!--<img class="profilePicture" height="100px" width="100px">-->
-	</div>
+		<i class="material-icons profilePicture square100">account_box</i>
+		<img class="profilePicture" height="100px" width="100px">
+	</div> -->
 	<div class="slim-container">
 		<div class="mdl-typography--display-1-color-contrast">Update your user details</div>
 
