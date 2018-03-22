@@ -53,6 +53,18 @@
 			@endforeach
 		</select>
 		
+		<!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+			<input class="mdl-textfield__input" value="" id="room_number" readonly/>
+			<input value="" type="hidden" name="Select Room"/>
+			<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+				<label class="mdl-textfield__label" for="room_number">Room Number</label>
+					<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="room_number">
+						@foreach($allRooms as $room)
+							<li class="mdl-menu__item" data-val="{{ $room->room_number }}">{{ $room->room_number }}</li>
+						@endforeach
+					</ul>
+		</div>-->
+		
 		<label for="dateFrom">Time From</label>
 		<input type="date" name="dateFrom" id="dateFrom">
 		<input type="time" name="timeFrom" id="timeFrom">
