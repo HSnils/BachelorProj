@@ -39,13 +39,13 @@
 							@endforeach
 						</select>
 				
-						<label for="dateFrom" class="formPadding">Time From</label>
-						<input type="date" name="dateFrom" id="dateFrom" class="formPadding">
-						<input type="time" name="timeFrom" id="timeFrom" class="formPadding">
+						<label for="dateFrom" class="formPadding ">Book From</label>
+						<input type="date" name="dateFrom" id="dateFrom" class="formPadding ">
+						<input type="time" name="timeFrom" id="timeFrom" class="formPadding ">
 
-						<label for="dateTo" class="formPadding">Time To</label>
-						<input type="date" name="dateTo" id="dateTo" class="formPadding">
-						<input type="time" name="timeTo" id="timeTo" class="formPadding">
+						<label for="dateTo" class="formPadding ">Book To</label>
+						<input type="date" name="dateTo" id="dateTo" class="formPadding ">
+						<input type="time" name="timeTo" id="timeTo" class="formPadding ">
 		
 
 
