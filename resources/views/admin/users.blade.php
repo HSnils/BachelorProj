@@ -40,30 +40,11 @@
 					@endif
 				</td>
 
-				<form action="{{url('admin/edit/user')}}/{{$user->id}}" method="post">
-					{{ csrf_field() }}
-					<td class="mdl-data-table__cell--non-numeric">
-						<select id="selectRole{{$user->id}}" name="role" class="roleSelect" required>
-							@foreach ($allRoles as $role)
-								@if($user->role == $role->role)
-									<option selected value="{{$role->role}}">{{$role->role}}</option>
-								@else
-									<option value="{{$role->role}}">{{$role->role}}</option>
-								@endif
-							@endforeach
-						</select>
-						<!-- Simple Tooltip -->
-						<div class="mdl-tooltip" data-mdl-for="selectRole{{$user->id}}">
-						Select role
-						</div>
+				<td class="mdl-data-table__cell--non-numeric"> {{$user->role}}</td>
 
-					</td>
-					<td class="mdl-data-table__cell--non-numeric">
-						<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary editButton">
-							<i class="material-icons">edit</i>
-						</button>
-					</td>
-				</form>
+				<td class="mdl-data-table__cell--non-numeric " >
+					<a href="{{ url('admin/users/edit') }}/{{$user->id}}" ><i class="material-icons mdl-button--primary">edit</i></a>
+				</td>
 
 				<td class="mdl-data-table__cell--non-numeric ">
 					<form action=" {{url('admin/delete/user')}}/{{$user->id}}" method="post">

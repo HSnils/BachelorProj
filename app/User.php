@@ -68,7 +68,8 @@ class User extends Authenticatable
 		User::where('id', $this->id)
 			->update([
 				'password' => bcrypt($user['password']),
-				'updated_by' => $this->name
+				'updated_by' => $this->name,
+				'updated_by' => Auth::user()->name
 		]);
 	}
 	/**
@@ -79,7 +80,22 @@ class User extends Authenticatable
 	public function approveUser($user){
 		User::where('id', $this->id)
 			->update([
-				'role' => $user['role']
+				'role' => $user['role'],
+				'updated_by' => Auth::user()->name
+			]);
+	}
+
+		/**
+	 * [approveUser description]
+	 * @param  [type] $user [description]
+	 * @return [type]       [description]
+	 */
+	public function editUser($user){
+		User::where('id', $this->id)
+			->update([
+				'role' => $user['role'],
+				'status' => $user['status'],
+				'updated_by' => Auth::user()->name
 			]);
 	}
 

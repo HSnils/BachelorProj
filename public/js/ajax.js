@@ -19,7 +19,7 @@ $(document).ready(function () {
 		//clears the old data (to remove old prints)
 		$('#equipmentsSection').html('');
 
-		$selectBox = "<select name='equipment_1' id='equipment_1'></select>";
+		$selectBox = "<span for='equipment_1' class='formPadding'>Select Equipment</span><select name='equipment_1' id='equipment_1' class='formPadding width100 marginTop1'></select>";
 
 		$('#equipmentsSection').append($selectBox);
 

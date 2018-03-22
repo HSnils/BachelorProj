@@ -179,6 +179,21 @@ main{
 	border: 1px solid #FFB300;
 	background-color: rgba(255, 193, 7, 0.2) ;
 }
+
+.formPadding{
+	padding: 1em;
+	box-sizing: border-box;
+
+
+}
+
+.marginTop1{
+	margin-top: 1em;
+}
+
+.marginBottom1{
+	margin-bottom: 1em;
+}
 /*----------------*/
 
 
