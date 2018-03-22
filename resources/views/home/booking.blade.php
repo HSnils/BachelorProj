@@ -29,43 +29,39 @@
 	</div>
 	<div class="mdl-card__supporting-text">
 		<div>
-	<form role="form" method="POST" action="{{ url('booking/create') }}" class="formStyle">
-		{{ csrf_field() }}
-		
-		<select name="room_number" id="room_numberBooking">
-			<option disabled="">Select a room</option>
-			@foreach($allRooms as $room)
-				<option value="{{$room->room_number}}">{{$room->room_number}}</option>
-			@endforeach
-		</select>
-		
-		<label for="dateFrom">Time From</label>
-		<input type="date" name="dateFrom" id="dateFrom">
-		<input type="time" name="timeFrom" id="timeFrom">
+			<form role="form" method="POST" action="{{ url('booking/create') }}" class="formStyle bookingForm">
+				{{ csrf_field() }}
+				
+						<select class="formPadding" name="room_number" id="room_numberBooking">
+							<option disabled="">Select a room</option>
+							@foreach($allRooms as $room)
+								<option value="{{$room->room_number}}">{{$room->room_number}}</option>
+							@endforeach
+						</select>
+				
+						<label for="dateFrom" class="formPadding">Time From</label>
+						<input type="date" name="dateFrom" id="dateFrom" class="formPadding">
+						<input type="time" name="timeFrom" id="timeFrom" class="formPadding">
 
-		<label for="dateTo">Time To</label>
-		<input type="date" name="dateTo" id="dateTo">
-		<input type="time" name="timeTo" id="timeTo">
+						<label for="dateTo" class="formPadding">Time To</label>
+						<input type="date" name="dateTo" id="dateTo" class="formPadding">
+						<input type="time" name="timeTo" id="timeTo" class="formPadding">
 		
 
 
-		<section id="equipmentsSection">
+						<section id="equipmentsSection" class="marginTop1 marginBottom1 width100">
 			
-		</section>
+						</section>
 
-		<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" style="float:right">
-			Book
-		</button>
+				<div class="mdl-card__actions mdl-card--border">
+					<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" style="float:right">
+						Book
+					</button>
+				</div>
 
-	</form>
-
-	@include('partials.errors')
-</div>
-	</div>
-	<div class="mdl-card__actions mdl-card--border">
-		<a class="mdl-button mdl-button--primary mdl-js-button mdl-js-ripple-effect">
-			Booking
-		</a>
+			</form>
+			@include('partials.errors')
+		</div>
 	</div>
 	<div class="mdl-card__menu">
 		<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
