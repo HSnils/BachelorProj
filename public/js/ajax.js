@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 		//gets the value of the selected item
 		$room = $(this).val();
-
+		
 		$.get("home/" + $room, displayRoomEquipment);
 	});
 
@@ -18,7 +18,7 @@ $(document).ready(function () {
 		$data = JSON.parse(data);
 		//clears the old data (to remove old prints)
 		$('#equipmentsSection').html('');
-
+		
 		$selectBox = "<span for='equipment_1' class='formPadding'>Select Equipment</span><select name='equipment_1' id='equipment_1' class='formPadding width100 marginTop1'></select>";
 
 		$('#equipmentsSection').append($selectBox);
