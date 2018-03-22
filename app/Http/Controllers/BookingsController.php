@@ -67,40 +67,40 @@ class BookingsController extends Controller
 			}
 		} else if ($checkAvalibility == 0 &&  $checkAvalibilityEquipment == 0){
 			Bookings::create([
-					'type' => 'Room',
-					'category' => 'Noe',
-					'from_date' => $dateFrom,
-					'to_date' => $dateTo,
-					'status' => $status,
-					'user_id' => $user
-				]);
+				'type' => 'Room',
+				'category' => 'Noe',
+				'from_date' => $dateFrom,
+				'to_date' => $dateTo,
+				'status' => $status,
+				'user_id' => $user
+			]);
 
-				$thisBooking = Bookings::orderBy('created_at','DESC')->first();
-				$bookingId = $thisBooking->id;
+			$thisBooking = Bookings::orderBy('created_at','DESC')->first();
+			$bookingId = $thisBooking->id;
 
-				//create
-				bookings_room::create([
-					'bookings_id' => $bookingId,
-					'room_number' => $roomNumber,
-				]);
+			//create
+			bookings_room::create([
+				'bookings_id' => $bookingId,
+				'room_number' => $roomNumber,
+			]);
 
-				Bookings::create([
-					'type' => 'Equipment',
-					'category' => 'Noe',
-					'from_date' => $dateFrom,
-					'to_date' => $dateTo,
-					'status' => $status,
-					'user_id' => $user
-				]);
+			Bookings::create([
+				'type' => 'Equipment',
+				'category' => 'Noe',
+				'from_date' => $dateFrom,
+				'to_date' => $dateTo,
+				'status' => $status,
+				'user_id' => $user
+			]);
 
-				$thisBookingEquipment = Bookings::orderBy('created_at','DESC')->first();
-				$bookingIdEquipment = $thisBookingEquipment->id;
+			$thisBookingEquipment = Bookings::orderBy('created_at','DESC')->first();
+			$bookingIdEquipment = $thisBookingEquipment->id;
 
-				//create
-				bookings_equipment::create([
-					'bookings_id' => $bookingIdEquipment,
-					'equipment_id' => $equipment1,
-				]);
+			//create
+			bookings_equipment::create([
+				'bookings_id' => $bookingIdEquipment,
+				'equipment_id' => $equipment1,
+			]);
 
 		}else{
 
