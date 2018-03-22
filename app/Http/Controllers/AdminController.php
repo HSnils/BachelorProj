@@ -53,18 +53,20 @@ class AdminController extends Controller
 		}
 	}
 
+
 	public function editUser(User $user){
 		$this->validate(request(), [
-			'role' => 'required'
+			'role' => 'required',
+			'status' => 'required'
 		]);
 		$isAdmin = auth()->user()->role == 'Admin';
 
 		if ($isAdmin){
-			$user->approveUser(request(['role']));
+			$user->editUser(request());
 
 			//Flashes the session with a value for notify user
 			//Flash only lasts for 1 redriect
-			session()->flash('notifyUser', 'Users role updated!');
+			session()->flash('notifyUser', 'User updated!');
 			return redirect()->route('users');
 			//User::where('id', $user->id)
 		}
@@ -86,10 +88,17 @@ class AdminController extends Controller
 			//flashes the session with a value for notify user
 			//flash only lasts for 1 redriect
 			session()->flash('notifyUser', 'User deleted!');
-			return redirect()->route('admin');
+			return redirect()->route('users');
 		} else {
 			echo 'You are not an admin!';
 		}
+	}
+
+	public function showEditUser($user){
+		$userID = $user;
+		$thisUser = User::where('id', $userID)->get();
+		$allRoles = Roles::orderBy('role', 'desc')->get();
+		return view('admin.editUser', compact('thisUser', 'allRoles'));
 	}
 
 }

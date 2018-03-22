@@ -48,6 +48,7 @@ Route::get('admin/logg', 'AdminController@indexLoggAdmin')->name('logg')->middle
 Route::post('/admin/approve/user/{user}', 'AdminController@approveUser')->middleware('auth');
 Route::post('/admin/edit/user/{user}', 'AdminController@editUser')->middleware('auth');
 Route::delete('admin/delete/user/{user}', 'AdminController@deleteUser')->middleware('auth');
+Route::get('admin/users/edit/{user}', 'AdminController@showEditUser');
 
 //Admin - Create/edit rooms
 Route::get('admin/rooms/newRoom', 'RoomsController@newRoom')->name('newRoom')->middleware('auth');
