@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Bookings;
+use App\Equipments;
 
 class bookings_equipment extends Model
 {
@@ -14,7 +16,7 @@ class bookings_equipment extends Model
 	}
 	
 	public function equipment() {
-		return $this->belongsTo(Equipments::class, 'equipment_id');
+		return $this->belongsTo(Equipments::class, 'id');
 		
 	}
 }

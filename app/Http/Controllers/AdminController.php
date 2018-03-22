@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Roles;
 use App\Bookings;
+use App\bookings_room;
+use App\bookings_equipments;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -23,7 +25,8 @@ class AdminController extends Controller
 
 			$allRoles = Roles::where('role', '!=', 'guest')->orderBy('role', 'desc')->get();
 
-			$newBookings = Bookings::join('users', 'bookings.user_id', '=', 'users.id')->where('users.role','student')->where('bookings.status', '!=','Active')->orderBy('bookings.created_at', 'desc')->take(5)->get();
+			//join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')->
+			$newBookings = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->join('users', 'bookings.user_id', '=', 'users.id')->where('users.role','student')->where('bookings.status', '!=','Active')->orderBy('bookings.created_at', 'desc')->take(5)->get();
 
 			session(['adminDashboard' => 'true']);
 			return view('admin.index', compact('newUsers', 'allRoles', 'newBookings'));

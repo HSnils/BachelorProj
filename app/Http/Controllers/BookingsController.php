@@ -27,6 +27,7 @@ class BookingsController extends Controller
 
 		$checkAvalibility = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')->where('from_date', '<=', $dateTo)->where('to_date','>=', $dateFrom)->where('rooms.room_number', '=', $roomNumber)->count();
 
+
 		$user = Auth::user()->id;
 		$userRole = Auth::user()->role;
 		$status;
