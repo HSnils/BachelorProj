@@ -10,7 +10,7 @@
 		<form role="form" method="POST" action="{{ url('admin/edit/user') }}/{{$thisUser[0]->id}}" class="formStyle">
 			{{ csrf_field() }}
 
-			<select id="selectRole" name="role" class="roleSelect" required>
+			<select id="selectRole" name="role" class="roleSelect formPadding " required>
 				@foreach ($allRoles as $role)
 					@if($thisUser[0]->role == $role->role)
 						<option selected value="{{$role->role}}">{{$role->role}}</option>
@@ -24,7 +24,7 @@
 			Edit role
 			</div>
 
-			<select id="selectStatus" name="status" class="roleSelect" required>
+			<select id="selectStatus" name="status" class="roleSelect formPadding marginTop1 marginBottom1" required>
 				@php
 					$statusArray = ['Active', 'Deleted', 'Banned', 'Pending', 'Scammer'];
 				@endphp
