@@ -3,9 +3,9 @@
 @section('content')
 
 <div class="mdl-grid">
-	<div class="mdl-cell mdl-cell--2-col">
+	<div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone">
 	</div>
-	<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone">
+	<div class="mdl-cell mdl-cell--3-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 		<div class="demo-card-square postIt mdl-card postIt mdl-shadow--2dp">
 			<div class="mdl-card__title postIt mdl-card--expand">
 				<h2 class="mdl-card__title-text"> {{ ucfirst(Auth::user()->name) }}'s Profile </h2>
@@ -45,9 +45,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="mdl-cell mdl-cell--1-col">
+	<div class="mdl-cell mdl-cell--1-col mmdl-cell--hide-tablet mdl-cell--hide-phone">
 	</div>
-	<div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+	<div class="mdl-cell mdl-cell--4-col
+				mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 		<div class="mdl-typography--display-1-color-contrast">Update your user details</div>
 
 		<form method="POST" action="{{ url('profile/settings/update/username')}}/{{ Auth::user()->id }}">
@@ -81,7 +82,7 @@
 
 		@include('partials.errors')
 	</div>
-	<div class="mdl-cell mdl-cell--2-col">
+	<div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone">
 	</div>
 </div>
 @endsection
