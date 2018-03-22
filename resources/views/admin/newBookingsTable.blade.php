@@ -30,7 +30,7 @@
 				</td>
 
 				<td class="mdl-data-table__cell--non-numeric">				
-					{{$booking->name}}
+					{{$booking->user->name}}
 				</td>
 				
 				<td>
@@ -42,10 +42,10 @@
 				</td>
 
 				<td class="mdl-data-table__cell--non-numeric">
-					<a href="#"><i class="material-icons">done</i></a>
+					<a href="{{ url('admin/bookings/accept') }}/{{$booking->bookings_id}}" class="approveBookingButton"><i class="material-icons mdl-button--primary">done</i></a>
 				</td>
 				<td class="mdl-data-table__cell--non-numeric">
-					<a href="#"><i class="material-icons">clear</i></a>
+					<a href="{{ url('admin/bookings/delete') }}/{{$booking->bookings_id}}" class="deleteBookingButton"><i class="material-icons">clear</i></a>
 				</td>
 			</tr>		
 		@endforeach

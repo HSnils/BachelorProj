@@ -9,6 +9,14 @@ $(document).ready(function () {
 		}
 	});
 
+	$('.approveBookingButton').click(function(e){
+		//if they click cancel, prevents the default behavior and returns false.
+		if(!confirm('Are you sure you want to approve this booking?')) {
+			e.preventDefault();
+			return false;
+		}
+	});
+
 	$('.deleteBookingButton').click(function(e){
 		//if they click cancel, prevents the default behavior and returns false.
 		if(!confirm('Are you sure you want to delete this booking?')) {
