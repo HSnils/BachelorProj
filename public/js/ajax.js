@@ -5,6 +5,8 @@ $(document).ready(function () {
 
 	$('#room_numberBooking').click(function(e){
 		e.preventDefault();
+
+		//gets the value of the selected item
 		$room = $(this).val();
 
 		$.get("home/" + $room, displayRoomEquipment);
@@ -12,15 +14,15 @@ $(document).ready(function () {
 
 	// Prints the fetched data (from database) to the user.
 	function displayRoomEquipment(data, status, xhr) {
-		//Parse data and clear the html div container.
+		//Parse data 
 		$data = JSON.parse(data);
-
+		//clears the old data (to remove old prints)
 		$('#equipmentsSection').html('');
 
+		//loops through and prints everything
 		for(i in $data){
 			$equipment = $([
-				"<li class='mdl-list__item'><span class='mdl-list__item-primary-content'>"+$data[i].name+"</span></li>"
-				
+				"<li class='mdl-list__item'><span class='mdl-list__item-primary-content'>"+$data[i].name+"</span></li>"	
 				].join());
 			$('#equipmentsSection').append($equipment);
 		}
