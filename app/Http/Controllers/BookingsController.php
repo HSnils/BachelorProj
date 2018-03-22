@@ -66,4 +66,10 @@ class BookingsController extends Controller
 
 
 	}
+
+	public function roomSelected($room){
+		$getEquipmentsInRoom = Equipments::where('location', $room)->get();
+
+		return json_encode($getEquipmentsInRoom);
+	}
 }

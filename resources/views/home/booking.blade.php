@@ -46,7 +46,7 @@
 	<form role="form" method="POST" action="{{ url('booking/create') }}" class="formStyle">
 		{{ csrf_field() }}
 		
-		<select name="room_number" id="room_number">
+		<select name="room_number" id="room_numberBooking">
 			<option disabled="">Select a room</option>
 			@foreach($allRooms as $room)
 				<option value="{{$room->room_number}}">{{$room->room_number}}</option>
@@ -60,7 +60,16 @@
 		<label for="dateTo">Time To</label>
 		<input type="date" name="dateTo" id="dateTo">
 		<input type="time" name="timeTo" id="timeTo">
+		
 
+
+		<ul id="equipmentsSection" class=" mdl-list">
+			<li class="mdl-list__item">
+			<span class="mdl-list__item-primary-content">
+			Bryan Cranston
+			</span>
+			</li>
+		</ul>
 
 		<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" style="float:right">
 			Book

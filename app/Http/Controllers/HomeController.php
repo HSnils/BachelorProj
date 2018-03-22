@@ -11,20 +11,12 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-   
     
-     public function index()
-    {
+     public function index(){
+
         $allUsers = User::all();
         $allRooms = Rooms::all();
         session()->forget('adminDashboard');
         return view('home.index', compact('allUsers', 'allRooms'));
     }
-    /*
-    public function index()
-    {
-        $allCategories = Category::all();
-        $allItems = Item::where('status', 'Open')->latest()->take(20)->get();
-		return view('home.index', compact('allCategories', 'allItems'));
-    }*/
 }

@@ -57,3 +57,6 @@ Route::post('admin/rooms/edit', 'RoomsController@editRoom')->middleware('auth');
 
 // Email Verification
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+
+//Booking room selected
+Route::get('home/{room}', 'BookingsController@roomSelected')->middleware('auth');
