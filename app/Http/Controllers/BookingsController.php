@@ -27,8 +27,10 @@ class BookingsController extends Controller
 		$dateTo = $request->input('dateTo') . ' ' . $request->input('timeTo').":00";
 		$equipment1 = $request->input('equipment_1');
 
+		//need to fix query add between stuff
 		$checkAvalibility = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')->where('from_date', '<=', $dateTo)->where('to_date','>=', $dateFrom)->where('rooms.room_number', '=', $roomNumber)->count();
 
+		//need to fix query add between stuff
 		$checkAvalibilityEquipment = Bookings::join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')->where('from_date', '<=', $dateTo)->where('to_date','>=', $dateFrom)->where('equipments.id', $equipment1)->count();
 
 		$user = Auth::user()->id;
@@ -115,5 +117,46 @@ class BookingsController extends Controller
 		$getEquipmentsInRoom = Equipments::where('location', $room)->get();
 
 		return json_encode($getEquipmentsInRoom);
+	}
+
+	public function delete( $booking){
+		$isAdmin = auth()->user()->role == 'Admin';
+		//if statement to check if $isAdmin is true
+		if ($isAdmin){
+			$id = $booking;
+
+			Bookings::where('id', $id)->delete();
+
+			//flashes the session with a value for notify user
+			//flash only lasts for 1 redriect
+			session()->flash('notifyUser', 'Booking deleted!');
+			return redirect()->route('admin');
+		} else {
+			echo 'You are not an admin!';
+		}
+		
+	}
+
+	public function approve( $booking){
+		$isAdmin = auth()->user()->role == 'Admin';
+		//if statement to check if $isAdmin is true
+		if ($isAdmin){
+			$id = $booking;
+
+			Bookings::where('id', $id)->
+			update([
+				'status' => 'Active'
+			]);
+
+			//SHOULD ADD UPDATED BY HERE!!!!!! >:D
+
+			//flashes the session with a value for notify user
+			//flash only lasts for 1 redriect
+			session()->flash('notifyUser', 'Booking approved!');
+			return redirect()->route('admin');
+		} else {
+			echo 'You are not an admin!';
+		}
+		
 	}
 }

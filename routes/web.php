@@ -61,3 +61,6 @@ Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
 //Booking room selected
 Route::get('home/{room}', 'BookingsController@roomSelected')->middleware('auth');
+
+Route::get('admin/bookings/accept/{booking}', 'BookingsController@accept')->middleware('auth');
+Route::get('admin/bookings/delete/{booking}', 'BookingsController@delete')->middleware('auth');
