@@ -63,13 +63,9 @@
 		
 
 
-		<ul id="equipmentsSection" class=" mdl-list">
-			<li class="mdl-list__item">
-			<span class="mdl-list__item-primary-content">
-			Bryan Cranston
-			</span>
-			</li>
-		</ul>
+		<section id="equipmentsSection">
+			
+		</section>
 
 		<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" style="float:right">
 			Book

@@ -8,6 +8,7 @@ use App\Rooms;
 use App\Equipments;
 use App\User;
 use App\bookings_room;
+use App\bookings_equipment;
 use Auth;
 
 class BookingsController extends Controller
@@ -24,9 +25,11 @@ class BookingsController extends Controller
 		$roomNumber = $request->input('room_number') ;
 		$dateFrom = $request->input('dateFrom') . ' ' . $request->input('timeFrom').":00";
 		$dateTo = $request->input('dateTo') . ' ' . $request->input('timeTo').":00";
+		$equipment1 = $request->input('equipment_1');
 
 		$checkAvalibility = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')->where('from_date', '<=', $dateTo)->where('to_date','>=', $dateFrom)->where('rooms.room_number', '=', $roomNumber)->count();
 
+		$checkAvalibilityEquipment = Bookings::join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')->where('from_date', '<=', $dateTo)->where('to_date','>=', $dateFrom)->where('equipments.id', $equipment1)->count();
 
 		$user = Auth::user()->id;
 		$userRole = Auth::user()->role;
@@ -39,30 +42,71 @@ class BookingsController extends Controller
 		}
 
 		//if checkAvalibility == 0 there is no other bookings
-		if($checkAvalibility == 0){
+		if(!$request->has('equipment_1')){
+			if($checkAvalibility == 0){
 
+				Bookings::create([
+					'type' => 'Room',
+					'category' => 'Noe',
+					'from_date' => $dateFrom,
+					'to_date' => $dateTo,
+					'status' => $status,
+					'user_id' => $user
+				]);
+
+				$thisBooking = Bookings::orderBy('created_at','DESC')->first();
+				$bookingId = $thisBooking->id;
+				//create
+				bookings_room::create([
+					'bookings_id' => $bookingId,
+					'room_number' => $roomNumber,
+				]);
+
+			} else {
+				//error
+			}
+		} else if ($checkAvalibility == 0 &&  $checkAvalibilityEquipment == 0){
 			Bookings::create([
-				'type' => 'Room',
-				'category' => 'Noe',
-				'from_date' => $dateFrom,
-				'to_date' => $dateTo,
-				'status' => $status,
-				'user_id' => $user
-			]);
+					'type' => 'Room',
+					'category' => 'Noe',
+					'from_date' => $dateFrom,
+					'to_date' => $dateTo,
+					'status' => $status,
+					'user_id' => $user
+				]);
 
-			$thisBooking = Bookings::orderBy('created_at','DESC')->first();
-			$bookingId = $thisBooking->id;
-			//create
-			bookings_room::create([
-				'bookings_id' => $bookingId,
-				'room_number' => $roomNumber,
-			]);
+				$thisBooking = Bookings::orderBy('created_at','DESC')->first();
+				$bookingId = $thisBooking->id;
 
-		} else {
-			//error
+				//create
+				bookings_room::create([
+					'bookings_id' => $bookingId,
+					'room_number' => $roomNumber,
+				]);
+
+				Bookings::create([
+					'type' => 'Equipment',
+					'category' => 'Noe',
+					'from_date' => $dateFrom,
+					'to_date' => $dateTo,
+					'status' => $status,
+					'user_id' => $user
+				]);
+
+				$thisBookingEquipment = Bookings::orderBy('created_at','DESC')->first();
+				$bookingIdEquipment = $thisBookingEquipment->id;
+
+				//create
+				bookings_equipment::create([
+					'bookings_id' => $bookingId,
+					'equipment_id' => $equipment1,
+				]);
+
+		}else{
+
 		}
 
-		return view('home.test', compact('checkAvalibility'));
+		return view('home.test', compact('checkAvalibility', 'checkAvalibilityEquipment'));
 
 
 	}

@@ -19,12 +19,17 @@ $(document).ready(function () {
 		//clears the old data (to remove old prints)
 		$('#equipmentsSection').html('');
 
+		$selectBox = "<select name='equipment_1' id='equipment_1'></select>";
+
+		$('#equipmentsSection').append($selectBox);
+
 		//loops through and prints everything
 		for(i in $data){
 			$equipment = $([
-				"<li class='mdl-list__item'><span class='mdl-list__item-primary-content'>"+$data[i].name+"</span></li>"	
+
+				"<option value='"+$data[i].id+"'>"+$data[i].name+"</option>"	
 				].join());
-			$('#equipmentsSection').append($equipment);
+			$('#equipment_1').append($equipment);
 		}
 	}
 });
