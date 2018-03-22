@@ -98,7 +98,7 @@ class BookingsController extends Controller
 
 				//create
 				bookings_equipment::create([
-					'bookings_id' => $bookingId,
+					'bookings_id' => $bookingIdEquipment,
 					'equipment_id' => $equipment1,
 				]);
 
