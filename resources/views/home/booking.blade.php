@@ -28,21 +28,7 @@
 		</h2>
 	</div>
 	<div class="mdl-card__supporting-text">
-		Booking coming soon...
-	</div>
-	<div class="mdl-card__actions mdl-card--border">
-		<a class="mdl-button mdl-button--primary mdl-js-button mdl-js-ripple-effect">
-			Booking
-		</a>
-	</div>
-	<div class="mdl-card__menu">
-		<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-			<i class="material-icons">share</i>
-		</button>
-	</div>
-</div>
-
-<div>
+		<div>
 	<form role="form" method="POST" action="{{ url('booking/create') }}" class="formStyle">
 		{{ csrf_field() }}
 		
@@ -75,3 +61,16 @@
 
 	@include('partials.errors')
 </div>
+	</div>
+	<div class="mdl-card__actions mdl-card--border">
+		<a class="mdl-button mdl-button--primary mdl-js-button mdl-js-ripple-effect">
+			Booking
+		</a>
+	</div>
+	<div class="mdl-card__menu">
+		<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+			<i class="material-icons">share</i>
+		</button>
+	</div>
+</div>
+
