@@ -4,9 +4,9 @@
 
 	<h1 class="flex100">
 	@if($checkRoomAvalibility == 0)
-		Room is avalible {{$equimentsAvalible}}
+		Room is avalible 
 	@else
-		Room is allready booked{{$equimentsAvalible}}
+		Room is allready booked
 	@endif
 	</h1>
 	
@@ -15,5 +15,6 @@
 	<br>
 	<br>
 	<h1>{{print_r($allInputs)}}</h1>
+	
 
 @endsection

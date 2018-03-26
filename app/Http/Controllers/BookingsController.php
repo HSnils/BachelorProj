@@ -29,6 +29,9 @@ class BookingsController extends Controller
 		//subtracts the required fields from the number if inputs
 		$numberOfEquipments = count($allInputs) - $requiredFields;
 
+		//gets the equipments selected array
+		$equipmentsArray = $request->input('selectedEquipments');
+
 		//fills variables with inputs
 		$roomNumber = $request->input('room_number') ;
 		$dateFrom = $request->input('dateFrom') . ' ' . $request->input('timeFrom').":00";
@@ -50,35 +53,42 @@ class BookingsController extends Controller
 		//need to fix query add between stuff - checks if room is avalible
 		$checkRoomAvalibility = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')->where('from_date', '<=', $dateTo)->where('to_date','>=', $dateFrom)->where('rooms.room_number', '=', $roomNumber)->count();
 
-		$roomAvalible = false;
+		
 		//if checkRoomAvalibility == 0 there was no other bookings and the room is avalible
 		if($checkRoomAvalibility == 0){
-			$roomAvalible == true;
+			$roomAvalible = true;
 		} else {
-			$roomAvalible == false;
+			$roomAvalible = false;
 		}
 
-		$equimentsAvalible = true;
+		
 		//check to find out if the equiment/s are avablible, only do this if there was any booked equipments
-		if($numberOfEquipments >= 1){
+		function checkEquipmentAvalibility($equipmentsArray, $dateTo, $dateFrom){
+			
 
-			for($i = $requiredFields; $i < count($allInputs); $i++){
-				$equipment_id = $allInputs['equipment_1'];
+			for($i = 0; $i < count($equipmentsArray); $i++){
+				$equipment_id = $equipmentsArray[$i];
+
 				$equipmentCheck = Bookings::join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')->where('from_date', '<=', $dateTo)->where('to_date','>=', $dateFrom)->where('equipments.id', $equipment_id)->count();
 
 				//if there was another equipment booking at the same time, change equipments avalible to false
-				if($equipmentCheck == 1){
+				if($equipmentCheck >= 1){
 
-					$equimentsAvalible = false;
+					return false;
 				}
 			}
+			//if it did the whole for loop without finding another booking at same time return true
+			return true;
 		}
-		
+
+		if($numberOfEquipments >= 1){
+			$equimentsAvalible = checkEquipmentAvalibility($equipmentsArray, $dateTo, $dateFrom);
+		}
 
 		//if checkRoomAvalibility == 0 there is no other room bookings
 		//if number of bookings
 		if($numberOfEquipments == 0){
-			if($roomAvalible){
+			if($roomAvalible == true){
 				//creates a booking on room if there was no equipments selected and the room is avalible
 				
 				Bookings::create([
@@ -103,7 +113,7 @@ class BookingsController extends Controller
 			} else {
 				//error
 			}
-		} else if ($roomAvalible == true &&  $equimentsAvalible == true){
+		} else if($roomAvalible == true &&  $equimentsAvalible == true){
 			//if room is avalible and there is an equipment selected
 			
 			Bookings::create([
@@ -115,7 +125,8 @@ class BookingsController extends Controller
 				'user_id' => $user
 			]);
 
-			$thisBooking = Bookings::orderBy('created_at','DESC')->first();
+			//finds the ID of the booking we just created to fill the "bookings_rooms" table bookings_id coloumn
+			$thisBooking = Bookings::orderBy('id','DESC')->where('type', 'Room')->first();
 			$bookingId = $thisBooking->id;
 
 			//create
@@ -125,9 +136,7 @@ class BookingsController extends Controller
 			]);
 
 
-			for($i = $requiredFields; $i < count($allInputs); $i++){
-				//need to fix query add between stuff
-			
+			for($i = 0; $i < count($equipmentsArray); $i++){
 
 				Bookings::create([
 					'type' => 'Equipment',
@@ -138,13 +147,14 @@ class BookingsController extends Controller
 					'user_id' => $user
 				]);
 
-				$thisBookingEquipment = Bookings::orderBy('created_at','DESC')->first();
+				//finds the ID of the booking we just created to fill the "bookings_equipments" table bookings_id coloumn
+				$thisBookingEquipment = Bookings::orderBy('id','DESC')->where('type', 'Equipment')->first();
 				$bookingIdEquipment = $thisBookingEquipment->id;
 
 				//create
 				bookings_equipment::create([
 					'bookings_id' => $bookingIdEquipment,
-					'equipment_id' => $allInputs[$i],
+					'equipment_id' => $equipmentsArray[$i],
 				]);
 			}
 
@@ -152,7 +162,7 @@ class BookingsController extends Controller
 
 		}
 
-		return view('home.test', compact('checkRoomAvalibility', 'numberOfEquipments' ,'allInputs', 'equimentsAvalible'));
+		return view('home.test', compact('checkRoomAvalibility', 'numberOfEquipments' ,'allInputs'));
 
 
 	}
