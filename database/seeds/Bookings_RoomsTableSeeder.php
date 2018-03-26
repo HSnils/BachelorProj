@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\bookings_room;
 
-class BookingsTableSeeder extends Seeder
+class Bookings_RoomsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,7 @@ class BookingsTableSeeder extends Seeder
     public function run() {
 		bookings_room::create([
 			'bookings_id' => 1,
-			'room_number' => 'A001',
+			'room_number' => 'A001'
 		]);
     }
 }

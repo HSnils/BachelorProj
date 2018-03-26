@@ -10,6 +10,8 @@ class bookings_equipment extends Model
 {
     protected $guarded = [];
 	
+	public $timestamps = false;
+	
 	public function booking() {
 		return $this->belongsTo(Bookings::class, 'id');
 		
