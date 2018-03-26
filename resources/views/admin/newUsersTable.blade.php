@@ -57,3 +57,12 @@
 		@endforeach
 	</tbody>
 </table>
+<!--<script>
+	$(document).ready(function(){
+    $('select').formSelect();
+	var instance = M.FormSelect.getInstance(HTMLFormControlsCollection);
+	instance.getSelectedValues();
+  });
+	
+      
+</script>-->

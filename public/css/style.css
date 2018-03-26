@@ -5,11 +5,13 @@ body{
 }
 
 footer{
-	position: absolute;
-	bottom: 0;
+	/*position: absolute;
+	bottom: 0;*/
 	width: 100%;
+	flex-basis: 100%;
 	box-sizing: border-box;
-	z-index: 1;
+
+	margin-top: 16em;
 }
 
 #notifyUser{
@@ -27,15 +29,16 @@ a:hover {
 }
 
 main{
-	margin-top: 2em;
-	box-sizing: border-box;
-	padding: 0 10% 0 10%;
 
 }
+
 .page-content{
+	margin-top: 2em;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	box-sizing: border-box;
+	padding: 0 10% 0 10%;
 	/*align-items: center;
 	align-content: center;*/
 	justify-content: center;
@@ -199,7 +202,6 @@ main{
 .formPadding{
 	padding: 1em;
 	box-sizing: border-box;
-
 }
 
 .bookingsForm{
@@ -225,8 +227,41 @@ main{
 	align-self: flex-start;
 }
 .formGroup input{
+  width: 100%;
+}
+
+#noBulletPoints li {
+	list-style-type: none;
+}
+
+.demo-card-square.mdl-card.postIt {
+  width: auto;
+  height: auto;
+}
+.demo-card-square.postIt > .mdl-card__title.postIt {
+  color: #757575;
+  background-color: RGB(241, 210, 130);
+}
+
+.mdl-card__supporting-text.postIt {
+	background-color: RGBA(241, 210, 130, 0.75);
 	width: 100%;
 }
+
+.mdl-card__actions.postIt {
+	
+	background-color: RGBA(241, 210, 130, 0.75);
+}
+
+.bulletColor {
+	color: #757575;
+	
+}
+
+.mdl-grid {	
+  width: 100%;
+}
+
 /*----------------*/
 
 

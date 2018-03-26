@@ -13,7 +13,7 @@ class EquipmentsTableSeeder extends Seeder
     public function run() {
 		Equipments::create([
 			'name' => 'Canon 50D',
-			'location' => 'A002',
+			'location' => 'A008',
 			'type' => 'Kamera',
 			'desc' => 'Dette er et smud kamera!'
 		]);

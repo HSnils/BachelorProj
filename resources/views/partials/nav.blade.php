@@ -3,7 +3,7 @@
 	<header class="mdl-layout__header ">
 	<div class="mdl-layout__header-row">
 		<!-- Title -->
-		<span class="mdl-layout-title">Colorlab NTNU</span>
+		<span class="mdl-layout-title">Colourlab NTNU</span>
 		<!-- Add spacer, to align navigation to the right -->
 		<div class="mdl-layout-spacer"></div>
 
@@ -44,7 +44,7 @@
 	</div>
 	</header>
 	<div class="mdl-layout__drawer">
-		<span class="mdl-layout-title">Colorlab</span>
+		<span class="mdl-layout-title">Colourlab</span>
 		<nav class="mdl-navigation">
 			
 			<!-- Checks if the user hasnt logged in-->

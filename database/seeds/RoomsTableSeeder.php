@@ -12,45 +12,58 @@ class RoomsTableSeeder extends Seeder
      */
     public function run() {
     	Rooms::create([
-			'room_number' => 'A001',
-			'type' => 'Colorlab',
+			'room_number' => 'A008',
+			'type' => 'Photo studio',
+			'building' => 'A'
+		]);
+		
+		Rooms::create([
+			'room_number' => 'A009',
+			'type' => 'Projection Systems',
 			'building' => 'A'
 		]);
 
 		Rooms::create([
-			'room_number' => 'A002',
-			'type' => 'Videolab',
+			'room_number' => 'A010',
+			'type' => 'Multispectral acquisition and reproduction',
+			'building' => 'A'
+		]);
+		
+		Rooms::create([
+			'room_number' => 'A011',
+			'type' => 'Psychometrics',
 			'building' => 'A'
 		]);
 
 		Rooms::create([
-			'room_number' => 'A003',
-			'type' => 'Videolab',
+			'room_number' => 'A012',
+			'type' => 'Colour management and measurement ',
 			'building' => 'A'
 		]);
 
 		Rooms::create([
-			'room_number' => 'A004',
-			'type' => 'Videolab',
+			'room_number' => 'A013',
+			'type' => 'Meeting room',
+			'building' => 'A'
+		]);
+		
+		Rooms::create([
+			'room_number' => 'A014',
+			'type' => 'Eye tracking',
+			'building' => 'A'
+		]);
+		
+		Rooms::create([
+			'room_number' => 'A043',
+			'type' => 'Image Acquisition',
 			'building' => 'A'
 		]);
 
 		Rooms::create([
-			'room_number' => 'B015',
-			'type' => 'Colorlab',
-			'building' => 'B'
+			'room_number' => 'A257',
+			'type' => 'Video Analytics',
+			'building' => 'A'
 		]);
-
-		Rooms::create([
-			'room_number' => 'G00K',
-			'type' => 'Kjøkkenlab',
-			'building' => 'G'
-		]);
-
-		Rooms::create([
-			'room_number' => 'K114',
-			'type' => '3D-printer lab',
-			'building' => 'K'
-		]);
+		
     }
 }
