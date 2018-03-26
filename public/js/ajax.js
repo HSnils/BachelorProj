@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 		//gets the value of the selected item
 		$room = $(this).val();
-
+		
 		$.get("home/" + $room, displayRoomEquipment);
 	});
 

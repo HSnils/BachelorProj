@@ -43,6 +43,9 @@
 
 	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+	<!--getmdl-select-->   
+	<link rel="stylesheet" href="{{ url('/') }}/css/getmdl-select/getmdl-select.min.css">
+	<script defer src="{{ url('/') }}/css/getmdl-select/getmdl-select.min.js"></script>
 
 	<!--Font awesome -->
 	<!--<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>-->

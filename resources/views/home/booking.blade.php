@@ -46,8 +46,6 @@
 						<label for="dateTo" class="formPadding ">Book To</label>
 						<input type="date" name="dateTo" id="dateTo" class="formPadding ">
 						<input type="time" name="timeTo" id="timeTo" class="formPadding ">
-		
-
 
 						<section id="equipmentsSection" class="marginTop1 marginBottom1 width100">
 			
@@ -69,4 +67,15 @@
 		</button>
 	</div>
 </div>
+<!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+			<input class="mdl-textfield__input" value="" id="room_number" readonly/>
+			<input value="" type="hidden" name="Select Room"/>
+			<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+				<label class="mdl-textfield__label" for="room_number">Room Number</label>
+					<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="room_number">
+						@foreach($allRooms as $room)
+							<li class="mdl-menu__item" data-val="{{ $room->room_number }}">{{ $room->room_number }}</li>
+						@endforeach
+					</ul>
+		</div>-->
 
