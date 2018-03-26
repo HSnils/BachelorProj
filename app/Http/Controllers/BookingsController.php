@@ -62,8 +62,9 @@ class BookingsController extends Controller
 		//check to find out if the equiment/s are avablible, only do this if there was any booked equipments
 		if($numberOfEquipments >= 1){
 
-			for($i = $requiredFields; $i < $numberOfEquipments; $i++){
-				$equipmentCheck = Bookings::join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')->where('from_date', '<=', $dateTo)->where('to_date','>=', $dateFrom)->where('equipments.id', $allInputs[$i])->count();
+			for($i = $requiredFields; $i < count($allInputs); $i++){
+				$equipment_id = $allInputs['equipment_1'];
+				$equipmentCheck = Bookings::join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')->where('from_date', '<=', $dateTo)->where('to_date','>=', $dateFrom)->where('equipments.id', $equipment_id)->count();
 
 				//if there was another equipment booking at the same time, change equipments avalible to false
 				if($equipmentCheck == 1){
@@ -124,7 +125,7 @@ class BookingsController extends Controller
 			]);
 
 
-			for($i = $requiredFields; $i < $numberOfEquipments; $i++){
+			for($i = $requiredFields; $i < count($allInputs); $i++){
 				//need to fix query add between stuff
 			
 

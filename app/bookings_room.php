@@ -10,6 +10,8 @@ class bookings_room extends Model
 {
 	protected $guarded = [];
 	
+	public $timestamps = false;
+	
     public function booking() {
 		return $this->belongsTo(Bookings::class, 'id');
 		
@@ -19,4 +21,5 @@ class bookings_room extends Model
 		return $this->belongsTo(Rooms::class, 'room_number');
 		
 	}
+	
 }
