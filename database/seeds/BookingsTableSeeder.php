@@ -12,12 +12,10 @@ class BookingsTableSeeder extends Seeder
      */
     public function run() {
 		Bookings::create([
-			'type' => 'Noe',
+			'type' => 'Room',
 			'category' => 'Noe',
 			'from_date' => now(),
 			'to_date' => now(),
-			'room_number' => 'A002',
-			'equipment_id' => 1,
 			'user_id' => 2
 		]);
     }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Roles;
 use App\Bookings;
+use App\bookings_room;
+use App\bookings_equipments;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -23,7 +25,8 @@ class AdminController extends Controller
 
 			$allRoles = Roles::where('role', '!=', 'guest')->orderBy('role', 'desc')->get();
 
-			$newBookings = Bookings::join('users', 'bookings.user_id', '=', 'users.id')->where('users.role', 'student')->orderBy('bookings.created_at', 'desc')->take(5)->get();
+			//join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')->
+			$newBookings = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->join('users', 'bookings.user_id', '=', 'users.id')->select('users.id as userID, bookings.id as bookingID')->where('users.role','student')->where('bookings.status', '!=','Active')->orderBy('bookings.created_at', 'desc')->take(5)->get();
 
 			session(['adminDashboard' => 'true']);
 			return view('admin.index', compact('newUsers', 'allRoles', 'newBookings'));
@@ -50,18 +53,20 @@ class AdminController extends Controller
 		}
 	}
 
+
 	public function editUser(User $user){
 		$this->validate(request(), [
-			'role' => 'required'
+			'role' => 'required',
+			'status' => 'required'
 		]);
 		$isAdmin = auth()->user()->role == 'Admin';
 
 		if ($isAdmin){
-			$user->approveUser(request(['role']));
+			$user->editUser(request());
 
 			//Flashes the session with a value for notify user
 			//Flash only lasts for 1 redriect
-			session()->flash('notifyUser', 'Users role updated!');
+			session()->flash('notifyUser', 'User updated!');
 			return redirect()->route('users');
 			//User::where('id', $user->id)
 		}
@@ -83,10 +88,17 @@ class AdminController extends Controller
 			//flashes the session with a value for notify user
 			//flash only lasts for 1 redriect
 			session()->flash('notifyUser', 'User deleted!');
-			return redirect()->route('admin');
+			return redirect()->route('users');
 		} else {
 			echo 'You are not an admin!';
 		}
+	}
+
+	public function showEditUser($user){
+		$userID = $user;
+		$thisUser = User::where('id', $userID)->get();
+		$allRoles = Roles::orderBy('role', 'desc')->get();
+		return view('admin.editUser', compact('thisUser', 'allRoles'));
 	}
 
 }

@@ -27,4 +27,14 @@ class Bookings extends Model
     public function category() { 
         return $this->hasOne(Category::class);
     }
+	
+	public function bookingEquipment() {
+		return $this->hasOne(bookings_equipment::class, 'bookings_id');
+		
+	}
+	
+	public function bookingRoom() {
+		return $this->hasOne(bookings_room::class, 'bookings_id');
+		
+	}
 }

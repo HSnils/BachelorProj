@@ -3,7 +3,7 @@
 	<header class="mdl-layout__header ">
 	<div class="mdl-layout__header-row">
 		<!-- Title -->
-		<span class="mdl-layout-title">Cololab NTNU</span>
+		<span class="mdl-layout-title">Colourlab NTNU</span>
 		<!-- Add spacer, to align navigation to the right -->
 		<div class="mdl-layout-spacer"></div>
 
@@ -15,6 +15,7 @@
 				<a class="mdl-navigation__link" href="{{ route('login') }}">Sign in</a>
 			@else
 				<!-- Show this if user is logged in -->
+				<!--$pagelocation == 'home' ? 'mdl-navigation__link--current a_no_underline' : 'mdl-navigation__link'}}-->
 				<a class="mdl-navigation__link" href="{{ route('home') }}">Bookings</a>
 				<a class="mdl-navigation__link" href="{{ route('rooms') }}">Rooms</a>
 				<a class="mdl-navigation__link" href="{{ route('equipments') }}">Equipments</a>
@@ -43,7 +44,7 @@
 	</div>
 	</header>
 	<div class="mdl-layout__drawer">
-		<span class="mdl-layout-title">Colorlab</span>
+		<span class="mdl-layout-title">Colourlab</span>
 		<nav class="mdl-navigation">
 			
 			<!-- Checks if the user hasnt logged in-->
@@ -52,6 +53,7 @@
 				<a class="mdl-navigation__link" href="{{ route('login') }}">Sign in</a>
 			@else
 				<!-- Show this if user is logged in -->
+				<!--$pageLocation == 'home' ? 'mdl-navigation__link a_no_underline sidenavActive' : 'mdl-navigation__link'-->
 				<a class="mdl-navigation__link" href="{{ route('home') }}">Bookings</a>
 				<a class="mdl-navigation__link" href="{{ route('rooms') }}">Rooms</a>
 				<a class="mdl-navigation__link" href="{{ route('equipments') }}">Equipments</a>

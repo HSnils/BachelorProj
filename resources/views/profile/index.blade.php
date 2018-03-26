@@ -2,33 +2,53 @@
 
 @section('content')
 
-<div class="flex-container">
-	<div class="profileDiv">
-		<div class="mdl-typography--display-1-color-contrast"> {{ Auth::user()->name }}'s Profile<br> </div>
-		<ul>
-			<li>
-				<b>Role:</b> 
-				{{ Auth::user()->role }}
-			</li>
-			<br>
-			<li>
-				<b>E-mail:</b> 
-				{{ Auth::user()->email }}
-			</li>
-			<li>
-				<b>Account status:</b>
-				{{ Auth::user()->status }}
-			</li>
-			<hr>
-			<li>
-				<b>Last login:</b>
-				{{ Auth::user()->last_login }}
-			</li>
-		</ul>
-		<!--<i class="material-icons profilePicture square100">account_box</i>-->
-		<!--<img class="profilePicture" height="100px" width="100px">-->
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone">
 	</div>
-	<div class="slim-container">
+	<div class="mdl-cell mdl-cell--3-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+		<div class="demo-card-square postIt mdl-card postIt mdl-shadow--2dp">
+			<div class="mdl-card__title postIt mdl-card--expand">
+				<h2 class="mdl-card__title-text"> {{ ucfirst(Auth::user()->name) }}'s Profile </h2>
+			</div>
+			<div class="mdl-card__supporting-text postIt">
+				<br>
+				<div class="mdl-typography--headline bulletColor">
+					<b>
+						<i class="material-icons">assignment_ind</i>
+						Role:
+					</b> 
+					{{ Auth::user()->role }}
+				</div>
+				<br>
+				<div class="mdl-typography--headline bulletColor">
+					<b>
+						<i class="material-icons">mail_outline</i> 
+						E-mail:
+					</b> 
+					{{ Auth::user()->email }}
+
+				</div>
+				<br>
+				<br>
+			</div>
+			<div class="mdl-card__actions postIt">
+				<ul id="noBulletPoints" class="bulletColor">
+					<li>
+						<b>Account status:</b>
+						{{ Auth::user()->status }}
+					</li>
+					<li>
+						<b>Last login:</b>
+						{{ Auth::user()->last_login }}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="mdl-cell mdl-cell--1-col mmdl-cell--hide-tablet mdl-cell--hide-phone">
+	</div>
+	<div class="mdl-cell mdl-cell--4-col
+				mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 		<div class="mdl-typography--display-1-color-contrast">Update your user details</div>
 
 		<form method="POST" action="{{ url('profile/settings/update/username')}}/{{ Auth::user()->id }}">
@@ -61,6 +81,8 @@
 		</form>
 
 		@include('partials.errors')
+	</div>
+	<div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone">
 	</div>
 </div>
 @endsection

@@ -1,7 +1,7 @@
-@if (count($errors))
+@if ($errors->any())
 	<div class="form-group">
 		<div class="alertBox alertRed">
-			<ul>
+			<ul id="noBulletPoints">
 				@foreach($errors->all() as $error)
 					<li>{{$error}}</li>
 				@endforeach
