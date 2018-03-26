@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
 		$this->call('RoomsTableSeeder');
 		$this->call('EquipmentsTableSeeder');
 		$this->call('BookingsTableSeeder');
+		$this->call('Bookings_RoomsTableSeeder');
 	}
 }
 
@@ -32,6 +33,8 @@ class ClearTables extends Seeder {
 		DB::table('users')->truncate();
 		DB::table('rooms')->truncate();
 		DB::table('equipments')->truncate();
+		DB::table('bookings_equipments')->truncate();
+		DB::table('bookings_rooms')->truncate();
 		DB::statement('SET FOREIGN_KEY_CHECKS=1');
 		DB::table('categories')->delete();
 	}

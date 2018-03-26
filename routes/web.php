@@ -17,6 +17,10 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->middleware('auth');
 Route::get('home', 'HomeController@index')->name('home')->middleware('auth');
 
+
+//Create a booking
+Route::post('booking/create', 'BookingsController@create')->middleware('auth');
+
 // Rooms
 Route::get('rooms', 'RoomsController@index')->name('rooms')->middleware('auth');
 
@@ -44,6 +48,7 @@ Route::get('admin/logg', 'AdminController@indexLoggAdmin')->name('logg')->middle
 Route::post('/admin/approve/user/{user}', 'AdminController@approveUser')->middleware('auth');
 Route::post('/admin/edit/user/{user}', 'AdminController@editUser')->middleware('auth');
 Route::delete('admin/delete/user/{user}', 'AdminController@deleteUser')->middleware('auth');
+Route::get('admin/users/edit/{user}', 'AdminController@showEditUser');
 
 //Admin - Create/edit rooms
 Route::get('admin/rooms/newRoom', 'RoomsController@newRoom')->name('newRoom')->middleware('auth');
@@ -53,3 +58,9 @@ Route::post('admin/rooms/edit', 'RoomsController@editRoom')->middleware('auth');
 
 // Email Verification
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+
+//Booking room selected
+Route::get('home/{room}', 'BookingsController@roomSelected')->middleware('auth');
+
+Route::get('admin/bookings/accept/{booking}', 'BookingsController@accept')->middleware('auth');
+Route::get('admin/bookings/delete/{booking}', 'BookingsController@delete')->middleware('auth');

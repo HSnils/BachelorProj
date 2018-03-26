@@ -1,4 +1,4 @@
-@if (count($errors))
+@if ($errors->any())
 	<div class="form-group">
 		<div class="alertBox alertRed">
 			<ul id="noBulletPoints">

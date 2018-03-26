@@ -10,6 +10,6 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-bachelor.sublime-project
-bachelor.sublime-workspace
+*.sublime-project
+*.sublime-workspace
 public/.htaccess

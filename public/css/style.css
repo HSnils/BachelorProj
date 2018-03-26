@@ -99,6 +99,14 @@ main{
 .marginL{
 	margin-left:  1em;
 }
+
+.a_no_underline{
+	text-decoration: none;
+}
+
+.sidenavActive{
+	background-color: rgba(0,0,0,0.1);
+}
 /*.signInNav{
 	border-left: 1px solid #fff;
 }*/
@@ -183,6 +191,45 @@ main{
 	background-color: rgba(255, 193, 7, 0.2) ;
 }
 
+.marginTop1{
+	margin-top: 1em;
+}
+
+.marginBottom1{
+	margin-bottom: 1em;
+}
+
+.formPadding{
+	padding: 1em;
+	box-sizing: border-box;
+}
+
+.bookingsForm{
+	display: flex;
+	flex-flow: row wrap;
+	width: 100%;
+	flex-basis: 100%;
+}
+
+.formGroupParent{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+
+	width: 100%;
+	flex-basis: 100%;
+
+}
+.formGroup{
+
+	width: 45%;
+	flex-basis: 45%;
+	align-self: flex-start;
+}
+.formGroup input{
+  width: 100%;
+}
+
 #noBulletPoints li {
 	list-style-type: none;
 }
@@ -212,8 +259,9 @@ main{
 }
 
 .mdl-grid {	
-	width: 100%;
+  width: 100%;
 }
+
 /*----------------*/
 
 
