@@ -27,7 +27,7 @@ $(document).ready(function () {
 		for(i in $data){
 			$equipment = $([
 
-				'<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="equipment-'+$data[i].id+'"><input type="checkbox" id="equipment-'+$data[i].id+'" name="equipment_'+$data[i].id+'" value="'+$data[i].id+'"class="mdl-checkbox__input"><span class="mdl-checkbox__label">'+$data[i].name+'</span></label>'	
+				'<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="equipment-'+$data[i].id+'"><input type="checkbox" id="equipment-'+$data[i].id+'" name="selectedEquipments[]" value="'+$data[i].id+'"class="mdl-checkbox__input"><span class="mdl-checkbox__label">'+$data[i].name+'</span></label>'	
 				].join());
 			$('#equipmentsSection').append($equipment);
 		}
