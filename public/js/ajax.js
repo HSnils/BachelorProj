@@ -22,7 +22,7 @@ $(document).ready(function () {
 		/*$selectBox = "<span for='equipment_1' class='formPadding'>Select Equipment</span><select name='equipment_1' id='equipment_1' class='formPadding width100 marginTop1'></select>";
 
 		$('#equipmentsSection').append($selectBox);*/
-
+		$('#equipmentsSection').append('<span class="marginTop1 marginBottom1">Choose equpment/s</span>');
 		//loops through and prints everything
 		for(i in $data){
 			$equipment = $([

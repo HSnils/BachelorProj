@@ -22,7 +22,7 @@ class BookingsController extends Controller
 			'dateTo' => 'required',
 			'timeTo' => 'required',
 		]);
-		//all fields have a hidden token field so need to add 1 
+		//all fields have a hidden token field so need to add 1, if you add more fields that is not equipments you need to add that to this number
 		$requiredFields = 5 + 1;
 		//gets all inputs into an array
 		$allInputs = $request->all();

@@ -29,24 +29,30 @@
 	</div>
 	<div class="mdl-card__supporting-text">
 		<div>
-			<form role="form" method="POST" action="{{ url('booking/create') }}" class="formStyle bookingForm">
+			<form role="form" method="POST" action="{{ url('booking/create') }}" class="bookingForm">
 				{{ csrf_field() }}
-				
-						<select class="formPadding" name="room_number" id="room_numberBooking">
+						
+						<span class="marginTop1 marginBottom1">Choose a room</span>
+						<select class="formPadding flex100 width100" name="room_number" id="room_numberBooking">
 							<option disabled="">Select a room</option>
 							@foreach($allRooms as $room)
 								<option value="{{$room->room_number}}">{{$room->room_number}}</option>
 							@endforeach
 						</select>
-				
-						<label for="dateFrom" class="formPadding ">Book From</label>
-						<input type="date" name="dateFrom" id="dateFrom" class="formPadding ">
-						<input type="time" name="timeFrom" id="timeFrom" class="formPadding ">
+						
+						<div class="formGroupParent marginTop1 marginBottom1">
+							<div class="formGroup">
+								<label for="dateFrom" class=" ">Book From</label>
+								<input type="date" name="dateFrom" id="dateFrom" class="formPadding marginTop1 ">
+								<input type="time" name="timeFrom" id="timeFrom" class="formPadding ">
+							</div>
 
-						<label for="dateTo" class="formPadding ">Book To</label>
-						<input type="date" name="dateTo" id="dateTo" class="formPadding ">
-						<input type="time" name="timeTo" id="timeTo" class="formPadding ">
-
+							<div class="formGroup">
+								<label for="dateTo" class=" ">Book To</label>
+								<input type="date" name="dateTo" id="dateTo" class="formPadding marginTop1 ">
+								<input type="time" name="timeTo" id="timeTo" class="formPadding ">
+							</div>
+						</div>
 						<section id="equipmentsSection" class="marginTop1 marginBottom1 width100">
 			
 						</section>
