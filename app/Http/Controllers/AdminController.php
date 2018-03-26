@@ -26,7 +26,7 @@ class AdminController extends Controller
 			$allRoles = Roles::where('role', '!=', 'guest')->orderBy('role', 'desc')->get();
 
 			//join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')->
-			$newBookings = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->join('users', 'bookings.user_id', '=', 'users.id')->where('users.role','student')->where('bookings.status', '!=','Active')->orderBy('bookings.created_at', 'desc')->take(5)->get();
+			$newBookings = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->join('users', 'bookings.user_id', '=', 'users.id')->select('users.id as userID, bookings.id as bookingID')->where('users.role','student')->where('bookings.status', '!=','Active')->orderBy('bookings.created_at', 'desc')->take(5)->get();
 
 			session(['adminDashboard' => 'true']);
 			return view('admin.index', compact('newUsers', 'allRoles', 'newBookings'));
