@@ -11,12 +11,12 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    
-     public function index(){
+	
+	 public function index(){
 
-        $allUsers = User::all();
-        $allRooms = Rooms::all();
-        session()->forget('adminDashboard');
-        return view('home.index', compact('allUsers', 'allRooms'));
-    }
+		$allUsers = User::all();
+		$allRooms = Rooms::all();
+		session()->forget('adminDashboard');
+		return view('home.index', compact('allUsers', 'allRooms'));
+	}
 }

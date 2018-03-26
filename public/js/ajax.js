@@ -19,17 +19,18 @@ $(document).ready(function () {
 		//clears the old data (to remove old prints)
 		$('#equipmentsSection').html('');
 
-		$selectBox = "<span for='equipment_1' class='formPadding'>Select Equipment</span><select name='equipment_1' id='equipment_1' class='formPadding width100 marginTop1'></select>";
+		/*$selectBox = "<span for='equipment_1' class='formPadding'>Select Equipment</span><select name='equipment_1' id='equipment_1' class='formPadding width100 marginTop1'></select>";
 
-		$('#equipmentsSection').append($selectBox);
+		$('#equipmentsSection').append($selectBox);*/
 
 		//loops through and prints everything
 		for(i in $data){
 			$equipment = $([
 
-				"<option value='"+$data[i].id+"'>"+$data[i].name+"</option>"	
+				'<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-'+$data[i].id+'"><input type="checkbox" id="checkbox-'+$data[i].id+'" class="mdl-checkbox__input"><span class="mdl-checkbox__label">'+$data[i].name+'</span></label>'	
 				].join());
-			$('#equipment_1').append($equipment);
+			$('#equipmentsSection').append($equipment);
 		}
+		componentHandler.upgradeAllRegistered();
 	}
 });

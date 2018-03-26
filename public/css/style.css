@@ -96,6 +96,14 @@ main{
 .marginL{
 	margin-left:  1em;
 }
+
+.a_no_underline{
+	text-decoration: none;
+}
+
+.sidenavActive{
+	background-color: rgba(0,0,0,0.1);
+}
 /*.signInNav{
 	border-left: 1px solid #fff;
 }*/
