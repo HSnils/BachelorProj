@@ -2,10 +2,18 @@
 
 @section('content')
 
-	<h1>{{$checkAvalibility}}</h1>
-	<h1>{{$checkAvalibilityEquipment}}</h1>
+	<h1 class="flex100">
+	@if($checkRoomAvalibility == 0)
+		Room is avalible {{$equimentsAvalible}}
+	@else
+		Room is allready booked{{$equimentsAvalible}}
+	@endif
+	</h1>
+	
+	<h1 class="flex100">Number of equipments you are trying to book: {{$numberOfEquipments}}</h1>
 	<br>
-	IF NUMBER IS <b>0</b> YOU HAVE BOOKED A ROOM <br>
-	IF NUMBER IS <b>1</b> THERE WAS ALLREADY A BOOKING
+	<br>
+	<br>
+	<h1>{{print_r($allInputs)}}</h1>
 
 @endsection

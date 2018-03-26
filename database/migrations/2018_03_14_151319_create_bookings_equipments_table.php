@@ -6,32 +6,31 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateBookingsEquipmentsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('bookings_equipments', function (Blueprint $table) {
-            $table->increments('bookings_id');
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('bookings_equipments', function (Blueprint $table) {
+			$table->increments('bookings_id');
 			$table->integer('equipment_id')->unsigned();
-            $table->timestamps();
 			
 			$table->foreign('bookings_id')->references('id')->on('bookings')->onUpdate('cascade')->onDelete('cascade');
 			
 			$table->foreign('equipment_id')->references('id')->on('equipments')->onUpdate('cascade')->onDelete('cascade');
 			
-        });
-    }
+		});
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('bookings_equipments');
-    }
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::dropIfExists('bookings_equipments');
+	}
 }

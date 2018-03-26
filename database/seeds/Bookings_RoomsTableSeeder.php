@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Bookings;
+use App\bookings_room;
 
 class BookingsTableSeeder extends Seeder
 {
@@ -11,12 +11,9 @@ class BookingsTableSeeder extends Seeder
      * @return void
      */
     public function run() {
-		Bookings::create([
-			'type' => 'Room',
-			'category' => 'Noe',
-			'from_date' => now(),
-			'to_date' => now(),
-			'user_id' => 2
+		bookings_room::create([
+			'bookings_id' => 1,
+			'room_number' => 'A001',
 		]);
     }
 }
