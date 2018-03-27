@@ -44,13 +44,21 @@
 							<div class="formGroup">
 								<label for="dateFrom" class=" ">Book From</label>
 								<input type="date" name="dateFrom" id="dateFrom" class="formPadding marginTop1 ">
-								<input type="time" name="timeFrom" id="timeFrom" class="formPadding ">
+								<select name="timeFrom" id="timeFrom" class="formPadding width100">
+									@php
+										inputTimeDropdown(6, 20);
+									@endphp
+								</select>
 							</div>
 
 							<div class="formGroup">
 								<label for="dateTo" class=" ">Book To</label>
 								<input type="date" name="dateTo" id="dateTo" class="formPadding marginTop1 ">
-								<input type="time" name="timeTo" id="timeTo" class="formPadding ">
+								<select name="timeTo" id="timeTo" class="formPadding width100">
+									@php
+										inputTimeDropdown(6, 20);
+									@endphp
+								</select>
 							</div>
 						</div>
 						<section id="equipmentsSection" class="marginTop1 marginBottom1 width100">
@@ -73,6 +81,27 @@
 		</button>
 	</div>
 </div>
+
+@php
+	function inputTimeDropdown($minHour, $maxHour){
+		for($i=$minHour;$i<=$maxHour;$i++){
+			for($e=0; $e <= 1; $e++){
+
+					if($e == 1){
+						$minutes = 30;
+					} else {
+						$minutes = "00";
+					}
+
+				if($i < 10){
+					echo '<option value="0'.$i.':'.$minutes.'">0'.$i.':'.$minutes.'</option>';
+				}else{
+					echo '<option value="'.$i.':'.$minutes.'">'.$i.':'.$minutes.'</option>';
+				}
+			}	
+		}
+	}
+@endphp
 <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
 			<input class="mdl-textfield__input" value="" id="room_number" readonly/>
 			<input value="" type="hidden" name="Select Room"/>
