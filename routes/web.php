@@ -71,3 +71,6 @@ Route::get('home/{room}', 'BookingsController@roomSelected')->middleware('auth')
 //admin accept/delete booking
 Route::get('admin/bookings/accept/{booking}', 'BookingsController@accept')->middleware('auth');
 Route::get('admin/bookings/delete/{booking}', 'BookingsController@delete')->middleware('auth');
+
+//route to bookings overview for admin
+Route::get('admin/bookings', 'BookingsController@indexAdmin')->name('bookingsAdmin')->middleware('auth');

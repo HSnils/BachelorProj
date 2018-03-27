@@ -13,7 +13,7 @@
 			<a class="mdl-navigation__link" href="{{ route('admin') }}">Dashboard</a>
 			<a class="mdl-navigation__link" href="{{ route('roomsAdmin') }}">Rooms</a>
 			<a class="mdl-navigation__link" href="{{ route('equipmentsAdmin') }}">Equipments</a>
-			<a class="mdl-navigation__link" href="#">Bookings</a>
+			<a class="mdl-navigation__link" href="{{ route('bookingsAdmin')}}">Bookings</a>
 			<a class="mdl-navigation__link" href="{{ route('users') }}">Users</a>
 			<a class="mdl-navigation__link" href="{{ route('logg') }}">Logg</a>
 
@@ -45,7 +45,7 @@
 				<a class="mdl-navigation__link" href="{{ route('admin') }}">Dashboard</a>
 				<a class="mdl-navigation__link" href="{{ route('roomsAdmin') }}">Rooms</a>
 				<a class="mdl-navigation__link" href="{{ route('equipmentsAdmin') }}">Equipments</a>
-				<a class="mdl-navigation__link" href="#">Bookings</a>
+				<a class="mdl-navigation__link" href="{{ route('bookingsAdmin')}}">Bookings</a>
 				<a class="mdl-navigation__link" href="{{ route('users') }}">Users</a>
 				<a class="mdl-navigation__link" href="{{ route('logg') }}">Logg</a>
 

@@ -20,7 +20,7 @@ class HomeController extends Controller
 
 		$loggedInUser = Auth::id();
 		$timeNow = now();
-		$yourBookings = Bookings::where('user_id', $loggedInUser)->where('from_date', '>', $timeNow)->get();
+		$yourBookings = Bookings::where('user_id', $loggedInUser)->where('from_date', '>', $timeNow)->orderBy('from_date', 'ASC')->get();
 
 		session()->forget('adminDashboard');
 		return view('home.index', compact('allRooms', 'yourBookings'));
