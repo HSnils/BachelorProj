@@ -4,4 +4,6 @@
 
 	@include('home.booking')
 
+	@include('home.myBookings')
+
 @endsection

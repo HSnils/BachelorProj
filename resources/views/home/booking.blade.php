@@ -87,17 +87,27 @@
 		for($i=$minHour;$i<=$maxHour;$i++){
 			for($e=0; $e <= 1; $e++){
 
-					if($e == 1){
-						$minutes = 30;
-					} else {
-						$minutes = "00";
-					}
+				if($e == 1){
+					$minutes = 30;
+				} else {
+					$minutes = 0;
+				}
+				$zero = 0;
 
-				if($i < 10){
-					echo '<option value="0'.$i.':'.$minutes.'">0'.$i.':'.$minutes.'</option>';
+				//checks if time is less than 10hours and minutes adds extra zero in front and adds extra zero in the back
+				if($i < 10 && $e == 0){
+					echo '<option value="'.$zero.$i.':'.$minutes.$minutes.'">'.$zero.$i.':'.$minutes.$minutes.'</option>';
+				//Does not add zero in the back
+				}elseif($i<10 && $e==1){
+					echo '<option value="'.$zero.$i.':'.$minutes.'">'.$zero.$i.':'.$minutes.'</option>';
+				//ands zero in the back not in the front
+				}elseif($e==0){
+					echo '<option value="'.$i.':'.$minutes.$minutes.'">'.$i.':'.$minutes.$minutes.'</option>';
+				//adds no zeros
 				}else{
 					echo '<option value="'.$i.':'.$minutes.'">'.$i.':'.$minutes.'</option>';
 				}
+				
 			}	
 		}
 	}

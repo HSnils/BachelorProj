@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\bookings_room;
 
 class Rooms extends Model
 {

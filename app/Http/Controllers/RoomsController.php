@@ -28,11 +28,11 @@ class RoomsController extends Controller
 	}
 
 	public function createRoom(){
-        $this->validate(request(), [
-        	'room_number' => 'required|min:4|max:30',
-        	'building' => 'required|min:1|max:1',
-        	'type' => 'required',
-        ]);
+		$this->validate(request(), [
+			'room_number' => 'required|min:4|max:30',
+			'building' => 'required|min:1|max:1',
+			'type' => 'required',
+		]);
 
 		$isAdmin = auth()->user()->role == 'Admin';
 
@@ -57,10 +57,10 @@ class RoomsController extends Controller
 
 	public function editRoom(){
 		$this->validate(request(), [
-        	'room_number' => 'required|min:4|max:30',
-        	'building' => 'required|min:1|max:1',
-        	'type' => 'required',
-        ]);
+			'room_number' => 'required|min:4|max:30',
+			'building' => 'required|min:1|max:1',
+			'type' => 'required',
+		]);
 
 		$isAdmin = auth()->user()->role == 'Admin';
 

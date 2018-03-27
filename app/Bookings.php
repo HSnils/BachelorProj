@@ -30,7 +30,6 @@ class Bookings extends Model
 	
 	public function bookingEquipment() {
 		return $this->hasOne(bookings_equipment::class, 'bookings_id');
-		
 	}
 	
 	public function bookingRoom() {
