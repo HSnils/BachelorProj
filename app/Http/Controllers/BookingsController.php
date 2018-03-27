@@ -110,6 +110,8 @@ class BookingsController extends Controller
 					'room_number' => $roomNumber,
 				]);
 
+				session()->flash('notifyUser', 'Room booked!');
+
 			} else {
 				//error
 			}
@@ -158,11 +160,13 @@ class BookingsController extends Controller
 				]);
 			}
 
-		}else{
+			session()->flash('notifyUser', 'Room and Equipment booked!');
 
+		}else{
+			session()->flash('notifyUser', 'Room and Equipment not avalible!');
 		}
 
-		return view('home.test', compact('checkRoomAvalibility', 'numberOfEquipments' ,'allInputs'));
+		return redirect()->route('home');
 
 
 	}
