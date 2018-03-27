@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Equipments;
+use App\Rooms;
 
 class EquipmentsController extends Controller
 {
@@ -26,7 +27,8 @@ class EquipmentsController extends Controller
 
 
 	public function newEquipment(){
-		return view('equipments.create');
+		$allRooms = Rooms::select('room_number')->get();
+		return view('equipments.create', compact('allRooms'));
 	}
 
 	public function createEquipment(){
@@ -55,8 +57,9 @@ class EquipmentsController extends Controller
 	}
 
 	public function showEdit($equipment){
+		$allRooms = Rooms::select('room_number')->get();
 		$thisEquipment = Equipments::where('id', $equipment)->get();
-		return view('equipments.edit', compact('thisEquipment'));
+		return view('equipments.edit', compact('thisEquipment','allRooms'));
 	}
 
 	public function editEquipment($id){

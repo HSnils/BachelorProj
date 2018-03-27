@@ -21,12 +21,18 @@
 				<label class="mdl-textfield__label" for="type">Type...</label>
 				<span class="mdl-textfield__error"></span>
 			</div>
-
-			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				<input class="mdl-textfield__input" type="text" id="location" name="location" value="{{$thisEquipment[0]->location}}">
-				<label class="mdl-textfield__label" for="location">Location...</label>
-				<span class="mdl-textfield__error"></span>
-			</div>
+			
+			<label class="" for="location">Location</label>
+			<select name="location" id="location" class="formPadding">
+				<option value="" disabled>Select location</option>
+				@foreach($allRooms as $room)
+					@if($thisEquipment[0]->location == $room->room_number)
+						<option value="{{$room->room_number}}" selected="">{{$room->room_number}}</option>
+					@else
+						<option value="{{$room->room_number}}">{{$room->room_number}}</option>
+					@endif
+				@endforeach	
+			</select>
 
 			<div class="mdl-textfield mdl-js-textfield">
 				<textarea class="mdl-textfield__input" type="text" rows= "3" id="desc" name="desc" >{{$thisEquipment[0]->desc}}</textarea>

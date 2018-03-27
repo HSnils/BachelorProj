@@ -22,11 +22,13 @@
 				<span class="mdl-textfield__error"></span>
 			</div>
 
-			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				<input class="mdl-textfield__input" type="text" id="location" name="location">
-				<label class="mdl-textfield__label" for="location">Location...</label>
-				<span class="mdl-textfield__error"></span>
-			</div>
+			<label class="" for="location">Location</label>
+			<select name="location" id="location" class="formPadding">
+				<option value="" disabled>Select location</option>
+				@foreach($allRooms as $room)
+					<option value="{{$room->room_number}}">{{$room->room_number}}</option>
+				@endforeach	
+			</select>
 
 			<div class="mdl-textfield mdl-js-textfield">
 				<textarea class="mdl-textfield__input" type="text" rows= "3" id="desc" name="desc" ></textarea>
