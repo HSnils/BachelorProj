@@ -54,7 +54,7 @@ class AdminController extends Controller
 	}
 
 
-	public function editUser(User $user){
+	public function editUser(Request $request, User $user){
 		$this->validate(request(), [
 			'role' => 'required',
 			'status' => 'required'
@@ -62,11 +62,20 @@ class AdminController extends Controller
 		$isAdmin = auth()->user()->role == 'Admin';
 
 		if ($isAdmin){
-			$user->editUser(request());
+			if($request->has('verified')){
+				$user->editUserAndVerify(request());
 
-			//Flashes the session with a value for notify user
-			//Flash only lasts for 1 redriect
-			session()->flash('notifyUser', 'User updated!');
+				//Flashes the session with a value for notify user
+				//Flash only lasts for 1 redriect
+				session()->flash('notifyUser', 'User updated and verified!');
+			}else{
+				$user->editUser(request());
+
+				//Flashes the session with a value for notify user
+				//Flash only lasts for 1 redriect
+				session()->flash('notifyUser', 'User updated!');
+			}
+			
 			return redirect()->route('users');
 			//User::where('id', $user->id)
 		}

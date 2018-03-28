@@ -99,6 +99,22 @@ class User extends Authenticatable
 			]);
 	}
 
+	public function editUserAndVerify($user){
+		if($user['verified'] == 'on'){
+			$verificationState = 1;
+		} elseif ($user['verified'] == 'off'){
+			$verificationState = 0;
+		}
+
+		User::where('id', $this->id)
+			->update([
+				'role' => $user['role'],
+				'status' => $user['status'],
+				'verified' => $verificationState,
+				'updated_by' => Auth::user()->name
+			]);
+	}
+
 	public function deleteUser($user){
 		User::where('id', $this->id)
 			->update([

@@ -30,9 +30,13 @@
 				@endphp
 				@for($i = 0; $i < count($statusArray); $i++)
 					@if($thisUser[0]->status == $statusArray[$i])
-						<option selected value="{{$thisUser[0]->status}}">{{$thisUser[0]->status}}</option>
+						<option selected value="{{$thisUser[0]->status}}">
+							{{$thisUser[0]->status}}
+						</option>
 					@else
-						<option value="{{$statusArray[$i]}}">{{$statusArray[$i]}}</option>
+						<option value="{{$statusArray[$i]}}">
+							{{$statusArray[$i]}}
+						</option>
 					@endif
 				@endfor
 			</select>
@@ -42,8 +46,17 @@
 			Edit status
 			</div>
 
+			@if($thisUser[0]->verified == 0)
+				<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="verified" id="verifyLabel">
+					<input type="checkbox" id="verified" class="mdl-checkbox__input" name="verified">
+					<span class="mdl-checkbox__label">Verify user</span>
+				</label>
+				<div class="mdl-tooltip" data-mdl-for="verifyLabel">
+					Click this to <br>manually verify the user
+				</div>
+			@endif
 
-			<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" style="float:right">
+			<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect marginTop1" style="float:right">
 				Update
 			</button>
 
