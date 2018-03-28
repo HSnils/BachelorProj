@@ -1,4 +1,10 @@
-		<!-- Always shows a header, even in smaller screens. -->
+@php
+		function activeTab($location){
+			return Request::is($location) ? 'activeTab' : '';
+		}
+@endphp
+
+<!-- Always shows a header, even in smaller screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 	<header class="mdl-layout__header ">
 	<div class="mdl-layout__header-row">
@@ -12,14 +18,14 @@
 			<!-- Checks if the user hasnt logged in-->
 			@if (Auth::guest())
 				<hr>
-				<a class="mdl-navigation__link" href="{{ route('login') }}">Sign in</a>
+				<a class="mdl-navigation__link {{ activeTab('login')}}" href="{{ route('login') }}">Sign in</a>
 			@else
 				<!-- Show this if user is logged in -->
 				<!--$pagelocation == 'home' ? 'mdl-navigation__link--current a_no_underline' : 'mdl-navigation__link'}}-->
-				<a class="mdl-navigation__link" href="{{ route('home') }}">Bookings</a>
-				<a class="mdl-navigation__link" href="{{ route('rooms') }}">Rooms</a>
-				<a class="mdl-navigation__link" href="{{ route('equipments') }}">Equipments</a>
-				<a class="mdl-navigation__link" href="{{ route('profile') }}">Profile</a>
+				<a class="mdl-navigation__link {{ activeTab('home')}}" href="{{ route('home') }}">Bookings</a>
+				<a class="mdl-navigation__link {{ activeTab('rooms')}}" href="{{ route('rooms') }}">Rooms</a>
+				<a class="mdl-navigation__link {{ activeTab('equipments')}}" href="{{ route('equipments') }}">Equipments</a>
+				<a class="mdl-navigation__link {{ activeTab('profile')}}" href="{{ route('profile') }}">Profile</a>
 				
 				<!-- Show this if the user is admin -->
 				@if (Auth::user()->role == 'Admin')
@@ -54,10 +60,10 @@
 			@else
 				<!-- Show this if user is logged in -->
 				<!--$pageLocation == 'home' ? 'mdl-navigation__link a_no_underline sidenavActive' : 'mdl-navigation__link'-->
-				<a class="mdl-navigation__link" href="{{ route('home') }}">Bookings</a>
-				<a class="mdl-navigation__link" href="{{ route('rooms') }}">Rooms</a>
-				<a class="mdl-navigation__link" href="{{ route('equipments') }}">Equipments</a>
-				<a class="mdl-navigation__link" href="{{ route('profile') }}">Profile</a>
+				<a class="mdl-navigation__link {{ activeTab('home')}}" href="{{ route('home') }}">Bookings</a>
+				<a class="mdl-navigation__link {{ activeTab('rooms')}}" href="{{ route('rooms') }}">Rooms</a>
+				<a class="mdl-navigation__link {{ activeTab('equipments')}}" href="{{ route('equipments') }}">Equipments</a>
+				<a class="mdl-navigation__link {{ activeTab('profile')}}" href="{{ route('profile') }}">Profile</a>
 				
 				<!-- Show this if the user is admin -->
 				@if (Auth::user()->role == 'Admin')

@@ -1,4 +1,10 @@
-		<!-- Always shows a header, even in smaller screens. -->
+@php
+		function activeTab($location){
+			return Request::is($location) ? 'activeTab adminTab' : '';
+		}
+@endphp
+
+<!-- Always shows a header, even in smaller screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 	<header class="mdl-layout__header">
 	<div class="mdl-layout__header-row">
@@ -10,12 +16,12 @@
 		<nav class="mdl-navigation mdl-layout--large-screen-only">
 			
 			<!-- Show this if user is logged in -->
-			<a class="mdl-navigation__link" href="{{ route('admin') }}">Dashboard</a>
-			<a class="mdl-navigation__link" href="{{ route('roomsAdmin') }}">Rooms</a>
-			<a class="mdl-navigation__link" href="{{ route('equipmentsAdmin') }}">Equipments</a>
-			<a class="mdl-navigation__link" href="{{ route('bookingsAdmin')}}">Bookings</a>
-			<a class="mdl-navigation__link" href="{{ route('users') }}">Users</a>
-			<a class="mdl-navigation__link" href="{{ route('logg') }}">Logg</a>
+			<a class="mdl-navigation__link {{activeTab('admin')}}" href="{{ route('admin') }}">Dashboard</a>
+			<a class="mdl-navigation__link {{activeTab('admin/rooms')}} " href="{{ route('roomsAdmin') }}">Rooms</a>
+			<a class="mdl-navigation__link {{activeTab('admin/equipments')}}" href="{{ route('equipmentsAdmin') }}">Equipments</a>
+			<a class="mdl-navigation__link {{activeTab('admin/bookings')}}" href="{{ route('bookingsAdmin')}}">Bookings</a>
+			<a class="mdl-navigation__link {{activeTab('admin/users')}}" href="{{ route('users') }}">Users</a>
+			<a class="mdl-navigation__link {{activeTab('admin/logg')}}" href="{{ route('logg') }}">Logg</a>
 
 
 			<a href="{{ route('home') }}" class="mdl-navigation__link">
