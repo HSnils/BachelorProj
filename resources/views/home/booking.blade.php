@@ -40,7 +40,7 @@
 						<select class="formPadding flex100 width100" name="room_number" id="room_numberBooking">
 							<option disabled="">Select a room</option>
 							@foreach($allRooms as $room)
-								<option value="{{$room->room_number}}">{{$room->room_number}}</option>
+								<option value="{{$room->room_number}}">{{$room->room_number}} - {{$room->type}}</option>
 							@endforeach
 						</select>
 

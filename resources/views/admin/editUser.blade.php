@@ -6,7 +6,7 @@
 	</div>
 	<br>
 
-	<div class="">
+	<div class="marginTop1">
 		<form role="form" method="POST" action="{{ url('admin/edit/user') }}/{{$thisUser[0]->id}}" class="formStyle">
 			{{ csrf_field() }}
 

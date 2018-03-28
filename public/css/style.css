@@ -278,6 +278,16 @@ main{
 .activeTab.adminTab{
 	color: #fff !important;
 }
+
+.adminNavColor{
+	background-color: rgb(255,152,0) !important;
+}
+
+/*select{
+	border: 0;
+	background-color: transparent;
+	border-bottom: 1px solid blue;
+}*/
 /*----------------*/
 
 
