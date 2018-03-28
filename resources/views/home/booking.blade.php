@@ -17,6 +17,10 @@
 .demo-card-wide > .mdl-card__menu {
 	color: #fff;
 }
+
+.mdl-card__title-text{
+
+}
 </style>
 
 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
@@ -97,11 +101,6 @@
 			</form>
 			@include('partials.errors')
 		</div>
-	</div>
-	<div class="mdl-card__menu">
-		<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-			<i class="material-icons">share</i>
-		</button>
 	</div>
 </div>
 
