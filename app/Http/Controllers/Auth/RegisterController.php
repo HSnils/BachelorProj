@@ -92,7 +92,17 @@ class RegisterController extends Controller
         ]);
  
         Mail::to($user->email)->send(new VerifyMail($user));
- 
+		
+		if (Mail::failures()) {
+        	return redirect('/login')->with('status', 'Mail did not send, ask an admin for verdification');
+    	}
+		else {
+			
+			$user->mailSent = 1;
+			
+		}
+		
+ 		
         return $user;
     }
 	
@@ -118,6 +128,7 @@ class RegisterController extends Controller
 	protected function registered(Request $request, $user)
     {
         $this->guard()->logout();
+		
         return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
     }
 }
