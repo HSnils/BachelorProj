@@ -1,6 +1,10 @@
 @php
-		function activeTab($location){
+		function activeTabAdmin($location){
 			return Request::is($location) ? 'activeTab adminTab' : '';
+		}
+
+		function activeTab($location){
+			return Request::is($location) ? 'activeTab' : '';
 		}
 @endphp
 
@@ -16,12 +20,12 @@
 		<nav class="mdl-navigation mdl-layout--large-screen-only">
 			
 			<!-- Show this if user is logged in -->
-			<a class="mdl-navigation__link {{activeTab('admin')}}" href="{{ route('admin') }}">Dashboard</a>
-			<a class="mdl-navigation__link {{activeTab('admin/rooms')}} " href="{{ route('roomsAdmin') }}">Rooms</a>
-			<a class="mdl-navigation__link {{activeTab('admin/equipments')}}" href="{{ route('equipmentsAdmin') }}">Equipments</a>
-			<a class="mdl-navigation__link {{activeTab('admin/bookings')}}" href="{{ route('bookingsAdmin')}}">Bookings</a>
-			<a class="mdl-navigation__link {{activeTab('admin/users')}}" href="{{ route('users') }}">Users</a>
-			<a class="mdl-navigation__link {{activeTab('admin/logg')}}" href="{{ route('logg') }}">Logg</a>
+			<a class="mdl-navigation__link {{activeTabAdmin('admin')}}" href="{{ route('admin') }}">Dashboard</a>
+			<a class="mdl-navigation__link {{activeTabAdmin('admin/rooms')}} " href="{{ route('roomsAdmin') }}">Rooms</a>
+			<a class="mdl-navigation__link {{activeTabAdmin('admin/equipments')}}" href="{{ route('equipmentsAdmin') }}">Equipments</a>
+			<a class="mdl-navigation__link {{activeTabAdmin('admin/bookings')}}" href="{{ route('bookingsAdmin')}}">Bookings</a>
+			<a class="mdl-navigation__link {{activeTabAdmin('admin/users')}}" href="{{ route('users') }}">Users</a>
+			<a class="mdl-navigation__link {{activeTabAdmin('admin/logg')}}" href="{{ route('logg') }}">Logg</a>
 
 
 			<a href="{{ route('home') }}" class="mdl-navigation__link">
@@ -48,12 +52,12 @@
 		<nav class="mdl-navigation">
 
 				<!-- Show this if user is logged in -->
-				<a class="mdl-navigation__link" href="{{ route('admin') }}">Dashboard</a>
-				<a class="mdl-navigation__link" href="{{ route('roomsAdmin') }}">Rooms</a>
-				<a class="mdl-navigation__link" href="{{ route('equipmentsAdmin') }}">Equipments</a>
-				<a class="mdl-navigation__link" href="{{ route('bookingsAdmin')}}">Bookings</a>
-				<a class="mdl-navigation__link" href="{{ route('users') }}">Users</a>
-				<a class="mdl-navigation__link" href="{{ route('logg') }}">Logg</a>
+				<a class="mdl-navigation__link {{activeTab('admin')}}" href="{{ route('admin') }}">Dashboard</a>
+				<a class="mdl-navigation__link {{activeTab('admin/rooms')}}" href="{{ route('roomsAdmin') }}">Rooms</a>
+				<a class="mdl-navigation__link {{activeTab('admin/equipments')}}" href="{{ route('equipmentsAdmin') }}">Equipments</a>
+				<a class="mdl-navigation__link {{activeTab('admin/bookings')}}" href="{{ route('bookingsAdmin')}}">Bookings</a>
+				<a class="mdl-navigation__link {{activeTab('admin/users')}}" href="{{ route('users') }}">Users</a>
+				<a class="mdl-navigation__link {{activeTab('admin/logg')}}" href="{{ route('logg') }}">Logg</a>
 
 				<a href="{{ route('home') }}" class="mdl-navigation__link">
 				Back to normal page

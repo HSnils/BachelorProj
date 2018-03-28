@@ -56,7 +56,7 @@
 			<!-- Checks if the user hasnt logged in-->
 			@if (Auth::guest())
 				<hr>
-				<a class="mdl-navigation__link" href="{{ route('login') }}">Sign in</a>
+				<a class="mdl-navigation__link {{ activeTab('login')}}" href="{{ route('login') }}">Sign in</a>
 			@else
 				<!-- Show this if user is logged in -->
 				<!--$pageLocation == 'home' ? 'mdl-navigation__link a_no_underline sidenavActive' : 'mdl-navigation__link'-->
