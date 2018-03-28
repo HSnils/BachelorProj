@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
 		$table->string('role', 30)->default('Guest');
 		$table->string('token', 100)->nullable();
     	$table->boolean('verified')->default(false);
+		$table->boolean('mailSent')->default(false);
 		$table->string('status', 30)->default('Active');
 		$table->string('card_id', 50)->nullable();
 		$table->dateTime('last_login');
