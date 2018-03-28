@@ -53,6 +53,7 @@ class RegisterController extends Controller
 	 */
 	protected function validator(array $data)
 	{
+		//|email_domain:'.$data['email'].' add this after email and uncomment function in appprovider to run check on domain
 		return Validator::make($data, [
 			'name' => 'required|string|max:255',
 			'email' => 'required|string|email|max:255|unique:users',
