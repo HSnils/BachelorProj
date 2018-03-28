@@ -32,35 +32,58 @@
 			<form role="form" method="POST" action="{{ url('booking/create') }}" class="bookingForm">
 				{{ csrf_field() }}
 						
-						<span class="marginTop1 marginBottom1">Choose a room</span>
+						<span class="materialLabel marginTop1 marginBottom1">Choose a room</span>
 						<select class="formPadding flex100 width100" name="room_number" id="room_numberBooking">
 							<option disabled="">Select a room</option>
 							@foreach($allRooms as $room)
 								<option value="{{$room->room_number}}">{{$room->room_number}}</option>
 							@endforeach
 						</select>
+
+
 						
 						<div class="formGroupParent marginTop1 marginBottom1">
 							<div class="formGroup">
-								<label for="dateFrom" class=" ">Book From</label>
+								<label for="dateFrom" class="materialLabel ">Book From</label>
 								<input type="date" name="dateFrom" id="dateFrom" class="formPadding marginTop1 ">
+
+								<div class="mdl-tooltip" data-mdl-for="dateFrom">
+									Select starting date
+								</div>
+
 								<select name="timeFrom" id="timeFrom" class="formPadding width100">
 									@php
 										inputTimeDropdown(6, 20);
 									@endphp
 								</select>
+
+								<div class="mdl-tooltip" data-mdl-for="timeFrom">
+									Select starting time
+								</div>
+
 							</div>
 
 							<div class="formGroup">
-								<label for="dateTo" class=" ">Book To</label>
+								<label for="dateTo" class="materialLabel ">Book To</label>
 								<input type="date" name="dateTo" id="dateTo" class="formPadding marginTop1 ">
+								
+								<div class="mdl-tooltip" data-mdl-for="dateTo">
+									Select ending date
+								</div>
+
 								<select name="timeTo" id="timeTo" class="formPadding width100">
 									@php
 										inputTimeDropdown(6, 20);
 									@endphp
 								</select>
+
+								<div class="mdl-tooltip" data-mdl-for="timeTo">
+									Select ending time
+								</div>
+
 							</div>
 						</div>
+
 						<section id="equipmentsSection" class="marginTop1 marginBottom1 width100">
 			
 						</section>
