@@ -262,6 +262,14 @@ main{
   width: 100%;
 }
 
+.materialLabel{
+	color: rgba(0,0,0,.26);
+	font-size:  16px;
+	text-align: left;
+	overflow: hidden;
+	width: 100%;
+	margin-bottom: 0.2em;
+}
 /*----------------*/
 
 

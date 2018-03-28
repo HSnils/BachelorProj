@@ -22,7 +22,7 @@
 				<span class="mdl-textfield__error"></span>
 			</div>
 
-			<label class="" for="location">Location</label>
+			<label class="materialLabel" for="location">Location</label>
 			<select name="location" id="location" class="formPadding">
 				<option value="" disabled>Select location</option>
 				@foreach($allRooms as $room)
@@ -30,7 +30,11 @@
 				@endforeach	
 			</select>
 
-			<div class="mdl-textfield mdl-js-textfield">
+			<div class="mdl-tooltip" data-mdl-for="location">
+				Select location of equipment
+			</div>
+
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				<textarea class="mdl-textfield__input" type="text" rows= "3" id="desc" name="desc" ></textarea>
 				<label class="mdl-textfield__label" for="desc">Description...</label>
 			</div>
@@ -40,16 +44,20 @@
 				<label class="mdl-textfield__label" for="ntnu_id">NTNU ID... (disabled)</label>
 				<span class="mdl-textfield__error"></span>
 			</div>
-
 			
-			<label class="" for="lockdown">Lockdown</label>
+			<label class="materialLabel" for="lockdown">Lockdown</label>
 			<select name="lockdown" id="lockdown" class="formPadding">
 				<option value="" disabled="">Select lockdown state</option>
 				<option value="0" selected="">No</option>
 				<option value="1">Yes</option>
 			</select>
+						<!-- Simple Tooltip -->
 
-			<div class="mdl-textfield mdl-js-textfield">
+			<div class="mdl-tooltip" data-mdl-for="lockdown">
+				Select lockdown state
+			</div>
+
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				<textarea class="mdl-textfield__input" type="text" rows= "3" id="other_documentation" name="other_documentation" ></textarea>
 				<label class="mdl-textfield__label" for="other_documentation">Other Documentation...</label>
 			</div>
