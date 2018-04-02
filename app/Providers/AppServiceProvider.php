@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
 	{	
 		//this will run and check if domain is $allowedEmailDomains
 		/*Validator::extend('email_domain', function($attribute, $value, $parameters, $validator) {
-			$allowedEmailDomains = ['ntnu.no']; //can add more with ['firstDomain', 'secondDomain']
+			$allowedEmailDomains = ['ntnu.no','stud.ntnu.no']; //can add more with ['firstDomain', 'secondDomain']
 			return in_array( explode('@', $parameters[0])[1] , $allowedEmailDomains);
 		});*/
 	}
