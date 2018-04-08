@@ -87,6 +87,8 @@
 
 							</div>
 						</div>
+						
+						<section id="roomPrivacy"></section>
 
 						<section id="equipmentsSection" class="marginTop1 marginBottom1 width100">
 			
