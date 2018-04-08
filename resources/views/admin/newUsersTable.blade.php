@@ -25,7 +25,7 @@
 				<form action="{{url('admin/approve/user')}}/{{$user->id}}" method="post">
 					{{ csrf_field() }}
 					<td class="mdl-data-table__cell--non-numeric">
-						<select id="selectRole{{$user->id}}" name="role" required>
+						<select id="selectRole{{$user->id}}" name="role" required class="formPadding">
 							@foreach ($allRoles as $role)
 								<option value="{{$role->role}}">{{$role->role}}</option>
 							@endforeach

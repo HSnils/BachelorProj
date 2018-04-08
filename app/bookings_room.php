@@ -13,7 +13,7 @@ class bookings_room extends Model
 	public $timestamps = false;
 	
     public function booking() {
-		return $this->belongsTo(Bookings::class, 'id');
+		return $this->belongsTo(Bookings::class,'id');
 		
 	}
 	

@@ -34,11 +34,11 @@
 				</td>
 				
 				<td>
-					{{$booking->from_date}}
+					{{date("d-m-Y H:i",strtotime($booking->from_date))}}
 				</td>
 
 				<td>
-					{{$booking->to_date}}
+					{{date("d-m-Y H:i",strtotime($booking->to_date))}}
 				</td>
 
 				<td class="mdl-data-table__cell--non-numeric">

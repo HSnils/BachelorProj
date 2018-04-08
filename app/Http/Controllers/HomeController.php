@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Rooms;
+use App\Bookings;
+use Auth;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -14,9 +16,13 @@ class HomeController extends Controller
 	
 	 public function index(){
 
-		$allUsers = User::all();
 		$allRooms = Rooms::all();
+
+		$loggedInUser = Auth::id();
+		$timeNow = now();
+		$yourBookings = Bookings::where('user_id', $loggedInUser)->where('from_date', '>', $timeNow)->orderBy('from_date', 'ASC')->get();
+
 		session()->forget('adminDashboard');
-		return view('home.index', compact('allUsers', 'allRooms'));
+		return view('home.index', compact('allRooms', 'yourBookings'));
 	}
 }

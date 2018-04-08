@@ -56,11 +56,21 @@ Route::post('admin/rooms/create', 'RoomsController@createRoom')->middleware('aut
 Route::get('admin/rooms/edit/{room_number}', 'RoomsController@showEdit')->middleware('auth');
 Route::post('admin/rooms/edit', 'RoomsController@editRoom')->middleware('auth');
 
+//Admin - Create/edit equipments
+Route::get('admin/equipments/newEquipment', 'EquipmentsController@newEquipment')->name('newEquipment')->middleware('auth');
+Route::post('admin/equipments/create', 'EquipmentsController@createEquipment')->middleware('auth');
+Route::get('admin/equipments/edit/{id}', 'EquipmentsController@showEdit')->middleware('auth');
+Route::post('admin/equipments/edit/{id}', 'EquipmentsController@editEquipment')->middleware('auth');
+
 // Email Verification
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
 //Booking room selected
 Route::get('home/{room}', 'BookingsController@roomSelected')->middleware('auth');
 
+//admin accept/delete booking
 Route::get('admin/bookings/accept/{booking}', 'BookingsController@accept')->middleware('auth');
 Route::get('admin/bookings/delete/{booking}', 'BookingsController@delete')->middleware('auth');
+
+//route to bookings overview for admin
+Route::get('admin/bookings', 'BookingsController@indexAdmin')->name('bookingsAdmin')->middleware('auth');
