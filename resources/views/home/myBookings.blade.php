@@ -1,5 +1,6 @@
-<section class="flex100 width100">
-	<h1 class="">My Upcomming Bookings</h1>
+<section class="flex100 width100 myBookingsBox">
+	<hr>
+	<h1 class="flex100">My Upcoming Bookings</h1>
 
 	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp flex100">
 		<thead class="" >
@@ -22,18 +23,25 @@
 						@if($booking->type == 'Room')
 							{{$booking->bookingRoom->room_number}}
 						@elseif($booking->type == 'Equipment')
-							{{$booking->bookingEquipment->equipment_id}}
+							@foreach($yourEquipments as $equipment)
+								@if($booking->bookingEquipment->bookings_id == $equipment->bookingsEquipmentBookingID)
+									{{$equipment->equipmentName}}
+								@endif
+							@endforeach
 						@endif
 					</td>
 
-					<td>{{date("d-m-Y H:i",strtotime($booking->from_date))}}</td>
-					<td>{{date("d-m-Y H:i",strtotime($booking->to_date))}}</td>
-					
+					<td>{{date("D d-M. H:i", strtotime($booking->from_date))}}</td>
+					<td>{{date("D d-M. H:i", strtotime($booking->to_date))}}</td>
 					<td class="mdl-data-table__cell--non-numeric">
 					@if($booking->type == 'Room')
 						{{$booking->bookingRoom->room_number}}
 					@elseif($booking->type == 'Equipment')
-						Not working yet
+						@foreach($yourEquipments as $equipment)
+							@if($booking->bookingEquipment->bookings_id == $equipment->bookingsEquipmentBookingID)
+								{{$equipment->location}}
+							@endif
+						@endforeach
 					@endif
 					</td>
 				</tr>

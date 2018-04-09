@@ -16,6 +16,11 @@ $(document).ready(function () {
 	function displayRoomEquipment(data, status, xhr) {
 		//Parse data 
 		$data = JSON.parse(data);
+
+		//shows hidden divs
+		$('#roomPrivacy').prop('hidden', false);
+		$('#bookingUseage').prop('hidden', false);
+		
 		//clears the old data (to remove old prints)
 		$('#equipmentsSection').html('');
 
@@ -31,6 +36,8 @@ $(document).ready(function () {
 				].join());
 			$('#equipmentsSection').append($equipment);
 		}
+
+		$('#bookingButton').prop('disabled', false);
 		componentHandler.upgradeAllRegistered();
 	}
 });

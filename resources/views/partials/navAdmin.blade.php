@@ -13,7 +13,7 @@
 	<header class="mdl-layout__header adminNavColor ">
 	<div class="mdl-layout__header-row">
 		<!-- Title -->
-		<span class="mdl-layout-title">Colourlab NTNU</span>
+		<span class="mdl-layout-title">Colourlab NTNU (Admin)</span>
 		<!-- Add spacer, to align navigation to the right -->
 		<div class="mdl-layout-spacer"></div>
 		<!-- Navigation. We hide it in small screens. -->
@@ -48,7 +48,7 @@
 	</div>
   </header>
   <div class="mdl-layout__drawer">
-	<span class="mdl-layout-title">Colourlab</span>
+	<span class="mdl-layout-title">Colourlab (Admin)</span>
 		<nav class="mdl-navigation">
 
 				<!-- Show this if user is logged in -->
