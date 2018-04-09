@@ -17,10 +17,10 @@
 						</tr>
 					</thead>
 					<tbody class="">
-						@foreach ($allCategories as $categories)
-							@if($categories->category == "Project")
+						@foreach ($allCategories as $category)
+							@if($category->category == "Project")
 							<tr class="">
-								<td class="mdl-data-table__cell--non-numeric">{{$categories->name}}</td>
+								<td class="mdl-data-table__cell--non-numeric">{{$category->name}}</td>
 							</tr>
 							@endif
 						@endforeach
@@ -35,10 +35,10 @@
 						</tr>
 					</thead>
 					<tbody class="">
-						@foreach ($allCategories as $categries)
-						@if($categories->category == "Subject")
+						@foreach ($allCategories as $categry)
+						@if($category->category == "Subject")
 							<tr class="">
-								<td class="mdl-data-table__cell--non-numeric">{{$categories->name}}</td>
+								<td class="mdl-data-table__cell--non-numeric">{{$category->name}}</td>
 							</tr>
 						@endif
 						@endforeach
