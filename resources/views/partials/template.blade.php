@@ -65,7 +65,7 @@
 			@include('partials.nav')
 		@endif
 
-			<main class="mdl-layout__content" style="flex: 2 0 auto;">
+			<main class="mdl-layout__content" style="flex: 1 0 auto;">
 				<div class="page-content"><!-- Your content goes here -->  
 					@yield('content')<!-- Content for each page -->
 				</div>
