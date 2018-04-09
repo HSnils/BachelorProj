@@ -5,13 +5,10 @@ body{
 }
 
 footer{
-	/*position: absolute;
-	bottom: 0;*/
+	position: absolute;
 	width: 100%;
-	flex-basis: 100%;
-	box-sizing: border-box;
-
-	margin-top: 16em;
+	bottom: 0;
+	flex: 1 0 auto;
 }
 
 #notifyUser{
@@ -160,12 +157,20 @@ main{
 	right:  0.3em;
 
 }
-
-.addBtn {
-	position: fixed;
-	bottom: 2em;
-	right:  1em;
+@media only screen and (max-width: 600px) {
+	.addBtn {
+		position: fixed;
+		bottom: 1em;
+		right:  1em;
+	}
 }
+
+@media only screen and (min-width: 992px) {
+	.addBtn {
+	position: fixed;
+	bottom: 1em;
+	right:  1em;
+}} 
 
 .alertBox{
 	width: 100%;

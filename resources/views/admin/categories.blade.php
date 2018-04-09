@@ -27,12 +27,12 @@
 								</td>
 							</tr>
 							@endif
-						@endforeach
+						@endforeach	
+						</button>
 					</tbody>
 				</table>
 				<button class=" mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored addBtn mdl-shadow--2dp">
-					<i class="material-icons">add</i>
-				</button>
+				<i class="material-icons">add</i>	
 			</div>
 			<div class="mdl-tabs__panel" id="subjects-panel">
 				<table class="mdl-data-table mdl-js-data-table mdl-shadow--1dp" style="width: 100%;">
