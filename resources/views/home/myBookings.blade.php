@@ -1,6 +1,6 @@
 <section class="flex100 width100 myBookingsBox">
 	<hr>
-	<div class="mdl-typography--display-3 mdl-color-text--grey-600 flex100">
+	<div class="mdl-typography--display-1-color-contrast flex100">
 		My bookings
 	</div>
 
