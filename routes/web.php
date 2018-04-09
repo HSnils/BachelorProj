@@ -27,9 +27,6 @@ Route::get('rooms', 'RoomsController@index')->name('rooms')->middleware('auth');
 // Equipments
 Route::get('equipments', 'EquipmentsController@index')->name('equipments')->middleware('auth');
 
-// Categories
-Route::get('categories', 'CategoriesController@index')->name('categories')->middleware('auth');
-
 // Routes to profile
 Route::get('/profile', 'ProfileController@index')->name('profile')->middleware('auth');
 
@@ -46,6 +43,7 @@ Route::get('admin/equipments', 'EquipmentsController@indexAdmin')->name('equipme
 Route::get('admin/users', 'UsersController@index')->name('users')->middleware('auth');
 Route::get('admin/bookings', 'BookingsController@index')->name('bookings')->middleware('auth');
 Route::get('admin/logg', 'AdminController@indexLoggAdmin')->name('logg')->middleware('auth');
+Route::get('admin/categories', 'CategoriesController@index')->name('categories')->middleware('auth');
 
 // Admin - approve/edit/delete user
 Route::post('/admin/approve/user/{user}', 'AdminController@approveUser')->middleware('auth');

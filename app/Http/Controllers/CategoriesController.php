@@ -11,6 +11,6 @@ class CategoriesController extends Controller
 	public function index()
 	{
 		$allCategories = Categories::all();
-		return view('categories.index', compact('allCategories'));
+		return view('admin.categories', compact('allCategories'));
 	}
 }

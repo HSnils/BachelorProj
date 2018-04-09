@@ -24,6 +24,7 @@
 			<a class="mdl-navigation__link {{activeTabAdmin('admin/rooms')}} " href="{{ route('roomsAdmin') }}">Rooms</a>
 			<a class="mdl-navigation__link {{activeTabAdmin('admin/equipments')}}" href="{{ route('equipmentsAdmin') }}">Equipments</a>
 			<a class="mdl-navigation__link {{activeTabAdmin('admin/bookings')}}" href="{{ route('bookingsAdmin')}}">Bookings</a>
+			<a class="mdl-navigation__link {{activeTabAdmin('admin/categories')}}" href="{{ route('categories') }}">Categories</a>
 			<a class="mdl-navigation__link {{activeTabAdmin('admin/users')}}" href="{{ route('users') }}">Users</a>
 			<a class="mdl-navigation__link {{activeTabAdmin('admin/logg')}}" href="{{ route('logg') }}">Logg</a>
 
@@ -56,6 +57,7 @@
 				<a class="mdl-navigation__link {{activeTab('admin/rooms')}}" href="{{ route('roomsAdmin') }}">Rooms</a>
 				<a class="mdl-navigation__link {{activeTab('admin/equipments')}}" href="{{ route('equipmentsAdmin') }}">Equipments</a>
 				<a class="mdl-navigation__link {{activeTab('admin/bookings')}}" href="{{ route('bookingsAdmin')}}">Bookings</a>
+				<a class="mdl-navigation__link {{activeTabAdmin('admin/categories')}}" href="{{ route('categories') }}">Categories</a>
 				<a class="mdl-navigation__link {{activeTab('admin/users')}}" href="{{ route('users') }}">Users</a>
 				<a class="mdl-navigation__link {{activeTab('admin/logg')}}" href="{{ route('logg') }}">Logg</a>
 

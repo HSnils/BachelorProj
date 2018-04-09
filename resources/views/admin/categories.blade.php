@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="mdl-grid">
-	<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+	<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 			<div class="mdl-tabs__tab-bar">
 					<a href="#projects-panel" class="mdl-tabs__tab is-active" style="width: 100%;">All Projects</a>
