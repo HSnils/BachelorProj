@@ -89,8 +89,47 @@
 
 							</div>
 						</div>
+
+						<section id="bookingUseage" hidden class="formGroupParent marginTop1 marginBottom1">
+							<div class="formGroup">
+								<label for="useageSelect" class="materialLabel ">Useage:</label>
+								<select name="" id="useageSelect" class="formPadding marginTop1">
+									<option value="education">Education</option>
+									<option value="project">Project</option>
+									<option value="other" selected>Other</option>
+								</select>
+							</div>
+
+							<div class="formGroup">
+								<label for="spesificUseageSelect" class="materialLabel ">Specific:</label>
+								<select name="" id="spesificUseageSelect" class="formPadding marginTop1">
+									<option value="education">Education</option>
+									<option value="project">Project</option>
+									<option value="other" selected>Other</option>
+								</select>
+							</div>
+						</section>
 						
-						<section id="roomPrivacy"></section>
+						<section id="roomPrivacy" hidden>
+							<span class="materialLabel marginTop1 marginBottom1">Room privacy</span>
+							<br>
+							<span class="roomPrivacyBox">
+								<span>
+									<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="others_can_use">
+										<input type="radio" id="others_can_use" class="mdl-radio__button" name="roomPrivacy" value="0" checked>
+										<span class="mdl-radio__label">
+											Others can use
+										</span>
+									</label>
+								</span>
+								<span>
+									<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="room_is_private">
+										<input type="radio" id="room_is_private" class="mdl-radio__button" name="roomPrivacy" value="1">
+										<span class="mdl-radio__label">Private</span>
+									</label>
+								</span>
+							</span>
+						</section>
 
 						<section id="equipmentsSection" class="marginTop1 marginBottom1 width100">
 			
