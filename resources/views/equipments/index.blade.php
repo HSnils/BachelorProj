@@ -2,10 +2,9 @@
 
 @section('content')
 
-<div class="flex-container">
-	<div class="mdl-typography--display-4 mdl-color-text--grey-600 flex100 flex-container">
-    	EQUIPMENT
-	</div>
+<div class="mdl-typography--display-4 mdl-color-text--grey-600 flex100">
+	EQUIPMENT
+</div>
 
 	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp  ">
 		<thead class="">
@@ -27,5 +26,4 @@
 			@endforeach
 		</tbody>	
 	</table>
-</div>
 @endsection
