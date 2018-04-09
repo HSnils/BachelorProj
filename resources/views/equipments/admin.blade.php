@@ -41,7 +41,7 @@
 				@endforeach
 			</tbody>	
 		</table>
-		<button class=" mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored knappis mdl-shadow--2dp">
+		<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored knappis mdl-shadow--2dp">
 			<i class="material-icons">add</i>
 		</button>
 	</div>

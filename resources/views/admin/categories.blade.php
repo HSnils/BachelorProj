@@ -14,6 +14,7 @@
 					<thead class="">
 						<tr class=" ">
 							<th class="mdl-data-table__cell--non-numeric">Name</th>
+							<th class="mdl-data-table__cell--non-numeric">Edit</th>
 						</tr>
 					</thead>
 					<tbody class="">
@@ -21,17 +22,24 @@
 							@if($category->category == "Project")
 							<tr class="">
 								<td class="mdl-data-table__cell--non-numeric">{{$category->name}}</td>
+								<td class="mdl-data-table__cell--non-numeric " >
+									<a href="" ><i class="material-icons mdl-button--primary">edit</i></a>
+								</td>
 							</tr>
 							@endif
 						@endforeach
 					</tbody>
 				</table>
+				<button class=" mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored addBtn mdl-shadow--2dp">
+					<i class="material-icons">add</i>
+				</button>
 			</div>
 			<div class="mdl-tabs__panel" id="subjects-panel">
 				<table class="mdl-data-table mdl-js-data-table mdl-shadow--1dp" style="width: 100%;">
 					<thead class="">
 						<tr class=" ">
 							<th class="mdl-data-table__cell--non-numeric">Name</th>
+							<th class="mdl-data-table__cell--non-numeric">Edit</th>
 						</tr>
 					</thead>
 					<tbody class="">
@@ -39,14 +47,27 @@
 						@if($category->category == "Subject")
 							<tr class="">
 								<td class="mdl-data-table__cell--non-numeric">{{$category->name}}</td>
+								<td class="mdl-data-table__cell--non-numeric " >
+									<a href="{{ url('admin/equipments/edit') }}/{{$equipment->id}}" ><i class="material-icons mdl-button--primary">edit</i></a>
+								</td>
 							</tr>
 						@endif
 						@endforeach
 					</tbody>
 				</table>
+				<button class=" mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--2dp">
+					<i class="material-icons">add</i>
+				</button>
 			</div>
 		</div>
 	</div>
 </div>
 
+
+<script>
+	$('.knappis').click(function(){
+		document.location.href="";
+
+	});
+</script>
 @endsection

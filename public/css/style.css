@@ -161,6 +161,12 @@ main{
 
 }
 
+.addBtn {
+	position: fixed;
+	bottom: 2em;
+	right:  1em;
+}
+
 .alertBox{
 	width: 100%;
 	border-radius: 0.2em;
