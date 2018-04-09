@@ -53,10 +53,10 @@ class BookingsController extends Controller
 		$dateTo = new Carbon($request->input('dateTo') . ' ' . $request->input('timeTo').':00');
 		$dateTo->format('Y-m-d H:i:s');
 		
-		$checkDateFrom = new Carbon($dateFrom);
-		$checkDateFrom->addSecond();
-		$checkDateTo = new Carbon ($dateTo);
-		$checkDateTo->subSecond();
+		$offsetDateFrom = new Carbon($dateFrom);
+		$offsetDateFrom->addSecond();
+		$offsetDateTo = new Carbon ($dateTo);
+		$offsetDateTo->subSecond();
 		//room priv
 		$roomPrivacy = $request->input('roomPrivacy');
 
@@ -75,7 +75,6 @@ class BookingsController extends Controller
 
 		//need to fix query add between stuff - checks if room is avalible
 		/*$checkRoomAvalibility = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')->where('from_date', '<=', $dateTo)->where('to_date','>=', $dateFrom)->where('rooms.room_number', '=', $roomNumber)->count();*/
-		$bookingStatus = "you can book";
 
 		$findsBookingInsideABooking = Bookings::
 			join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
@@ -83,74 +82,73 @@ class BookingsController extends Controller
 			->where('rooms.room_number', '=', $roomNumber)
 			->where('from_date', '<=', $dateFrom)
 			->where('to_date', '>=', $dateTo)
+		->count();
+
+		if($findsBookingInsideABooking == 0){
+			$findsBookingOverlappingBookings = Bookings::
+				join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
+				->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
+				->where('rooms.room_number', '=', $roomNumber)
+				->whereBetween('from_date', [$offsetDateFrom, $offsetDateTo])
+				->orWhereBetween('to_date', [$offsetDateFrom, $offsetDateTo])
 			->count();
 
-			if($findsBookingInsideABooking == 0){
-				$findsBookingBetweenABooking = Bookings::
-			join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
-			->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
-			->where('rooms.room_number', '=', $roomNumber)
-			->whereBetween('from_date', [$checkDateFrom, $checkDateTo])
-			->orWhereBetween('to_date', [$checkDateFrom, $checkDateTo])
-			->count();
+			if($findsBookingOverlappingBookings >= 1){
+				$bookingStatus = "Your booking is overlapping with another booking.";
+				$validator->getMessageBag()->add('roomNotAvalible', $bookingStatus);
+				return Redirect::back()->withErrors($validator)->withInput();
+				$roomAvalible = false;
 
-				if($findsBookingBetweenABooking >= 1){
-					$bookingStatus = "You cant book with a booking that starts inside";
-				}
 			} else {
-				$bookingStatus = "Cant book inside a booking!";
+				$roomAvalible = true;
 			}
-
-			
-		
-			$validator->getMessageBag()->add('kukeri', $bookingStatus);    
-			return Redirect::back()->withErrors($validator)->withInput();
-		
-
-		$checkRoomAvalibility = Bookings::
-			join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
-			->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
-			->where('rooms.room_number', '=', $roomNumber)
-			->whereBetween('from_date', [$dateFrom->toDateTimeString(), $dateTo->toDateTimeString()])
-			->orWhereBetween('to_date', [$dateFrom->toDateTimeString(), $dateTo->toDateTimeString()])
-			->count();
-		
-		//if checkRoomAvalibility == 0 there was no other bookings and the room is avalible
-		if($checkRoomAvalibility == 0){
-			$roomAvalible = true;
 		} else {
 			$roomAvalible = false;
+			$bookingStatus = "Your booking of a room was not avalible!";
+			$validator->getMessageBag()->add('roomNotAvalible', $bookingStatus);
+			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
 		//check to find out if the equiment/s are avablible, only do this if there was any booked equipments
-		function checkEquipmentAvalibility($equipmentsArray, $dateTo, $dateFrom){
+		function checkEquipmentAvalibility($equipmentsArray, $dateTo, $dateFrom, $offsetDateTo, $offsetDateFrom){
 			
 
 			for($i = 0; $i < count($equipmentsArray); $i++){
 				$equipment_id = $equipmentsArray[$i];
 
-				$equipmentCheck = Bookings::
+				$findsBookingInsideABooking = Bookings::
 					join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')
 					->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')
 					->where('equipments.id', $equipment_id)
-					->whereBetween('from_date', [$dateFrom->toDateTimeString(), $dateTo->toDateTimeString()])
-					->orWhereBetween('to_date', [$dateFrom->toDateTimeString(), $dateTo->toDateTimeString()])
+					->where('from_date', '<=', $dateFrom)
+					->where('to_date', '>=', $dateTo)
+				->count();
+
+				if($findsBookingInsideABooking == 0){
+					$findsBookingOverlappingBookings = Bookings::
+						join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')
+						->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')
+						->where('equipments.id', $equipment_id)
+						->whereBetween('from_date', [$offsetDateFrom, $offsetDateTo])
+						->orWhereBetween('to_date', [$offsetDateFrom, $offsetDateTo])
 					->count();
 
-				//if there was another equipment booking at the same time, change equipments avalible to false
-				if($equipmentCheck >= 1){
-
+					if($findsBookingOverlappingBookings >= 1){
+						return false;
+					} 
+				}else{
 					return false;
 				}
+
 			}
 			//if it did the whole for loop without finding another booking at same time return true
 			return true;
 		}
 
 		//runs function to check avalibility of equipments if number of equipments are more than or is equal to 1
-		if($numberOfEquipments >= 1){
+		/*if($numberOfEquipments >= 1){
 			$equimentsAvalible = checkEquipmentAvalibility($equipmentsArray, $dateTo, $dateFrom);
-		}
+		}*/
 
 		//if checkRoomAvalibility == 0 there is no other room bookings
 		//if number of bookings
@@ -181,10 +179,10 @@ class BookingsController extends Controller
 				session()->flash('notifyUser', 'Room booked!');
 			} else {
 				session()->flash('notifyUser', 'Room is not avalible!');
-				$validator->getMessageBag()->add('roomBooked', 'Room was already booked in that time.');    
+				$validator->getMessageBag()->add('roomBooked', 'Your booking of a room is not avalible.');    
 				return Redirect::back()->withErrors($validator)->withInput();
 			}
-		} else if($roomAvalible == true &&  $equimentsAvalible == true){
+		} else if($roomAvalible == true && checkEquipmentAvalibility($equipmentsArray, $dateTo, $dateFrom, $offsetDateTo, $offsetDateFrom)){
 			//if room is avalible and there is an equipment selected
 			
 			Bookings::create([
@@ -234,6 +232,9 @@ class BookingsController extends Controller
 
 		}else{
 			session()->flash('notifyUser', 'Room and Equipment not avalible!');
+			$bookingStatus = "Your booking of a room and equipment is not avalible!";
+			$validator->getMessageBag()->add('roomNotAvalible', $bookingStatus);
+			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
 		return redirect()->route('home');
