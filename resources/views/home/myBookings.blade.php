@@ -24,7 +24,9 @@
 							{{$booking->bookingRoom->room_number}}
 						@elseif($booking->type == 'Equipment')
 							@foreach($yourEquipments as $equipment)
-								{{$equipment->equipmentName}}
+								@if($booking->bookingEquipment->equipment_id == $equipment->equipmentID)
+									{{$equipment->equipmentName}}
+								@endif
 							@endforeach
 						@endif
 					</td>
@@ -37,7 +39,9 @@
 						{{$booking->bookingRoom->room_number}}
 					@elseif($booking->type == 'Equipment')
 						@foreach($yourEquipments as $equipment)
-							{{$equipment->location}}
+							@if($booking->bookingEquipment->equipment_id == $equipment->equipmentID)
+								{{$equipment->location}}
+							@endif
 						@endforeach
 					@endif
 					</td>
