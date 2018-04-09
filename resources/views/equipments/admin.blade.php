@@ -3,7 +3,7 @@
 @section('content')
 	
 	<div class="mdl-typography--display-4 mdl-color-text--grey-600 flex100">
-    	EQUIPMENTS 
+    	EQUIPMENT 
 	</div>
 
 	<div class="relative">
