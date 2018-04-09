@@ -38,7 +38,7 @@
 						
 						<span class="materialLabel marginTop1 marginBottom1">Choose a room</span>
 						<select class="formPadding flex100 width100" name="room_number" id="room_numberBooking">
-							<option disabled="">Select a room</option>
+							<option disabled>Select a room</option>
 							@foreach($allRooms as $room)
 								<option value="{{$room->room_number}}">{{$room->room_number}} - {{$room->type}}</option>
 							@endforeach
@@ -57,6 +57,7 @@
 
 								<select name="timeFrom" id="timeFrom" class="formPadding width100">
 									@php
+										//fills dropdown with options from minimum hour to maximum hour
 										inputTimeDropdown(6, 20);
 									@endphp
 								</select>
@@ -77,6 +78,7 @@
 
 								<select name="timeTo" id="timeTo" class="formPadding width100">
 									@php
+										//fills dropdown with options from minimum hour to maximum hour
 										inputTimeDropdown(6, 20);
 									@endphp
 								</select>
@@ -95,7 +97,7 @@
 						</section>
 
 				<div class="mdl-card__actions mdl-card--border">
-					<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" style="float:right">
+					<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" style="float:right" disabled id="bookingButton">
 						Book
 					</button>
 				</div>
@@ -111,11 +113,13 @@
 		for($i=$minHour;$i<=$maxHour;$i++){
 			for($e=0; $e <= 1; $e++){
 
+				//will only happen once per hour
 				if($e == 1){
 					$minutes = 30;
 				} else {
 					$minutes = 0;
 				}
+
 				$zero = 0;
 
 				//checks if time is less than 10hours and minutes adds extra zero in front and adds extra zero in the back
@@ -136,15 +140,17 @@
 		}
 	}
 @endphp
-<!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-			<input class="mdl-textfield__input" value="" id="room_number" readonly/>
-			<input value="" type="hidden" name="Select Room"/>
-			<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-				<label class="mdl-textfield__label" for="room_number">Room Number</label>
-					<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="room_number">
-						@foreach($allRooms as $room)
-							<li class="mdl-menu__item" data-val="{{ $room->room_number }}">{{ $room->room_number }}</li>
-						@endforeach
-					</ul>
-		</div>-->
+<!--
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+	<input class="mdl-textfield__input" value="" id="room_number" readonly/>
+	<input value="" type="hidden" name="Select Room"/>
+	<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+		<label class="mdl-textfield__label" for="room_number">Room Number</label>
+			<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="room_number">
+				@foreach($allRooms as $room)
+					<li class="mdl-menu__item" data-val="{{ $room->room_number }}">{{ $room->room_number }}</li>
+				@endforeach
+			</ul>
+</div>
+-->
 

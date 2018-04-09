@@ -1,6 +1,6 @@
 <section class="flex100 width100 myBookingsBox">
 	<hr>
-	<h1 class="flex100">My Upcomming Bookings</h1>
+	<h1 class="flex100">My Upcoming Bookings</h1>
 
 	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp flex100">
 		<thead class="" >

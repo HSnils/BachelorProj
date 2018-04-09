@@ -11,6 +11,8 @@ use App\bookings_room;
 use App\bookings_equipment;
 use Auth;
 use Carbon\Carbon;
+use Validator;
+use Redirect;
 
 class BookingsController extends Controller
 {
@@ -21,7 +23,7 @@ class BookingsController extends Controller
 	 */
 	public function create(Request $request){
 		//validates input (checks if they are filled in)
-		$this->validate(request(), [
+		$validator = Validator::make($request->all(), [
 			'room_number' => 'required',
 			'dateFrom' => 'required',
 			'timeFrom' => 'required',
@@ -46,10 +48,15 @@ class BookingsController extends Controller
 		//fills variables with inputs
 		$roomNumber = $request->input('room_number') ;
 		//dates
-		$dateFrom = new Carbon($request->input('dateFrom') . ' ' . $request->input('timeFrom').":00");
+		$dateFrom = new Carbon($request->input('dateFrom') . ' ' . $request->input('timeFrom').':00');
 		$dateFrom->format('Y-m-d H:i:s');
-		$dateTo = new Carbon($request->input('dateTo') . ' ' . $request->input('timeTo').":00");
+		$dateTo = new Carbon($request->input('dateTo') . ' ' . $request->input('timeTo').':00');
 		$dateTo->format('Y-m-d H:i:s');
+		
+		$checkDateFrom = new Carbon($dateFrom);
+		$checkDateFrom->addSecond();
+		$checkDateTo = new Carbon ($dateTo);
+		$checkDateTo->subSecond();
 		//room priv
 		$roomPrivacy = $request->input('roomPrivacy');
 
@@ -68,15 +75,46 @@ class BookingsController extends Controller
 
 		//need to fix query add between stuff - checks if room is avalible
 		/*$checkRoomAvalibility = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')->where('from_date', '<=', $dateTo)->where('to_date','>=', $dateFrom)->where('rooms.room_number', '=', $roomNumber)->count();*/
+		$bookingStatus = "you can book";
+
+		$findsBookingInsideABooking = Bookings::
+			join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
+			->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
+			->where('rooms.room_number', '=', $roomNumber)
+			->where('from_date', '<=', $dateFrom)
+			->where('to_date', '>=', $dateTo)
+			->count();
+
+			if($findsBookingInsideABooking == 0){
+				$findsBookingBetweenABooking = Bookings::
+			join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
+			->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
+			->where('rooms.room_number', '=', $roomNumber)
+			->whereBetween('from_date', [$checkDateFrom, $checkDateTo])
+			->orWhereBetween('to_date', [$checkDateFrom, $checkDateTo])
+			->count();
+
+				if($findsBookingBetweenABooking >= 1){
+					$bookingStatus = "You cant book with a booking that starts inside";
+				}
+			} else {
+				$bookingStatus = "Cant book inside a booking!";
+			}
+
+			
+		
+			$validator->getMessageBag()->add('kukeri', $bookingStatus);    
+			return Redirect::back()->withErrors($validator)->withInput();
+		
 
 		$checkRoomAvalibility = Bookings::
 			join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
 			->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
 			->where('rooms.room_number', '=', $roomNumber)
-			->whereBetween('from_date', [$dateFrom, $dateTo])
-			->orWhereBetween('to_date', [$dateFrom, $dateTo])
+			->whereBetween('from_date', [$dateFrom->toDateTimeString(), $dateTo->toDateTimeString()])
+			->orWhereBetween('to_date', [$dateFrom->toDateTimeString(), $dateTo->toDateTimeString()])
 			->count();
-
+		
 		//if checkRoomAvalibility == 0 there was no other bookings and the room is avalible
 		if($checkRoomAvalibility == 0){
 			$roomAvalible = true;
@@ -84,7 +122,6 @@ class BookingsController extends Controller
 			$roomAvalible = false;
 		}
 
-		
 		//check to find out if the equiment/s are avablible, only do this if there was any booked equipments
 		function checkEquipmentAvalibility($equipmentsArray, $dateTo, $dateFrom){
 			
@@ -96,8 +133,8 @@ class BookingsController extends Controller
 					join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')
 					->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')
 					->where('equipments.id', $equipment_id)
-					->whereBetween('from_date', [$dateFrom, $dateTo])
-					->orWhereBetween('to_date', [$dateFrom, $dateTo])
+					->whereBetween('from_date', [$dateFrom->toDateTimeString(), $dateTo->toDateTimeString()])
+					->orWhereBetween('to_date', [$dateFrom->toDateTimeString(), $dateTo->toDateTimeString()])
 					->count();
 
 				//if there was another equipment booking at the same time, change equipments avalible to false
@@ -142,9 +179,10 @@ class BookingsController extends Controller
 				]);
 
 				session()->flash('notifyUser', 'Room booked!');
-
 			} else {
 				session()->flash('notifyUser', 'Room is not avalible!');
+				$validator->getMessageBag()->add('roomBooked', 'Room was already booked in that time.');    
+				return Redirect::back()->withErrors($validator)->withInput();
 			}
 		} else if($roomAvalible == true &&  $equimentsAvalible == true){
 			//if room is avalible and there is an equipment selected

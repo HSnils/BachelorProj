@@ -38,6 +38,8 @@ $(document).ready(function () {
 				].join());
 			$('#equipmentsSection').append($equipment);
 		}
+
+		$('#bookingButton').prop('disabled', false);
 		componentHandler.upgradeAllRegistered();
 	}
 });
