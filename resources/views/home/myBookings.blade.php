@@ -24,7 +24,7 @@
 							{{$booking->bookingRoom->room_number}}
 						@elseif($booking->type == 'Equipment')
 							@foreach($yourEquipments as $equipment)
-								@if($booking->bookingEquipment->equipment_id == $equipment->equipmentID)
+								@if($booking->bookingEquipment->bookings_id == $equipment->bookingsEquipmentBookingID)
 									{{$equipment->equipmentName}}
 								@endif
 							@endforeach
@@ -33,13 +33,12 @@
 
 					<td>{{date("d-m-Y H:i",strtotime($booking->from_date))}}</td>
 					<td>{{date("d-m-Y H:i",strtotime($booking->to_date))}}</td>
-					
 					<td class="mdl-data-table__cell--non-numeric">
 					@if($booking->type == 'Room')
 						{{$booking->bookingRoom->room_number}}
 					@elseif($booking->type == 'Equipment')
 						@foreach($yourEquipments as $equipment)
-							@if($booking->bookingEquipment->equipment_id == $equipment->equipmentID)
+							@if($booking->bookingEquipment->bookings_id == $equipment->bookingsEquipmentBookingID)
 								{{$equipment->location}}
 							@endif
 						@endforeach

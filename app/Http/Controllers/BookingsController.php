@@ -10,6 +10,7 @@ use App\User;
 use App\bookings_room;
 use App\bookings_equipment;
 use Auth;
+use Carbon\Carbon;
 
 class BookingsController extends Controller
 {
@@ -39,8 +40,11 @@ class BookingsController extends Controller
 
 		//fills variables with inputs
 		$roomNumber = $request->input('room_number') ;
-		$dateFrom = $request->input('dateFrom') . ' ' . $request->input('timeFrom').":00";
-		$dateTo = $request->input('dateTo') . ' ' . $request->input('timeTo').":00";
+
+		$dateFrom = new Carbon($request->input('dateFrom') . ' ' . $request->input('timeFrom').":00");
+		$dateFrom->format('Y-m-d H:i:s');
+		$dateTo = new Carbon($request->input('dateTo') . ' ' . $request->input('timeTo').":00");
+		$dateTo->format('Y-m-d H:i:s');
 
 		//gets current user id and role
 		$user = Auth::user()->id;
