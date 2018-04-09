@@ -157,7 +157,7 @@ class BookingsController extends Controller
 				
 				Bookings::create([
 					'type' => 'Room',
-					'category' => 'Noe',
+					'category' => 'Project',
 					'from_date' => $dateFrom,
 					'to_date' => $dateTo,
 					'status' => $status,
@@ -186,7 +186,7 @@ class BookingsController extends Controller
 			
 			Bookings::create([
 				'type' => 'Room',
-				'category' => 'Noe',
+				'category' => 'Project',
 				'from_date' => $dateFrom,
 				'to_date' => $dateTo,
 				'status' => $status,
@@ -209,7 +209,7 @@ class BookingsController extends Controller
 
 				Bookings::create([
 					'type' => 'Equipment',
-					'category' => 'Noe',
+					'category' => 'Project',
 					'from_date' => $dateFrom,
 					'to_date' => $dateTo,
 					'status' => $status,
