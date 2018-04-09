@@ -1,7 +1,7 @@
 @extends('partials.template')
 
 @section('content')
-	<div class="mdl-typography--display-4 mdl-color-text--grey-600 flex100">
+	<div class="mdl-typography--display-2 mdl-color-text--grey-600 flex100 page-content">
 		EDIT EQUIPMENT: {{$thisEquipment[0]->name}}
 	</div>
 	<br>

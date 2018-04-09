@@ -24,7 +24,7 @@
 				<!--$pagelocation == 'home' ? 'mdl-navigation__link--current a_no_underline' : 'mdl-navigation__link'}}-->
 				<a class="mdl-navigation__link {{ activeTab('home')}}" href="{{ route('home') }}">Bookings</a>
 				<a class="mdl-navigation__link {{ activeTab('rooms')}}" href="{{ route('rooms') }}">Rooms</a>
-				<a class="mdl-navigation__link {{ activeTab('equipments')}}" href="{{ route('equipments') }}">Equipments</a>
+				<a class="mdl-navigation__link {{ activeTab('equipments')}}" href="{{ route('equipments') }}">Equipment</a>
 				<a class="mdl-navigation__link {{ activeTab('profile')}}" href="{{ route('profile') }}">Profile</a>
 				
 				<!-- Show this if the user is admin -->
@@ -62,7 +62,7 @@
 				<!--$pageLocation == 'home' ? 'mdl-navigation__link a_no_underline sidenavActive' : 'mdl-navigation__link'-->
 				<a class="mdl-navigation__link {{ activeTab('home')}}" href="{{ route('home') }}">Bookings</a>
 				<a class="mdl-navigation__link {{ activeTab('rooms')}}" href="{{ route('rooms') }}">Rooms</a>
-				<a class="mdl-navigation__link {{ activeTab('equipments')}}" href="{{ route('equipments') }}">Equipments</a>
+				<a class="mdl-navigation__link {{ activeTab('equipments')}}" href="{{ route('equipments') }}">Equipment</a>
 				<a class="mdl-navigation__link {{ activeTab('profile')}}" href="{{ route('profile') }}">Profile</a>
 				
 				<!-- Show this if the user is admin -->

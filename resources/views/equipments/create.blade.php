@@ -1,8 +1,8 @@
 @extends('partials.template')
 
 @section('content')
-	<div class="mdl-typography--display-4 mdl-color-text--grey-600 flex100">
-		CREATE A NEW EQUIPMENT
+	<div class="mdl-typography--display-2 mdl-color-text--grey-600 flex100 page-content">
+		CREATE NEW EQUIPMENT
 	</div>
 	<br>
 
@@ -53,8 +53,8 @@
 			</select>
 						<!-- Simple Tooltip -->
 
-			<div class="mdl-tooltip" data-mdl-for="lockdown">
-				Select lockdown state
+			<div class="mdl-tooltip mdl-tooltip--large" data-mdl-for="lockdown">
+				Will booking this equipment lock down and book the room?
 			</div>
 
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
