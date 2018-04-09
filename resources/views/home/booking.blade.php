@@ -103,10 +103,12 @@
 				</div>
 
 			</form>
-			@include('partials.errors')
+			
 		</div>
 	</div>
+	@include('partials.errors')
 </div>
+
 
 @php
 	function inputTimeDropdown($minHour, $maxHour){

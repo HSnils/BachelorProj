@@ -53,6 +53,7 @@ class BookingsController extends Controller
 		$dateTo = new Carbon($request->input('dateTo') . ' ' . $request->input('timeTo').':00');
 		$dateTo->format('Y-m-d H:i:s');
 		
+		//offsets the dates with a few seconds to use for a query
 		$offsetDateFrom = new Carbon($dateFrom);
 		$offsetDateFrom->addSecond();
 		$offsetDateTo = new Carbon ($dateTo);
@@ -73,9 +74,7 @@ class BookingsController extends Controller
 			$status = 'Active';
 		}
 
-		//need to fix query add between stuff - checks if room is avalible
-		/*$checkRoomAvalibility = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')->where('from_date', '<=', $dateTo)->where('to_date','>=', $dateFrom)->where('rooms.room_number', '=', $roomNumber)->count();*/
-
+		//checks if the booking is inside of an exsisting booking
 		$findsBookingInsideABooking = Bookings::
 			join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
 			->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
@@ -85,6 +84,7 @@ class BookingsController extends Controller
 		->count();
 
 		if($findsBookingInsideABooking == 0){
+			//checks if the booking is overlapping with an exsisting booking
 			$findsBookingOverlappingBookings = Bookings::
 				join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
 				->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
@@ -93,6 +93,7 @@ class BookingsController extends Controller
 				->orWhereBetween('to_date', [$offsetDateFrom, $offsetDateTo])
 			->count();
 
+			//if its overlapping
 			if($findsBookingOverlappingBookings >= 1){
 				$bookingStatus = "Your booking is overlapping with another booking.";
 				$validator->getMessageBag()->add('roomNotAvalible', $bookingStatus);
@@ -100,6 +101,7 @@ class BookingsController extends Controller
 				$roomAvalible = false;
 
 			} else {
+				//returns true if no errors and the booking is avalible
 				$roomAvalible = true;
 			}
 		} else {
@@ -133,10 +135,12 @@ class BookingsController extends Controller
 						->orWhereBetween('to_date', [$offsetDateFrom, $offsetDateTo])
 					->count();
 
+					//returns false if the booking overlaps another booking
 					if($findsBookingOverlappingBookings >= 1){
 						return false;
 					} 
 				}else{
+					//returns false if there was a booking inside the booking
 					return false;
 				}
 
@@ -144,11 +148,6 @@ class BookingsController extends Controller
 			//if it did the whole for loop without finding another booking at same time return true
 			return true;
 		}
-
-		//runs function to check avalibility of equipments if number of equipments are more than or is equal to 1
-		/*if($numberOfEquipments >= 1){
-			$equimentsAvalible = checkEquipmentAvalibility($equipmentsArray, $dateTo, $dateFrom);
-		}*/
 
 		//if checkRoomAvalibility == 0 there is no other room bookings
 		//if number of bookings
