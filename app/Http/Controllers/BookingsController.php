@@ -28,10 +28,13 @@ class BookingsController extends Controller
 			'dateTo' => 'required',
 			'timeTo' => 'required',
 		]);
+
 		//all fields have a hidden token field so need to add 1, if you add more fields that is not equipments you need to add that to this number
 		$requiredFields = 5 + 1;
+
 		//gets all inputs into an array
 		$allInputs = $request->all();
+		//$requiredFields = count($request->except('selectedEquipments'));
 		//subtracts the required fields from the number if inputs
 		$numberOfEquipments = count($allInputs) - $requiredFields;
 
@@ -67,7 +70,7 @@ class BookingsController extends Controller
 			->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
 			->where('rooms.room_number', '=', $roomNumber)
 			->whereBetween('from_date', [$dateFrom, $dateTo])
-			->whereBetween('to_date', [$dateFrom, $dateTo])
+			->orWhereBetween('to_date', [$dateFrom, $dateTo])
 			->count();
 
 		//if checkRoomAvalibility == 0 there was no other bookings and the room is avalible
@@ -89,8 +92,8 @@ class BookingsController extends Controller
 					join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')
 					->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')
 					->where('equipments.id', $equipment_id)
-					->whereNotBetween('from_date', [$dateFrom, $dateTo])
-					->whereNotBetween('to_date', [$dateFrom, $dateTo])
+					->whereBetween('from_date', [$dateFrom, $dateTo])
+					->orWhereBetween('to_date', [$dateFrom, $dateTo])
 					->count();
 
 				//if there was another equipment booking at the same time, change equipments avalible to false
