@@ -4,13 +4,6 @@ body{
 	font-family: 'Roboto', 'sans-serif';
 }
 
-footer{
-	position: absolute;
-	width: 100%;
-	bottom: 0;
-	flex: 1 0 auto;
-}
-
 #notifyUser{
 	position: absolute;
 	bottom: 2em;
