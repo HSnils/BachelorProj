@@ -1,5 +1,6 @@
-<section class="flex100 width100">
-	<h1 class="">My Upcomming Bookings</h1>
+<section class="flex100 width100 myBookingsBox">
+	<hr>
+	<h1 class="flex100">My Upcomming Bookings</h1>
 
 	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp flex100">
 		<thead class="" >
@@ -22,7 +23,9 @@
 						@if($booking->type == 'Room')
 							{{$booking->bookingRoom->room_number}}
 						@elseif($booking->type == 'Equipment')
-							{{$booking->bookingEquipment->equipment_id}}
+							@foreach($yourEquipments as $equipment)
+								{{$equipment->equipmentName}}
+							@endforeach
 						@endif
 					</td>
 
@@ -33,7 +36,9 @@
 					@if($booking->type == 'Room')
 						{{$booking->bookingRoom->room_number}}
 					@elseif($booking->type == 'Equipment')
-						Not working yet
+						@foreach($yourEquipments as $equipment)
+							{{$equipment->location}}
+						@endforeach
 					@endif
 					</td>
 				</tr>

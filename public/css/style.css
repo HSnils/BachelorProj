@@ -250,7 +250,7 @@ main{
 
 .mdl-card__actions.postIt {
 	
-	background-color: RGBA(241, 210, 130, 0.75);
+	background-color: rgba(241, 210, 130, 0.75);
 }
 
 .bulletColor {
@@ -283,6 +283,22 @@ main{
 	background-color: rgb(255,152,0) !important;
 }
 
+.roomPrivacyBox{
+	display: flex;
+	width: 70%;
+	justify-content: space-between;
+}
+
+.myBookingsBox{
+	margin-top: 1em;
+	display: flex;
+	justify-content: center;
+	flex-flow: column;
+}
+.myBookingsBox h1{
+
+}
+
 /*select{
 	border: 0;
 	background-color: transparent;
@@ -300,3 +316,17 @@ main{
   flex: 0 0 auto;
 }*/
 
+@media only screen and (max-width: 600px) {
+	.roomPrivacyBox{
+		width: 100%;
+	}
+
+	.page-content{
+		margin-top: 1em;
+		padding: 0 5% 0 5%;
+	}
+
+	.myBookingsBox h1{
+		font-size: 2em;
+	}
+}
