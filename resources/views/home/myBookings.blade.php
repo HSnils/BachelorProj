@@ -31,8 +31,8 @@
 						@endif
 					</td>
 
-					<td>{{date("d-m-Y H:i",strtotime($booking->from_date))}}</td>
-					<td>{{date("d-m-Y H:i",strtotime($booking->to_date))}}</td>
+					<td>{{date("D d-M. H:i", strtotime($booking->from_date))}}</td>
+					<td>{{date("D d-M. H:i", strtotime($booking->to_date))}}</td>
 					<td class="mdl-data-table__cell--non-numeric">
 					@if($booking->type == 'Room')
 						{{$booking->bookingRoom->room_number}}

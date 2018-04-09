@@ -18,11 +18,11 @@ $(document).ready(function () {
 		$data = JSON.parse(data);
 
 		//room privacy
-		/*$('#roomPrivacy').html('');
+		$('#roomPrivacy').html('');
 		//shows the room privacy radiobuttons
 		$("#roomPrivacy").append('<span class="materialLabel marginTop1 marginBottom1">Room privacy</span><br>');
 		$("#roomPrivacy").append('<span class="roomPrivacyBox"><span><label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="others_can_use"><input type="radio" id="others_can_use" class="mdl-radio__button" name="roomPrivacy" value="0" checked><span class="mdl-radio__label">Others can use</span></label></span><span><label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="room_is_private"><input type="radio" id="room_is_private" class="mdl-radio__button" name="roomPrivacy" value="1"><span class="mdl-radio__label">Private</span></label></span></span>');
-		*/
+		
 		//clears the old data (to remove old prints)
 		$('#equipmentsSection').html('');
 

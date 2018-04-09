@@ -27,14 +27,16 @@ class BookingsController extends Controller
 			'timeFrom' => 'required',
 			'dateTo' => 'required',
 			'timeTo' => 'required',
+			'roomPrivacy' => 'required',
 		]);
 
 		//all fields have a hidden token field so need to add 1, if you add more fields that is not equipments you need to add that to this number
-		$requiredFields = 5 + 1;
+		//$requiredFields = 5 + 1;
 
 		//gets all inputs into an array
 		$allInputs = $request->all();
-		//$requiredFields = count($request->except('selectedEquipments'));
+
+		$requiredFields = count($request->except('selectedEquipments'));
 		//subtracts the required fields from the number if inputs
 		$numberOfEquipments = count($allInputs) - $requiredFields;
 
@@ -43,11 +45,13 @@ class BookingsController extends Controller
 
 		//fills variables with inputs
 		$roomNumber = $request->input('room_number') ;
-
+		//dates
 		$dateFrom = new Carbon($request->input('dateFrom') . ' ' . $request->input('timeFrom').":00");
 		$dateFrom->format('Y-m-d H:i:s');
 		$dateTo = new Carbon($request->input('dateTo') . ' ' . $request->input('timeTo').":00");
 		$dateTo->format('Y-m-d H:i:s');
+		//room priv
+		$roomPrivacy = $request->input('roomPrivacy');
 
 		//gets current user id and role
 		$user = Auth::user()->id;
@@ -134,6 +138,7 @@ class BookingsController extends Controller
 				bookings_room::create([
 					'bookings_id' => $bookingId,
 					'room_number' => $roomNumber,
+					'private' => $roomPrivacy,
 				]);
 
 				session()->flash('notifyUser', 'Room booked!');
@@ -161,6 +166,7 @@ class BookingsController extends Controller
 			bookings_room::create([
 				'bookings_id' => $bookingId,
 				'room_number' => $roomNumber,
+				'private' => $roomPrivacy,
 			]);
 
 
