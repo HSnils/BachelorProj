@@ -29,7 +29,7 @@
         </tr>
         <tr>
           <td class="logo" align="center" style="background-color:#ffffff; text-align:center; width:480" bgcolor="#ffffff" width="480">
-            <a href="https://www.ntnu.no/" target="_blank"><img src="{asset('images/ntnu_logo.png')}}" width="40%" title="NTNU" alt="NTNU"></a>
+            <a href="https://www.ntnu.no/" target="_blank"><img src="{{asset('images/ntnu_logo.png')}}" width="40%" title="NTNU" alt="NTNU"></a>
           </td>
         </tr>
         <tr>
@@ -53,10 +53,10 @@
         <tr>
           <td class="copy" style="color:#666666; font-family:&quot;Roboto&quot;, Helvetica, Arial, san-serif; font-size:18px; line-height:30px; text-align:center" align="center">
               <br/>
-        	        Your registered email-id is {{ $user['email'] }} , Please click on the below link to verify your email account
+        	        Your registered email is {{ $user['email'] }} , Please click on the below link to verify your email account
 	          <br/>
                 <br>
-            <a href="{{ url('user/verify', $user->verifyUser->token) }}" style="text-decoration: none; text-align: center; font-family:&quot;Roboto&quot;, Helvetica, Arial, san-serif; font-size:20px;">Verify e-mail</a> </td>
+            <a href="{{ url('user/verify', $user->verifyUser->token) }}" style="text-decoration: none; text-align: center; font-family:&quot;Roboto&quot;, Helvetica, Arial, san-serif; font-size:20px;">Verify Email</a> </td>
         </tr>
         
 
@@ -79,7 +79,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <a href="http://colourlab.no" target="_blank"><img src="{asset('images/Colourlab.png')}}" width="90%" alt="NTNU ColourLab" title="NTNU ColourLab"></a>
+                    <a href="http://colourlab.no" target="_blank"><img src="{{asset('images/Colourlab.png')}}" width="90%" alt="NTNU ColourLab" title="NTNU ColourLab"></a>
                   </td>
                 </tr>
                 <tr>

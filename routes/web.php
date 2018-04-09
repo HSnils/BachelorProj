@@ -27,6 +27,9 @@ Route::get('rooms', 'RoomsController@index')->name('rooms')->middleware('auth');
 // Equipments
 Route::get('equipments', 'EquipmentsController@index')->name('equipments')->middleware('auth');
 
+// Categories
+Route::get('categories', 'CategoriesController@index')->name('categories')->middleware('auth');
+
 // Routes to profile
 Route::get('/profile', 'ProfileController@index')->name('profile')->middleware('auth');
 
