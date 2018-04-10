@@ -19,11 +19,18 @@
 			@foreach($yourBookings as $booking)
 
 				<tr>
-					<td class="mdl-data-table__cell--non-numeric">{{$booking->type}}</td>
+					<td class="mdl-data-table__cell--non-numeric">{{$booking->type}}
+							@if(($booking->type == "Room") && ($booking->bookingRoom->private == 0))
+								 - <span style="font-size:0.9em;">Public</span>
+							@elseif($booking->type == "Room")
+								 - <span style="font-size:0.9em;">Private</span>
+							@endif
+					</td>
 					
 					<td class="mdl-data-table__cell--non-numeric">
 						@if($booking->type == 'Room')
 							{{$booking->bookingRoom->room_number}}
+							
 						@elseif($booking->type == 'Equipment')
 							@foreach($yourEquipments as $equipment)
 								@if($booking->bookingEquipment->bookings_id == $equipment->bookingsEquipmentBookingID)

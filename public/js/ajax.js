@@ -60,7 +60,7 @@ $(document).ready(function () {
 
 		//enables spesific usage select
 		//$('#spesificUseageSelect').prop('disabled', false);
-
+		$('#spesificUseageSelect').append('<option disabled selected>Choose useage</option>');
 		//loops through and prints everything
 		for(i in $data){
 			$choices = $([

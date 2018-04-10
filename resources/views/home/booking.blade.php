@@ -104,6 +104,7 @@
 								<label for="spesificUseageSelect" class="materialLabel ">Specific:</label>
 								<select name="spesificUseageSelect" id="spesificUseageSelect" class="formPadding marginTop1">
 									<span id="spesificUseageItems">
+										<option disabled selected>Choose useage</option>
 										@foreach($allCategories as $category)
 											@if($category->type == "Other")
 												<option value="{{$category->category}}">{{$category->category}}</option>
@@ -119,18 +120,26 @@
 							<br>
 							<span class="roomPrivacyBox">
 								<span>
-									<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="others_can_use">
+									<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="others_can_use" id="others_can_use_label">
 										<input type="radio" id="others_can_use" class="mdl-radio__button" name="roomPrivacy" value="0" checked>
 										<span class="mdl-radio__label">
-											Others can use
+											Public
 										</span>
+
 									</label>
+									<div class="mdl-tooltip" data-mdl-for="others_can_use_label">
+									Others can<br> use room
+									</div>
+
 								</span>
 								<span>
-									<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="room_is_private">
+									<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="room_is_private" id="room_is_private_label">
 										<input type="radio" id="room_is_private" class="mdl-radio__button" name="roomPrivacy" value="1">
 										<span class="mdl-radio__label">Private</span>
 									</label>
+									<div class="mdl-tooltip" data-mdl-for="room_is_private_label">
+									Only you<br> use room
+									</div>
 								</span>
 							</span>
 						</section>
