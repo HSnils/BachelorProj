@@ -94,18 +94,22 @@
 							<div class="formGroup">
 								<label for="useageSelect" class="materialLabel ">Useage:</label>
 								<select name="" id="useageSelect" class="formPadding marginTop1">
-									<option value="education">Education</option>
-									<option value="project">Project</option>
-									<option value="other" selected>Other</option>
+									<option value="Education">Education</option>
+									<option value="Project">Projects</option>
+									<option value="Other" selected>Other</option>
 								</select>
 							</div>
 
 							<div class="formGroup">
 								<label for="spesificUseageSelect" class="materialLabel ">Specific:</label>
-								<select name="" id="spesificUseageSelect" class="formPadding marginTop1">
-									<option value="education">Education</option>
-									<option value="project">Project</option>
-									<option value="other" selected>Other</option>
+								<select name="spesificUseageSelect" id="spesificUseageSelect" class="formPadding marginTop1">
+									<span id="spesificUseageItems">
+										@foreach($allCategories as $category)
+											@if($category->type == "Other")
+												<option value="{{$category->category}}">{{$category->category}}</option>
+											@endif
+										@endforeach
+									</span>
 								</select>
 							</div>
 						</section>

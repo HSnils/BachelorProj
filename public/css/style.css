@@ -303,6 +303,18 @@ main{
 
 }
 
+.categoriesTabBox{
+	display: flex;
+	width: 100%;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.categoriesTable{
+	width: 50%;
+	flex-basis: 50%;
+}
+
 /*select{
 	border: 0;
 	background-color: transparent;
@@ -332,5 +344,10 @@ main{
 
 	.myBookingsBox h1{
 		font-size: 2em;
+	}
+
+	.categoriesTable{
+			width: 100%;
+    		flex-basis: 100%;
 	}
 }

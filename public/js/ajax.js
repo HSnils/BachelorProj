@@ -40,4 +40,37 @@ $(document).ready(function () {
 		$('#bookingButton').prop('disabled', false);
 		componentHandler.upgradeAllRegistered();
 	}
+
+	$('#useageSelect').click(function(e){
+		e.preventDefault();
+
+		//gets the value of the selected item
+		$selectedUsage = $(this).val();
+		
+		$.get("home/useage/" + $selectedUsage, displaySpesificUsageChoices);
+	});
+
+	// Prints the fetched data (from database) to the user.
+	function displaySpesificUsageChoices(data, status, xhr) {
+		//Parse data 
+		$data = JSON.parse(data);
+		console.log($data);
+		//clears the old data (to remove old prints)
+		$('#spesificUseageSelect').html('');
+
+		//enables spesific usage select
+		//$('#spesificUseageSelect').prop('disabled', false);
+
+		//loops through and prints everything
+		for(i in $data){
+			$choices = $([
+
+				'<option value="'+$data[i].category+'">'+$data[i].category+'</option>'	
+				].join());
+
+			$('#spesificUseageSelect').append($choices);
+		}
+
+		componentHandler.upgradeAllRegistered();
+	}
 });

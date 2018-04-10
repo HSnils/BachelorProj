@@ -13,13 +13,18 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
 		Categories::create(
-            ['category' => 'EU-123092',
-            'type' => 'Project']
-        );
+			['category' => 'EU-123092',
+			'type' => 'Project']
+		);
 
-        Categories::create(
-            ['category' => 'Other',
-            'type' => 'Other']
-        );
+		Categories::create(
+			['category' => 'Other',
+			'type' => 'Other']
+		);
+
+		Categories::create(
+			['category' => 'IMT 1301',
+			'type' => 'Education']
+		);
     }
 }

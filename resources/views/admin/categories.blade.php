@@ -5,8 +5,8 @@
 	<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect categoriesTabBox">
 			<div class="mdl-tabs__tab-bar flex100">
-					<a href="#projects-panel" class="mdl-tabs__tab is-active" style="width: 100%;">All Projects</a>
-					<a href="#subjects-panel" class="mdl-tabs__tab" style="width: 100%;">All Subjects</a>
+					<a href="#projects-panel" class="mdl-tabs__tab is-active" style="width: 100%;">Projects</a>
+					<a href="#subjects-panel" class="mdl-tabs__tab" style="width: 100%;">Subjects</a>
 					<a href="#other-panel" class="mdl-tabs__tab" style="width: 100%;">Other</a>
 			</div>
 
@@ -45,7 +45,7 @@
 					</thead>
 					<tbody class="">
 						@foreach ($allCategories as $category)
-						@if($category->type == "Subject")
+						@if($category->type == "Education")
 							<tr class="">
 								<td class="mdl-data-table__cell--non-numeric">{{$category->category}}</td>
 								<td class="mdl-data-table__cell--non-numeric " >

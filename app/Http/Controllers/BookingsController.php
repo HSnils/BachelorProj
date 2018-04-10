@@ -9,6 +9,7 @@ use App\Equipments;
 use App\User;
 use App\bookings_room;
 use App\bookings_equipment;
+use App\Categories;
 use Auth;
 use Carbon\Carbon;
 use Validator;
@@ -30,6 +31,8 @@ class BookingsController extends Controller
 			'dateTo' => 'required',
 			'timeTo' => 'required',
 			'roomPrivacy' => 'required',
+			'spesificUseageSelect' => 'required',
+
 		]);
 
 		//all fields have a hidden token field so need to add 1, if you add more fields that is not equipments you need to add that to this number
@@ -60,6 +63,8 @@ class BookingsController extends Controller
 		$offsetDateTo->subSecond();
 		//room priv
 		$roomPrivacy = $request->input('roomPrivacy');
+
+		$useageCategory = $request->input('spesificUseageSelect');
 
 		//gets current user id and role
 		$user = Auth::user()->id;
@@ -157,7 +162,7 @@ class BookingsController extends Controller
 				
 				Bookings::create([
 					'type' => 'Room',
-					'category' => 'Project',
+					'category' => $useageCategory,
 					'from_date' => $dateFrom,
 					'to_date' => $dateTo,
 					'status' => $status,
@@ -186,7 +191,7 @@ class BookingsController extends Controller
 			
 			Bookings::create([
 				'type' => 'Room',
-				'category' => 'Project',
+				'category' => $useageCategory,
 				'from_date' => $dateFrom,
 				'to_date' => $dateTo,
 				'status' => $status,
@@ -209,7 +214,7 @@ class BookingsController extends Controller
 
 				Bookings::create([
 					'type' => 'Equipment',
-					'category' => 'Project',
+					'category' => $useageCategory,
 					'from_date' => $dateFrom,
 					'to_date' => $dateTo,
 					'status' => $status,
@@ -246,6 +251,11 @@ class BookingsController extends Controller
 		$getEquipmentsInRoom = Equipments::where('location', $room)->get();
 
 		return json_encode($getEquipmentsInRoom);
+	}
+
+	public function	useageSelected($useage){
+		$getSelectedUseage = Categories::where('type', $useage)->get();
+		return json_encode($getSelectedUseage);
 	}
 
 	/**
