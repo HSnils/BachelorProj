@@ -49,6 +49,7 @@
 						<div class="formGroupParent marginTop1 marginBottom1">
 							<div class="formGroup">
 								<label for="dateFrom" class="materialLabel ">Book From</label>
+								<br>
 								<input type="date" name="dateFrom" id="dateFrom" class="formPadding marginTop1 ">
 
 								<div class="mdl-tooltip" data-mdl-for="dateFrom">
@@ -70,6 +71,7 @@
 
 							<div class="formGroup">
 								<label for="dateTo" class="materialLabel ">Book To</label>
+								<br>
 								<input type="date" name="dateTo" id="dateTo" class="formPadding marginTop1 ">
 								
 								<div class="mdl-tooltip" data-mdl-for="dateTo">
@@ -93,7 +95,8 @@
 						<section id="bookingUseage" hidden class="formGroupParent marginTop1 marginBottom1">
 							<div class="formGroup">
 								<label for="useageSelect" class="materialLabel ">Useage:</label>
-								<select name="" id="useageSelect" class="formPadding marginTop1">
+								<br>
+								<select name="" id="useageSelect" class="formPadding marginTop1 width100">
 									<option value="Education">Education</option>
 									<option value="Project">Projects</option>
 									<option value="Other" selected>Other</option>
@@ -102,7 +105,8 @@
 
 							<div class="formGroup">
 								<label for="spesificUseageSelect" class="materialLabel ">Specific:</label>
-								<select name="spesificUseageSelect" id="spesificUseageSelect" class="formPadding marginTop1">
+								<br>
+								<select name="spesificUseageSelect" id="spesificUseageSelect" class="formPadding marginTop1 width100">
 									<span id="spesificUseageItems">
 										<option disabled selected>Choose useage</option>
 										@foreach($allCategories as $category)
@@ -138,7 +142,7 @@
 										<span class="mdl-radio__label">Private</span>
 									</label>
 									<div class="mdl-tooltip" data-mdl-for="room_is_private_label">
-									Only you<br> use room
+									Only you<br>can use room
 									</div>
 								</span>
 							</span>

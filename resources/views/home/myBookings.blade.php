@@ -1,4 +1,4 @@
-<section class="flex100 width100 myBookingsBox">
+<section class="flex100 width100 myBookingsBox marginBottom1">
 	<hr>
 	<div class="mdl-typography--display-1-color-contrast flex100">
 		My bookings
