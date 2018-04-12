@@ -43,7 +43,7 @@ Route::get('admin/equipments', 'EquipmentsController@indexAdmin')->name('equipme
 Route::get('admin/users', 'UsersController@index')->name('users')->middleware('auth');
 Route::get('admin/bookings', 'BookingsController@index')->name('bookings')->middleware('auth');
 Route::get('admin/logg', 'AdminController@indexLoggAdmin')->name('logg')->middleware('auth');
-Route::get('admin/categories', 'CategoriesController@index')->name('categories')->middleware('auth');
+
 
 // Admin - approve/edit/delete user
 Route::post('/admin/approve/user/{user}', 'AdminController@approveUser')->middleware('auth');
@@ -62,6 +62,14 @@ Route::get('admin/equipments/newEquipment', 'EquipmentsController@newEquipment')
 Route::post('admin/equipments/create', 'EquipmentsController@createEquipment')->middleware('auth');
 Route::get('admin/equipments/edit/{id}', 'EquipmentsController@showEdit')->middleware('auth');
 Route::post('admin/equipments/edit/{id}', 'EquipmentsController@editEquipment')->middleware('auth');
+
+// Admin - See/Create/Edit Categories
+Route::get('categories', 'CategoriesController@index')->name('categories')->middleware('auth');
+Route::get('categories/newcategory', 'CategoriesController@newCategory')->name('newCategory')->middleware('auth');
+Route::post('categories/create', 'CategoriesController@createCategory')->middleware('auth');
+Route::get('categories/edit/{category}', 'CategoriesController@showEdit')->middleware('auth');
+Route::post('categories/edit/{category}', 'CategoriesController@editCategory')->middleware('auth');
+
 
 // Email Verification
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
