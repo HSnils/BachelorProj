@@ -331,10 +331,48 @@ main{
 .mdl-mini-footer {
   flex: 0 0 auto;
 }*/
+/*.calendarHead{
+	display: flex;
+	justify-content: space-between;
+	background-color: blue;
+	color: white;
+	padding: 0.2em;
+	box-sizing: border-box;
+	margin: 0;
+}
 
+.calendarColums{
+	display: flex;
+	justify-content: space-between;
+	margin: 0;
+	height: 200px;
+	position: relative;
+}
+
+.calendarCell{
+	display: inline-flex;
+	width: 100%;
+	
+}
+
+.calendarCell .calendarBooked{
+	border-right: 1px black solid;
+
+}
+
+.calendarBooked{
+	position: absolute;
+	background: red;
+	padding: 0.2em;
+	box-sizing: border-box;
+	top: 20%;
+	height: 40px
+}
+*/
 @media only screen and (max-width: 600px) {
 	.roomPrivacyBox{
 		width: 100%;
+		height: 10px;
 	}
 
 	.page-content{

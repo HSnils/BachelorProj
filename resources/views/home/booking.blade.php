@@ -44,7 +44,42 @@
 							@endforeach
 						</select>
 
-
+						<!--<div class="calendarBox mdl-grid">
+							<div class="calendarHead mdl-cell mdl-cell--12-col">
+								<div class="calendarCell">
+									Monday
+								</div>
+								<div class="calendarCell">
+									Tuesday
+								</div>
+								<div class="calendarCell">
+									Wednesday
+								</div>
+								<div class="calendarCell">
+									Thursday
+								</div>
+								<div class="calendarCell">
+									Friday
+								</div>
+							</div>
+							<div class="calendarColums mdl-cell mdl-cell--12-col">
+								<div class="calendarCell">
+									<div class="calendarBooked">Booked</div>
+								</div>
+								<div class="calendarCell">
+									<div class="calendarBooked">Booked</div>
+								</div>
+								<div class="calendarCell">
+									<div class="calendarBooked">Booked</div>
+								</div>
+								<div class="calendarCell">
+									<div class="calendarBooked">Booked</div>
+								</div>
+								<div class="calendarCell">
+									<div class="calendarBooked">Booked</div>
+								</div>
+							</div>
+						</div>-->
 						
 						<div class="formGroupParent marginTop1 marginBottom1">
 							<div class="formGroup">
