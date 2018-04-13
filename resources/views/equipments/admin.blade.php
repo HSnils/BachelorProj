@@ -58,7 +58,7 @@
 				<form action="">
 					<span class="materialLabel marginTop1 marginBottom1">Sort by room</span>
 					<select class="formPadding flex100 width100" name="room_number" id="room_number">
-						<option disabled>Select a room</option>
+						<option disabled selected="">Select a room</option>
 						@foreach($allRooms as $room)
 							<option value="{{$room->room_number}}">{{$room->room_number}}</option>
 						@endforeach
@@ -66,10 +66,12 @@
 
 					<span class="materialLabel marginTop1 marginBottom1">Sort by lockdown state</span>
 					<select class="formPadding flex100 width100" name="lockdown" id="lockdown">
-						<option disabled>Select lockdownstate</option>
+						<option disabled selected="">Select lockdownstate</option>
 						<option value="0">0</option>
 						<option value="1">1</option>
 					</select> 
+
+					
 					
 					<!--<span class="materialLabel marginTop1 marginBottom1">and/or search by name:</span>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">

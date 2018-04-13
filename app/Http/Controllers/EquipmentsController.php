@@ -22,14 +22,11 @@ class EquipmentsController extends Controller
 		if(\Request::has('room_number')){
 			$room = \Request::input('room_number');
 			array_push($whereQuery, ["location", $room]);
-
 		}
 
 		$allEquipments = Equipments::where($whereQuery)->paginate($equipmentsPerPagination);
 		return view('equipments.index', compact('allEquipments', 'allRooms'));
-		
-
-		
+				
 	}
 
 	public function indexAdmin()

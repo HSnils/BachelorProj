@@ -15,8 +15,31 @@ class UsersController extends Controller
 	 */
 	public function index()
 	{
-		$allUsers = User::orderBy('created_at', 'desc')->get();
 		$allRoles = Roles::all();
+		$usersPerPagination = 10;
+		$whereQuery = [];
+
+		if(\Request::has('status')){
+			$status = \Request::input('status');
+			array_push($whereQuery, ["status", $status]);
+		}
+
+		if(\Request::has('role')){
+			$role = \Request::input('role');
+			array_push($whereQuery, ["role", $role]);
+		}
+
+		if(\Request::has('name')){
+			$name = \Request::input('name') . '%';
+			array_push($whereQuery, ["name", 'LIKE', $name]);
+		}
+
+		if(\Request::has('email')){
+			$email = \Request::input('email') . '%';
+			array_push($whereQuery, ["email", 'LIKE', $email]);
+		}
+
+		$allUsers = User::where($whereQuery)->orderBy('created_at', 'desc')->paginate($usersPerPagination);
 		return view('admin.users', compact('allUsers', 'allRoles'));
 	}
 }
