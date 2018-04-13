@@ -15,7 +15,7 @@ class EquipmentsController extends Controller
 	 */
 	public function index()
 	{
-		$allEquipments = Equipments::all();
+		$allEquipments = Equipments::paginate(20);
 		return view('equipments.index', compact('allEquipments'));
 	}
 
