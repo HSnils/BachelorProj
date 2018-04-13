@@ -34,8 +34,18 @@ class EquipmentsController extends Controller
 
 	public function indexAdmin()
 	{
-		$allEquipments = Equipments::all();
-		return view('equipments.admin', compact('allEquipments'));
+		$allRooms = Rooms::all(); //gets rooms for the sorting
+		$equipmentsPerPagination = 10;
+		//$sortingResult[] = \Request::input('room_number');
+		if(\Request::has('room_number')){
+			$room = \Request::input('room_number');
+			$allEquipments = Equipments::where('location', $room )->paginate($equipmentsPerPagination);
+			return view('equipments.admin', compact('allEquipments', 'allRooms'));
+		} else {
+
+			$allEquipments = Equipments::paginate($equipmentsPerPagination);
+			return view('equipments.admin', compact('allEquipments', 'allRooms'));
+		}
 	}
 
 
