@@ -330,6 +330,14 @@ main{
 	flex-direction: column;
 	justify-content: center;
 }
+
+.sortingClose{
+	float: right;
+}
+
+.sortingClose, .sortingOpen{
+	cursor: pointer;
+}
 /*select{
 	border: 0;
 	background-color: transparent;

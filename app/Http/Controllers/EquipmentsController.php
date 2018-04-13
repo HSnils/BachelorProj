@@ -14,9 +14,22 @@ class EquipmentsController extends Controller
 	 * and items.
 	 */
 	public function index()
-	{
-		$allEquipments = Equipments::paginate(20);
-		return view('equipments.index', compact('allEquipments'));
+	{	
+		$allRooms = Rooms::all(); //gets rooms for the sorting
+		$equipmentsPerPagination = 10;
+		//$sortingResult[] = \Request::input('room_number');
+		if(\Request::has('room_number')){
+			$room = \Request::input('room_number');
+			$allEquipments = Equipments::where('location', $room )->paginate($equipmentsPerPagination);
+			return view('equipments.index', compact('allEquipments', 'allRooms'));
+		} else {
+
+			$allEquipments = Equipments::paginate($equipmentsPerPagination);
+			return view('equipments.index', compact('allEquipments', 'allRooms'));
+		}
+		
+
+		
 	}
 
 	public function indexAdmin()
