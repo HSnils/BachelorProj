@@ -17,16 +17,16 @@ class EquipmentsController extends Controller
 	{	
 		$allRooms = Rooms::all(); //gets rooms for the sorting
 		$equipmentsPerPagination = 10;
-		//$sortingResult[] = \Request::input('room_number');
+		$whereQuery = []; //creates array to fill with where queries
+
 		if(\Request::has('room_number')){
 			$room = \Request::input('room_number');
-			$allEquipments = Equipments::where('location', $room )->paginate($equipmentsPerPagination);
-			return view('equipments.index', compact('allEquipments', 'allRooms'));
-		} else {
+			array_push($whereQuery, ["location", $room]);
 
-			$allEquipments = Equipments::paginate($equipmentsPerPagination);
-			return view('equipments.index', compact('allEquipments', 'allRooms'));
 		}
+
+		$allEquipments = Equipments::where($whereQuery)->paginate($equipmentsPerPagination);
+		return view('equipments.index', compact('allEquipments', 'allRooms'));
 		
 
 		
@@ -36,16 +36,18 @@ class EquipmentsController extends Controller
 	{
 		$allRooms = Rooms::all(); //gets rooms for the sorting
 		$equipmentsPerPagination = 10;
-		//$sortingResult[] = \Request::input('room_number');
+		$whereQuery = [];
 		if(\Request::has('room_number')){
 			$room = \Request::input('room_number');
-			$allEquipments = Equipments::where('location', $room )->paginate($equipmentsPerPagination);
-			return view('equipments.admin', compact('allEquipments', 'allRooms'));
-		} else {
-
-			$allEquipments = Equipments::paginate($equipmentsPerPagination);
-			return view('equipments.admin', compact('allEquipments', 'allRooms'));
+			array_push($whereQuery, ["location", $room]);
 		}
+		if(\Request::has('lockdown')){
+			$lockdown = \Request::input('lockdown');
+			array_push($whereQuery, ['lockdown', $lockdown]);
+		} 
+
+		$allEquipments = Equipments::where($whereQuery)->paginate($equipmentsPerPagination);
+		return view('equipments.admin', compact('allEquipments', 'allRooms'));
 	}
 
 
