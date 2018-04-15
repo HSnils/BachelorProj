@@ -342,6 +342,11 @@ main{
 .sortingClose, .sortingOpen{
 	cursor: pointer;
 }
+
+.headers{
+    justify-content: center;
+    display: flex;
+}
 /*select{
 	border: 0;
 	background-color: transparent;

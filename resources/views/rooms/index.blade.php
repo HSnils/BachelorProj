@@ -1,12 +1,9 @@
 @extends('partials.template')
 
 @section('content')
-	<div class="mdl-typography--display-4 mdl-color-text--grey-600 flex100">
+	<div class="mdl-typography--display-2 mdl-color-text--grey-600 flex100 headers">
 		ROOMS
 	</div>
-
-	<br>
-
 	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp ">
 		<thead class="" >
 			<tr class="">

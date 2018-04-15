@@ -2,6 +2,10 @@
 
 @section('content')
 
+    <div class="mdl-typography--display-2 mdl-color-text--grey-600 flex100 headers">
+	PROFILE
+    </div>
+
 <div class="mdl-grid">
 	<div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone">
 	</div>

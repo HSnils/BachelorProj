@@ -1,13 +1,13 @@
 @extends('partials.template')
 
 @section('content')
-	<div class="mdl-typography--display-4 mdl-color-text--grey-600 flex100">
+	<div class="mdl-typography--display-2 mdl-color-text--grey-600 flex100 headers">
 		USERS
 	</div>
 
 
 	<div class="relative contentWrapper">
-		<div class="sortingOpen"><b>Sort:</b> <i class="material-icons">sort</i></div>
+		<div class="sortingOpen"><b>Sort:</b> <i class="material-icons">filter_list</i></div>
 		<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp ">
 			<thead>
 				<tr>
