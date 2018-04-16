@@ -39,8 +39,8 @@ class CategoriesController extends Controller
 		}
 	}
 	
-	public function showEdit($categories){
-		$thisEquipment = Equipments::where('category', $categories)->get();
+	public function showEdit($category){
+		$thisCategory = Categories::where('category', $category)->get();
 		return view('categories.edit', compact('thisCategory'));
 	}
 	

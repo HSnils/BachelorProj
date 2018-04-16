@@ -65,7 +65,7 @@ Route::post('admin/equipments/edit/{id}', 'EquipmentsController@editEquipment')-
 
 // Admin - See/Create/Edit Categories
 Route::get('categories', 'CategoriesController@index')->name('categories')->middleware('auth');
-Route::get('categories/newcategory', 'CategoriesController@newCategory')->name('newCategory')->middleware('auth');
+Route::get('categories/{type}/newcategory', 'CategoriesController@newCategory')->name('newCategory')->middleware('auth');
 Route::post('categories/create', 'CategoriesController@createCategory')->middleware('auth');
 Route::get('categories/edit/{category}', 'CategoriesController@showEdit')->middleware('auth');
 Route::post('categories/edit/{category}', 'CategoriesController@editCategory')->middleware('auth');
