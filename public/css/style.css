@@ -155,6 +155,10 @@ main{
 	right:  -4.3em;
 }
 
+.knappis:hover{
+	color: white;
+}
+
 .equipmentAdd{
 	bottom: 0.4em;
 }
