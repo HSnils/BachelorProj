@@ -70,6 +70,8 @@ Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 Route::get('home/{room}', 'BookingsController@roomSelected')->middleware('auth');
 //Booking usage selected
 Route::get('home/useage/{useage}', 'BookingsController@useageSelected')->middleware('auth');
+//bookings dates selected
+Route::get('home/{room}/{dateFrom}/{timeFrom}/{dateTo}/{timeTo}', 'BookingsController@findBookedRooms')->middleware('auth');
 
 //admin accept/delete booking
 Route::get('admin/bookings/accept/{booking}', 'BookingsController@accept')->middleware('auth');
