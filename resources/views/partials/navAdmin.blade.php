@@ -36,7 +36,7 @@
 
 			<!--SIGN OUT -->
 			<hr>
-			<a class="mdl-navigation__link" href="{{ route('logout') }}" onclick="
+			<a class="mdl-navigation__link signOutNav" href="{{ route('logout') }}" onclick="
 			event.preventDefault();
 			document.getElementById('logout-form').submit();">
 				Sign out

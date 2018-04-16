@@ -84,7 +84,7 @@ $(document).ready(function () {
 		$dateTo = $('#dateTo').val();
 		$timeTo = $('#timeTo').val();
 		
-		$.get("home/"+$room+"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
+		$.get("home/"+ $room +"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
 	});
 
 	$('#timeFrom').change(function(e){
@@ -98,7 +98,7 @@ $(document).ready(function () {
 		$dateTo = $('#dateTo').val();
 		$timeTo = $('#timeTo').val();
 		
-		$.get("home/"+$room+"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
+		$.get("home/"+ $room +"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
 	});
 
 	$('#dateTo').change(function(e){
@@ -112,7 +112,7 @@ $(document).ready(function () {
 		$dateTo = $(this).val();
 		$timeTo = $('#timeTo').val();
 		
-		$.get("home/"+$room+"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
+		$.get("home/"+ $room +"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
 	});
 
 	$('#timeTo').change(function(e){
@@ -126,42 +126,61 @@ $(document).ready(function () {
 		$dateTo = $('#dateTo').val();
 		$timeTo = $(this).val();
 		
-		$.get("home/"+$room+"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
+		$.get("home/"+ $room +"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
 	});
 
 	// Prints the fetched data (from database) to the user.
 	function showAvalibleRooms(data, status, xhr) {
 		//Parse data 
 		$data = JSON.parse(data);
+		$numberFound = $data.length;
+		$('#otherBookTableDiv').prop('hidden', true);
 		console.log($data);
 		//clears the old data (to remove old prints)
-		$('#showOtherBookingsBox').html('');
+		$('#otherBookingsTBody').html('');
+		$('#numberFound').html('');
+		if($numberFound == 0){
+			$('#numberFound').append(
+				'<div>You can book at this time!</div>'
+				);
+		}else{
+			$('#otherBookTableDiv').prop('hidden', false);
+			$('#numberFound').append('<div>Found <b>'+$numberFound+'</b> exsisting booking/s within your selected booking-time</div>');
+			
+			//loops through and prints everything
+			for(i in $data){
+				$months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+				var dateFrom = new Date($data[i].from_date);
+				$fromD = dateFrom.getDate();
+				$fromM = dateFrom.getMonth();
 
-		//loops through and prints everything
-		for(i in $data){
-			$months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-			var dateFrom = new Date($data[i].from_date);
-			$fromD = dateFrom.getDate();
-			$fromM = dateFrom.getMonth();
+				$fromY = dateFrom.getFullYear();
+				$fromHour = dateFrom.getHours();
+				$fromMin = dateFrom.getMinutes();
 
-			$fromY = dateFrom.getFullYear();
-			$fromHour = dateFrom.getHours();
-			$fromMin = dateFrom.getMinutes();
+				$dateTo = new Date($data[i].to_date);
+				$toD = $dateTo.getDate();
+				$toM = $dateTo.getMonth();
 
-			$dateTo = new Date($data[i].to_date);
-			$toD = $dateTo.getDate();
-			$toM = $dateTo.getMonth();
+				$toY = $dateTo.getFullYear();
+				$toHour = $dateTo.getHours();
+				$toMin = $dateTo.getMinutes();
 
-			$toY = $dateTo.getFullYear();
-			$toHour = $dateTo.getHours();
-			$toMin = $dateTo.getMinutes();
+				function addZeroes(number){
+					if(number < 10){
+						return '0'+number;
+					} else {
+						return number;
+					}
+				}
 
-			$rows = $([
+				$rows = $([
 
-				'<div>'+$fromD+'/'+$months[$fromM]+'/'+$fromY+'</div><div>'+$toD+'/'+$months[$toM]+'/'+$toY+'</div>'	
-				].join());
+					'<tr><td>'+$fromD+'/'+$months[$fromM]+'/'+$fromY+' '+addZeroes($fromHour)+':'+addZeroes($fromMin)+'</td><td>'+$toD+'/'+$months[$toM]+'/'+$toY+' '+addZeroes($toHour)+':'+addZeroes($toMin)+'</td></tr>'	
+					].join());
 
-			$('#showOtherBookingsBox').append($rows);
+				$('#otherBookingsTBody').append($rows);
+			}
 		}
 	}
 });

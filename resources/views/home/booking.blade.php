@@ -130,6 +130,20 @@
 						</div>
 						
 						<section id="showOtherBookingsBox">
+							<span id="numberFound"></span>
+							<div id="otherBookTableDiv" hidden>
+								
+								<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp width100">
+									<thead>
+										<tr>
+											<td>Start time</td>
+											<td>End time</td>
+										</tr>
+									</thead>
+									<tbody id="otherBookingsTBody">
+									</tbody>
+								</table>
+							</div>
 							
 						</section>
 

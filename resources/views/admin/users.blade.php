@@ -13,7 +13,7 @@
 				<tr>
 					<th onclick="sortTable(0, this)" class="mdl-data-table__cell--non-numeric th">Name</th>
 					<th onclick="sortTable(1, this)" class="mdl-data-table__cell--non-numeric th">E-Mail</th>
-					<th onclick="sortTable(2, this)" class="mdl-data-table__cell--non-numeric th">Created</th>
+					<th onclick="sortTable(2, this)" class="mdl-data-table__cell--non-numeric th mdl-data-table__header--sorted-descending">Created</th>
 					<th onclick="sortTable(3, this)" class="mdl-data-table__cell--non-numeric th">Status</th>
 					<th onclick="sortTable(4, this)" class="mdl-data-table__cell--non-numeric th">Role</th>
 					<th class="mdl-data-table__cell--non-numeric">Edit</th>
