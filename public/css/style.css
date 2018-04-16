@@ -163,20 +163,11 @@ main{
 	bottom: 0.4em;
 }
 
-@media only screen and (max-width: 600px) {
-	.addBtn {
-		position: fixed;
-		bottom: 1em;
-		right:  1em;
-	}
-}
-
-@media only screen and (min-width: 992px) {
-	.addBtn {
-	position: fixed;
+.categoriesAdd {
+	position: absolute;
 	bottom: 1em;
-	right:  1em;
-}} 
+	right: 10em;
+}
 
 .alertBox{
 	width: 100%;

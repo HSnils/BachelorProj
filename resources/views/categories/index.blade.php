@@ -9,8 +9,7 @@
 					<a href="#education-panel" class="mdl-tabs__tab" style="width: 100%;">Subjects</a>
 					<a href="#other-panel" class="mdl-tabs__tab" style="width: 100%;">Other</a>
 			</div>
-			
-
+		
 			<div class="mdl-tabs__panel is-active categoriesTable" id="project-panel">
 				<table class="mdl-data-table mdl-js-data-table mdl-shadow--1dp" style="width: 100%;">
 					<thead class="">
@@ -25,14 +24,14 @@
 							<tr class="">
 								<td class="mdl-data-table__cell--non-numeric">{{$category->category}}</td>
 								<td class="mdl-data-table__cell--non-numeric " >
-									<a href="" ><i class="material-icons mdl-button--primary">edit</i></a>
+									<a href="{{ url('categories/edit') }}/{{$category->category}}" ><i class="material-icons mdl-button--primary">edit</i></a>
 								</td>
 							</tr>
 							@endif
 						@endforeach	
 					</tbody>
 				</table>
-				<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored knappis mdl-shadow--2dp">
+				<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored knappis mdl-shadow--2dp categoriesAdd">
 				<i class="material-icons">add</i>	
 			</div>
 			<div class="mdl-tabs__panel categoriesTable" id="education-panel">
@@ -49,14 +48,14 @@
 							<tr class="">
 								<td class="mdl-data-table__cell--non-numeric">{{$category->category}}</td>
 								<td class="mdl-data-table__cell--non-numeric " >
-									<a href="" ><i class="material-icons mdl-button--primary">edit</i></a>
+									<a href="{{ url('categories/edit') }}/{{$category->category}}" ><i class="material-icons mdl-button--primary">edit</i></a>
 								</td>
 							</tr>
 						@endif
 						@endforeach
 					</tbody>
 				</table>
-				<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored knappis mdl-shadow--2dp">
+				<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored knappis mdl-shadow--2dp categoriesAdd">
 					<i class="material-icons">add</i>
 				</button>
 			</div>
@@ -74,18 +73,17 @@
 							<tr class="">
 								<td class="mdl-data-table__cell--non-numeric">{{$category->category}}</td>
 								<td class="mdl-data-table__cell--non-numeric " >
-									<a href="" ><i class="material-icons mdl-button--primary">edit</i></a>
+									<a href="{{ url('categories/edit') }}/{{$category->category}}" ><i class="material-icons mdl-button--primary">edit</i></a>
 								</td>
 							</tr>
 						@endif
 						@endforeach
 					</tbody>
 				</table>
-				<button  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored knappis mdl-shadow--2dp">
+				<button  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored knappis mdl-shadow--2dp categoriesAdd">
 					<i class="material-icons">add</i>
 				</button>
 			</div>
-
 		</div>
 	</div>
 </div>

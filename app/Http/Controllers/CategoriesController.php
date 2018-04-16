@@ -40,25 +40,26 @@ class CategoriesController extends Controller
 		}
 	}
 	
-	public function showEdit($type){
-		$thisCategory = Categories::where('type', $type)->get();
+	public function showEdit($cat){
+		$thisCategory = Categories::where('category', $cat)->get();
 		return view('categories.edit', compact('thisCategory'));
 	}
 	
-	public function editCategory($type){
+	public function editCategory($category){
 		$this->validate(request(), [
-			'category' => 'required'
+			'category' => 'required|min:4|max:30',
+			'type' => 'required|max:30'
 		]);
 
 		$isAdmin = auth()->user()->role == 'Admin';
 
 		if ($isAdmin){
 			$category = new Categories();
-			$category->updateCategory(request(), $type);
+			$category->updateCategory(request(), $category);
 
 			//Flashes the session with a value for notify user
 			//Flash only lasts for 1 redriect
-			session()->flash('notifyUser', $type);
+			session()->flash('notifyUser', $category);
 			return redirect()->route('categories');
 		} else {
 			session()->flash('notifyUser', 'You are not administrator!');
