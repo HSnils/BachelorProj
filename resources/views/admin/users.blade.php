@@ -7,7 +7,7 @@
 
 
 	<div class="relative contentWrapper">
-		<div class="sortingOpen"><b>Sort:</b> <i class="material-icons">filter_list</i></div>
+		<div class="sortingOpen"><b>Filter:</b> <i class="material-icons">filter_list</i></div>
 		<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp ">
 			<thead>
 				<tr>
@@ -77,15 +77,15 @@
 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 						<input class="mdl-textfield__input" type="text" id="name" name="name">
-						<label class="mdl-textfield__label" for="sample3">Sort by name...</label>
+						<label class="mdl-textfield__label" for="sample3">Filter by name...</label>
 					</div>
 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 						<input class="mdl-textfield__input" type="email" id="email" name="email">
-						<label class="mdl-textfield__label" for="sample3">Sort by email...</label>
+						<label class="mdl-textfield__label" for="sample3">Filter by email...</label>
 					</div>
 					
-					<span class="materialLabel marginTop1 marginBottom1">Sort by role</span>
+					<span class="materialLabel marginTop1 marginBottom1">Filter by role</span>
 					<select class="formPadding flex100 width100" name="role" id="role">
 						<option disabled selected="">Select role</option>
 						@foreach($allRoles as $role)
@@ -93,7 +93,7 @@
 						@endforeach
 					</select>
 
-					<span class="materialLabel marginTop1 marginBottom1">Sort by status</span>
+					<span class="materialLabel marginTop1 marginBottom1">Filter by status</span>
 					<select class="formPadding flex100 width100" name="status" id="status">
 						<option disabled selected="">Select status</option>
 						@php
@@ -110,7 +110,7 @@
 			</div>
 		</div>
 		<div class="mdl-dialog__actions mdl-dialog__actions--full-width">
-			<button type="submit" class="mdl-button">Sort</button>
+			<button type="submit" class="mdl-button">Filter</button>
 			</form>
 		</div>
 	</dialog>

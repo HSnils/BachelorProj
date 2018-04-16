@@ -6,7 +6,7 @@
 	<div class="mdl-typography--display-2 mdl-color-text--grey-600 flex100 headers">
 	EQUIPMENT
     </div>
-		<div class="sortingOpen"><b>Sort:</b> <i class="material-icons">filter_list</i></div>
+		<div class="sortingOpen"><b>Filter:</b> <i class="material-icons">filter_list</i></div>
 		<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp  ">
 			<thead class="">
 				<tr class=" ">
@@ -39,7 +39,7 @@
 			<div><i class="material-icons sortingClose">clear</i></div>
 			<div id="sortingBox">
 				<form action="">
-					<span class="materialLabel marginTop1 marginBottom1">Sort by room</span>
+					<span class="materialLabel marginTop1 marginBottom1">Filter by room</span>
 					<select class="formPadding flex100 width100" name="room_number" id="room_numberBooking">
 						<option disabled selected>Select a room</option>
 						@foreach($allRooms as $room)
@@ -60,7 +60,7 @@
 			</div>
 		</div>
 		<div class="mdl-dialog__actions mdl-dialog__actions--full-width">
-			<button type="submit" class="mdl-button">Sort</button>
+			<button type="submit" class="mdl-button">Filter</button>
 			</form>
 		</div>
 	</dialog>

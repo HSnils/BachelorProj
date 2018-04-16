@@ -38,7 +38,7 @@
 						
 						<span class="materialLabel marginTop1 marginBottom1">Choose a room</span>
 						<select class="formPadding flex100 width100" name="room_number" id="room_numberBooking">
-							<option disabled>Select a room</option>
+							<option disabled selected>Select a room</option>
 							@foreach($allRooms as $room)
 								<option value="{{$room->room_number}}">{{$room->room_number}} - {{$room->type}}</option>
 							@endforeach
