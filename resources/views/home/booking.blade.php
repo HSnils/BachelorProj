@@ -36,9 +36,9 @@
 			<form role="form" method="POST" action="{{ url('booking/create') }}" class="bookingForm">
 				{{ csrf_field() }}
 						
-						<span class="materialLabel marginTop1 marginBottom1">Choose a room</span>
+						<span class="materialLabel marginTop1 marginBottom1">Book a room</span>
 						<select class="formPadding flex100 width100" name="room_number" id="room_numberBooking">
-							<option disabled>Select a room</option>
+							<option disabled selected>Select a room</option>
 							@foreach($allRooms as $room)
 								<option value="{{$room->room_number}}">{{$room->room_number}} - {{$room->type}}</option>
 							@endforeach
@@ -81,7 +81,7 @@
 							</div>
 						</div>-->
 						
-						<div class="formGroupParent marginTop1 marginBottom1">
+						<div hidden class="formGroupParent marginTop1 marginBottom1" id="dateTimeBox">
 							<div class="formGroup">
 								<label for="dateFrom" class="materialLabel ">Book From</label>
 								<br>
@@ -92,9 +92,10 @@
 								</div>
 
 								<select name="timeFrom" id="timeFrom" class="formPadding width100">
+									<option selected disabled>Start time</option>
 									@php
 										//fills dropdown with options from minimum hour to maximum hour
-										inputTimeDropdown(6, 20);
+										inputTimeDropdown(7, 19);
 									@endphp
 								</select>
 
@@ -114,9 +115,10 @@
 								</div>
 
 								<select name="timeTo" id="timeTo" class="formPadding width100">
+									<option selected disabled>End time</option>
 									@php
 										//fills dropdown with options from minimum hour to maximum hour
-										inputTimeDropdown(6, 20);
+										inputTimeDropdown(7, 19);
 									@endphp
 								</select>
 
@@ -126,6 +128,10 @@
 
 							</div>
 						</div>
+						
+						<section id="showOtherBookingsBox">
+							
+						</section>
 
 						<section id="bookingUseage" hidden class="formGroupParent marginTop1 marginBottom1">
 							<div class="formGroup">

@@ -3,7 +3,7 @@ $(document).ready(function () {
         headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
     });
 
-	$('#room_numberBooking').click(function(e){
+	$('#room_numberBooking').change(function(e){
 		e.preventDefault();
 
 		//gets the value of the selected item
@@ -20,7 +20,7 @@ $(document).ready(function () {
 		//shows hidden divs
 		$('#roomPrivacy').prop('hidden', false);
 		$('#bookingUseage').prop('hidden', false);
-		
+		$('#dateTimeBox').prop('hidden', false);
 		//clears the old data (to remove old prints)
 		$('#equipmentsSection').html('');
 
@@ -41,7 +41,7 @@ $(document).ready(function () {
 		componentHandler.upgradeAllRegistered();
 	}
 
-	$('#useageSelect').click(function(e){
+	$('#useageSelect').change(function(e){
 		e.preventDefault();
 
 		//gets the value of the selected item
@@ -72,5 +72,96 @@ $(document).ready(function () {
 		}
 
 		componentHandler.upgradeAllRegistered();
+	}
+
+	$('#dateFrom').change(function(e){
+		e.preventDefault();
+
+		$room = $('#room_numberBooking').val();
+		//gets the value of the selected item
+		$dateFrom = $(this).val();
+		$timeFrom = $('#timeFrom').val();
+		$dateTo = $('#dateTo').val();
+		$timeTo = $('#timeTo').val();
+		
+		$.get("home/"+$room+"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
+	});
+
+	$('#timeFrom').change(function(e){
+		e.preventDefault();
+
+		$room = $('#room_numberBooking').val();
+
+		//gets the value of the selected item
+		$dateFrom = $('#dateFrom').val();
+		$timeFrom = $(this).val();
+		$dateTo = $('#dateTo').val();
+		$timeTo = $('#timeTo').val();
+		
+		$.get("home/"+$room+"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
+	});
+
+	$('#dateTo').change(function(e){
+		e.preventDefault();
+
+		$room = $('#room_numberBooking').val();
+
+		//gets the value of the selected item
+		$dateFrom = $('#dateFrom').val();
+		$timeFrom = $('#timeFrom').val();
+		$dateTo = $(this).val();
+		$timeTo = $('#timeTo').val();
+		
+		$.get("home/"+$room+"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
+	});
+
+	$('#timeTo').change(function(e){
+		e.preventDefault();
+
+		$room = $('#room_numberBooking').val();
+
+		//gets the value of the selected item
+		$dateFrom = $('#dateFrom').val();
+		$timeFrom = $('#timeFrom').val();
+		$dateTo = $('#dateTo').val();
+		$timeTo = $(this).val();
+		
+		$.get("home/"+$room+"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
+	});
+
+	// Prints the fetched data (from database) to the user.
+	function showAvalibleRooms(data, status, xhr) {
+		//Parse data 
+		$data = JSON.parse(data);
+		console.log($data);
+		//clears the old data (to remove old prints)
+		$('#showOtherBookingsBox').html('');
+
+		//loops through and prints everything
+		for(i in $data){
+			$months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+			var dateFrom = new Date($data[i].from_date);
+			$fromD = dateFrom.getDate();
+			$fromM = dateFrom.getMonth();
+
+			$fromY = dateFrom.getFullYear();
+			$fromHour = dateFrom.getHours();
+			$fromMin = dateFrom.getMinutes();
+
+			$dateTo = new Date($data[i].to_date);
+			$toD = $dateTo.getDate();
+			$toM = $dateTo.getMonth();
+
+			$toY = $dateTo.getFullYear();
+			$toHour = $dateTo.getHours();
+			$toMin = $dateTo.getMinutes();
+
+			$rows = $([
+
+				'<div>'+$fromD+'/'+$months[$fromM]+'/'+$fromY+'</div><div>'+$toD+'/'+$months[$toM]+'/'+$toY+'</div>'	
+				].join());
+
+			$('#showOtherBookingsBox').append($rows);
+		}
 	}
 });

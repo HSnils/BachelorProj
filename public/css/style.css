@@ -90,6 +90,11 @@ main{
 	margin-left:  1em;
 }
 
+.marginB{
+	margin-bottom: 1em;
+}
+
+
 .a_no_underline{
 	text-decoration: none;
 }
@@ -147,9 +152,17 @@ main{
 .knappis{
 	position: absolute;
 	bottom: -1.7em;
-	right:  0.3em;
-
+	right:  -4.3em;
 }
+
+.knappis:hover{
+	color: white;
+}
+
+.equipmentAdd{
+	bottom: 0.4em;
+}
+
 @media only screen and (max-width: 600px) {
 	.addBtn {
 		position: fixed;
@@ -315,6 +328,34 @@ main{
 	flex-basis: 50%;
 }
 
+.pagination{
+	width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 0;
+}
+
+.contentWrapper{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.sortingClose{
+	float: right;
+}
+
+.sortingClose, .sortingOpen{
+	cursor: pointer;
+}
+
+.headers{
+    justify-content: center;
+    display: flex;
+}
 /*select{
 	border: 0;
 	background-color: transparent;

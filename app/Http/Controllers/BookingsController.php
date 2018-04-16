@@ -258,6 +258,34 @@ class BookingsController extends Controller
 		return json_encode($getSelectedUseage);
 	}
 
+	public function	findBookedRooms($room, $dateFrom, $timeFrom, $dateTo, $timeTo){
+		//fills variables with inputs
+		$roomNumber = $room ;
+		//dates
+		$dateFrom = new Carbon($dateFrom . ' ' . $timeFrom.':00');
+		$dateFrom->format('Y-m-d H:i:s');
+		$dateTo = new Carbon($dateTo . ' ' . $timeTo.':00');
+		$dateTo->format('Y-m-d H:i:s');
+		
+		//offsets the dates with a few seconds to use for a query
+		$offsetDateFrom = new Carbon($dateFrom);
+		$offsetDateFrom->addSecond();
+		$offsetDateTo = new Carbon ($dateTo);
+		$offsetDateTo->subSecond();
+
+	
+		$findsBookingOverlappingBookings = Bookings::
+			join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
+			->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
+			->where('rooms.room_number', '=', $roomNumber)
+			->whereBetween('from_date', [$offsetDateFrom, $offsetDateTo])
+			->orWhereBetween('to_date', [$offsetDateFrom, $offsetDateTo])
+		->get();
+
+
+		return json_encode($findsBookingOverlappingBookings);
+	}
+
 	/**
 	 * [delete description]
 	 * @param  [type] $booking [filled with booking id variable]

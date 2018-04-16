@@ -14,15 +14,37 @@ class EquipmentsController extends Controller
 	 * and items.
 	 */
 	public function index()
-	{
-		$allEquipments = Equipments::all();
-		return view('equipments.index', compact('allEquipments'));
+	{	
+		$allRooms = Rooms::all(); //gets rooms for the sorting
+		$equipmentsPerPagination = 10;
+		$whereQuery = []; //creates array to fill with where queries
+
+		if(\Request::has('room_number')){
+			$room = \Request::input('room_number');
+			array_push($whereQuery, ["location", $room]);
+		}
+
+		$allEquipments = Equipments::where($whereQuery)->paginate($equipmentsPerPagination);
+		return view('equipments.index', compact('allEquipments', 'allRooms'));
+				
 	}
 
 	public function indexAdmin()
 	{
-		$allEquipments = Equipments::all();
-		return view('equipments.admin', compact('allEquipments'));
+		$allRooms = Rooms::all(); //gets rooms for the sorting
+		$equipmentsPerPagination = 10;
+		$whereQuery = [];
+		if(\Request::has('room_number')){
+			$room = \Request::input('room_number');
+			array_push($whereQuery, ["location", $room]);
+		}
+		if(\Request::has('lockdown')){
+			$lockdown = \Request::input('lockdown');
+			array_push($whereQuery, ['lockdown', $lockdown]);
+		} 
+
+		$allEquipments = Equipments::where($whereQuery)->paginate($equipmentsPerPagination);
+		return view('equipments.admin', compact('allEquipments', 'allRooms'));
 	}
 
 
