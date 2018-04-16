@@ -19,7 +19,7 @@ a:hover {
 }
 
 main{
-
+	margin-bottom: 10px;
 }
 
 .page-content{
@@ -323,14 +323,14 @@ main{
 /*----------------*/
 
 
-/* TEST FOR Å PRØVE Å FIKSE FOOTER
+
 .mdl-layout__content {
   flex: 1 0 auto;
 }
 
 .mdl-mini-footer {
   flex: 0 0 auto;
-}*/
+}
 /*.calendarHead{
 	display: flex;
 	justify-content: space-between;

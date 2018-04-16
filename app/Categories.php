@@ -32,7 +32,8 @@ class Categories extends Model
     */
     public function createCategory($category) {
     	Categories::create([
-    		'category' => $category['category']
+    		'category' => $category['category'],
+				'type' => $category['type']
     	]);
     }
 }

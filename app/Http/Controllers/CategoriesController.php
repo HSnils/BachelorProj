@@ -15,20 +15,21 @@ class CategoriesController extends Controller
 	}
 	
 	public function newCategory(){
-		$allCategories = Categories::select('category')->get();
-		return view('categories.create', compact('AllCategories'));
+		$allCategories = Categories::select('type')->get();
+		return view('categories.create', compact('allCategories'));
 	}
 	
 	public function createCategory(){
 		$this->validate(request(), [
-			'type' => 'required'
+			'category' => 'required|min:4|max:30',
+			'type' => 'required|max:30'
 		]);
 		
 		$isAdmin = auth()->user()->role == 'Admin';
 
 		if ($isAdmin){
-			$equipment = new Equipments();
-			$equipment->createEquipment(request());
+			$category = new Categories();
+			$category->createCategory(request());
 
 			//Flashes the session with a value for notify user
 			//Flash only lasts for 1 redriect
@@ -39,25 +40,25 @@ class CategoriesController extends Controller
 		}
 	}
 	
-	public function showEdit($category){
-		$thisCategory = Categories::where('category', $category)->get();
+	public function showEdit($type){
+		$thisCategory = Categories::where('type', $type)->get();
 		return view('categories.edit', compact('thisCategory'));
 	}
 	
-	public function editCategory($category){
+	public function editCategory($type){
 		$this->validate(request(), [
-			'type' => 'required'
+			'category' => 'required'
 		]);
 
 		$isAdmin = auth()->user()->role == 'Admin';
 
 		if ($isAdmin){
 			$category = new Categories();
-			$category->updateCategory(request(),$category);
+			$category->updateCategory(request(), $type);
 
 			//Flashes the session with a value for notify user
 			//Flash only lasts for 1 redriect
-			session()->flash('notifyUser', $id);
+			session()->flash('notifyUser', $type);
 			return redirect()->route('categories');
 		} else {
 			session()->flash('notifyUser', 'You are not administrator!');
