@@ -93,8 +93,9 @@ main{
 .marginB{
 	margin-bottom: 1em;
 }
-
-
+.th{
+    cursor: pointer;
+}
 .a_no_underline{
 	text-decoration: none;
 }

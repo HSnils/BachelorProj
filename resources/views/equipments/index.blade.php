@@ -9,7 +9,7 @@
 		<div class="sortingOpen"><b>Filter:</b> <i class="material-icons">filter_list</i></div>
 		<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="equipmentTable">
 			<thead class="">
-				<tr class=" ">
+				<tr class="">
 					<th onclick="sortTable(0, this)" class="mdl-data-table__cell--non-numeric th">Name</th>
 					<th onclick="sortTable(1, this)" class="mdl-data-table__cell--non-numeric th">Type</th>
 					<th onclick="sortTable(2, this)" class="mdl-data-table__cell--non-numeric th">Location</th>
