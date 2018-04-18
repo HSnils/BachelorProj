@@ -70,7 +70,6 @@ Route::post('categories/create', 'CategoriesController@createCategory')->middlew
 Route::get('categories/edit/{category}', 'CategoriesController@showEdit')->middleware('auth');
 Route::post('categories/edit/{category}', 'CategoriesController@editCategory')->middleware('auth');
 
-
 // Email Verification
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 

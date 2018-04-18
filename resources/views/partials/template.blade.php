@@ -12,7 +12,10 @@
 	<link rel="stylesheet" href="{{asset('jquery-ui/jquery-ui.structure.min.css')}}">
 	<link rel="stylesheet" href="{{asset('jquery-ui/jquery-ui.theme.min.css')}}">
 	<script src="{{asset('jquery-ui/jquery-ui.min.js')}}"></script>
-
+	
+	<!-- Morris.js (css) (graphs) -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+	
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	
@@ -82,7 +85,12 @@
 	<script src="{{ URL::asset('js/deleteAlert.js') }}"></script>
 	<!-- Materializecss 
 	<script src="{{ URL::asset('js/materialize.js') }}">
-	-->
-	</script>
+	</script>-->
+	
+	<!-- Morris.js
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script> -->
+	
 </body>
 </html>

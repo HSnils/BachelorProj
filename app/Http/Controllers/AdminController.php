@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Roles;
+use App\Rooms;
+use App\Equipments;
+use App\Categories;
 use App\Bookings;
 use App\bookings_room;
 use App\bookings_equipments;
@@ -108,6 +111,23 @@ class AdminController extends Controller
 		$thisUser = User::where('id', $userID)->get();
 		$allRoles = Roles::orderBy('role', 'desc')->get();
 		return view('admin.editUser', compact('thisUser', 'allRoles'));
+	}
+	
+	public function indexLoggAdmin() {
+		$isAdmin = auth()->user()->role == 'Admin';
+
+		if($isAdmin){
+			
+			$allUsers = User::All();
+			$allRooms = Rooms::All();
+			$allBookings = Bookings::All();
+			$allEquipments = Equipments::All();
+			$allCategories = Categories::All();
+			
+			return view('logg.index', compact('allUsers', 'allRooms', 'allBookings', 'allEquipments', 'allCategories'));
+			
+		}
+		
 	}
 
 }
