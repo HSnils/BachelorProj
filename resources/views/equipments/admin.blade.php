@@ -29,7 +29,7 @@
 						<td class="mdl-data-table__cell--non-numeric">{{$equipment->name}}</td>
 						<td class="mdl-data-table__cell--non-numeric">{{$equipment->type}}</td>
 						<td class="mdl-data-table__cell--non-numeric">{{$equipment->location}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{$equipment->desc}}</td>
+						<td class="mdl-data-table__cell--non-numeric">{{substr($equipment->desc, 0, 15)}}(...)</td>
 						<td>{{ $equipment->ntnu_id }}</td>
 						<td >{{$equipment->lockdown}}</td>
 						<td >{{$equipment->status}}</td>

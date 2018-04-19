@@ -336,6 +336,11 @@ main{
 	justify-content: center;
 }
 
+.sortingOpen{
+	align-self: flex-end;
+	border-bottom: 0px !important;
+}
+
 .sortingClose{
 	float: right;
 }
@@ -426,3 +431,64 @@ main{
     		flex-basis: 100%;
 	}
 }
+
+/* tried to make tables more responsive
+@media only screen and (max-width: 992px){
+	table{
+		width: 100%;
+	    border-collapse: collapse;
+	    border-spacing: 0;
+	    display: block;
+	    position: relative;
+	}
+
+	table, th, td {
+    	border: none;
+	}
+
+	thead {
+	    border: 0;
+	    border-right: 1px solid rgba(0,0,0,0.12);
+	    display: block;
+    float: left;
+    vertical-align: middle;
+	}
+
+	tr{
+		border-bottom: none;
+    padding: 0 10px;
+        vertical-align: inherit;
+    border-color: inherit;
+	}
+
+	th{
+		display: block;
+    text-align: right;
+    margin: 0;
+    vertical-align: top;
+
+	}
+
+	tbody{
+		display: block;
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+    white-space: nowrap;
+        vertical-align: middle;
+    border-color: inherit;
+	}
+
+	tbody tr{
+		display: inline-block;
+    vertical-align: top;
+        border-bottom: none;
+    padding: 0 10px;
+	}
+
+	td{
+		display: block;
+    min-height: 1.25em;
+    text-align: left;
+	}
+}*/

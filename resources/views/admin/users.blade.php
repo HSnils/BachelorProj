@@ -8,8 +8,9 @@
 
 	<div class="relative contentWrapper">
 		<div class="sortingOpen"><b>Filter:</b> <i class="material-icons">filter_list</i></div>
-		<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp " id="usersTable">
+		<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp " id="usersTable">	
 			<thead>
+
 				<tr>
 					<th onclick="sortTable(0, this)" class="mdl-data-table__cell--non-numeric th">Name</th>
 					<th onclick="sortTable(1, this)" class="mdl-data-table__cell--non-numeric th">E-Mail</th>
@@ -59,11 +60,12 @@
 						</td>
 					</tr>
 				@endforeach
+
 			</tbody>
 		</table>
-	<div class="paginateLinks">
-		{{$allUsers->links()}}
-	</div>
+		<div class="paginateLinks">
+			{{$allUsers->links()}}
+		</div>
 	</div>
 
 	<!--Sorting -->
