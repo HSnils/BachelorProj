@@ -15,7 +15,10 @@
 	
 	<!-- Morris.js (css) (graphs) -->
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 	
+	<!-- Raphael.js -->
+	<script src="{{ asset('js/raphael.min.js') }}"></script>
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	
