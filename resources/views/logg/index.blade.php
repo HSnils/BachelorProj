@@ -5,7 +5,9 @@
 <div class="mdl-grid">
 	<div class="mdl-cell mdl-cell--4-col">
 		<div id="donutchart" style="width: 450px; height: 250px;"></div>
-
+@foreach($bookedRooms as $room)
+		{{ $room->room_number }}
+@endforeach
 				<script type="text/javascript">
 					new Morris.Donut({
 						// ID of the element in which to draw the chart.
@@ -13,19 +15,29 @@
 						// Chart data records -- each entry in this array corresponds to a point on
 						// the chart.
 						data: [
-							{ year: '2008', value: 20 },
-							{ year: '2009', value: 10 },
-							{ year: '2010', value: 5 },
-							{ year: '2011', value: 5 },
-							{ year: '2012', value: 20 }
+							
+							
+							
+								{ label: 'A008', value: 1 },
+							{ label: 'A008', value: 1 },
+							{ label: 'A008', value: 1 },
+							{ label: 'A008', value: 1 }
+							
+							
+						
 						],
-						// The name of the data record attribute that contains x-values.
-						xkey: 'year',
-						// A list of names of data record attributes that contain y-values.
-						ykeys: ['value'],
-						// Labels for the ykeys -- will be displayed when you hover over the
-						// chart.
-						labels: ['Value']
+						
+						colors: [ 
+							"#552988",
+							"#663E93",
+							"#76539F",
+							"#8869AB",
+							"#997EB7",
+							"#AA94C3",
+							"#BBA9CF",
+							"#CCBEDB"
+						]
+					
 					});
 				</script>
 	</div>
@@ -39,19 +51,17 @@
 						// Chart data records -- each entry in this array corresponds to a point on
 						// the chart.
 						data: [
-							{ year: '2008', value: 20 },
-							{ year: '2009', value: 10 },
-							{ year: '2010', value: 5 },
-							{ year: '2011', value: 5 },
-							{ year: '2012', value: 20 }
+							{ label: 'Projects', value: 20 },
+							{ label: 'Education', value: 10 },
+							{ label: 'Other', value: 5 }
 						],
-						// The name of the data record attribute that contains x-values.
-						xkey: 'year',
-						// A list of names of data record attributes that contain y-values.
-						ykeys: ['value'],
-						// Labels for the ykeys -- will be displayed when you hover over the
-						// chart.
-						labels: ['Value']
+						
+						colors: [
+							"#6a206c",
+							"#852988",
+							"#9d539f"
+							
+						]
 					});
 				</script>
 	
@@ -66,19 +76,15 @@
 						// Chart data records -- each entry in this array corresponds to a point on
 						// the chart.
 						data: [
-							{ year: '2008', value: 20 },
-							{ year: '2009', value: 10 },
-							{ year: '2010', value: 5 },
-							{ year: '2011', value: 5 },
-							{ year: '2012', value: 20 }
+							{ label: 'Student', value: 20 },
+							{ label: 'Employee', value: 10 }
 						],
-						// The name of the data record attribute that contains x-values.
-						xkey: 'year',
-						// A list of names of data record attributes that contain y-values.
-						ykeys: ['value'],
-						// Labels for the ykeys -- will be displayed when you hover over the
-						// chart.
-						labels: ['Value']
+						
+						colors: [
+							"#20246c",
+							"#53569f"
+							
+						]
 					});
 				</script>
 	

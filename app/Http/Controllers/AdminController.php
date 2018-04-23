@@ -124,7 +124,9 @@ class AdminController extends Controller
 			$allEquipments = Equipments::All();
 			$allCategories = Categories::All();
 			
-			return view('logg.index', compact('allUsers', 'allRooms', 'allBookings', 'allEquipments', 'allCategories'));
+			$bookedRooms = Rooms::join('bookings_rooms', 'rooms.room_number', '=', 'bookings_rooms.room_number')->where('rooms.room_number', '=', 'bookings_rooms.room_number')->get();
+			
+			return view('logg.index', compact('allUsers', 'allRooms', 'allBookings', 'allEquipments', 'allCategories', 'bookedRooms'));
 			
 		}
 		
