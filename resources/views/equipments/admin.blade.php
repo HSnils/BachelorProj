@@ -64,6 +64,11 @@
 						@endforeach
 					</select>
 
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="text" id="name" name="name">
+						<label class="mdl-textfield__label" for="sample3">Filter by name...</label>
+					</div>
+
 					<span class="materialLabel marginTop1 marginBottom1">Filter by lockdown state</span>
 					<select class="formPadding flex100 width100" name="lockdown" id="lockdown">
 						<option disabled selected="">Select lockdownstate</option>

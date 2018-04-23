@@ -24,6 +24,11 @@ class EquipmentsController extends Controller
 			array_push($whereQuery, ["location", $room]);
 		}
 
+		if(\Request::has('name')){
+			$name = \Request::input('name') . '%';
+			array_push($whereQuery, ["name", 'LIKE', $name]);
+		}
+
 		$allEquipments = Equipments::where($whereQuery)->paginate($equipmentsPerPagination);
 		return view('equipments.index', compact('allEquipments', 'allRooms'));
 				
@@ -37,6 +42,10 @@ class EquipmentsController extends Controller
 		if(\Request::has('room_number')){
 			$room = \Request::input('room_number');
 			array_push($whereQuery, ["location", $room]);
+		}
+		if(\Request::has('name')){
+			$name = \Request::input('name') . '%';
+			array_push($whereQuery, ["name", 'LIKE', $name]);
 		}
 		if(\Request::has('lockdown')){
 			$lockdown = \Request::input('lockdown');

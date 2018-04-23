@@ -15,16 +15,11 @@
 						// Chart data records -- each entry in this array corresponds to a point on
 						// the chart.
 						data: [
-							
-							
-							
-								{ label: 'A008', value: 1 },
+							{ label: 'A008', value: 1 },
 							{ label: 'A008', value: 1 },
 							{ label: 'A008', value: 1 },
 							{ label: 'A008', value: 1 }
-							
-							
-						
+
 						],
 						
 						colors: [ 

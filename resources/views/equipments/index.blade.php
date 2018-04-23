@@ -46,6 +46,11 @@
 							<option value="{{$room->room_number}}">{{$room->room_number}}</option>
 						@endforeach
 					</select>
+
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="text" id="name" name="name">
+						<label class="mdl-textfield__label" for="sample3">Filter by name...</label>
+					</div>
 					
 					<!--<span class="materialLabel marginTop1 marginBottom1">and/or search by name:</span>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
