@@ -112,24 +112,5 @@ class AdminController extends Controller
 		$allRoles = Roles::orderBy('role', 'desc')->get();
 		return view('admin.editUser', compact('thisUser', 'allRoles'));
 	}
-	
-	public function indexLoggAdmin() {
-		$isAdmin = auth()->user()->role == 'Admin';
-
-		if($isAdmin){
-			
-			$allUsers = User::All();
-			$allRooms = Rooms::All();
-			$allBookings = Bookings::All();
-			$allEquipments = Equipments::All();
-			$allCategories = Categories::All();
-			
-			$bookedRooms = Rooms::join('bookings_rooms', 'rooms.room_number', '=', 'bookings_rooms.room_number')->where('rooms.room_number', '=', 'bookings_rooms.room_number')->get();
-			
-			return view('logg.index', compact('allUsers', 'allRooms', 'allBookings', 'allEquipments', 'allCategories', 'bookedRooms'));
-			
-		}
-		
-	}
 
 }

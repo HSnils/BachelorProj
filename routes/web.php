@@ -20,12 +20,12 @@ Route::get('rooms', 'RoomsController@index')->name('rooms')->middleware('auth');
 Route::get('equipments', 'EquipmentsController@index')->name('equipments')->middleware('auth');
 Route::get('/profile', 'ProfileController@index')->name('profile')->middleware('auth');
 
+// Email Verification
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+
 // Profile - Update user info
 Route::post('/profile/settings/update/username/{user}', 'ProfileController@updateUsername')->middleware('auth');
 Route::post('/profile/settings/update/password/{user}', 'ProfileController@updatePassword')->middleware('auth');
-
-// Email Verification
-Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
 //Create a booking
 Route::post('booking/create', 'BookingsController@create')->middleware('auth');
@@ -36,14 +36,22 @@ Route::get('home/useage/{useage}', 'BookingsController@useageSelected')->middlew
 //Bookings dates selected
 Route::get('home/{room}/{dateFrom}/{timeFrom}/{dateTo}/{timeTo}', 'BookingsController@findBookedRooms')->middleware('auth');
 
+
+//---- ADMIN STUFF ----//
 // Routes to Admin views
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('auth');
 Route::get('admin/rooms', 'RoomsController@indexAdmin')->name('roomsAdmin')->middleware('auth');
 Route::get('admin/equipments', 'EquipmentsController@indexAdmin')->name('equipmentsAdmin')->middleware('auth');
 Route::get('admin/users', 'UsersController@index')->name('users')->middleware('auth');
 Route::get('admin/bookings', 'BookingsController@indexAdmin')->name('bookingsAdmin')->middleware('auth');
-Route::get('admin/logg', 'AdminController@indexLoggAdmin')->name('logg')->middleware('auth');
-Route::get('categories', 'CategoriesController@index')->name('categories')->middleware('auth');
+Route::get('admin/categories', 'CategoriesController@index')->name('categories')->middleware('auth');
+Route::get('admin/log', 'LogController@index')->name('log')->middleware('auth');
+
+// Routes to log views
+Route::get('admin/log/rooms', 'LogController@logRooms')->name('logRooms')->middleware('auth');
+Route::get('admin/log/equipments', 'LogController@logEquipments')->name('logEquipments')->middleware('auth');
+Route::get('admin/log/users', 'LogController@logUsers')->name('logUsers')->middleware('auth');
+Route::get('admin/log/categories', 'LogController@logCategories')->name('logCategories')->middleware('auth');
 
 // Admin - approve/edit/delete user
 Route::post('/admin/approve/user/{user}', 'AdminController@approveUser')->middleware('auth');

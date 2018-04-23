@@ -86,7 +86,7 @@
 	</div>
 	<div class="mdl-cell mdl-cell--12-col">
 		<div class="mdl-cell mdl-cell--3-col">
-			<a href="{{route(logRooms)}}">
+			<a href="{{route('logRooms')}}">
 				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
 					Rooms
 				</button>
@@ -94,19 +94,25 @@
 			
 		</div>
 		<div class="mdl-cell mdl-cell--3-col">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-				Equipment
-			</button>
+			<a href="{{route('logEquipments')}}">
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+					Equipments
+				</button>
+			</a>
 		</div>
 		<div class="mdl-cell mdl-cell--3-col">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-				Users
-			</button>
+			<a href="{{route('logUsers')}}">
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+					Users
+				</button>
+			</a>
 		</div>
 		<div class="mdl-cell mdl-cell--3-col">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-				Categories
-			</button>
+			<a href="{{route('logCategories')}}">
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+					Categories
+				</button>
+			</a>
 		</div>
 	</div>
 </div>
