@@ -86,9 +86,12 @@
 	</div>
 	<div class="mdl-cell mdl-cell--12-col">
 		<div class="mdl-cell mdl-cell--3-col">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-				Rooms
-			</button>
+			<a href="{{route(logRooms)}}">
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+					Rooms
+				</button>
+			</a>
+			
 		</div>
 		<div class="mdl-cell mdl-cell--3-col">
 			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">

@@ -13,37 +13,37 @@
 
 Auth::routes();
 
-// Sends you to home
+// Routes to different views home/rooms/equipments and profile
 Route::get('/', 'HomeController@index')->middleware('auth');
 Route::get('home', 'HomeController@index')->name('home')->middleware('auth');
-
-
-//Create a booking
-Route::post('booking/create', 'BookingsController@create')->middleware('auth');
-
-// Rooms
 Route::get('rooms', 'RoomsController@index')->name('rooms')->middleware('auth');
-
-// Equipments
 Route::get('equipments', 'EquipmentsController@index')->name('equipments')->middleware('auth');
-
-// Routes to profile
 Route::get('/profile', 'ProfileController@index')->name('profile')->middleware('auth');
 
 // Profile - Update user info
 Route::post('/profile/settings/update/username/{user}', 'ProfileController@updateUsername')->middleware('auth');
 Route::post('/profile/settings/update/password/{user}', 'ProfileController@updatePassword')->middleware('auth');
 
-// Routes to admin
-Route::get('/admin', 'AdminController@index')->name('admin')->middleware('auth');
+// Email Verification
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
-// Admin views
+//Create a booking
+Route::post('booking/create', 'BookingsController@create')->middleware('auth');
+//Booking room selected
+Route::get('home/{room}', 'BookingsController@roomSelected')->middleware('auth');
+//Booking usage selected
+Route::get('home/useage/{useage}', 'BookingsController@useageSelected')->middleware('auth');
+//Bookings dates selected
+Route::get('home/{room}/{dateFrom}/{timeFrom}/{dateTo}/{timeTo}', 'BookingsController@findBookedRooms')->middleware('auth');
+
+// Routes to Admin views
+Route::get('/admin', 'AdminController@index')->name('admin')->middleware('auth');
 Route::get('admin/rooms', 'RoomsController@indexAdmin')->name('roomsAdmin')->middleware('auth');
 Route::get('admin/equipments', 'EquipmentsController@indexAdmin')->name('equipmentsAdmin')->middleware('auth');
 Route::get('admin/users', 'UsersController@index')->name('users')->middleware('auth');
-Route::get('admin/bookings', 'BookingsController@index')->name('bookings')->middleware('auth');
+Route::get('admin/bookings', 'BookingsController@indexAdmin')->name('bookingsAdmin')->middleware('auth');
 Route::get('admin/logg', 'AdminController@indexLoggAdmin')->name('logg')->middleware('auth');
-
+Route::get('categories', 'CategoriesController@index')->name('categories')->middleware('auth');
 
 // Admin - approve/edit/delete user
 Route::post('/admin/approve/user/{user}', 'AdminController@approveUser')->middleware('auth');
@@ -64,25 +64,13 @@ Route::get('admin/equipments/edit/{id}', 'EquipmentsController@showEdit')->middl
 Route::post('admin/equipments/edit/{id}', 'EquipmentsController@editEquipment')->middleware('auth');
 
 // Admin - See/Create/Edit Categories
-Route::get('categories', 'CategoriesController@index')->name('categories')->middleware('auth');
 Route::get('categories/newCategory', 'CategoriesController@newCategory')->name('newCategory')->middleware('auth');
 Route::post('categories/create', 'CategoriesController@createCategory')->middleware('auth');
 Route::get('categories/edit/{category}', 'CategoriesController@showEdit')->middleware('auth');
 Route::post('categories/edit/{category}', 'CategoriesController@editCategory')->middleware('auth');
 
-// Email Verification
-Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
-
-//Booking room selected
-Route::get('home/{room}', 'BookingsController@roomSelected')->middleware('auth');
-//Booking usage selected
-Route::get('home/useage/{useage}', 'BookingsController@useageSelected')->middleware('auth');
-//bookings dates selected
-Route::get('home/{room}/{dateFrom}/{timeFrom}/{dateTo}/{timeTo}', 'BookingsController@findBookedRooms')->middleware('auth');
-
-//admin accept/delete booking
+//Admin accept/delete booking
 Route::get('admin/bookings/accept/{booking}', 'BookingsController@accept')->middleware('auth');
 Route::get('admin/bookings/delete/{booking}', 'BookingsController@delete')->middleware('auth');
 
-//route to bookings overview for admin
-Route::get('admin/bookings', 'BookingsController@indexAdmin')->name('bookingsAdmin')->middleware('auth');
+
