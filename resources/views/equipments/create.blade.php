@@ -12,17 +12,17 @@
 
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				<input class="mdl-textfield__input" type="text" id="name" name="name">
-				<label class="mdl-textfield__label" for="name">Name...</label>
+				<label class="mdl-textfield__label" for="name">Name...*</label>
 				<span class="mdl-textfield__error"></span>
 			</div>
 
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				<input class="mdl-textfield__input" type="text" id="type" name="type">
-				<label class="mdl-textfield__label" for="type">Type...</label>
+				<label class="mdl-textfield__label" for="type">Type...*</label>
 				<span class="mdl-textfield__error"></span>
 			</div>
 
-			<label class="materialLabel" for="location">Location</label>
+			<label class="materialLabel" for="location">Location*</label>
 			<select name="location" id="location" class="formPadding">
 				<option value="" disabled>Select location</option>
 				@foreach($allRooms as $room)
@@ -36,7 +36,7 @@
 
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				<textarea class="mdl-textfield__input" type="text" rows= "3" id="desc" name="desc" ></textarea>
-				<label class="mdl-textfield__label" for="desc">Description...</label>
+				<label class="mdl-textfield__label" for="desc">Description...*</label>
 			</div>
 
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -47,7 +47,7 @@
 			
 			<label class="materialLabel" for="lockdown">Lockdown</label>
 			<select name="lockdown" id="lockdown" class="formPadding">
-				<option value="" disabled="">Select lockdown state</option>
+				<option value="" disabled="">Select lockdown state*</option>
 				<option value="0" selected="">No</option>
 				<option value="1">Yes</option>
 			</select>

@@ -430,6 +430,17 @@ main{
 			width: 100%;
     		flex-basis: 100%;
 	}
+
+	tr{
+		width: 250px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.hideOnMobile{
+		display: none;
+	}
 }
 
 #numberFound{
@@ -444,6 +455,7 @@ main{
 #numberFound .bookError{
 	color:  darkred;
 }
+
 
 /* tried to make tables more responsive
 @media only screen and (max-width: 992px){

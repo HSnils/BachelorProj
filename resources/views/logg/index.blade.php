@@ -83,6 +83,28 @@
 				</script>
 	
 	</div>
+	<div class="mdl-cell mdl-cell--12-col">
+		<div class="mdl-cell mdl-cell--3-col">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+				Rooms
+			</button>
+		</div>
+		<div class="mdl-cell mdl-cell--3-col">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+				Equipment
+			</button>
+		</div>
+		<div class="mdl-cell mdl-cell--3-col">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+				Users
+			</button>
+		</div>
+		<div class="mdl-cell mdl-cell--3-col">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+				Categories
+			</button>
+		</div>
+	</div>
 </div>
 	
 @endsection

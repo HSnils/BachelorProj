@@ -9,7 +9,7 @@
 			<tr class="">
 				<th onclick="sortTable(0, this)" class="mdl-data-table__cell--non-numeric th">Room</th>
 				<th onclick="sortTable(1, this)" class="mdl-data-table__cell--non-numeric th">Type</th>
-				<th onclick="sortTable(2, this)" class="mdl-data-table__cell--non-numeric th">Building</th>
+				<th onclick="sortTable(2, this)" class="mdl-data-table__cell--non-numeric th hideOnMobile">Building</th>
 			</tr>
 		</thead>
 		<tbody class="">
@@ -17,7 +17,7 @@
 			<tr class="">
 				<td class="mdl-data-table__cell--non-numeric">{{$room->room_number}}</td>
 				<td class="mdl-data-table__cell--non-numeric"class="mdl-data-table__cell--non-numeric">{{$room->type}}</td>
-				<td class="mdl-data-table__cell--non-numeric">{{$room->building}}</td>
+				<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$room->building}}</td>
 			</tr>
 			@endforeach
 		</tbody>	

@@ -11,18 +11,18 @@
 			<thead class="">
 				<tr class="">
 					<th onclick="sortTable(0, this)" class="mdl-data-table__cell--non-numeric th">Name</th>
-					<th onclick="sortTable(1, this)" class="mdl-data-table__cell--non-numeric th">Type</th>
+					<th onclick="sortTable(1, this)" class="mdl-data-table__cell--non-numeric th hideOnMobile">Type</th>
 					<th onclick="sortTable(2, this)" class="mdl-data-table__cell--non-numeric th">Location</th>
-					<th onclick="sortTable(3, this)" class="mdl-data-table__cell--non-numeric th">Description</th>
+					<th onclick="sortTable(3, this)" class="mdl-data-table__cell--non-numeric th hideOnMobile">Description</th>
 				</tr>
 			</thead>
 			<tbody class="">
 				@foreach ($allEquipments as $equipment)
 					<tr class="">
 						<td class="mdl-data-table__cell--non-numeric">{{$equipment->name}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{$equipment->type}}</td>
+						<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$equipment->type}}</td>
 						<td class="mdl-data-table__cell--non-numeric">{{$equipment->location}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{substr($equipment->desc, 0, 15)}}(...)</td>
+						<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{substr($equipment->desc, 0, 25)}}(...)</td>
 					</tr>
 				@endforeach
 			</tbody>	
