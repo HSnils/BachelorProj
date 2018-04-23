@@ -85,7 +85,7 @@
 							<div class="formGroup">
 								<label for="dateFrom" class="materialLabel ">Book From</label>
 								<br>
-								<input type="date" name="dateFrom" id="dateFrom" class="formPadding marginTop1 ">
+								<input type="date" name="dateFrom" id="dateFrom" class="formPadding marginTop1 " min="{{date('Y-m-d')}}">
 
 								<div class="mdl-tooltip" data-mdl-for="dateFrom">
 									Select starting date
@@ -108,7 +108,7 @@
 							<div class="formGroup">
 								<label for="dateTo" class="materialLabel ">Book To</label>
 								<br>
-								<input type="date" name="dateTo" id="dateTo" class="formPadding marginTop1 ">
+								<input type="date" name="dateTo" id="dateTo" class="formPadding marginTop1 " min="{{date('Y-m-d')}}">
 								
 								<div class="mdl-tooltip" data-mdl-for="dateTo">
 									Select ending date

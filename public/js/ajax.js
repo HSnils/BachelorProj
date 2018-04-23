@@ -141,11 +141,11 @@ $(document).ready(function () {
 		$('#numberFound').html('');
 		if($numberFound == 0){
 			$('#numberFound').append(
-				'<div>You can book at this time!</div>'
+				'<div class="bookSuccess">You can book at this time!</div>'
 				);
 		}else{
 			$('#otherBookTableDiv').prop('hidden', false);
-			$('#numberFound').append('<div>Found <b>'+$numberFound+'</b> exsisting booking/s within your selected booking-time</div>');
+			$('#numberFound').append('<div class="bookError">Found <b>'+$numberFound+'</b> exsisting booking/s within your selected booking-time</div>');
 			
 			//loops through and prints everything
 			for(i in $data){

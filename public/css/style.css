@@ -432,6 +432,19 @@ main{
 	}
 }
 
+#numberFound{
+	text-align: center;
+
+}
+
+#numberFound .bookSuccess{
+	color:  green;
+}
+
+#numberFound .bookError{
+	color:  darkred;
+}
+
 /* tried to make tables more responsive
 @media only screen and (max-width: 992px){
 	table{
