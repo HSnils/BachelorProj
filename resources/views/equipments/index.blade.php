@@ -18,8 +18,15 @@
 			</thead>
 			<tbody class="">
 				@foreach ($allEquipments as $equipment)
+					@php
+						if(strlen($equipment->name) > 20){
+							$nameText = substr($equipment->name, 0,20).'(...)';
+						}else{
+							$nameText = $equipment->name;
+						}
+					@endphp
 					<tr class="">
-						<td class="mdl-data-table__cell--non-numeric">{{$equipment->name}}</td>
+						<td class="mdl-data-table__cell--non-numeric">{{$nameText}}</td>
 						<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$equipment->type}}</td>
 						<td class="mdl-data-table__cell--non-numeric">{{$equipment->location}}</td>
 						<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{substr($equipment->desc, 0, 25)}}(...)</td>

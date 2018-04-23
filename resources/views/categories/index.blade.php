@@ -6,7 +6,7 @@
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect categoriesTabBox">
 			<div class="mdl-tabs__tab-bar flex100">
 					<a href="#project-panel" class="mdl-tabs__tab is-active" style="width: 100%;">Projects</a>
-					<a href="#education-panel" class="mdl-tabs__tab" style="width: 100%;">Subjects</a>
+					<a href="#education-panel" class="mdl-tabs__tab" style="width: 100%;">Education</a>
 					<a href="#other-panel" class="mdl-tabs__tab" style="width: 100%;">Other</a>
 			</div>
 		

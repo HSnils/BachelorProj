@@ -14,9 +14,17 @@
 		</thead>
 		<tbody class="">
 			@foreach ($allRooms as $room)
+			@php
+				if(strlen($room->type) > 20){
+					$descText = substr($room->type, 0,20).'(...)';
+				}else{
+					$descText = $room->type;
+				}
+			@endphp
+
 			<tr class="">
 				<td class="mdl-data-table__cell--non-numeric">{{$room->room_number}}</td>
-				<td class="mdl-data-table__cell--non-numeric"class="mdl-data-table__cell--non-numeric">{{$room->type}}</td>
+				<td class="mdl-data-table__cell--non-numeric">{{$descText}}</td>
 				<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$room->building}}</td>
 			</tr>
 			@endforeach

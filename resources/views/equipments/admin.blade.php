@@ -12,29 +12,37 @@
 			<thead class="">
 				<tr class=" ">
 					<th onclick="sortTable(0, this)" class="mdl-data-table__cell--non-numeric th">Name</th>
-					<th onclick="sortTable(1, this)" class="mdl-data-table__cell--non-numeric th">Type</th>
+					<th onclick="sortTable(1, this)" class="mdl-data-table__cell--non-numeric th hideOnMobile">Type</th>
 					<th onclick="sortTable(2, this)" class="mdl-data-table__cell--non-numeric th">Location</th>
-					<th onclick="sortTable(3, this)" class="mdl-data-table__cell--non-numeric th">Description</th>
-					<th onclick="sortTable(4, this)" class="th">NTNU ID </th>
-					<th onclick="sortTable(5, this)" class="th">Lockdown</th>
-					<th onclick="sortTable(6, this)" class="th">Status</th>
-					<th onclick="sortTable(7, this)" class="mdl-data-table__cell--non-numeric th">Created</th>
-					<th onclick="sortTable(8, this)" class="mdl-data-table__cell--non-numeric th">Updated</th>
+					<th onclick="sortTable(3, this)" class="mdl-data-table__cell--non-numeric th hideOnMobile">Description</th>
+					<th onclick="sortTable(4, this)" class="th hideOnMobile">NTNU ID </th>
+					<th onclick="sortTable(5, this)" class="th hideOnMobile">Lockdown</th>
+					<th onclick="sortTable(6, this)" class="th hideOnMobile">Status</th>
+					<th onclick="sortTable(7, this)" class="mdl-data-table__cell--non-numeric th hideOnMobile">Created</th>
+					<th onclick="sortTable(8, this)" class="mdl-data-table__cell--non-numeric th hideOnMobile">Updated</th>
 					<th class="mdl-data-table__cell--non-numeric">Edit</th>
 				</tr>
 			</thead>
 			<tbody class="">
 				@foreach ($allEquipments as $equipment)
+
+					@php
+						if(strlen($equipment->name) > 20){
+							$nameText = substr($equipment->name, 0,20).'(...)';
+						}else{
+							$nameText = $equipment->name;
+						}
+					@endphp
 					<tr class="">
-						<td class="mdl-data-table__cell--non-numeric">{{$equipment->name}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{$equipment->type}}</td>
+						<td class="mdl-data-table__cell--non-numeric">{{$nameText}}</td>
+						<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$equipment->type}}</td>
 						<td class="mdl-data-table__cell--non-numeric">{{$equipment->location}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{substr($equipment->desc, 0, 15)}}(...)</td>
-						<td>{{ $equipment->ntnu_id }}</td>
-						<td >{{$equipment->lockdown}}</td>
-						<td >{{$equipment->status}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{$equipment->created_at->diffForHumans()}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{$equipment->updated_at->diffForHumans()}}</td>
+						<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{substr($equipment->desc, 0, 15)}}(...)</td>
+						<td class="hideOnMobile">{{ $equipment->ntnu_id }}</td>
+						<td class="hideOnMobile">{{$equipment->lockdown}}</td>
+						<td class="hideOnMobile">{{$equipment->status}}</td>
+						<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$equipment->created_at->diffForHumans()}}</td>
+						<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$equipment->updated_at->diffForHumans()}}</td>
 						<td class="mdl-data-table__cell--non-numeric " >
 							<a href="{{ url('admin/equipments/edit') }}/{{$equipment->id}}" ><i class="material-icons mdl-button--primary">edit</i></a>
 						</td>
