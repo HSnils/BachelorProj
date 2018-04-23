@@ -26,14 +26,26 @@ class BookingsController extends Controller
 		//validates input (checks if they are filled in)
 		$validator = Validator::make($request->all(), [
 			'room_number' => 'required',
-			'dateFrom' => 'required',
-			'timeFrom' => 'required',
+			'dateFrom' => 'required|min:1',
+			'timeFrom' => 'required|min:1',
 			'dateTo' => 'required',
 			'timeTo' => 'required',
 			'roomPrivacy' => 'required',
-			'spesificUseageSelect' => 'required',
+			'spesificUseageSelect' => 'required|min:1',
 
 		]);
+
+		if(!\Request::has('spesificUseageSelect')){
+			$bookingStatus = "You did not select a spesific category for your useage of room.";
+			$validator->getMessageBag()->add('needToSelectCategory', $bookingStatus);
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
+
+		if(!\Request::has('timeTo') || !\Request::has('timeFrom')){
+			$bookingStatus = "You did not select the start- and/or end time of your booking.";
+			$validator->getMessageBag()->add('timeNotSelected', $bookingStatus);
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
 
 		//all fields have a hidden token field so need to add 1, if you add more fields that is not equipments you need to add that to this number
 		//$requiredFields = 5 + 1;
