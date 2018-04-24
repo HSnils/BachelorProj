@@ -31,8 +31,36 @@ class AdminController extends Controller
 			//join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')->
 			$newBookings = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->join('users', 'bookings.user_id', '=', 'users.id')->select('users.id as userID, bookings.id as bookingID')->where('users.role','student')->where('bookings.status', '!=','Active')->orderBy('bookings.created_at', 'desc')->take(5)->get();
 
+
+			//gets total bookings of each room
+			$totalBookingsByRoom = Bookings::
+			join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
+			->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
+			->select('bookings_rooms.room_number')
+			->selectRaw('COUNT(*) AS count')
+			->groupBy('room_number')
+			->orderByDesc('count')
+			->get();
+
+			//gets total bookings of each booking-type
+			$totalBookingsByType = Bookings::
+			select('bookings.type')
+			->selectRaw('COUNT(*) AS count')
+			->groupBy('type')
+			->orderByDesc('count')
+			->get();
+
+			//gets total bookings of each useage category type
+			$totalBookingsByCategoryType = Bookings::
+			join('categories', 'bookings.category', '=', 'categories.category')
+			->select('categories.type')
+			->selectRaw('COUNT(*) AS count')
+			->groupBy('categories.type')
+			->orderByDesc('count')
+			->get();
+
 			session(['adminDashboard' => 'true']);
-			return view('admin.index', compact('newUsers', 'allRoles', 'newBookings'));
+			return view('admin.index', compact('newUsers', 'allRoles', 'newBookings','totalBookingsByRoom','totalBookingsByType','totalBookingsByCategoryType'));
 		} else {
 			return redirect()->route('home');
 		}

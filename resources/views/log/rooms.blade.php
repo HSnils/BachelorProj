@@ -1,7 +1,7 @@
 @extends('partials.template')
 @section('content')
 
-<div>Room <b>{{$topRoomThisMonth[0]->room_number}}</b> was used {{$hoursTopRoom}} hours in the past<span>
+<div>Room <b>{{$topRoomThisMonth[0]->room_number}}</b> was used {{$hoursTopRoom}} hours in the past month<span>
 
 </span></div>
 <div id="donutchart" style="width: 450px; height: 250px;"></div>
