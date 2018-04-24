@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--12-col"><h4>Bookings this past month:</h4></div>
 	<div class="mdl-cell mdl-cell--4-col">
 		<div id="donutchart" style="width: 450px; height: 250px;"></div>
 				<script type="text/javascript">
@@ -66,8 +67,8 @@
 						// Chart data records -- each entry in this array corresponds to a point on
 						// the chart.
 						data: [
-							@foreach($bookingsFromRolesThisMonth as $user)
-							{ label: '{{$user->role}}', value: '{{$user->count}}' },
+							@foreach($bookingsFromRolesThisMonth as $role)
+							{ label: '{{$role->role}}', value: '{{$role->count}}' },
 							@endforeach
 						],
 						
@@ -80,7 +81,7 @@
 				</script>
 	
 	</div>
-	<div class="mdl-cell mdl-cell--12-col">
+		<div class="mdl-cell mdl-cell--12-col"><h4>Click here to log for spesific things</h4></div>
 		<div class="mdl-cell mdl-cell--3-col">
 			<a href="{{route('logRooms')}}">
 				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
@@ -110,7 +111,7 @@
 				</button>
 			</a>
 		</div>
-	</div>
+	
 </div>
 	
 @endsection
