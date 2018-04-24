@@ -5,9 +5,6 @@
 <div class="mdl-grid">
 	<div class="mdl-cell mdl-cell--4-col">
 		<div id="donutchart" style="width: 450px; height: 250px;"></div>
-@foreach($bookedRooms as $room)
-		{{ $room->room_number }}
-@endforeach
 				<script type="text/javascript">
 					new Morris.Donut({
 						// ID of the element in which to draw the chart.
@@ -15,11 +12,9 @@
 						// Chart data records -- each entry in this array corresponds to a point on
 						// the chart.
 						data: [
-							{ label: 'A008', value: 1 },
-							{ label: 'A008', value: 1 },
-							{ label: 'A008', value: 1 },
-							{ label: 'A008', value: 1 }
-
+							@foreach($topRoomsThisMonth as $room)
+							{ label: '{{$room->room_number}}', value: '{{$room->count}}' },
+							@endforeach
 						],
 						
 						colors: [ 
@@ -46,9 +41,9 @@
 						// Chart data records -- each entry in this array corresponds to a point on
 						// the chart.
 						data: [
-							{ label: 'Projects', value: 20 },
-							{ label: 'Education', value: 10 },
-							{ label: 'Other', value: 5 }
+							@foreach($categoryThisMonth as $category)
+							{ label: '{{$category->type}}', value: '{{$category->count}}' },
+							@endforeach
 						],
 						
 						colors: [
@@ -71,8 +66,9 @@
 						// Chart data records -- each entry in this array corresponds to a point on
 						// the chart.
 						data: [
-							{ label: 'Student', value: 20 },
-							{ label: 'Employee', value: 10 }
+							@foreach($bookingsFromRolesThisMonth as $user)
+							{ label: '{{$user->role}}', value: '{{$user->count}}' },
+							@endforeach
 						],
 						
 						colors: [
