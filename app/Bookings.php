@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use Carbon\Carbon;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -36,4 +37,14 @@ class Bookings extends Model
 		return $this->hasOne(bookings_room::class, 'bookings_id');
 		
 	}
+
+    public function hoursSpent(){
+        $hoursUsed = 0;
+        $startDate = new Carbon($this->from_date);
+        $endDate = new Carbon ($this->to_date);
+
+        //uses carbon function to find the differnece in minnutes and devides it by 60(minutes to get hours)
+        $hoursUsed += $endDate->diffInMinutes($startDate) / 60;
+        return $hoursUsed;
+    }
 }
