@@ -66,6 +66,22 @@ class LogController extends Controller
 		
 	}
 
+	public function exportRoom()
+	{
+		$test = Rooms::all();
+
+		$csv = \League\Csv\Writer::createFromFileObject(new \SplTempFileObject());
+
+		$csv->insertOne(\Schema::getColumnListing('test'));
+
+		foreach ($test as $room){
+			$csv->insertOne($room->toArray());
+		}
+
+		$dateNow = new Carbon();
+		$csv->output('logRooms-'.$dateNow.'.csv');
+	}
+
 	public function logRooms()
 	{
 		$isAdmin = auth()->user()->role == 'Admin';
@@ -85,11 +101,13 @@ class LogController extends Controller
 				array_push($whereQuery, ["bookings_rooms.room_number", $room]);
 			}
 
-			if(\Request::has('dateFrom') && \Request::has('dateTo')){
-				$dateFrom = \Request::input('dateFrom');
-				$dateTo = \Request::input('dateTo');
+			$dateFrom = \Request::input('dateFrom');
+			$dateTo = \Request::input('dateTo');
 
-				if(!($dateFrom || $dateTo) == ''){
+			if(!($dateFrom || $dateTo) == ''){
+				
+				if(\Request::has('dateFrom') && \Request::has('dateTo')){
+								
 					$newFrom = new Carbon($dateFrom);
 					$newTo = new Carbon($dateTo);
 
@@ -101,12 +119,6 @@ class LogController extends Controller
 					->orWhereBetween("bookings.to_date", [$newFrom, $newTo])
 					->paginate($roomsPerPagination);
 				
-				} else {
-					//gets the room with the filter
-					$filteredBookings = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
-					->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
-					->where($whereQuery)
-					->paginate($roomsPerPagination);
 				}
 			} else {
 				//gets the room with the filter

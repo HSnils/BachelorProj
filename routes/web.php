@@ -81,4 +81,5 @@ Route::post('categories/edit/{category}', 'CategoriesController@editCategory')->
 Route::get('admin/bookings/accept/{booking}', 'BookingsController@accept')->middleware('auth');
 Route::get('admin/bookings/delete/{booking}', 'BookingsController@delete')->middleware('auth');
 
+Route::get('admin/log/rooms/download', 'LogController@exportRoom')->middleware('auth');
 
