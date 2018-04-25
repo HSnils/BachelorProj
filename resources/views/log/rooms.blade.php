@@ -51,7 +51,7 @@
 		Total bookings: <b>{{count($filteredBookings)}}</b>
 	</div>
 	<div class="mdl-cell mdl-cell--4-col">
-		<a href="{{url('admin/log/rooms/download?')}}{{request()->getQueryString()}}">Download to CSV</a>
+		<a href="{{url('admin/log/rooms/download?')}}{{request()->getQueryString()}}">Download to CSV <i class="material-icons">file_download</i></a>
 	</div>
 </div>
 <div class="mdl-grid">
