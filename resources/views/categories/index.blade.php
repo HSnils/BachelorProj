@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="mdl-grid">
+	<div class="mdl-typography--display-2 mdl-color-text--grey-600 flex100 headers">
+		CATEGORIES
+	</div>
 	<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect categoriesTabBox">
 			<div class="mdl-tabs__tab-bar flex100">

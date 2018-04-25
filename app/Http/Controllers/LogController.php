@@ -72,6 +72,53 @@ class LogController extends Controller
 
 		if ($isAdmin){
 			
+			$allRooms = Rooms::all(); //gets rooms for the filtering
+
+			//how may to show per page
+			$roomsPerPagination = 10;
+			$whereQuery = []; //creates array to fill with where queries
+			$whereBetween = [];
+
+			//for filtering
+			if(\Request::has('room_number')){
+				$room = \Request::input('room_number');
+				array_push($whereQuery, ["bookings_rooms.room_number", $room]);
+			}
+
+			if(\Request::has('dateFrom') && \Request::has('dateTo')){
+				$dateFrom = \Request::input('dateFrom');
+				$dateTo = \Request::input('dateTo');
+
+				if(!($dateFrom || $dateTo) == ''){
+					$newFrom = new Carbon($dateFrom);
+					$newTo = new Carbon($dateTo);
+
+					//gets the room with the filter
+					$filteredBookings = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
+					->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
+					->where($whereQuery)
+					->whereBetween("bookings.from_date", [$newFrom, $newTo])
+					->orWhereBetween("bookings.to_date", [$newFrom, $newTo])
+					->paginate($roomsPerPagination);
+				
+				} else {
+					//gets the room with the filter
+					$filteredBookings = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
+					->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
+					->where($whereQuery)
+					->paginate($roomsPerPagination);
+				}
+			} else {
+				//gets the room with the filter
+				$filteredBookings = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
+				->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
+				->where($whereQuery)
+				->paginate($roomsPerPagination);
+			}
+
+
+			
+
 			//top 4 rooms all time
 			$topFourRooms = Rooms::join('bookings_rooms', 'rooms.room_number', '=', 'bookings_rooms.room_number')->select('bookings_rooms.room_number')->selectRaw('COUNT(*) AS count')->groupBy('room_number')->orderByDesc('count')->limit(4)->get();
 
@@ -116,7 +163,9 @@ class LogController extends Controller
 				$hoursTopRoom += $endDate->diffInHours($startDate);
 			}
 
-			return view('log.rooms', compact('topRoomThisMonth','topRoomsThisMonth', 'hoursTopRoom'));
+
+
+			return view('log.rooms', compact('allRooms','topRoomThisMonth','topRoomsThisMonth', 'hoursTopRoom','filteredBookings'));
 		} else {
 			return redirect()->route('home');
 		}

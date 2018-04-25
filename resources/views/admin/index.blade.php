@@ -21,7 +21,7 @@
 
 
 <div class="mdl-grid">
-	<div class="mdl-cell mdl-cell--12-col"><h4>Booking stats:</h4></div>
+	<div class="mdl-cell mdl-cell--12-col"><h4>Booking stats <span>(all time)</span>: </h4> </div>
 	<div class="mdl-cell mdl-cell--4-col">
 		<div id="donutchart" style="width: 450px; height: 250px;"></div>
 		<script type="text/javascript">
