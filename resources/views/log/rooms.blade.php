@@ -36,17 +36,22 @@
 <div class="mdl-typography--display-2 mdl-color-text--grey-600 flex100 headers">
 	LOG/ROOMS
 </div>
-<div>
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--4-col">
+	</div>
 	@php
 		$totalHoursSpent = 0;
 		foreach($filteredBookings as $booking){
 			$totalHoursSpent += $booking->hoursSpent();
 		}
 	@endphp
-	<div>
+	<div class="mdl-cell mdl-cell--4-col">
 		Total hours spent: <b>{{$totalHoursSpent}}</b>
 	<br>
 		Total bookings: <b>{{count($filteredBookings)}}</b>
+	</div>
+	<div class="mdl-cell mdl-cell--4-col">
+		<a href="{{url('admin/log/rooms/download?')}}{{request()->getQueryString()}}">Download to CSV</a>
 	</div>
 </div>
 <div class="mdl-grid">
@@ -84,6 +89,9 @@
 		</div>
 	</div>
 </div>
+
+
+
 
 <!--Sorting -->
 	<dialog class="mdl-dialog">

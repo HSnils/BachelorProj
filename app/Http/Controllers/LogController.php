@@ -66,16 +66,57 @@ class LogController extends Controller
 		
 	}
 
-	public function exportRoom()
-	{
-		$test = Rooms::all();
+	public function exportRoom(){
+
+			$whereQuery = []; //creates array to fill with where queries
+			$whereBetween = [];
+
+			//for filtering
+			if(\Request::has('room_number')){
+				$room = \Request::input('room_number');
+				array_push($whereQuery, ["bookings_rooms.room_number", $room]);
+			}
+
+			$dateFrom = \Request::input('dateFrom');
+			$dateTo = \Request::input('dateTo');
+
+			if(!($dateFrom || $dateTo) == ''){
+				
+				if(\Request::has('dateFrom') && \Request::has('dateTo')){
+								
+					$newFrom = new Carbon($dateFrom);
+					$newTo = new Carbon($dateTo);
+
+					//gets the room with the filter
+					$filteredBookings = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
+					->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
+					->join('users', 'users.id', '=', 'bookings.user_id')
+					->join('categories', 'categories.category', '=', 'bookings.category')
+					->where($whereQuery)
+					->whereBetween("bookings.from_date", [$newFrom, $newTo])
+					->orWhereBetween("bookings.to_date", [$newFrom, $newTo])
+					->select('rooms.room_number','bookings.from_date','bookings.to_date','users.name','categories.type','bookings.category')
+					->get();
+				
+				}
+			} else {
+				//gets the room with the filter
+				$filteredBookings = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
+				->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
+				->join('users', 'users.id', '=', 'bookings.user_id')
+				->join('categories', 'categories.category', '=', 'bookings.category')
+				->where($whereQuery)
+				>select('rooms.room_number','bookings.from_date','bookings.to_date','users.name','categories.type','bookings.category')
+				->get();
+			}
 
 		$csv = \League\Csv\Writer::createFromFileObject(new \SplTempFileObject());
 
-		$csv->insertOne(\Schema::getColumnListing('test'));
+		$headers = ['Room','Start date','End date','User','Usage type','Usage'];
+		$csv->insertOne($headers);
 
-		foreach ($test as $room){
-			$csv->insertOne($room->toArray());
+		foreach ($filteredBookings as $booking){
+			$csv->insertOne($booking->toArray());
 		}
 
 		$dateNow = new Carbon();
