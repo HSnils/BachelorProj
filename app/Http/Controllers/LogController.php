@@ -356,5 +356,68 @@ class LogController extends Controller
 		$csv->output($fileName);
 	}
 
+		public function logUsers(){
+		$isAdmin = auth()->user()->role == 'Admin';
+
+		if ($isAdmin){
+			
+			$allRoles = Roles::all(); //gets roles for the filtering
+
+			//how may to show per page
+			$equipmentsPerPagination = 10;
+			$whereQuery = []; //creates array to fill with where queries
+
+			//for filtering
+
+			if(\Request::has('email')){
+				$email = \Request::input('email') . '%';
+				array_push($whereQuery, ["users.email", 'LIKE', $email]);
+			}
+
+			if(\Request::has('name')){
+				$name = \Request::input('name'). '%';
+				array_push($whereQuery, ["users.name", 'LIKE', $name]);
+			}
+
+			if(\Request::has('role')){
+				$role = \Request::input('role');
+				array_push($whereQuery, ["users.role", $role]);
+			}
+
+			$dateFrom = \Request::input('dateFrom');
+			$dateTo = \Request::input('dateTo');
+
+			if(!($dateFrom || $dateTo) == ''){
+				
+				if(\Request::has('dateFrom') && \Request::has('dateTo')){
+								
+					$newFrom = new Carbon($dateFrom);
+					$newTo = new Carbon($dateTo);
+
+					//gets the room with the filter
+					$filteredBookings = Bookings::
+					join('users', 'users.id', '=', 'bookings.user_id')
+					->select('users.email','users.role', 'bookings.type as bType','bookings.from_date','bookings.to_date')
+					->where($whereQuery)
+					->whereBetween("bookings.from_date", [$newFrom, $newTo])
+					->orWhereBetween("bookings.to_date", [$newFrom, $newTo])
+					->paginate($equipmentsPerPagination);
+				
+				}
+			} else {
+				//gets the room with the filter
+				$filteredBookings = Bookings::
+				join('users', 'users.id', '=', 'bookings.user_id')
+				->select('users.email','users.role', 'bookings.type as bType','bookings.from_date','bookings.to_date')
+				->where($whereQuery)
+				->paginate($equipmentsPerPagination);
+			}
+
+			return view('log.users', compact('allRoles','filteredBookings'));
+		} else {
+			return redirect()->route('home');
+		}
+	}
+
 
 }
