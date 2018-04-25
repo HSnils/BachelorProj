@@ -66,10 +66,10 @@ class LogController extends Controller
 		
 	}
 
+	//export to cvs for room
 	public function exportRoom(){
 
-			$whereQuery = []; //creates array to fill with where queries
-			$whereBetween = [];
+			$whereQuery = []; //creates array to fill with where queries/ if this array is empty it gets all bookings
 
 			//for filtering
 			if(\Request::has('room_number')){
@@ -106,21 +106,26 @@ class LogController extends Controller
 				->join('users', 'users.id', '=', 'bookings.user_id')
 				->join('categories', 'categories.category', '=', 'bookings.category')
 				->where($whereQuery)
-				>select('rooms.room_number','bookings.from_date','bookings.to_date','users.name','categories.type','bookings.category')
+				->select('rooms.room_number','bookings.from_date','bookings.to_date','users.name','categories.type','bookings.category')
 				->get();
 			}
 
+		//creates csv file in memory
 		$csv = \League\Csv\Writer::createFromFileObject(new \SplTempFileObject());
 
+		//sets up headers
 		$headers = ['Room','Start date','End date','User','Usage type','Usage'];
 		$csv->insertOne($headers);
 
+		//inserts rows/information
 		foreach ($filteredBookings as $booking){
 			$csv->insertOne($booking->toArray());
 		}
 
+		//downloads file for user with the filename u want
 		$dateNow = new Carbon();
-		$csv->output('logRooms-'.$dateNow.'.csv');
+		$fileName = 'logRooms-'.$dateNow.'.csv';
+		$csv->output($fileName);
 	}
 
 	public function logRooms()
@@ -134,7 +139,6 @@ class LogController extends Controller
 			//how may to show per page
 			$roomsPerPagination = 10;
 			$whereQuery = []; //creates array to fill with where queries
-			$whereBetween = [];
 
 			//for filtering
 			if(\Request::has('room_number')){
@@ -223,5 +227,134 @@ class LogController extends Controller
 			return redirect()->route('home');
 		}
 	}
+
+	public function logEquipments()
+	{
+		$isAdmin = auth()->user()->role == 'Admin';
+
+		if ($isAdmin){
+			
+			$allRooms = Rooms::all(); //gets rooms for the filtering
+
+			//how may to show per page
+			$equipmentsPerPagination = 10;
+			$whereQuery = []; //creates array to fill with where queries
+
+			//for filtering
+
+			if(\Request::has('room_number')){
+				$room = \Request::input('room_number');
+				array_push($whereQuery, ["equipments.location", $room]);
+			}
+
+			if(\Request::has('name')){
+				$equipment = \Request::input('name'). '%';
+				array_push($whereQuery, ["equipments.name", 'LIKE', $equipment]);
+			}
+
+			$dateFrom = \Request::input('dateFrom');
+			$dateTo = \Request::input('dateTo');
+
+			if(!($dateFrom || $dateTo) == ''){
+				
+				if(\Request::has('dateFrom') && \Request::has('dateTo')){
+								
+					$newFrom = new Carbon($dateFrom);
+					$newTo = new Carbon($dateTo);
+
+					//gets the room with the filter
+					$filteredBookings = Bookings::
+					join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')
+					->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')
+					->where($whereQuery)
+					->whereBetween("bookings.from_date", [$newFrom, $newTo])
+					->orWhereBetween("bookings.to_date", [$newFrom, $newTo])
+					->paginate($equipmentsPerPagination);
+				
+				}
+			} else {
+				//gets the room with the filter
+				$filteredBookings = Bookings::
+				join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')
+				->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')
+				->where($whereQuery)
+				->paginate($equipmentsPerPagination);
+			}
+
+			return view('log.equipments', compact('allRooms','filteredBookings'));
+		} else {
+			return redirect()->route('home');
+		}
+	}
+
+	//export to cvs for room
+	public function exportEquipment(){
+
+			$whereQuery = []; //creates array to fill with where queries/ if this array is empty it gets all bookings
+
+			//for filtering
+			if(\Request::has('room_number')){
+				$room = \Request::input('room_number');
+				array_push($whereQuery, ["equipments.location", $room]);
+			}
+
+			if(\Request::has('name')){
+				$equipment = \Request::input('name'). '%';
+				array_push($whereQuery, ["equipments.name", 'LIKE', $equipment]);
+			}
+
+			$dateFrom = \Request::input('dateFrom');
+			$dateTo = \Request::input('dateTo');
+
+			if(!($dateFrom || $dateTo) == ''){
+				
+				if(\Request::has('dateFrom') && \Request::has('dateTo')){
+								
+					$newFrom = new Carbon($dateFrom);
+					$newTo = new Carbon($dateTo);
+
+					//gets the room with the filter
+					$filteredBookings = Bookings::
+					join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')
+					->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')
+					->join('users', 'users.id', '=', 'bookings.user_id')
+					->join('categories', 'categories.category', '=', 'bookings.category')
+					->where($whereQuery)
+					->whereBetween("bookings.from_date", [$newFrom, $newTo])
+					->orWhereBetween("bookings.to_date", [$newFrom, $newTo])
+					->select('equipments.name','equipments.type','bookings.from_date','bookings.to_date','users.name','categories.type','bookings.category')
+					->get();
+				
+				}
+			} else {
+				//gets the room with the filter
+				$filteredBookings = Bookings::
+				join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')
+				->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')
+				->join('users', 'users.id', '=', 'bookings.user_id')
+				->join('categories', 'categories.category', '=', 'bookings.category')
+				->select('equipments.name','equipments.type','equipments.location','bookings.from_date','bookings.to_date','users.name','categories.type','bookings.category')
+				->where($whereQuery)
+				->get();
+			}
+
+		//creates csv file in memory
+		$csv = \League\Csv\Writer::createFromFileObject(new \SplTempFileObject());
+
+		//sets up headers
+		$headers = ['Name','Type','Location','Start date','End date','User','Usage type','Usage'];
+		$csv->insertOne($headers);
+
+		//inserts rows/information
+		foreach ($filteredBookings as $booking){
+			$csv->insertOne($booking->toArray());
+		}
+
+		//downloads file for user with the filename u want
+		$dateNow = new Carbon();
+		$fileName = 'logEquipments-'.$dateNow.'.csv';
+		$csv->output($fileName);
+	}
+
 
 }
