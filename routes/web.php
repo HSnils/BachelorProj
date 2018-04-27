@@ -34,7 +34,7 @@ Route::get('home/{room}', 'BookingsController@roomSelected')->middleware('auth')
 //Booking usage selected
 Route::get('home/useage/{useage}', 'BookingsController@useageSelected')->middleware('auth');
 //Bookings dates selected
-Route::get('home/{room}/{dateFrom}/{timeFrom}/{dateTo}/{timeTo}', 'BookingsController@findBookedRooms')->middleware('auth');
+Route::get('home/findAvalible/{roomSelected}/{dateFrom}/{timeFrom}/{dateTo}/{timeTo}', 'BookingsController@findBookedRooms')->middleware('auth');
 
 
 //---- ADMIN STUFF ----//

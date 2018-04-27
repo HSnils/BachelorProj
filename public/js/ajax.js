@@ -9,7 +9,20 @@ $(document).ready(function () {
 		//gets the value of the selected item
 		$room = $(this).val();
 		
+		$dateFrom = $('#dateFrom').val();
+		$timeFrom = $('#timeFrom').val();
+		$dateTo = $('#dateTo').val();
+		$timeTo = $('#timeTo').val();
+
 		$.get("home/" + $room, displayRoomEquipment);
+		
+		//checks if any of the date fields is filled in, so that when 
+		//you change the room it runs a check for avaliblity
+		if(!($dateFrom || $timeFrom || $dateTo || $timeTo ) == ''){
+			console.log('room changed, dates allready selected, checking avalibility..')
+			$.get("home/findAvalible/"+ $room +"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
+		}
+
 	});
 
 	// Prints the fetched data (from database) to the user.
@@ -76,7 +89,7 @@ $(document).ready(function () {
 
 	$('#dateFrom').change(function(e){
 		e.preventDefault();
-
+		console.log($room);
 		$room = $('#room_numberBooking').val();
 		//gets the value of the selected item
 		$dateFrom = $(this).val();
@@ -84,49 +97,49 @@ $(document).ready(function () {
 		$dateTo = $('#dateTo').val();
 		$timeTo = $('#timeTo').val();
 		
-		$.get("home/"+ $room +"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
+		$.get("home/findAvalible/"+ $room +"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
 	});
 
 	$('#timeFrom').change(function(e){
 		e.preventDefault();
 
 		$room = $('#room_numberBooking').val();
-
+console.log($room);
 		//gets the value of the selected item
 		$dateFrom = $('#dateFrom').val();
 		$timeFrom = $(this).val();
 		$dateTo = $('#dateTo').val();
 		$timeTo = $('#timeTo').val();
 		
-		$.get("home/"+ $room +"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
+		$.get("home/findAvalible/"+ $room +"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
 	});
 
 	$('#dateTo').change(function(e){
 		e.preventDefault();
 
 		$room = $('#room_numberBooking').val();
-
+console.log($room);
 		//gets the value of the selected item
 		$dateFrom = $('#dateFrom').val();
 		$timeFrom = $('#timeFrom').val();
 		$dateTo = $(this).val();
 		$timeTo = $('#timeTo').val();
 		
-		$.get("home/"+ $room +"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
+		$.get("home/findAvalible/"+ $room +"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
 	});
 
 	$('#timeTo').change(function(e){
 		e.preventDefault();
 
 		$room = $('#room_numberBooking').val();
-
+		console.log($room);
 		//gets the value of the selected item
 		$dateFrom = $('#dateFrom').val();
 		$timeFrom = $('#timeFrom').val();
 		$dateTo = $('#dateTo').val();
 		$timeTo = $(this).val();
 		
-		$.get("home/"+ $room +"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
+		$.get("home/findAvalible/"+ $room +"/" + $dateFrom + "/"+$timeFrom+"/"+$dateTo+"/"+$timeTo, showAvalibleRooms);
 	});
 
 	// Prints the fetched data (from database) to the user.

@@ -265,14 +265,16 @@ class BookingsController extends Controller
 		return json_encode($getEquipmentsInRoom);
 	}
 
+	//when category type / usage has been set, gets all the categories / spesific usages with that type / usage
 	public function	useageSelected($useage){
 		$getSelectedUseage = Categories::where('type', $useage)->get();
 		return json_encode($getSelectedUseage);
 	}
 
-	public function	findBookedRooms($room, $dateFrom, $timeFrom, $dateTo, $timeTo){
-		//fills variables with inputs
-		$roomNumber = $room;
+	//after selecting a room and selecting all the dates/times, returns booking results with the same speifics.
+	public function	findBookedRooms($roomSelected, $dateFrom, $timeFrom, $dateTo, $timeTo){
+
+		$room = $roomSelected;
 		//dates
 		$dateFrom = new Carbon($dateFrom . ' ' . $timeFrom.':00');
 		$dateFrom->format('Y-m-d H:i:s');
@@ -285,15 +287,20 @@ class BookingsController extends Controller
 		$offsetDateTo = new Carbon ($dateTo);
 		$offsetDateTo->subSecond();
 
-	
-		$findsBookingOverlappingBookings = Bookings::
-			join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
-			->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
-			->where('rooms.room_number', $roomNumber)
-			->whereBetween('from_date', [$offsetDateFrom, $offsetDateTo])
-			->orWhereBetween('to_date', [$offsetDateFrom, $offsetDateTo])
+		//better way to check for dates on bookings should (learnt abit later into project) should have been used in normal booking, but both works
+		$findsBookingOverlappingBookings = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->leftjoin('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')->select('rooms.room_number', 'bookings.from_date', 'bookings.to_date')
+			->where('rooms.room_number',  '=' , $room)
+			->where(function ($query) use ($offsetDateFrom, $offsetDateTo){
+			$query
+				->whereBetween('from_date', [$offsetDateFrom, $offsetDateTo])
+				->orWhereBetween('to_date', [$offsetDateFrom, $offsetDateTo]);
+			})
+			->orWhere(function($query) use ($dateFrom, $dateTo){
+				$query
+				->where('from_date', '<=', $dateFrom)
+				->where('to_date', '>=', $dateTo);
+			})
 		->get();
-
 
 		return json_encode($findsBookingOverlappingBookings);
 	}
