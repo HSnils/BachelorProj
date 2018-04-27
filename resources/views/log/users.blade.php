@@ -14,7 +14,7 @@
 		}
 	@endphp
 	<div class="mdl-cell mdl-cell--4-col">
-		Total hours spent: <b>{{$totalHoursSpent}}</b>
+		Total hours spent: <b>{{$totalHoursSpent}} </b>
 	<br>
 		Total bookings: <b>{{count($filteredBookings)}}</b>
 	</div>
@@ -29,10 +29,10 @@
 	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp " id="usersTable">
 		<thead class="" >
 			<tr class="">
-				<th onclick="sortTable(0, this)" class="mdl-data-table__cell--non-numeric th">E-Mail</th>
-				<th onclick="sortTable(1, this)" class="mdl-data-table__cell--non-numeric th">Role</th>
-				<th onclick="sortTable(2, this)" class="mdl-data-table__cell--non-numeric th">Booking type</th>
-				<th onclick="sortTable(3, this)" class="mdl-data-table__cell--non-numeric th"> Name</th>
+				<th onclick="sortTable(0, this)" class="mdl-data-table__cell--non-numeric th">Name</th>
+				<th onclick="sortTable(1, this)" class="mdl-data-table__cell--non-numeric th">E-Mail</th>
+				<th onclick="sortTable(2, this)" class="mdl-data-table__cell--non-numeric th">Role</th>
+				<th onclick="sortTable(3, this)" class="mdl-data-table__cell--non-numeric th">Booking type</th>
 				<th onclick="sortTable(4, this)" class="mdl-data-table__cell--non-numeric th">Start date</th>
 				<th onclick="sortTable(5, this)" class="mdl-data-table__cell--non-numeric th">End date</th>
 				<th onclick="sortTable(6, this)" class="mdl-data-table__cell--non-numeric th">Hours spent</th>
@@ -42,17 +42,10 @@
 			@foreach($filteredBookings as $booking)
 
 				<tr>
+					<td class="mdl-data-table__cell--non-numeric">{{$booking->name}}</td>
 					<td class="mdl-data-table__cell--non-numeric">{{$booking->email}}</td>
 					<td class="mdl-data-table__cell--non-numeric">{{$booking->role}}</td>
 					<td class="mdl-data-table__cell--non-numeric">{{$booking->bType}}</td>
-					<td class="mdl-data-table__cell--non-numeric">
-						@if($booking->bType == 'Room')
-							some room
-							
-						@elseif($booking->bType == 'Equipment')
-							some equipment
-						@endif
-					</td>
 					<td class="mdl-data-table__cell--non-numeric">{{$booking->from_date}}</td>
 					<td class="mdl-data-table__cell--non-numeric">{{$booking->to_date}}</td>
 					<!--If hour spent is more than 1.5 print 'hours' else print 'hour' -->
@@ -94,6 +87,13 @@
 						@foreach($allRoles as $role)
 							<option value="{{$role->role}}">{{$role->role}}</option>
 						@endforeach
+					</select>
+
+					<span class="materialLabel marginTop1 marginBottom1">Filter by booking type</span>
+					<select class="formPadding flex100 width100" name="bType" id="bType">
+						<option disabled selected="">Select booking type</option>
+						<option value="Room">Room</option>
+						<option value="Equipment">Equipment</option>
 					</select>
 					
 					<span class="materialLabel marginTop1 marginBottom1">Filter by start and end date</span><hr>
