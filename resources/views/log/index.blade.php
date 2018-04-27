@@ -3,7 +3,9 @@
 @section('content')
 
 <div class="mdl-grid">
-	<div class="mdl-cell mdl-cell--12-col"><h4>Bookings this past month:</h4></div>
+	<div class="mdl-cell mdl-cell--12-col"><div class="mdl-typography--display-1 mdl-color-text--grey-600 flex100 page-content">
+		Bookings this past month
+	</div>></div>
 	<div class="mdl-cell mdl-cell--4-col">
 		<div id="donutchart" style="width: 450px; height: 250px;"></div>
 				<script type="text/javascript">
@@ -81,45 +83,40 @@
 				</script>
 	
 	</div>
-	<div class="mdl-cell mdl-cell--4-col">
+
+	<div class="mdl-cell mdl-cell--12-col">
+		<div class=" flex100 page-content">
+			Total hours spent this month: <b>{{$totalHoursSpentThisMonth}}</b>
+		</div>
 	</div>
-	<div class="mdl-cell mdl-cell--4-col">
-		Total hours spent this month: <b>{{$totalHoursSpentThisMonth}}</b>
+
+    <div class="mdl-cell mdl-cell--12-col">
+		<div class="mdl-typography--display-1 mdl-color-text--grey-600 flex100 page-content">
+			Specific logs
+		</div>
 	</div>
-	<div class="mdl-cell mdl-cell--4-col">
-		
-	</div>
-	<div class="mdl-cell mdl-cell--12-col"><h4>Click here to log for spesific things</h4></div>
-	<div class="mdl-cell mdl-cell--3-col">
+	<div class="mdl-cell mdl-cell--12-col page-content">
 		<a href="{{route('logRooms')}}">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect marginR">
 				Rooms
 			</button>
 		</a>
-		
-	</div>
-	<div class="mdl-cell mdl-cell--3-col">
 		<a href="{{route('logEquipments')}}">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect marginR">
 				Equipments
 			</button>
 		</a>
-	</div>
-	<div class="mdl-cell mdl-cell--3-col">
 		<a href="{{route('logUsers')}}">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect marginR">
 				Users
 			</button>
 		</a>
-	</div>
-	<div class="mdl-cell mdl-cell--3-col">
 		<a href="{{route('logCategories')}}">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect ">
 				Categories
 			</button>
 		</a>
 	</div>
-	
 </div>
 	
 @endsection

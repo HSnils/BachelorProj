@@ -83,7 +83,7 @@
 						
 						<div hidden class="formGroupParent marginTop1 marginBottom1" id="dateTimeBox">
 							<div class="formGroup">
-								<label for="dateFrom" class="materialLabel ">Book From</label>
+								<label for="dateFrom" class="materialLabel ">Book from</label>
 								<br>
 								<input type="date" name="dateFrom" id="dateFrom" class="formPadding marginTop1 " min="{{date('Y-m-d')}}">
 
@@ -106,7 +106,7 @@
 							</div>
 
 							<div class="formGroup">
-								<label for="dateTo" class="materialLabel ">Book To</label>
+								<label for="dateTo" class="materialLabel ">Book to</label>
 								<br>
 								<input type="date" name="dateTo" id="dateTo" class="formPadding marginTop1 " min="{{date('Y-m-d')}}">
 								
@@ -149,7 +149,7 @@
 
 						<section id="bookingUseage" hidden class="formGroupParent marginTop1 marginBottom1">
 							<div class="formGroup">
-								<label for="useageSelect" class="materialLabel ">Useage:</label>
+								<label for="useageSelect" class="materialLabel ">Usage:</label>
 								<br>
 								<select name="" id="useageSelect" class="formPadding marginTop1 width100">
 									<option value="Education">Education</option>
@@ -159,7 +159,7 @@
 							</div>
 
 							<div class="formGroup">
-								<label for="spesificUseageSelect" class="materialLabel ">Specific:</label>
+								<label for="spesificUseageSelect" class="materialLabel ">Specify use:</label>
 								<br>
 								<select name="spesificUseageSelect" id="spesificUseageSelect" class="formPadding marginTop1 width100">
 									<span id="spesificUseageItems">

@@ -93,6 +93,11 @@ main{
 .marginB{
 	margin-bottom: 1em;
 }
+
+.marginR{
+	margin-right: 1em;
+}
+
 .th{
     cursor: pointer;
 }
