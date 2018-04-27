@@ -81,7 +81,9 @@ Route::post('categories/edit/{category}', 'CategoriesController@editCategory')->
 Route::get('admin/bookings/accept/{booking}', 'BookingsController@accept')->middleware('auth');
 Route::get('admin/bookings/delete/{booking}', 'BookingsController@delete')->middleware('auth');
 
-//Log Download
+//Log Download to cvs
 Route::get('admin/log/rooms/download', 'LogController@exportRoom')->middleware('auth');
 Route::get('admin/log/equipments/download', 'LogController@exportEquipment')->middleware('auth');
+Route::get('admin/log/users/download', 'LogController@exportUsers')->middleware('auth');
+Route::get('admin/log/categories/download', 'LogController@exportCategories')->middleware('auth');
 
