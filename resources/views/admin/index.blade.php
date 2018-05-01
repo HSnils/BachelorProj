@@ -21,10 +21,12 @@
 
 
 <div class="mdl-grid">
-	<div class="mdl-cell mdl-cell--12-col"><div class="mdl-typography--display-1 mdl-color-text--grey-600 flex100 page-content">
+	<div class="mdl-cell mdl-cell--12-col">
+	<div class="mdl-typography--display-1 mdl-color-text--grey-600 flex100 page-content">
 		Booking stats (all time)
 	</div>
-	<div class="mdl-cell mdl-cell--4-col">
+		</div>
+	<div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
 		<div id="donutchart" style="width: 450px; height: 250px;"></div>
 		<script type="text/javascript">
 			new Morris.Donut({
@@ -52,12 +54,12 @@
 			});
 		</script>
 	</div>
-	<div class="mdl-cell mdl-cell--4-col">
-		<div id="donutchart" style="width: 450px; height: 250px;"></div>
+	<div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+		<div id="donutchart2" style="width: 450px; height: 250px;"></div>
 		<script type="text/javascript">
 			new Morris.Donut({
 				// ID of the element in which to draw the chart.
-				element: 'donutchart',
+				element: 'donutchart2',
 				// Chart data records -- each entry in this array corresponds to a point on
 				// the chart.
 				data: [
@@ -75,12 +77,12 @@
 			});
 		</script>
 	</div>
-	<div class="mdl-cell mdl-cell--4-col">
-		<div id="donutchart" style="width: 450px; height: 250px;"></div>
+	<div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+		<div id="donutchart3" style="width: 450px; height: 250px;"></div>
 		<script type="text/javascript">
 			new Morris.Donut({
 				// ID of the element in which to draw the chart.
-				element: 'donutchart',
+				element: 'donutchart3',
 				// Chart data records -- each entry in this array corresponds to a point on
 				// the chart.
 				data: [

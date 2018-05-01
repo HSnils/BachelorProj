@@ -30,7 +30,7 @@
 				</td>
 
 				<td class="mdl-data-table__cell--non-numeric">				
-					{{$booking->user->name}}
+					{{$booking->user}}
 				</td>
 				
 				<td>

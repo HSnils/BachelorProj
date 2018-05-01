@@ -3,9 +3,11 @@
 @section('content')
 
 <div class="mdl-grid">
-	<div class="mdl-cell mdl-cell--12-col"><div class="mdl-typography--display-1 mdl-color-text--grey-600 flex100 page-content">
-		Bookings this past month
-	</div>></div>
+	<div class="mdl-cell mdl-cell--12-col">
+		<div class="mdl-typography--display-1 mdl-color-text--grey-600 flex100 page-content">
+			Bookings this past month
+		</div>
+	</div>
 	<div class="mdl-cell mdl-cell--4-col">
 		<div id="donutchart" style="width: 450px; height: 250px;"></div>
 				<script type="text/javascript">
