@@ -50,5 +50,5 @@
 		});
 	</script>
 
-	<script type="text/javascript" src="js/sortTables.js"></script>
+	<script type="text/javascript" src="{{asset('js/sortTables.js')}}"></script>
 @endsection

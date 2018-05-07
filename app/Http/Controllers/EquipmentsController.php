@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Equipments;
 use App\Rooms;
+use App\Bookings;
+
+use Carbon\Carbon;
 
 class EquipmentsController extends Controller
 {
@@ -54,6 +57,24 @@ class EquipmentsController extends Controller
 
 		$allEquipments = Equipments::where($whereQuery)->paginate($equipmentsPerPagination);
 		return view('equipments.admin', compact('allEquipments', 'allRooms'));
+	}
+
+	//function for showing spesific equipment
+	public function showEquipment($id)
+	{
+		$paginationNumber = 10;
+		$equipment = Equipments::where('id',$id)->first();
+
+		$dateNow = new Carbon();
+
+		$bookingsOnThisEquipment = Bookings::
+		join('bookings_equipments','bookings_equipments.bookings_id','=','bookings.id')
+		->join('equipments','equipments.id','=','bookings_equipments.equipment_id')
+		->where('equipments.id',$id)
+		->where('bookings.from_date','>=', $dateNow)
+		->paginate($paginationNumber);
+
+		return view('equipments.show', compact('equipment','bookingsOnThisEquipment'));
 	}
 
 
