@@ -386,9 +386,8 @@ class BookingsController extends Controller
 		
 		$id = $booking;
 		$userID = auth()->user()->id;
-		
 		Bookings::where('id', $id)->where('user_id',$userID)->delete();
-
+		
 		//flashes the session with a value for notify user
 		//flash only lasts for 1 redriect
 		session()->flash('notifyUser', 'Booking deleted!');

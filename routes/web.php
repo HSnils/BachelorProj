@@ -40,6 +40,9 @@ Route::get('home/findAvalible/{roomSelected}/{dateFrom}/{timeFrom}/{dateTo}/{tim
 //user delete own booking
 Route::get('bookings/delete/{booking}', 'BookingsController@userDelete')->middleware('auth');
 
+//users report damage to equipement
+Route::post('/equipments/{id}', 'EquipmentsController@reportDamage')->middleware('auth');
+
 
 //---- ADMIN STUFF ----//
 // Routes to Admin views

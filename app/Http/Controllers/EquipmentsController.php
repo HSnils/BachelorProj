@@ -60,8 +60,7 @@ class EquipmentsController extends Controller
 	}
 
 	//function for showing spesific equipment
-	public function showEquipment($id)
-	{
+	public function showEquipment($id){
 		$paginationNumber = 10;
 		$equipment = Equipments::where('id',$id)->first();
 
@@ -75,6 +74,20 @@ class EquipmentsController extends Controller
 		->paginate($paginationNumber);
 
 		return view('equipments.show', compact('equipment','bookingsOnThisEquipment'));
+	}
+
+	public function reportDamage($id){	
+		$dateReported = new Carbon();
+		$prev_other_doc = Equipments::where('id', $id)->select('other_documentation')->first()->other_documentation;
+		$report = \Request::input('report');
+
+		$new_other_doc = $prev_other_doc.' Reported damage: '.$report.' Date reported: '.$dateReported;
+		Equipments::where('id', $id)
+			->update([
+				'other_documentation' => $new_other_doc
+		]);
+
+		return redirect()->back();
 	}
 
 
@@ -132,7 +145,7 @@ class EquipmentsController extends Controller
 
 			//Flashes the session with a value for notify user
 			//Flash only lasts for 1 redriect
-			session()->flash('notifyUser', $id);
+			session()->flash('notifyUser', 'Equipment updated!');
 			return redirect()->route('equipmentsAdmin');
 		} else {
 			session()->flash('notifyUser', 'You are not administrator!');

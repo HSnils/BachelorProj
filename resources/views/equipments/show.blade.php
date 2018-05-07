@@ -56,6 +56,8 @@
 		<div class="mdl-cell mdl-cell--4-col">
 			Lockdown status: {{$equipment->lockdown}}
 		</div>
+
+		
 	</div>
 
 	<div class="mdl-grid">
@@ -63,6 +65,7 @@
 			<div class="mdl-typography--display-2 mdl-color-text--grey-600 flex100 headers">
 				Bookings on this equipment:
 			</div>
+			<br>
 			<!--<div class="sortingOpen"><b>Filter:</b> <i class="material-icons">filter_list</i></div>-->
 			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp " id="roomsTable">
 				<thead class="" >
@@ -91,6 +94,24 @@
 				{{$bookingsOnThisEquipment->links()}}
 			</div>
 		</div>
+		<br>
+		<!--REPORT DAMAGE FORM -->
+
+		<div class="mdl-cell mdl-cell--4-col"></div>
+		<div class="mdl-cell mdl-cell--4-col">
+			<div class="mdl-typography--display-1 mdl-color-text--grey-600">
+				Report damage on equipment:
+			</div>
+			<form action="" method="post">
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					{{ csrf_field() }}
+					<input class="mdl-textfield__input" type="text" id="report" name="report">
+					<label class="mdl-textfield__label" for="report">Text...</label>
+				</div>
+				<input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="Send report">
+			</form>
+		</div>
+		<div class="mdl-cell mdl-cell--4-col"></div>
 	</div>
 	
 	<script type="text/javascript" src="{{asset('js/sortTables.js')}}"></script>
