@@ -12,7 +12,8 @@
 .demo-card-wide > .mdl-card__title {
 	color: #fff;
 	height: 176px;
-	background: url('images/welcome_card.jpg') center / cover;
+	/*background: url('images/welcome_card.jpg') center / cover;*/
+	background-color: rgb(63,81,181);
 }
 .demo-card-wide > .mdl-card__menu {
 	color: #fff;
