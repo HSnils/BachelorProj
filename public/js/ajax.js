@@ -76,10 +76,7 @@ $(document).ready(function () {
 		$('#spesificUseageSelect').append('<option disabled selected>Choose useage</option>');
 		//loops through and prints everything
 		for(i in $data){
-			$choices = $([
-
-				'<option value="'+$data[i].category+'">'+$data[i].category+'</option>'	
-				].join());
+			$choices = '<option value="'+$data[i].category+'">'+$data[i].category+'</option>';
 
 			$('#spesificUseageSelect').append($choices);
 		}

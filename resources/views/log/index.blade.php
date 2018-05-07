@@ -10,80 +10,76 @@
 	</div>
 	<div class="mdl-cell mdl-cell--4-col">
 		<div id="donutchart" style="width: 450px; height: 250px;"></div>
-				<script type="text/javascript">
-					new Morris.Donut({
-						// ID of the element in which to draw the chart.
-						element: 'donutchart',
-						// Chart data records -- each entry in this array corresponds to a point on
-						// the chart.
-						data: [
-							@foreach($topRoomsThisMonth as $room)
-							{ label: '{{$room->room_number}}', value: '{{$room->count}}' },
-							@endforeach
-						],
-						
-						colors: [ 
-							"#552988",
-							"#663E93",
-							"#76539F",
-							"#8869AB",
-							"#997EB7",
-							"#AA94C3",
-							"#BBA9CF",
-							"#CCBEDB"
-						]
-					
-					});
-				</script>
+		<script type="text/javascript">
+			new Morris.Donut({
+				// ID of the element in which to draw the chart.
+				element: 'donutchart',
+				// Chart data records -- each entry in this array corresponds to a point on
+				// the chart.
+				data: [
+					@foreach($topRoomsThisMonth as $room)
+					{ label: '{{$room->room_number}}', value: '{{$room->count}}' },
+					@endforeach
+				],
+				
+				colors: [ 
+					"#552988",
+					"#663E93",
+					"#76539F",
+					"#8869AB",
+					"#997EB7",
+					"#AA94C3",
+					"#BBA9CF",
+					"#CCBEDB"
+				]
+			
+			});
+		</script>
 	</div>
 	<div class="mdl-cell mdl-cell--4-col">
 		<div id="donutchart2" style="width: 450px; height: 250px;"></div>
-
-				<script type="text/javascript">
-					new Morris.Donut({
-						// ID of the element in which to draw the chart.
-						element: 'donutchart2',
-						// Chart data records -- each entry in this array corresponds to a point on
-						// the chart.
-						data: [
-							@foreach($categoryThisMonth as $category)
-							{ label: '{{$category->type}}', value: '{{$category->count}}' },
-							@endforeach
-						],
-						
-						colors: [
-							"#6a206c",
-							"#852988",
-							"#9d539f"
-							
-						]
-					});
-				</script>
-	
+		<script type="text/javascript">
+			new Morris.Donut({
+				// ID of the element in which to draw the chart.
+				element: 'donutchart2',
+				// Chart data records -- each entry in this array corresponds to a point on
+				// the chart.
+				data: [
+					@foreach($categoryThisMonth as $category)
+					{ label: '{{$category->type}}', value: '{{$category->count}}' },
+					@endforeach
+				],
+				
+				colors: [
+					"#6a206c",
+					"#852988",
+					"#9d539f"
+					
+				]
+			});
+		</script>
 	</div>
 	<div class="mdl-cell mdl-cell--4-col">
 		<div id="donutchart3" style="width: 450px; height: 250px;"></div>
-
-				<script type="text/javascript">
-					new Morris.Donut({
-						// ID of the element in which to draw the chart.
-						element: 'donutchart3',
-						// Chart data records -- each entry in this array corresponds to a point on
-						// the chart.
-						data: [
-							@foreach($bookingsFromRolesThisMonth as $role)
-							{ label: '{{$role->role}}', value: '{{$role->count}}' },
-							@endforeach
-						],
-						
-						colors: [
-							"#20246c",
-							"#53569f"
-							
-						]
-					});
-				</script>
-	
+		<script type="text/javascript">
+			new Morris.Donut({
+				// ID of the element in which to draw the chart.
+				element: 'donutchart3',
+				// Chart data records -- each entry in this array corresponds to a point on
+				// the chart.
+				data: [
+					@foreach($bookingsFromRolesThisMonth as $role)
+					{ label: '{{$role->role}}', value: '{{$role->count}}' },
+					@endforeach
+				],
+				
+				colors: [
+					"#20246c",
+					"#53569f"
+					
+				]
+			});
+		</script>
 	</div>
 
 	<div class="mdl-cell mdl-cell--12-col">

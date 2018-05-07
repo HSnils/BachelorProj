@@ -72,8 +72,8 @@
 			<div id="sortingBox">
 				
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="name" name="name">
-						<label class="mdl-textfield__label" for="name">Filter by name...</label>
+						<input class="mdl-textfield__input" type="text" id="category" name="category">
+						<label class="mdl-textfield__label" for="category">Filter by categoryname...</label>
 					</div>
 					
 					<span class="materialLabel marginTop1 marginBottom1">Filter by type...</span>

@@ -59,8 +59,17 @@ class AdminController extends Controller
 			->orderByDesc('count')
 			->get();
 
+			$allRoomBookings = Bookings::
+			where('type','Room')
+			->get();
+
+			$totalHoursSpent = 0;
+			foreach($allRoomBookings as $room){
+				$totalHoursSpent += $room->hoursSpent();
+			}
+
 			session(['adminDashboard' => 'true']);
-			return view('admin.index', compact('newUsers', 'allRoles', 'newBookings','totalBookingsByRoom','totalBookingsByType','totalBookingsByCategoryType'));
+			return view('admin.index', compact('newUsers', 'allRoles', 'newBookings','totalBookingsByRoom','totalBookingsByType','totalBookingsByCategoryType','totalHoursSpent'));
 		} else {
 			return redirect()->route('home');
 		}

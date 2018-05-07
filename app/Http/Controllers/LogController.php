@@ -530,8 +530,8 @@ class LogController extends Controller
 				array_push($whereQuery, ["users.name", 'LIKE', $username]);
 			}
 
-			if(\Request::has('name')){
-				$categoryname = \Request::input('name'). '%';
+			if(\Request::has('category')){
+				$categoryname = \Request::input('category'). '%';
 				array_push($whereQuery, ["categories.category", 'LIKE', $categoryname]);
 			}
 
@@ -589,8 +589,8 @@ class LogController extends Controller
 			array_push($whereQuery, ["users.name", 'LIKE', $username]);
 		}
 
-		if(\Request::has('name')){
-			$categoryname = \Request::input('name'). '%';
+		if(\Request::has('category')){
+			$categoryname = \Request::input('category'). '%';
 			array_push($whereQuery, ["categories.category", 'LIKE', $categoryname]);
 		}
 

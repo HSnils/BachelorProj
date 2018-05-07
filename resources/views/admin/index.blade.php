@@ -100,7 +100,13 @@
 			
 			});
 		</script>
-	</div>		
+	</div>
+
+	<div class="mdl-cell mdl-cell--12-col">
+		<div class=" flex100 page-content">
+			Total hours spent: <b>{{$totalHoursSpent}}</b>
+		</div>
+	</div>	
 </div>
 	
 
