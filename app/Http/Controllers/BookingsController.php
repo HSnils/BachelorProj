@@ -22,11 +22,46 @@ class BookingsController extends Controller
 		$isAdmin = auth()->user()->role == 'Admin';
 
 		if ($isAdmin){
+			$bookingsPerPagination = 10;
+			$whereQuery = []; //creates array to fill with where queries
 
-			//$allRoles = Roles::where('role', '!=', 'guest')->orderBy('role', 'desc')->get();
-			$allBookings = Bookings::orderBy('to_date','desc')->paginate(10);
+			if(\Request::has('type')){
+				$type = \Request::input('type');
+				array_push($whereQuery, ["type", $type]);
+			}
 
-			return view('admin.bookings', compact('allBookings'));
+		
+
+			$dateFrom = \Request::input('dateFrom');
+			$dateTo = \Request::input('dateTo');
+
+			if(!($dateFrom || $dateTo) == ''){
+				
+				if(\Request::has('dateFrom') && \Request::has('dateTo')){
+								
+					$newFrom = new Carbon($dateFrom);
+					$newTo = new Carbon($dateTo);
+
+					//gets the room with the filter
+					$allBookings = Bookings::
+					where($whereQuery)
+					->whereBetween("bookings.from_date", [$newFrom, $newTo])
+					->orWhereBetween("bookings.to_date", [$newFrom, $newTo])
+					->orderBy('to_date','desc')
+					->paginate($bookingsPerPagination);
+				
+				}
+			} else {
+				//gets the bookings with the filter
+				$allBookings = Bookings::
+				where($whereQuery)
+				->orderBy('to_date','desc')
+				->paginate($bookingsPerPagination);
+			}
+
+			
+
+			return view('admin.bookings', compact('allBookings','allRooms'));
 		} else {
 			return redirect()->route('home');
 		}

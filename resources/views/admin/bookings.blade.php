@@ -53,7 +53,6 @@
 			<i class="material-icons">add</i>
 		</button>
 	</div>
-	
 	<!--Sorting -->
 	<dialog class="mdl-dialog">
 		<div class="mdl-dialog__content">
@@ -61,18 +60,29 @@
 			<div id="sortingBox">
 				<form action="">
 					
+					<span class="materialLabel marginTop1 marginBottom1">Filter by type</span>
+					<select class="formPadding flex100 width100 marginBottom1" name="type" id="type">
+						<option disabled selected>Select a type</option>
+						<option value="Room">Room</option>
+						<option value="Equipment">Equipment</option>
+					</select>
 
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="name" name="name">
-						<label class="mdl-textfield__label" for="sample3">Filter by name...</label>
+					<span class="materialLabel marginTop1 marginBottom1">Filter by start and end date</span><hr>
+					<label for="dateFrom" class="materialLabel ">Start date</label>
+					<br>
+					<input type="date" name="dateFrom" id="dateFrom" class="formPadding marginTop1 " >
+
+					<div class="mdl-tooltip" data-mdl-for="dateFrom">
+						Select starting date
 					</div>
-
-					<span class="materialLabel marginTop1 marginBottom1">Filter by lockdown state</span>
-					<select class="formPadding flex100 width100" name="lockdown" id="lockdown">
-						<option disabled selected="">Select lockdownstate</option>
-						<option value="0">0</option>
-						<option value="1">1</option>
-					</select> 
+					<br>
+					<label for="dateTo" class="materialLabel ">End date</label>
+					<br>
+					<input type="date" name="dateTo" id="dateTo" class="formPadding marginTop1 ">
+					
+					<div class="mdl-tooltip" data-mdl-for="dateTo">
+						Select ending date
+					</div>
 
 			</div>
 		</div>
