@@ -17,7 +17,9 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->middleware('auth');
 Route::get('home', 'HomeController@index')->name('home')->middleware('auth');
 Route::get('rooms', 'RoomsController@index')->name('rooms')->middleware('auth');
+Route::get('rooms/{room_number}', 'RoomsController@showRoom')->middleware('auth');
 Route::get('equipments', 'EquipmentsController@index')->name('equipments')->middleware('auth');
+Route::get('equipments/{id}', 'EquipmentsController@showEquipment')->middleware('auth');
 Route::get('/profile', 'ProfileController@index')->name('profile')->middleware('auth');
 
 // Email Verification

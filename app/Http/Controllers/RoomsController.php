@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Rooms;
+use App\Bookings;
+
+use Carbon\Carbon;
 
 class RoomsController extends Controller
 {
@@ -21,6 +24,24 @@ class RoomsController extends Controller
 	public function indexAdmin(){
 		$allRooms = Rooms::all();
 		return view('rooms.admin', compact('allRooms'));
+	}
+
+	//function for showing spesific room
+	public function showRoom($room_number)
+	{
+		$paginationNumber = 10;
+		$room = Rooms::where('room_number',$room_number)->first();
+
+		$dateNow = new Carbon();
+
+		$bookingsOnThisRoom = Bookings::
+		join('bookings_rooms','bookings_rooms.bookings_id','=','bookings.id')
+		->join('rooms','rooms.room_number','=','bookings_rooms.room_number')
+		->where('rooms.room_number',$room_number)
+		->where('bookings.from_date','>=', $dateNow)
+		->paginate($paginationNumber);
+
+		return view('rooms.show', compact('room','bookingsOnThisRoom'));
 	}
 
 	public function newRoom(){
