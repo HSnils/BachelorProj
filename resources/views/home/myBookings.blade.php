@@ -10,8 +10,9 @@
 				<th class="mdl-data-table__cell--non-numeric hideOnMobile">Type</th>
 				<th class="mdl-data-table__cell--non-numeric">Name</th>
 				<th class="">Time From</th>
-				<th class="">Time To</th>
-				<th class="mdl-data-table__cell--non-numeric">Location</th>
+				<th class="hideOnMobile">Time To</th>
+				<th class="mdl-data-table__cell--non-numeric hideOnMobile">Location</th>
+				<th class="mdl-data-table__cell--non-numeric">Delete</th>
 			</tr>
 		</thead>
 		<tbody class="">
@@ -37,15 +38,19 @@
 					</td>
 
 					<td>{{date("D d-M. H:i", strtotime($booking->from_date))}}</td>
-					<td>{{date("D d-M. H:i", strtotime($booking->to_date))}}</td>
+					<td class="hideOnMobile">{{date("D d-M. H:i", strtotime($booking->to_date))}}</td>
 					
 					<!--location-->
-					<td class="mdl-data-table__cell--non-numeric">
+					<td class="mdl-data-table__cell--non-numeric hideOnMobile">
 					@if($booking->type == 'Room')
 						{{$booking->bookingRoom->room_number}}
 					@elseif($booking->type == 'Equipment')
 						{{$booking->getEquipmentLocation($booking->bookingEquipment->equipment_id)}}
 					@endif
+					</td>
+
+					<td class="mdl-data-table__cell--non-numeric">
+						<a href="{{url('bookings/delete')}}/{{$booking->id}}"><i class="material-icons removeX">clear</i></a>
 					</td>
 				</tr>
 

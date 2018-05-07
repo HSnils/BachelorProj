@@ -11,12 +11,12 @@
 		<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp " id="bookingsTable">
 			<thead class="">
 				<tr class=" ">
-					<th onclick="sortTable(0, this)" class="mdl-data-table__cell--non-numeric th ">Type</th>
+					<th onclick="sortTable(0, this)" class="mdl-data-table__cell--non-numeric th hideOnMobile">Type</th>
 					<th onclick="sortTable(1, this)" class="mdl-data-table__cell--non-numeric th">Name</th>
-					<th onclick="sortTable(2, this)" class="mdl-data-table__cell--non-numeric th ">Start date</th>
-					<th onclick="sortTable(3, this)" class="mdl-data-table__cell--non-numeric th mdl-data-table__header--sorted-descending">End date</th>
+					<th onclick="sortTable(2, this)" class="mdl-data-table__cell--non-numeric th hideOnMobile">Start date</th>
+					<th onclick="sortTable(3, this)" class="mdl-data-table__cell--non-numeric th hideOnMobile mdl-data-table__header--sorted-descending">End date</th>
 					<th onclick="sortTable(4, this)" class="mdl-data-table__cell--non-numeric th ">User</th>
-					<th onclick="sortTable(5, this)" class="mdl-data-table__cell--non-numeric th ">Used for</th>
+					<th onclick="sortTable(5, this)" class="mdl-data-table__cell--non-numeric th hideOnMobile">Used for</th>
 					<th class="mdl-data-table__cell--non-numeric">Edit</th>
 				</tr>
 			</thead>
@@ -33,12 +33,12 @@
 						
 					@endphp
 					<tr class="">
-						<td class="mdl-data-table__cell--non-numeric">{{$booking->type}}</td>
+						<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$booking->type}}</td>
 						<td class="mdl-data-table__cell--non-numeric">{{$name}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{$booking->from_date}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{$booking->to_date}}</td>
+						<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$booking->from_date}}</td>
+						<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$booking->to_date}}</td>
 						<td class="mdl-data-table__cell--non-numeric">{{$booking->user->name}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{$booking->category}}</td>
+						<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$booking->category}}</td>
 						<td class="mdl-data-table__cell--non-numeric " >
 							<a href="{{ url('admin/bookings/edit') }}/{{$booking->id}}" ><i class="material-icons mdl-button--primary">edit</i></a>
 						</td>

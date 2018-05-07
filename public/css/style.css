@@ -22,6 +22,11 @@ main{
 	margin-bottom: 10px;
 }
 
+.removeX:hover{
+	color: #D32F2F;
+	cursor: pointer;
+}
+
 .page-content{
 	margin-top: 2em;
 	display: flex;

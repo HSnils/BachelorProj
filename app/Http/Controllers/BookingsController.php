@@ -378,6 +378,25 @@ class BookingsController extends Controller
 	}
 
 	/**
+	 * [delete a booking]
+	 * @param  [type] $booking [filled with booking id variable]
+	 * @return [type]          [deletes booking if correct user]
+	 */
+	public function userDelete( $booking){
+		
+		$id = $booking;
+		$userID = auth()->user()->id;
+		
+		Bookings::where('id', $id)->where('user_id',$userID)->delete();
+
+		//flashes the session with a value for notify user
+		//flash only lasts for 1 redriect
+		session()->flash('notifyUser', 'Booking deleted!');
+		return redirect()->route('home');
+		
+	}
+
+	/**
 	 * [approve a booking from students]
 	 * @param  [type] $booking [filled with booking id ]
 	 * @return [type]          [approves new booking]

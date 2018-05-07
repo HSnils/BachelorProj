@@ -35,6 +35,8 @@ Route::get('home/{room}', 'BookingsController@roomSelected')->middleware('auth')
 Route::get('home/useage/{useage}', 'BookingsController@useageSelected')->middleware('auth');
 //Bookings dates selected
 Route::get('home/findAvalible/{roomSelected}/{dateFrom}/{timeFrom}/{dateTo}/{timeTo}', 'BookingsController@findBookedRooms')->middleware('auth');
+//user delete own booking
+Route::get('bookings/delete/{booking}', 'BookingsController@userDelete')->middleware('auth');
 
 
 //---- ADMIN STUFF ----//
