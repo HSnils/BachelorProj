@@ -2,6 +2,7 @@
 
 namespace App;
 use Carbon\Carbon;
+use App\Equipments;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,15 +30,39 @@ class Bookings extends Model
         return $this->hasOne(Category::class);
     }
 	
+    /**
+     * Defines the eloquent relationship between a item and an equipment.
+     * A item has one equipment.
+     */
 	public function bookingEquipment() {
 		return $this->hasOne(bookings_equipment::class, 'bookings_id');
 	}
 	
+    /**
+     * Defines the eloquent relationship between a item and a room.
+     * A item has one room.
+     */
 	public function bookingRoom() {
 		return $this->hasOne(bookings_room::class, 'bookings_id');
-		
 	}
 
+    //gets name of an equipment using the equipment id
+    public function getEquipmentName($id)
+    {
+        $equipmentName = Equipments::select('name')->where('id',$id)->first();
+
+        return $equipmentName->name;
+    }
+
+    //gets location of an equipment using the equipment id
+    public function getEquipmentLocation($id)
+    {
+        $equipmentName = Equipments::select('location')->where('id',$id)->first();
+
+        return $equipmentName->location;
+    }
+
+    //gets the hours spent on a booking
     public function hoursSpent(){
         $hoursUsed = 0;
         $startDate = new Carbon($this->from_date);

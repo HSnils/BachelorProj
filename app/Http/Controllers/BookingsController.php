@@ -16,9 +16,23 @@ use Validator;
 use Redirect;
 
 class BookingsController extends Controller
-{
+{	
+	public function indexAdmin()
+	{
+		$isAdmin = auth()->user()->role == 'Admin';
+
+		if ($isAdmin){
+
+			//$allRoles = Roles::where('role', '!=', 'guest')->orderBy('role', 'desc')->get();
+			$allBookings = Bookings::orderBy('to_date','desc')->paginate(10);
+
+			return view('admin.bookings', compact('allBookings'));
+		} else {
+			return redirect()->route('home');
+		}
+	}
 	/**
-	 * [create description]
+	 * [create a booking]
 	 * @param  Request $request [all inputs from the form]
 	 * @return [Response]           [return either successfull or declined booking]
 	 */
@@ -306,7 +320,7 @@ class BookingsController extends Controller
 	}
 
 	/**
-	 * [delete description]
+	 * [delete a booking]
 	 * @param  [type] $booking [filled with booking id variable]
 	 * @return [type]          [deletes booking if user is admin]
 	 */
@@ -329,7 +343,7 @@ class BookingsController extends Controller
 	}
 
 	/**
-	 * [approve description]
+	 * [approve a booking from students]
 	 * @param  [type] $booking [filled with booking id ]
 	 * @return [type]          [approves new booking]
 	 */
