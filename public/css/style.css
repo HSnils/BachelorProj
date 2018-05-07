@@ -27,6 +27,10 @@ main{
 	cursor: pointer;
 }
 
+.clickable-row{
+	cursor: pointer;
+}
+
 .page-content{
 	margin-top: 2em;
 	display: flex;
