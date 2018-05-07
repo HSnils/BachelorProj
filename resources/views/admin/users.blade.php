@@ -18,6 +18,8 @@
 					<th onclick="sortTable(2, this)" class="mdl-data-table__cell--non-numeric th mdl-data-table__header--sorted-descending hideOnMobile">Created</th>
 					<th onclick="sortTable(3, this)" class="mdl-data-table__cell--non-numeric th hideOnMobile">Status</th>
 					<th onclick="sortTable(4, this)" class="mdl-data-table__cell--non-numeric th">Role</th>
+					<th onclick="sortTable(5, this)" class="mdl-data-table__cell--non-numeric th hideOnMobile">Created</th>
+					<th onclick="sortTable(6, this)" class="mdl-data-table__cell--non-numeric th hideOnMobile">Last login</th>
 					<th class="mdl-data-table__cell--non-numeric">Edit</th>
 					<th class="mdl-data-table__cell--non-numeric">Delete</th>
 				</tr>
@@ -44,6 +46,10 @@
 						</td>
 
 						<td class="mdl-data-table__cell--non-numeric"> {{$user->role}}</td>
+
+						<td class="mdl-data-table__cell--non-numeric hideOnMobile"> {{$user->created_at}}</td>
+
+						<td class="mdl-data-table__cell--non-numeric hideOnMobile"> {{$user->last_login}}</td>
 
 						<td class="mdl-data-table__cell--non-numeric " >
 							<a href="{{ url('admin/users/edit') }}/{{$user->id}}" ><i class="material-icons mdl-button--primary">edit</i></a>
