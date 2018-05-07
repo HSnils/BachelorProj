@@ -14,7 +14,7 @@
 				Type: {{$equipment->type}}
 			</div>
 			<div class="mdl-cell mdl-cell--3-col">
-				Building: {{$equipment->location}}
+				Location: {{$equipment->location}}
 			</div>
 			<div class="mdl-cell mdl-cell--3-col"></div>
 			<div class="mdl-cell mdl-cell--4-col"></div>
