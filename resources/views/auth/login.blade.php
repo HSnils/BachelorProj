@@ -59,6 +59,9 @@
 							  </div>
 						 </div>
 					</div>
+				  	<div class="form-group">
+						<a class="reset_pass" href="{{route('password.request')}}">Lost your password?</a>
+				  	</div>
 					<br>
 					<div class="mdl-card__actions mdl-card--border" >
 						 <!-- Accent-colored raised button with ripple -->
