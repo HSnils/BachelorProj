@@ -286,7 +286,7 @@ main{
 }
 
 .materialLabel{
-	color: rgba(0,0,0,.26);
+	color: #757575;
 	font-size:  16px;
 	text-align: left;
 	overflow: hidden;
