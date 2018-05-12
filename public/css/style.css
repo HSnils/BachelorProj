@@ -303,7 +303,8 @@ main{
 }
 
 .adminNavColor{
-	background-color: rgb(85, 41, 136) !important;
+	background-color: rgb(85, 41, 136) !important; 
+	/* old color: 255,152,0 */
 }
 
 .roomPrivacyBox{
