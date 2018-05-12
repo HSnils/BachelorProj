@@ -23,7 +23,7 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	
 	<!-- Tab title -->
-	<title>{{ config('app.name', 'Colorlab booking') }}</title>
+	<title>{{ config('app.name', 'Colourlab booking') }}</title>
 
 
 	
