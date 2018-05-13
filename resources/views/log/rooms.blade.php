@@ -61,12 +61,12 @@
 	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp " id="roomsTable">
 		<thead class="" >
 			<tr class="">
-				<th onclick="sortTable(0, this, 'usersTable')" class="mdl-data-table__cell--non-numeric th">Room</th>
-				<th onclick="sortTable(1, this, 'usersTable')" class="mdl-data-table__cell--non-numeric th">Start date</th>
-				<th onclick="sortTable(2, this, 'usersTable')" class="mdl-data-table__cell--non-numeric th">End date</th>
-				<th onclick="sortTable(3, this, 'usersTable')" class="mdl-data-table__cell--non-numeric th">User</th>
-				<th onclick="sortTable(4, this, 'usersTable')" class="mdl-data-table__cell--non-numeric th">Usage</th>
-				<th onclick="sortTable(5, this, 'usersTable')" class="mdl-data-table__cell--non-numeric th">Hours spent</th>
+				<th onclick="sortTable(0, this, 'roomsTable')" class="mdl-data-table__cell--non-numeric th">Room</th>
+				<th onclick="sortTable(1, this, 'roomsTable')" class="mdl-data-table__cell--non-numeric th">Start date</th>
+				<th onclick="sortTable(2, this, 'roomsTable')" class="mdl-data-table__cell--non-numeric th">End date</th>
+				<th onclick="sortTable(3, this, 'roomsTable')" class="mdl-data-table__cell--non-numeric th">User</th>
+				<th onclick="sortTable(4, this, 'roomsTable')" class="mdl-data-table__cell--non-numeric th">Usage</th>
+				<th onclick="sortTable(5, this, 'roomsTable')" class="mdl-data-table__cell--non-numeric th">Hours spent</th>
 			</tr>
 		</thead>
 		<tbody class="">
