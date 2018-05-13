@@ -1,8 +1,8 @@
 /*----BASIC STUFF----*/
 
 body{
-	/* Font: pt-sans on body*/
-	font-family: 'PT Sans', sans-serif;
+	/* Font: Open sans on body*/
+	font-family: 'Open Sans', sans-serif;
 }
 
 .mdl-card__title, h1, h2, h3, h4, h5, h6, nav, th{

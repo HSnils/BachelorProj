@@ -44,8 +44,8 @@
 	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 	<!--Roboto and PT SANS fonts-->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<!--GETMDL-select-->   
 	<!--<link rel="stylesheet" href="{{ url('/') }}/css/getmdl-select/getmdl-select.min.css">
 	<script defer src="{{ url('/') }}/css/getmdl-select/getmdl-select.min.js"></script>-->

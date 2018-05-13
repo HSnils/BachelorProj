@@ -84,11 +84,11 @@ Route::post('categories/create', 'CategoriesController@createCategory')->middlew
 Route::get('categories/edit/{category}', 'CategoriesController@showEdit')->middleware('auth');
 Route::post('categories/edit/{category}', 'CategoriesController@editCategory')->middleware('auth');
 
-//Admin accept/delete booking
+//Admin - accept/delete booking
 Route::get('admin/bookings/accept/{booking}', 'BookingsController@accept')->middleware('auth');
 Route::get('admin/bookings/delete/{booking}', 'BookingsController@delete')->middleware('auth');
 
-//Log Download to cvs
+//Admin - Log Download to cvs
 Route::get('admin/log/rooms/download', 'LogController@exportRoom')->middleware('auth');
 Route::get('admin/log/equipments/download', 'LogController@exportEquipment')->middleware('auth');
 Route::get('admin/log/users/download', 'LogController@exportUsers')->middleware('auth');
