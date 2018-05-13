@@ -20,16 +20,14 @@
 			@foreach($yourBookings as $booking)
 
 				<tr>
-					<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$booking->type}} - 
-						<span class="size09em">
-							<!--Prints private or public privacy -->
-							@if(($booking->type == "Room") && ($booking->bookingRoom->private == 0))
-								Public
-							@elseif($booking->type == "Room")
-								Private
-							@endif
-						</span>
-
+					<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$booking->type}}
+						
+						<!--Prints private or public privacy -->
+						@if(($booking->type == "Room") && ($booking->bookingRoom->private == 0))
+							- <span class="size09em">Public</span>
+						@elseif($booking->type == "Room")
+							- <span class="size09em">Private</span>
+						@endif
 					</td>
 					
 					<td class="mdl-data-table__cell--non-numeric">
@@ -61,6 +59,6 @@
 			@endforeach	
 		</tbody>	
 	</table>
-	<div>{{$yourBookings->links()}}</div>;
+	<div>{{$yourBookings->links()}}</div>
 
 </section>
