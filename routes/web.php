@@ -38,7 +38,7 @@ Route::get('home/useage/{useage}', 'BookingsController@useageSelected')->middlew
 //Bookings dates selected
 Route::get('home/findAvalible/{roomSelected}/{dateFrom}/{timeFrom}/{dateTo}/{timeTo}', 'BookingsController@findBookedRooms')->middleware('auth');
 //user delete own booking
-Route::get('bookings/delete/{booking}', 'BookingsController@userDelete')->middleware('auth');
+Route::delete('bookings/delete/{booking}', 'BookingsController@userDelete')->middleware('auth');
 
 //users report damage to equipement
 Route::post('/equipments/{id}', 'EquipmentsController@reportDamage')->middleware('auth');
@@ -86,7 +86,7 @@ Route::post('categories/edit/{category}', 'CategoriesController@editCategory')->
 
 //Admin - accept/delete booking
 Route::get('admin/bookings/accept/{booking}', 'BookingsController@accept')->middleware('auth');
-Route::get('admin/bookings/delete/{booking}', 'BookingsController@delete')->middleware('auth');
+Route::delete('admin/bookings/delete/{booking}', 'BookingsController@delete')->middleware('auth');
 
 //Admin - Log Download to cvs
 Route::get('admin/log/rooms/download', 'LogController@exportRoom')->middleware('auth');

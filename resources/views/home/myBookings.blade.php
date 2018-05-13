@@ -52,7 +52,13 @@
 					</td>
 
 					<td class="mdl-data-table__cell--non-numeric">
-						<a href="{{url('bookings/delete')}}/{{$booking->id}}"><i class="material-icons removeX">clear</i></a>
+						<form action="{{url('bookings/delete')}}/{{$booking->id}}" method="post">
+							@method('delete')
+							@csrf
+							<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent deleteBookingButton">
+								<i class="material-icons removeX">clear</i>
+							</button>
+						</form>
 					</td>
 				</tr>
 

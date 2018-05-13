@@ -45,7 +45,13 @@
 					<a href="{{ url('admin/bookings/accept') }}/{{$booking->bookingID}}" class="approveBookingButton"><i class="material-icons mdl-button--primary">done</i></a>
 				</td>
 				<td class="mdl-data-table__cell--non-numeric">
-					<a href="{{ url('admin/bookings/delete') }}/{{$booking->bookingID}}" class="deleteBookingButton"><i class="material-icons">clear</i></a>
+					<form action="{{ url('admin/bookings/delete') }}/{{$booking->bookingID}}" method="post">
+						@method('delete')
+						@csrf
+						<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent deleteBookingButton">
+							<i class="material-icons removeX">clear</i>
+						</button>
+					</form>
 				</td>
 			</tr>		
 		@endforeach
