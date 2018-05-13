@@ -17,7 +17,7 @@
 				Building: {{$room->building}}
 			</div>
 			<div class="mdl-typography--display-5 mdl-color-text--grey-600  headers mdl-cell mdl-cell--6-col">
-				<a href="{{url('equipments')}}?room_number={{$room->room_number}}">See equipments in this room.</a>
+				<a href="{{url('equipments')}}?room_number={{$room->room_number}}">See equipment located in this room.</a>
 			</div>
 		</div>
 	</div>
