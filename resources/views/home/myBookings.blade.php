@@ -57,5 +57,6 @@
 			@endforeach	
 		</tbody>	
 	</table>
+	<div>{{$yourBookings->links()}}</div>;
 
 </section>
