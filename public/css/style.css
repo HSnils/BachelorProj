@@ -1,7 +1,13 @@
 /*----BASIC STUFF----*/
 
 body{
-	font-family: 'Roboto', 'sans-serif';
+	/* Font: pt-sans on body*/
+	font-family: 'PT Sans', sans-serif;
+}
+
+.mdl-card__title, h1, h2, h3, h4, h5, h6, nav, th{
+	/*Font Roboto on headers */
+	font-family: 'Roboto', sans-serif;
 }
 
 #notifyUser{
