@@ -20,12 +20,16 @@
 			@foreach($yourBookings as $booking)
 
 				<tr>
-					<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$booking->type}}
+					<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$booking->type}} - 
+						<span class="size09em">
+							<!--Prints private or public privacy -->
 							@if(($booking->type == "Room") && ($booking->bookingRoom->private == 0))
-								 - <span style="font-size:0.9em;">Public</span>
+								Public
 							@elseif($booking->type == "Room")
-								 - <span style="font-size:0.9em;">Private</span>
+								Private
 							@endif
+						</span>
+
 					</td>
 					
 					<td class="mdl-data-table__cell--non-numeric">
