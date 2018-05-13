@@ -39,7 +39,7 @@
 			@if(!$equipment->last_service == '')
 				{{$equipment->last_service}}
 			@else
-				<i>No information spesified</i>
+				<i>No information specified</i>
 			@endif
 		</div>
 		<div class="mdl-cell mdl-cell--4-col">
@@ -47,7 +47,7 @@
 			@if(!$equipment->ntnu_id == '')
 				{{$equipment->ntnu_id}}
 			@else
-				<i>No id spesified</i>
+				<i>No id specified</i>
 			@endif
 		</div>
 		<div class="mdl-cell mdl-cell--4-col">
