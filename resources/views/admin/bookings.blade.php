@@ -17,7 +17,7 @@
 					<th onclick="sortTable(3, this, 'bookingsTable')" class="mdl-data-table__cell--non-numeric th hideOnMobile mdl-data-table__header--sorted-descending">End date</th>
 					<th onclick="sortTable(4, this, 'bookingsTable')" class="mdl-data-table__cell--non-numeric th ">User</th>
 					<th onclick="sortTable(5, this, 'bookingsTable')" class="mdl-data-table__cell--non-numeric th hideOnMobile">Used for</th>
-					<th class="mdl-data-table__cell--non-numeric">Edit</th>
+					<!-- <th class="mdl-data-table__cell--non-numeric">Edit</th>	--> 
 				</tr>
 			</thead>
 			<tbody class="">
@@ -39,20 +39,24 @@
 						<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$booking->to_date}}</td>
 						<td class="mdl-data-table__cell--non-numeric">{{$booking->user->name}}</td>
 						<td class="mdl-data-table__cell--non-numeric hideOnMobile">{{$booking->category}}</td>
+						<!--
 						<td class="mdl-data-table__cell--non-numeric " >
 							<a href="{{ url('admin/bookings/edit') }}/{{$booking->id}}" ><i class="material-icons mdl-button--primary">edit</i></a>
 						</td>
 					</tr>
+					--> 
 				@endforeach
 			</tbody>	
 		</table>
 		<div class="paginateLinks">
 			{{$allBookings->links()}}
 		</div>
+		<!--
 		<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored knappis {{$allBookings->hasMorePages() ? 'equipmentAdd' : ''}} mdl-shadow--2dp">
-			<i class="material-icons">add</i>
+			<i class="material-icons">add</i> 	 
 		</button>
 	</div>
+	-->
 	<!--Sorting -->
 	<dialog class="mdl-dialog">
 		<div class="mdl-dialog__content">
