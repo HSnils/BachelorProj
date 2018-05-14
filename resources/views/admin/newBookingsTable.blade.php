@@ -20,25 +20,25 @@
 				<td class="mdl-data-table__cell--non-numeric">
 
 					@if( $booking->type == "Room")
-						{{$booking->room_number}}
+						{{$booking->room}}
 
 					@elseif( $booking->type == "Equipment")
-						{{$booking->bookingEquipment->name}}
+						{{$booking->getEquipmentName($booking->bookingEquipment->equipment_id)}}
 
 					@endif
 
 				</td>
 
 				<td class="mdl-data-table__cell--non-numeric">				
-					{{$booking->user->name}}
+					{{$booking->userName}}
 				</td>
 				
 				<td>
-					{{date("d-m-Y H:i",strtotime($booking->from_date))}}
+					{{date("D d-M. H:i", strtotime($booking->from_date))}}
 				</td>
 
 				<td>
-					{{date("d-m-Y H:i",strtotime($booking->to_date))}}
+					{{date("D d-M. H:i", strtotime($booking->to_date))}}
 				</td>
 
 				<td class="mdl-data-table__cell--non-numeric">

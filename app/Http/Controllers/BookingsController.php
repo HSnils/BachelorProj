@@ -117,11 +117,6 @@ class BookingsController extends Controller
 		$dateTo = new Carbon($request->input('dateTo') . ' ' . $request->input('timeTo').':00');
 		$dateTo->format('Y-m-d H:i:s');
 		
-		//offsets the dates with a few seconds to use for a query
-		$offsetDateFrom = new Carbon($dateFrom);
-		$offsetDateFrom->addSecond();
-		$offsetDateTo = new Carbon ($dateTo);
-		$offsetDateTo->subSecond();
 		//room priv
 		$roomPrivacy = $request->input('roomPrivacy');
 
@@ -146,16 +141,8 @@ class BookingsController extends Controller
 			->leftjoin('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
 			->select('rooms.room_number', 'bookings.from_date', 'bookings.to_date','bookings_rooms.private')
 			->where('rooms.room_number',  '=' , $roomNumber)
-			->where(function ($query) use ($offsetDateFrom, $offsetDateTo){
-				$query
-				->whereBetween('from_date', [$offsetDateFrom, $offsetDateTo])
-				->orWhereBetween('to_date', [$offsetDateFrom, $offsetDateTo]);
-			})
-			->orWhere(function($query) use ($dateFrom, $dateTo){
-				$query
-				->where('from_date', '<=', $dateFrom)
-				->where('to_date', '>=', $dateTo);
-			})
+			->where('to_date', '>', $dateFrom)
+			->where('from_date', '<', $dateTo)
 		->get();
 
 		//check for private/public
@@ -181,7 +168,7 @@ class BookingsController extends Controller
 		
 
 		//check to find out if the equiment/s are avablible, only do this if there was any booked equipments
-		function checkEquipmentAvalibility($equipmentsArray, $dateTo, $dateFrom, $offsetDateTo, $offsetDateFrom){
+		function checkEquipmentAvalibility($equipmentsArray, $dateTo, $dateFrom){
 			
 			
 			for($i = 0; $i < count($equipmentsArray); $i++){
@@ -192,16 +179,8 @@ class BookingsController extends Controller
 					->leftjoin('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')
 					->select('equipments.id', 'bookings.from_date', 'bookings.to_date')
 					->where('equipments.id',  '=' , $equipment_id)
-					->where(function ($query) use ($offsetDateFrom, $offsetDateTo){
-						$query
-						->whereBetween('from_date', [$offsetDateFrom, $offsetDateTo])
-						->orWhereBetween('to_date', [$offsetDateFrom, $offsetDateTo]);
-					})
-					->orWhere(function($query) use ($dateFrom, $dateTo){
-						$query
-						->where('from_date', '<=', $dateFrom)
-						->where('to_date', '>=', $dateTo);
-					})
+					->where('to_date', '>', $dateFrom)
+					->where('from_date', '<', $dateTo)
 				->count();
 
 				//returns false if the booking overlaps another booking
@@ -342,26 +321,11 @@ class BookingsController extends Controller
 		$dateFrom->format('Y-m-d H:i:s');
 		$dateTo = new Carbon($dateTo . ' ' . $timeTo.':00');
 		$dateTo->format('Y-m-d H:i:s');
-		
-		//offsets the dates with a few seconds to use for a query
-		$offsetDateFrom = new Carbon($dateFrom);
-		$offsetDateFrom->addSecond();
-		$offsetDateTo = new Carbon ($dateTo);
-		$offsetDateTo->subSecond();
 
-		//better way to check for dates on bookings should (learnt abit later into project) should have been used in normal booking, but both works
 		$findsBookingOverlappingBookings = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->leftjoin('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')->select('rooms.room_number', 'bookings.from_date', 'bookings.to_date')
 			->where('rooms.room_number',  '=' , $room)
-			->where(function ($query) use ($offsetDateFrom, $offsetDateTo){
-			$query
-				->whereBetween('from_date', [$offsetDateFrom, $offsetDateTo])
-				->orWhereBetween('to_date', [$offsetDateFrom, $offsetDateTo]);
-			})
-			->orWhere(function($query) use ($dateFrom, $dateTo){
-				$query
-				->where('from_date', '<=', $dateFrom)
-				->where('to_date', '>=', $dateTo);
-			})
+			->where('to_date', '>', $dateFrom)
+			->where('from_date', '<', $dateTo)
 		->get();
 
 		return json_encode($findsBookingOverlappingBookings);

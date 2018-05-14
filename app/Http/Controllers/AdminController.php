@@ -43,7 +43,7 @@ class AdminController extends Controller
 			$newBookings = Bookings::
 			join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
 			->join('users', 'bookings.user_id', '=', 'users.id')
-			->select('users.id as userID', 'bookings.id as bookingID')
+			->select('users.id as userID','users.name as userName', 'bookings.id as bookingID','bookings.type','bookings_rooms.room_number as room','bookings.from_date','bookings.to_date')
 			->where('users.role','student')
 			->where('bookings.status','Pending')
 			->orderBy('bookings.created_at', 'desc')
