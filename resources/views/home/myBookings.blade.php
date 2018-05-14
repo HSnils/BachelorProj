@@ -4,21 +4,24 @@
 		My bookings 
 	</div>
 	
-	<div>
-		<div class="inline">
-			<div class="cirlceStatus blueCircle inline"></div> <span class="inline"> = Active booking</span>
-		</div>
-		@if(Auth::user()->role == 'Student')
+	<!--If user is student, show status explaination -->
+	@if(Auth::user()->role == 'Student')
+		<div>
+			<div class="inline">
+				<div class="cirlceStatus blueCircle inline"></div> <span class="inline"> = Active booking</span>
+			</div>
 			<div class="inline">
 				<div class="cirlceStatus orangeCircle inline"></div> <span class="inline"> = Pending booking</span>
 			</div>
-		@endif
-	</div>
+		</div>
+	@endif
 
 	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp flex100 overflowOnMobile">
 		<thead class="" >
 			<tr class="">
-				<th class="mdl-data-table__cell--non-numeric">Status</th>
+				@if(Auth::user()->role == 'Student')
+					<th class="mdl-data-table__cell--non-numeric">Status</th>
+				@endif
 				<th class="mdl-data-table__cell--non-numeric hideOnMobile">Type</th>
 				<th class="mdl-data-table__cell--non-numeric">Name</th>
 				<th class="">Time From</th>
@@ -32,21 +35,22 @@
 			@foreach($yourBookings as $booking)
 
 				<tr>
-					<td class="mdl-data-table__cell--non-numeric">
-						
-						@if($booking->status == "Pending")
-							<div class="cirlceStatus orangeCircle" id="bookingStatusFor{{ $booking->id}}"></div>
-							<div class="mdl-tooltip" data-mdl-for="bookingStatusFor{{ $booking->id}}">
-								Pending booking
-							</div>
-						@elseif($booking->status == "Active")
-							<div class="cirlceStatus blueCircle" id="bookingStatusFor{{ $booking->id}}"></div>
-							<div class="mdl-tooltip" data-mdl-for="bookingStatusFor{{ $booking->id}}">
-								Active booking
-							</div>							
-						@endif
-						
-					</td>
+					@if(Auth::user()->role == 'Student')
+						<td class="mdl-data-table__cell--non-numeric">
+							
+							@if($booking->status == "Pending")
+								<div class="cirlceStatus orangeCircle" id="bookingStatusFor{{ $booking->id}}"></div>
+								<div class="mdl-tooltip" data-mdl-for="bookingStatusFor{{ $booking->id}}">
+									Pending booking
+								</div>
+							@elseif($booking->status == "Active")
+								<div class="cirlceStatus blueCircle" id="bookingStatusFor{{ $booking->id}}"></div>
+								<div class="mdl-tooltip" data-mdl-for="bookingStatusFor{{ $booking->id}}">
+									Active booking
+								</div>							
+							@endif
+						</td>
+					@endif
 					<td class="mdl-data-table__cell--non-numeric hideOnMobile">
 						{{$booking->type}}
 						
