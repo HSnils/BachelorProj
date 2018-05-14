@@ -303,6 +303,25 @@ main{
   width: 100%;
 }
 
+.inline{
+	display:inline-block;
+}
+
+.cirlceStatus{
+	width: 2px;
+	height: 2px;
+	padding: 5px;
+	border-radius: 20%;
+}
+
+.blueCircle{
+	background-color: rgb(63,81,181);
+}
+
+.orangeCircle{
+	background-color: orange;
+}
+
 .materialLabel{
 	color: #757575;
 	font-size:  16px;
@@ -482,6 +501,11 @@ main{
 
 	.hideOnMobile{
 		display: none;
+	}
+
+	.overflowOnMobile{
+		display: block;
+		overflow-x: auto;
 	}
 }
 

@@ -58,7 +58,7 @@
 	<div class="mdl-cell mdl-cell--12-col contentWrapper">
 
 	<div class="sortingOpen"><b>Filter:</b> <i class="material-icons">filter_list</i></div>
-	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp " id="roomsTable">
+	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp overflowOnMobile" id="roomsTable">
 		<thead class="" >
 			<tr class="">
 				<th onclick="sortTable(0, this, 'roomsTable')" class="mdl-data-table__cell--non-numeric th">Room</th>

@@ -1,4 +1,4 @@
-<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp ">
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp overflowOnMobile">
 	<thead>
 		<tr>
 			<th class="mdl-data-table__cell--non-numeric">Type</th>

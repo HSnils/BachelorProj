@@ -233,7 +233,7 @@ class BookingsController extends Controller
 				$validator->getMessageBag()->add('roomBooked', 'Your booking of a room is not avalible.');    
 				return Redirect::back()->withErrors($validator)->withInput();
 			}
-		} else if($roomAvalible == true && checkEquipmentAvalibility($equipmentsArray, $dateTo, $dateFrom, $offsetDateTo, $offsetDateFrom)){
+		} else if($roomAvalible == true && checkEquipmentAvalibility($equipmentsArray, $dateTo, $dateFrom)){
 			//if room is avalible and there is an equipment selected
 			
 			Bookings::create([

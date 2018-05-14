@@ -26,7 +26,7 @@
 	<div class="mdl-cell mdl-cell--12-col contentWrapper">
 
 	<div class="sortingOpen"><b>Filter:</b> <i class="material-icons">filter_list</i></div>
-	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp " id="usersTable">
+	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp overflowOnMobile" id="usersTable">
 		<thead class="" >
 			<tr class="">
 				<th onclick="sortTable(0, this, 'usersTable')" class="mdl-data-table__cell--non-numeric th">Name</th>
