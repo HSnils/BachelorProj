@@ -12,12 +12,18 @@
 	<link rel="stylesheet" href="{{asset('jquery-ui/jquery-ui.structure.min.css')}}">
 	<link rel="stylesheet" href="{{asset('jquery-ui/jquery-ui.theme.min.css')}}">
 	<script src="{{asset('jquery-ui/jquery-ui.min.js')}}"></script>
-
+	
+	<!-- Morris.js (css) (graphs) -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+	
+	<!-- Raphael.js -->
+	<script src="{{ asset('js/raphael.min.js') }}"></script>
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	
 	<!-- Tab title -->
-	<title>{{ config('app.name', 'Colorlab booking') }}</title>
+	<title>{{ config('app.name', 'Colourlab booking') }}</title>
 
 
 	
@@ -33,16 +39,13 @@
 	<!-- GETMDL.IO-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	
-		<!--Changes admin color-pallette -->
-	@if(session('adminDashboard') == 'true')
-		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.orange-indigo.min.css" />
-	@else
-		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-orange.min.css" />
-	@endif
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-orange.min.css" />
 
 	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	<!--Roboto and PT SANS fonts-->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<!--GETMDL-select-->   
 	<!--<link rel="stylesheet" href="{{ url('/') }}/css/getmdl-select/getmdl-select.min.css">
 	<script defer src="{{ url('/') }}/css/getmdl-select/getmdl-select.min.js"></script>-->
@@ -70,13 +73,13 @@
 			@include('partials.nav')
 		@endif
 
-			<main class="mdl-layout__content">
+			<main class="mdl-layout__content" style="flex: 1 0 auto;">
 				<div class="page-content"><!-- Your content goes here -->  
 					@yield('content')<!-- Content for each page -->
 				</div>
-				<!-- Footer -->
-				@include('partials.footer')
-		  	</main>
+			</main>
+		<!-- Footer -->
+		@include('partials.footer')
 		</div>	
 	</div>
 
@@ -87,7 +90,12 @@
 	<script src="{{ URL::asset('js/deleteAlert.js') }}"></script>
 	<!-- Materializecss 
 	<script src="{{ URL::asset('js/materialize.js') }}">
-	-->
-	</script>
+	</script>-->
+	
+	<!-- Morris.js
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script> -->
+	
 </body>
 </html>

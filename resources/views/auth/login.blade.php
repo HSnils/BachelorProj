@@ -26,8 +26,9 @@
 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
 
-						 <input class="mdl-textfield__input" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}"  autofocus>
+						 <input class="mdl-textfield__input" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" pattern="[\w._%+-]+@ntnu.no|[\w._%+-]+@stud.ntnu.no" title="Use your @ntnu.no e-mail!"  autofocus>
 						 <label class="mdl-textfield__label" for="email">E-mail</label>
+						 <span class="mdl-textfield__error">Only @ntnu.no e-mails allowed.</span>
 
 						 @if ($errors->has('email'))
 							  <span class="help-block">
@@ -58,6 +59,9 @@
 							  </div>
 						 </div>
 					</div>
+				  	<div class="form-group">
+						<a class="reset_pass" href="{{route('password.request')}}">Lost your password?</a>
+				  	</div>
 					<br>
 					<div class="mdl-card__actions mdl-card--border" >
 						 <!-- Accent-colored raised button with ripple -->

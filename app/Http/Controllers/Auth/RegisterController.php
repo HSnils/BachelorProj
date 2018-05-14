@@ -53,6 +53,7 @@ class RegisterController extends Controller
 	 */
 	protected function validator(array $data)
 	{
+		//|email_domain:'.$data['email'].' add this after email and uncomment function in appprovider to run check on domain
 		return Validator::make($data, [
 			'name' => 'required|string|max:255',
 			'email' => 'required|string|email|max:255|unique:users',
@@ -92,7 +93,17 @@ class RegisterController extends Controller
         ]);
  
         Mail::to($user->email)->send(new VerifyMail($user));
- 
+		
+		if (Mail::failures()) {
+        	return redirect('/login')->with('status', 'Mail did not send, ask an admin for verification');
+    	}
+		else {
+			
+			$user->mailSent = 1;
+			
+		}
+		
+ 		
         return $user;
     }
 	
@@ -104,9 +115,9 @@ class RegisterController extends Controller
             if(!$user->verified) {
                 $verifyUser->user->verified = 1;
                 $verifyUser->user->save();
-                $status = "Your e-mail is verified. You can now login.";
+                $status = "Your e-mail is verified. You can now sign in.";
             }else{
-                $status = "Your e-mail is already verified. You can now login.";
+                $status = "Your e-mail is already verified. You can now sign in.";
             }
         }else{
             return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
@@ -118,6 +129,7 @@ class RegisterController extends Controller
 	protected function registered(Request $request, $user)
     {
         $this->guard()->logout();
+		
         return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
     }
 }

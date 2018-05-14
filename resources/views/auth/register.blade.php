@@ -27,11 +27,13 @@
 						<label for="email" class="col-md-4 control-label mdl-textfield__label">E-Mail Address</label>
 
 						<div class="col-md-6">
-							<input id="email" type="email" class="form-control mdl-textfield__input" name="email" maxlength="90" value="{{ old('email') }}" >
-
+							<input id="email" type="email" class="form-control mdl-textfield__input" name="email" maxlength="90" value="{{ old('email') }} " pattern="[\w._%+-]+@ntnu.no|[\w._%+-]+@stud.ntnu.no" title="Use your @ntnu.no e-mail!" >
+							<span class="mdl-textfield__error">
+								Use your NTNU e-mail! Check subdomain (@stud.ntnu.no or @ntnu.no) 
+							</span>
 							@if ($errors->has('email'))
-								<span class="help-block">
-									<strong>{{ $errors->first('email') }}</strong>
+								<span class="">
+									{{ $errors->first('email') }}
 								</span>
 							@endif
 						</div>

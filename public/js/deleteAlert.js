@@ -25,6 +25,14 @@ $(document).ready(function () {
 		}
 	});
 
+	$('.deleteRoomButton').click(function(e){
+		//if they click cancel, prevents the default behavior and returns false.
+		if(!confirm('Are you sure you want to delete this room?')) {
+			e.preventDefault();
+			return false;
+		}
+	});
+
 	$('.closeButton').click(function(e){
 		//if they click cancel, prevents the default behavior and returns false.
 		if(!confirm('Are you sure you want to close this?')) {

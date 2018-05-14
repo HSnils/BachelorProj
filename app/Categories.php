@@ -32,7 +32,18 @@ class Categories extends Model
     */
     public function createCategory($category) {
     	Categories::create([
-    		'category' => $category['category']
+    		'category' => $category['category'],
+				'type' => $category['type']
     	]);
     }
+	
+		public function updateCategory($category, $currentCat){
+		
+		//session()->flash('notifyUser', $this->id);
+		Categories::where('category', $currentCat)
+			->update([
+				'category' => $category['category'],
+				'type' => $category['type']
+		]);
+	}
 }

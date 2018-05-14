@@ -13,12 +13,12 @@ class bookings_equipment extends Model
 	public $timestamps = false;
 	
 	public function booking() {
-		return $this->belongsTo(Bookings::class, 'id');
+		return $this->belongsTo('App\Bookings','id');
 		
 	}
 	
 	public function equipment() {
-		return $this->belongsTo(Equipments::class, 'id');
+		return $this->belongsTo('App\Equipments', 'id', 'equipment_id');
 		
 	}
 }

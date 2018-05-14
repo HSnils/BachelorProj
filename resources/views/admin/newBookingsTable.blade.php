@@ -1,4 +1,4 @@
-<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp ">
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp overflowOnMobile">
 	<thead>
 		<tr>
 			<th class="mdl-data-table__cell--non-numeric">Type</th>
@@ -20,32 +20,38 @@
 				<td class="mdl-data-table__cell--non-numeric">
 
 					@if( $booking->type == "Room")
-						{{$booking->room_number}}
+						{{$booking->room}}
 
 					@elseif( $booking->type == "Equipment")
-						{{$booking->bookingEquipment->name}}
+						{{$booking->getEquipmentName($booking->bookingEquipment->equipment_id)}}
 
 					@endif
 
 				</td>
 
 				<td class="mdl-data-table__cell--non-numeric">				
-					{{$booking->user->name}}
+					{{$booking->userName}}
 				</td>
 				
 				<td>
-					{{$booking->from_date}}
+					{{date("D d-M. H:i", strtotime($booking->from_date))}}
 				</td>
 
 				<td>
-					{{$booking->to_date}}
+					{{date("D d-M. H:i", strtotime($booking->to_date))}}
 				</td>
 
 				<td class="mdl-data-table__cell--non-numeric">
 					<a href="{{ url('admin/bookings/accept') }}/{{$booking->bookingID}}" class="approveBookingButton"><i class="material-icons mdl-button--primary">done</i></a>
 				</td>
 				<td class="mdl-data-table__cell--non-numeric">
-					<a href="{{ url('admin/bookings/delete') }}/{{$booking->bookingID}}" class="deleteBookingButton"><i class="material-icons">clear</i></a>
+					<form action="{{ url('admin/bookings/delete') }}/{{$booking->bookingID}}" method="post">
+						@method('delete')
+						@csrf
+						<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent deleteBookingButton">
+							<i class="material-icons removeX">clear</i>
+						</button>
+					</form>
 				</td>
 			</tr>		
 		@endforeach
