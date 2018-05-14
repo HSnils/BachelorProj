@@ -95,7 +95,7 @@ class RegisterController extends Controller
         Mail::to($user->email)->send(new VerifyMail($user));
 		
 		if (Mail::failures()) {
-        	return redirect('/login')->with('status', 'Mail did not send, ask an admin for verdification');
+        	return redirect('/login')->with('status', 'Mail did not send, ask an admin for verification');
     	}
 		else {
 			
@@ -115,9 +115,9 @@ class RegisterController extends Controller
             if(!$user->verified) {
                 $verifyUser->user->verified = 1;
                 $verifyUser->user->save();
-                $status = "Your e-mail is verified. You can now login.";
+                $status = "Your e-mail is verified. You can now sign in.";
             }else{
-                $status = "Your e-mail is already verified. You can now login.";
+                $status = "Your e-mail is already verified. You can now sign in.";
             }
         }else{
             return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
