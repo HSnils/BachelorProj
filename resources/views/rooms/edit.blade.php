@@ -31,7 +31,14 @@
 			<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" style="float:right">
 				Update
 			</button>
-
+		</form>
+		<br>
+		<form action="{{ url('admin/rooms/delete') }}/{{$thisRoom[0]->room_number}}" method="post" class="formStyle marginTop1 marginTop1">
+			@method('delete')
+			@csrf
+			<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent deleteRoomButton">
+				<i class="material-icons removeX">delete</i> Delete
+			</button>
 		</form>
 
 		<!--<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" style="float:right">

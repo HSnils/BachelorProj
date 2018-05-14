@@ -37,7 +37,7 @@
 			<form role="form" method="POST" action="{{ url('booking/create') }}" class="bookingForm">
 				{{ csrf_field() }}
 						
-						<span class="materialLabel marginTop1 marginBottom1">Book a room</span>
+						<span class="materialLabel bookingLabel bookingLabel marginTop1 marginBottom1">Book a room</span>
 						<select class="formPadding flex100 width100" name="room_number" id="room_numberBooking">
 							<option disabled selected>Select a room</option>
 							@foreach($allRooms as $room)
@@ -45,53 +45,14 @@
 							@endforeach
 						</select>
 
-						<!--<div class="calendarBox mdl-grid">
-							<div class="calendarHead mdl-cell mdl-cell--12-col">
-								<div class="calendarCell">
-									Monday
-								</div>
-								<div class="calendarCell">
-									Tuesday
-								</div>
-								<div class="calendarCell">
-									Wednesday
-								</div>
-								<div class="calendarCell">
-									Thursday
-								</div>
-								<div class="calendarCell">
-									Friday
-								</div>
-							</div>
-							<div class="calendarColums mdl-cell mdl-cell--12-col">
-								<div class="calendarCell">
-									<div class="calendarBooked">Booked</div>
-								</div>
-								<div class="calendarCell">
-									<div class="calendarBooked">Booked</div>
-								</div>
-								<div class="calendarCell">
-									<div class="calendarBooked">Booked</div>
-								</div>
-								<div class="calendarCell">
-									<div class="calendarBooked">Booked</div>
-								</div>
-								<div class="calendarCell">
-									<div class="calendarBooked">Booked</div>
-								</div>
-							</div>
-						</div>-->
-						
 						<div hidden class="formGroupParent marginTop1 marginBottom1" id="dateTimeBox">
 							<div class="formGroup">
-								<label for="dateFrom" class="materialLabel ">Book from</label>
-								<br>
+								<label for="dateFrom" class="materialLabel bookingLabel">Book from*</label>
 								<input type="date" name="dateFrom" id="dateFrom" class="formPadding marginTop1 " min="{{date('Y-m-d')}}">
 
 								<div class="mdl-tooltip" data-mdl-for="dateFrom">
 									Select starting date
 								</div>
-
 								<select name="timeFrom" id="timeFrom" class="formPadding width100">
 									<option selected disabled>Start time</option>
 									@php
@@ -99,7 +60,6 @@
 										inputTimeDropdown(7, 19);
 									@endphp
 								</select>
-
 								<div class="mdl-tooltip" data-mdl-for="timeFrom">
 									Select starting time
 								</div>
@@ -107,14 +67,13 @@
 							</div>
 
 							<div class="formGroup">
-								<label for="dateTo" class="materialLabel ">Book to</label>
-								<br>
+								<label for="dateTo" class="materialLabel bookingLabel">Book to*</label>
 								<input type="date" name="dateTo" id="dateTo" class="formPadding marginTop1 " min="{{date('Y-m-d')}}">
 								
 								<div class="mdl-tooltip" data-mdl-for="dateTo">
 									Select ending date
 								</div>
-
+								
 								<select name="timeTo" id="timeTo" class="formPadding width100">
 									<option selected disabled>End time</option>
 									@php
@@ -122,6 +81,7 @@
 										inputTimeDropdown(7, 19);
 									@endphp
 								</select>
+
 
 								<div class="mdl-tooltip" data-mdl-for="timeTo">
 									Select ending time
@@ -150,17 +110,20 @@
 
 						<section id="bookingUseage" hidden class="formGroupParent marginTop1 marginBottom1">
 							<div class="formGroup">
-								<label for="useageSelect" class="materialLabel ">Usage:</label>
+								<label for="useageSelect" class="materialLabel bookingLabel">Usage*</label>
 								<br>
 								<select name="" id="useageSelect" class="formPadding marginTop1 width100">
 									<option value="Education">Education</option>
 									<option value="Project">Projects</option>
 									<option value="Other" selected>Other</option>
 								</select>
+								<div class="mdl-tooltip" data-mdl-for="useageSelect">
+									Select usage
+								</div>
 							</div>
 
 							<div class="formGroup">
-								<label for="spesificUseageSelect" class="materialLabel ">Specify use:</label>
+								<label for="useageSelect" class="materialLabel bookingLabel">Specify use*</label>
 								<br>
 								<select name="spesificUseageSelect" id="spesificUseageSelect" class="formPadding marginTop1 width100">
 									<span id="spesificUseageItems">
@@ -172,16 +135,29 @@
 										@endforeach
 									</span>
 								</select>
+
+								<div class="mdl-tooltip" data-mdl-for="spesificUseageSelect">
+									Specify usage
+								</div>
 							</div>
 						</section>
 						
 						<section id="roomPrivacy" hidden>
-							<span class="materialLabel marginTop1 marginBottom1">Room privacy</span>
+							<span class="materialLabel bookingLabel marginTop1 marginBottom1">Room privacy*</span>
 							<br>
 							<span class="roomPrivacyBox">
 								<span>
+									<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="room_is_private" id="room_is_private_label">
+										<input type="radio" id="room_is_private" class="mdl-radio__button" name="roomPrivacy" value="1" checked>
+										<span class="mdl-radio__label">Private</span>
+									</label>
+									<div class="mdl-tooltip" data-mdl-for="room_is_private_label">
+									Only you<br>can use room
+									</div>
+								</span>
+								<span>
 									<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="others_can_use" id="others_can_use_label">
-										<input type="radio" id="others_can_use" class="mdl-radio__button" name="roomPrivacy" value="0" checked>
+										<input type="radio" id="others_can_use" class="mdl-radio__button" name="roomPrivacy" value="0" >
 										<span class="mdl-radio__label">
 											Public
 										</span>
@@ -192,18 +168,10 @@
 									</div>
 
 								</span>
-								<span>
-									<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="room_is_private" id="room_is_private_label">
-										<input type="radio" id="room_is_private" class="mdl-radio__button" name="roomPrivacy" value="1">
-										<span class="mdl-radio__label">Private</span>
-									</label>
-									<div class="mdl-tooltip" data-mdl-for="room_is_private_label">
-									Only you<br>can use room
-									</div>
-								</span>
+								
 							</span>
 						</section>
-
+						<br>
 						<section id="equipmentsSection" class="marginTop1 marginBottom1 width100">
 			
 						</section>

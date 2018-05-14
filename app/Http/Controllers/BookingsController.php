@@ -140,73 +140,75 @@ class BookingsController extends Controller
 			$status = 'Active';
 		}
 
-		//checks if the booking is inside of an exsisting booking
-		$findsBookingInsideABooking = Bookings::
+		//checks if there is overlapping bookings. Checks on the room selectd, if the there is a starting date or ending date between the two dates, and then checks if there is a starting or end date in the middle of the dates inputted 
+		$findsBookingOverlappingBookings = Bookings::
 			join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
-			->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
-			->where('rooms.room_number', '=', $roomNumber)
-			->where('from_date', '<=', $dateFrom)
-			->where('to_date', '>=', $dateTo)
-		->count();
-
-		if($findsBookingInsideABooking == 0){
-			//checks if the booking is overlapping with an exsisting booking
-			$findsBookingOverlappingBookings = Bookings::
-				join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
-				->join('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
-				->where('rooms.room_number', '=', $roomNumber)
+			->leftjoin('rooms', 'bookings_rooms.room_number', '=', 'rooms.room_number')
+			->select('rooms.room_number', 'bookings.from_date', 'bookings.to_date','bookings_rooms.private')
+			->where('rooms.room_number',  '=' , $roomNumber)
+			->where(function ($query) use ($offsetDateFrom, $offsetDateTo){
+				$query
 				->whereBetween('from_date', [$offsetDateFrom, $offsetDateTo])
-				->orWhereBetween('to_date', [$offsetDateFrom, $offsetDateTo])
-			->count();
+				->orWhereBetween('to_date', [$offsetDateFrom, $offsetDateTo]);
+			})
+			->orWhere(function($query) use ($dateFrom, $dateTo){
+				$query
+				->where('from_date', '<=', $dateFrom)
+				->where('to_date', '>=', $dateTo);
+			})
+		->get();
 
-			//if its overlapping
-			if($findsBookingOverlappingBookings >= 1){
-				$bookingStatus = "Your booking is overlapping with another booking.";
-				$validator->getMessageBag()->add('roomNotAvalible', $bookingStatus);
-				return Redirect::back()->withErrors($validator)->withInput();
+		//check for private/public
+		/*foreach($findsBookingOverlappingBookings as $booking){
+			if($booking->private == 1){
 				$roomAvalible = false;
-
 			} else {
-				//returns true if no errors and the booking is avalible
 				$roomAvalible = true;
 			}
-		} else {
-			$roomAvalible = false;
-			$bookingStatus = "Your booking of a room was not avalible!";
+		}*/
+
+		//if a overlapping booking is found, returns a error message and sets room avalible to false, else it sets room avalible to true.
+		if(count($findsBookingOverlappingBookings) >= 1){
+			$bookingStatus = "Your booking is overlapping with another booking.";
 			$validator->getMessageBag()->add('roomNotAvalible', $bookingStatus);
 			return Redirect::back()->withErrors($validator)->withInput();
+			$roomAvalible = false;
+		} else {
+			//returns true if no errors and the booking is avalible
+			$roomAvalible = true;
 		}
+
+		
 
 		//check to find out if the equiment/s are avablible, only do this if there was any booked equipments
 		function checkEquipmentAvalibility($equipmentsArray, $dateTo, $dateFrom, $offsetDateTo, $offsetDateFrom){
 			
-
+			
 			for($i = 0; $i < count($equipmentsArray); $i++){
 				$equipment_id = $equipmentsArray[$i];
 
-				$findsBookingInsideABooking = Bookings::
+				$findsBookingOverlappingBookings = Bookings::
 					join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')
-					->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')
-					->where('equipments.id', $equipment_id)
-					->where('from_date', '<=', $dateFrom)
-					->where('to_date', '>=', $dateTo)
+					->leftjoin('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')
+					->select('equipments.id', 'bookings.from_date', 'bookings.to_date')
+					->where('equipments.id',  '=' , $equipment_id)
+					->where(function ($query) use ($offsetDateFrom, $offsetDateTo){
+						$query
+						->whereBetween('from_date', [$offsetDateFrom, $offsetDateTo])
+						->orWhereBetween('to_date', [$offsetDateFrom, $offsetDateTo]);
+					})
+					->orWhere(function($query) use ($dateFrom, $dateTo){
+						$query
+						->where('from_date', '<=', $dateFrom)
+						->where('to_date', '>=', $dateTo);
+					})
 				->count();
 
-				if($findsBookingInsideABooking == 0){
-					$findsBookingOverlappingBookings = Bookings::
-						join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')
-						->join('equipments', 'bookings_equipments.equipment_id', '=', 'equipments.id')
-						->where('equipments.id', $equipment_id)
-						->whereBetween('from_date', [$offsetDateFrom, $offsetDateTo])
-						->orWhereBetween('to_date', [$offsetDateFrom, $offsetDateTo])
-					->count();
-
-					//returns false if the booking overlaps another booking
-					if($findsBookingOverlappingBookings >= 1){
-						return false;
-					} 
-				}else{
-					//returns false if there was a booking inside the booking
+				//returns false if the booking overlaps another booking
+				if($findsBookingOverlappingBookings >= 1){
+					$bookingStatus = "One or more of your equipment is already booked!";
+					$validator->getMessageBag()->add('equipmentNotAvailible', $bookingStatus);
+					return Redirect::back()->withErrors($validator)->withInput();
 					return false;
 				}
 
@@ -241,7 +243,12 @@ class BookingsController extends Controller
 					'private' => $roomPrivacy,
 				]);
 
-				session()->flash('notifyUser', 'Room booked!');
+				if($userRole == 'Student'){
+					session()->flash('notifyUser', 'Room booked and waiting for approval!');
+				}else{
+					session()->flash('notifyUser', 'Room booked!');	
+				}
+				
 			} else {
 				session()->flash('notifyUser', 'Room is not avalible!');
 				$validator->getMessageBag()->add('roomBooked', 'Your booking of a room is not avalible.');    
@@ -293,7 +300,13 @@ class BookingsController extends Controller
 				]);
 			}
 
-			session()->flash('notifyUser', 'Room and Equipment booked!');
+			if($userRole == 'Student'){
+				session()->flash('notifyUser', 'Room and Equipment booked and waiting for approval!');
+			}else{
+				session()->flash('notifyUser', 'Room and Equipment booked!');
+			}
+
+			
 
 		}else{
 			session()->flash('notifyUser', 'Room and Equipment not avalible!');

@@ -118,7 +118,7 @@ class User extends Authenticatable
 	public function deleteUser($user){
 		User::where('id', $this->id)
 			->update([
-				'status' => "Deleted",
+				'status' => "Inactive",
 				'deleted_at' => now(),
 				'deleted_by' => Auth::user()->name
 		]);

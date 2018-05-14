@@ -21,7 +21,6 @@
 					<th onclick="sortTable(5, this, 'usersTable')" class="mdl-data-table__cell--non-numeric th hideOnMobile">Created</th>
 					<th onclick="sortTable(6, this, 'usersTable')" class="mdl-data-table__cell--non-numeric th hideOnMobile">Last login</th>
 					<th class="mdl-data-table__cell--non-numeric">Edit</th>
-					<th class="mdl-data-table__cell--non-numeric">Delete</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -38,10 +37,15 @@
 						</td>
 
 						<td class="mdl-data-table__cell--non-numeric hideOnMobile">
-							@if($user->status != "Active")
-								<span style="color: red;">{{$user->status}}</span>
+							@if($user->status == "Inactive")
+								<!--Red status-->
+								<span style="color: #E53935;">{{$user->status}}</span>
+							@elseif($user->status == 'Pending')
+								<!-- Blue status -->
+								<span style="color: #1976D2;" >{{$user->status}}</span>
 							@else
-								<span style="color: green;" >{{$user->status}}</span>
+								<!--Green status-->
+								<span style="color: #558B2F;" >{{$user->status}}</span>
 							@endif
 						</td>
 
@@ -53,17 +57,6 @@
 
 						<td class="mdl-data-table__cell--non-numeric " >
 							<a href="{{ url('admin/users/edit') }}/{{$user->id}}" ><i class="material-icons mdl-button--primary">edit</i></a>
-						</td>
-
-						<td class="mdl-data-table__cell--non-numeric ">
-							<form action=" {{url('admin/delete/user')}}/{{$user->id}}" method="post">
-								@method('delete')
-								@csrf
-
-								<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent deleteUserButton">
-									<i class="material-icons">clear</i>
-								</button>
-							</form>
 						</td>
 					</tr>
 				@endforeach
@@ -106,7 +99,7 @@
 					<select class="formPadding flex100 width100" name="status" id="status">
 						<option disabled selected="">Select status</option>
 						@php
-							$statusArray = ['Active', 'Deleted', 'Banned', 'Pending', 'Scammer'];
+							$statusArray = ['Active', 'Inactive', 'Pending'];;
 						@endphp
 						@for($i = 0; $i < count($statusArray); $i++)
 							<option value="{{$statusArray[$i]}}">

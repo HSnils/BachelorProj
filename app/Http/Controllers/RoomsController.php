@@ -94,8 +94,24 @@ class RoomsController extends Controller
 			session()->flash('notifyUser', 'Room updated!');
 			return redirect()->route('roomsAdmin');
 		} else {
-			echo 'You are not administrator!';
+			session()->flash('notifyUser', 'You are not administrator!');
 		}
+	}
+
+	public function delete($room){
+		$isAdmin = auth()->user()->role == 'Admin';
+
+		if ($isAdmin){
+			Rooms::where('room_number', $room)->delete();
+
+			//flashes the session with a value for notify user
+			//flash only lasts for 1 redriect
+			session()->flash('notifyUser', 'Room deleted!');
+			return redirect()->route('roomsAdmin');
+		}else{
+			session()->flash('notifyUser', 'You are not administrator!');
+		}
+
 	}
 	
 }

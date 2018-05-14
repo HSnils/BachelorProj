@@ -10,6 +10,7 @@
 		<form role="form" method="POST" action="{{ url('admin/edit/user') }}/{{$thisUser[0]->id}}" class="formStyle">
 			{{ csrf_field() }}
 
+			<label class="materialLabel" for="selectRole">Role</label>
 			<select id="selectRole" name="role" class="roleSelect formPadding " required>
 				@foreach ($allRoles as $role)
 					@if($thisUser[0]->role == $role->role)
@@ -21,12 +22,13 @@
 			</select>
 			<!-- Simple Tooltip -->
 			<div class="mdl-tooltip" data-mdl-for="selectRole">
-			Edit role
+				Edit role
 			</div>
-
-			<select id="selectStatus" name="status" class="roleSelect formPadding marginTop1 marginBottom1" required>
+			<br>
+			<label class="materialLabel marginTop1" for="selectStatus">Status</label>
+			<select id="selectStatus" name="status" class="roleSelect formPadding  marginBottom1" required>
 				@php
-					$statusArray = ['Active', 'Deleted', 'Banned', 'Pending', 'Scammer'];
+					$statusArray = ['Active', 'Inactive'];
 				@endphp
 				@for($i = 0; $i < count($statusArray); $i++)
 					@if($thisUser[0]->status == $statusArray[$i])
@@ -40,8 +42,8 @@
 					@endif
 				@endfor
 			</select>
-
-						<!-- Simple Tooltip -->
+ 
+			<!-- Simple Tooltip -->
 			<div class="mdl-tooltip" data-mdl-for="selectStatus">
 			Edit status
 			</div>
@@ -60,6 +62,15 @@
 				Update
 			</button>
 
+		</form>
+
+		<br>
+		<form action="{{url('admin/delete/user')}}/{{$thisUser[0]->id}}" method="post" class="formStyle marginTop1">
+			@method('delete')
+			@csrf
+			<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent deleteUserButton">
+				<i class="material-icons removeX">delete</i> Delete
+			</button>
 		</form>
 
 		<!--<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" style="float:right">

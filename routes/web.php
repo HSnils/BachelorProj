@@ -66,11 +66,12 @@ Route::post('/admin/edit/user/{user}', 'AdminController@editUser')->middleware('
 Route::delete('admin/delete/user/{user}', 'AdminController@deleteUser')->middleware('auth');
 Route::get('admin/users/edit/{user}', 'AdminController@showEditUser');
 
-//Admin - Create/edit rooms
+//Admin - Create/edit/delete rooms
 Route::get('admin/rooms/newRoom', 'RoomsController@newRoom')->name('newRoom')->middleware('auth');
 Route::post('admin/rooms/create', 'RoomsController@createRoom')->middleware('auth');
 Route::get('admin/rooms/edit/{room_number}', 'RoomsController@showEdit')->middleware('auth');
 Route::post('admin/rooms/edit', 'RoomsController@editRoom')->middleware('auth');
+Route::delete('admin/rooms/delete/{room_number}', 'RoomsController@delete')->middleware('auth');
 
 //Admin - Create/edit equipments
 Route::get('admin/equipments/newEquipment', 'EquipmentsController@newEquipment')->name('newEquipment')->middleware('auth');

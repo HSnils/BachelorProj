@@ -1,9 +1,9 @@
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp ">
 	<thead>
 		<tr>
-			<th class="mdl-data-table__cell--non-numeric">Name</th>
+			<th class="mdl-data-table__cell--non-numeric hideOnMobile">Name</th>
 			<th class="mdl-data-table__cell--non-numeric">E-Mail</th>
-			<th class="mdl-data-table__cell--non-numeric">Created</th>
+			<th class="mdl-data-table__cell--non-numeric hideOnMobile">Created</th>
 			<th class="mdl-data-table__cell--non-numeric">Role</th>
 			<th class="mdl-data-table__cell--non-numeric">Accept</th>
 			<th class="mdl-data-table__cell--non-numeric">Reject</th>
@@ -12,29 +12,31 @@
 	<tbody>
 		@foreach ($newUsers as $user)
 			<tr>
-				<td class="mdl-data-table__cell--non-numeric">
+				<td class="mdl-data-table__cell--non-numeric hideOnMobile">
 					{{$user->name}}
 				</td >
 				<td class="mdl-data-table__cell--non-numeric">
 					{{$user->email}}
 				</td>
-				<td class="mdl-data-table__cell--non-numeric">
+				<td class="mdl-data-table__cell--non-numeric hideOnMobile">
 					{{$user->created_at->diffForHumans()}}
 				</td>
 
 				<form action="{{url('admin/approve/user')}}/{{$user->id}}" method="post">
 					{{ csrf_field() }}
-					<td class="mdl-data-table__cell--non-numeric">
-						<select id="selectRole{{$user->id}}" name="role" required class="formPadding">
-							@foreach ($allRoles as $role)
-								<option value="{{$role->role}}">{{$role->role}}</option>
-							@endforeach
-						</select>
-						<!-- Simple Tooltip -->
-						<div class="mdl-tooltip" data-mdl-for="selectRole{{$user->id}}">
-						Select role
+					<td class="mdl-data-table__cell--non-numeric ">
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label selectInput">
+							<select id="selectRole{{$user->id}}" name="role" required class="mdl-textfield__input">
+								@foreach ($allRoles as $role)
+									<option value="{{$role->role}}">{{$role->role}}</option>
+								@endforeach
+							</select>
+							<label class="mdl-textfield__label" for="selectRole{{$user->id}}">Select role</label>
+							<!-- Simple Tooltip -->
+							<div class="mdl-tooltip" data-mdl-for="selectRole{{$user->id}}">
+							Select role
+							</div>
 						</div>
-
 					</td>
 					<td class="mdl-data-table__cell--non-numeric">
 						<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary approveButton">

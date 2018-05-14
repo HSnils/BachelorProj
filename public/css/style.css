@@ -2,12 +2,16 @@
 
 body{
 	/* Font: Open sans on body*/
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif !important;
 }
 
 .mdl-card__title, h1, h2, h3, h4, h5, h6, nav, th{
 	/*Font Roboto on headers */
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif !important;
+}
+
+.mdl-textfield__input {
+	font-family: 'Open Sans','Roboto','Helvetica', sans-serif !important;
 }
 
 #notifyUser{
@@ -237,6 +241,10 @@ main{
 	box-sizing: border-box;
 }
 
+.selectInput{
+	width: 100% !important;
+}
+
 .bookingsForm{
 	display: flex;
 	flex-flow: row wrap;
@@ -302,6 +310,11 @@ main{
 	overflow: hidden;
 	width: 100%;
 	margin-bottom: 0.2em;
+	font-family: 'Roboto', sans-serif !important;
+}
+
+.bookingLabel{
+	color: rgb(63,81,181);
 }
 
 .activeTab{

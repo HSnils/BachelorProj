@@ -21,7 +21,7 @@
 						<i class="material-icons">assignment_ind</i>
 						Role:
 					</b> 
-					{{ Auth::user()->role }}
+					<span style="font-size: 0.8em;">{{ Auth::user()->role }}</span>
 				</div>
 				<br>
 				<div class="mdl-typography--headline bulletColor">
@@ -29,7 +29,7 @@
 						<i class="material-icons">mail_outline</i> 
 						E-mail:
 					</b> 
-					{{ Auth::user()->email }}
+					<span style="font-size: 0.8em;">{{ Auth::user()->email }}</span>
 
 				</div>
 				<br>
@@ -59,13 +59,13 @@
 			{{ csrf_field() }}
 
 			<div class="form-group mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				<label for="username" class=" form-control mdl-textfield__label">Update Username:</label>
+				<label for="username" class=" form-control mdl-textfield__label">Update Username</label>
 				<input type="text" class="form-control mdl-textfield__input" id="username" name="username" minlength="2" maxlength="30">
 			</div>
 
 			<div class="form-group">
 
-				<button type="submit" class="btn btn-primary mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Update Username</button>
+				<button type="submit" class="btn btn-primary mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Update Username</button>
 			</div>
 		</form>
 		
@@ -75,12 +75,12 @@
 			{{ csrf_field() }}
 
 			<div class="form-group mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				<label for="password" class="mdl-textfield__label">Update Password:</label>
+				<label for="password" class="mdl-textfield__label">Update Password</label>
 				<input type="password" class="form-control mdl-textfield__input" id="password" name="password" minlength="3" maxlength="255">
 			</div>
 
 			<div class="form-group">
-				<button type="submit" class="btn btn-primary mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Update Password</button>
+				<button type="submit" class="btn btn-primary mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Update Password</button>
 			</div>
 		</form>
 

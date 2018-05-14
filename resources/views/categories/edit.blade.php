@@ -19,9 +19,20 @@
 			<label class="materialLabel" for="type">Type</label>
 			<select name="type" id="type" class="formPadding">
 				<option value="" disabled>Select Type</option>
-				<option value="Project">Project</option>
-				<option value="Education">Education</option>
-				<option value="Other">Other</option>
+				@php
+					$typeArray = ['Project', 'Education', 'Other'];
+				@endphp
+				@for($i = 0; $i < count($typeArray); $i++)
+					@if($thisCategory[0]->type == $typeArray[$i])
+						<option selected value="{{$thisCategory[0]->type}}">
+							{{$thisCategory[0]->type}}
+						</option>
+					@else
+						<option value="{{$typeArray[$i]}}">
+							{{$typeArray[$i]}}
+						</option>
+					@endif
+				@endfor
 			</select>
 			
 			<br>

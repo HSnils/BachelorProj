@@ -22,14 +22,33 @@ class AdminController extends Controller
 	 public function index()
 	{
 		$isAdmin = auth()->user()->role == 'Admin';
+		$numberOfUsersAndBookingsToGet = 10;
 
 		if ($isAdmin){
-			$newUsers = User::orderBy('created_at', 'desc')->where('role', 'guest')->where('status', '=', 'Active')->take(5)->get();
+			//gets new users
+			$newUsers = User::
+			orderBy('created_at', 'desc')
+			->where('role', 'guest')
+			->where('status', '=', 'Active')
+			->take($numberOfUsersAndBookingsToGet)
+			->get();
 
-			$allRoles = Roles::where('role', '!=', 'guest')->orderBy('role', 'desc')->get();
+			//gets all roles except guestrole to use for quickly giving a user a new role
+			$allRoles = Roles::
+			where('role', '!=', 'guest')
+			->orderBy('role', 'desc')
+			->get();
 
-			//join('bookings_equipments', 'bookings.id', '=', 'bookings_equipments.bookings_id')->
-			$newBookings = Bookings::join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')->join('users', 'bookings.user_id', '=', 'users.id')->select('users.id as userID, bookings.id as bookingID')->where('users.role','student')->where('bookings.status', '!=','Active')->orderBy('bookings.created_at', 'desc')->take(5)->get();
+			//gets all new bookings
+			$newBookings = Bookings::
+			join('bookings_rooms', 'bookings.id', '=', 'bookings_rooms.bookings_id')
+			->join('users', 'bookings.user_id', '=', 'users.id')
+			->select('users.id as userID', 'bookings.id as bookingID')
+			->where('users.role','student')
+			->where('bookings.status','Pending')
+			->orderBy('bookings.created_at', 'desc')
+			->take($numberOfUsersAndBookingsToGet)
+			->get();
 
 
 			//gets total bookings of each room
@@ -59,10 +78,12 @@ class AdminController extends Controller
 			->orderByDesc('count')
 			->get();
 
+			//gets all room bookings
 			$allRoomBookings = Bookings::
 			where('type','Room')
 			->get();
 
+			//gets all total hours spent in rooms booking
 			$totalHoursSpent = 0;
 			foreach($allRoomBookings as $room){
 				$totalHoursSpent += $room->hoursSpent();

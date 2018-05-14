@@ -3,7 +3,7 @@
 	<div class="mdl-typography--display-1-color-contrast flex100">
 		My bookings
 	</div>
-
+	
 	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp flex100">
 		<thead class="" >
 			<tr class="">
@@ -16,7 +16,7 @@
 			</tr>
 		</thead>
 		<tbody class="">
-
+			
 			@foreach($yourBookings as $booking)
 
 				<tr>

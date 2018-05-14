@@ -54,21 +54,16 @@
 						@endforeach
 					</select>
 
+					<!-- Simple Tooltip -->
+					<div class="mdl-tooltip" data-mdl-for="room_numberBooking">
+					Filter by room
+					</div>
+
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 						<input class="mdl-textfield__input" type="text" id="name" name="name">
 						<label class="mdl-textfield__label" for="sample3">Filter by name...</label>
 					</div>
 					
-					<!--<span class="materialLabel marginTop1 marginBottom1">and/or search by name:</span>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-						<label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
-							<i class="material-icons">search</i>
-						</label>
-						<div class="mdl-textfield__expandable-holder">
-							<input class="mdl-textfield__input" type="text" id="sample6" placeholder="Search..">
-							<label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
-						</div>
-					</div>-->
 			</div>
 		</div>
 		<div class="mdl-dialog__actions mdl-dialog__actions--full-width">
