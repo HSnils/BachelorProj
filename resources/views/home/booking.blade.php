@@ -38,7 +38,7 @@
 				{{ csrf_field() }}
 						
 						<span class="materialLabel bookingLabel bookingLabel marginTop1 marginBottom1">Book a room</span>
-						<select class="formPadding flex100 width100" name="room_number" id="room_numberBooking">
+						<select class="formPadding flex100 width100" name="room_number" id="room_numberBooking" required>
 							<option disabled selected>Select a room</option>
 							@foreach($allRooms as $room)
 								<option value="{{$room->room_number}}">{{$room->room_number}} - {{$room->type}}</option>
@@ -48,12 +48,12 @@
 						<div hidden class="formGroupParent marginTop1 marginBottom1" id="dateTimeBox">
 							<div class="formGroup">
 								<label for="dateFrom" class="materialLabel bookingLabel">Book from*</label>
-								<input type="date" name="dateFrom" id="dateFrom" class="formPadding marginTop1 " min="{{date('Y-m-d')}}">
+								<input type="date" name="dateFrom" id="dateFrom" class="formPadding marginTop1 " min="{{date('Y-m-d')}}" required>
 
 								<div class="mdl-tooltip" data-mdl-for="dateFrom">
 									Select starting date
 								</div>
-								<select name="timeFrom" id="timeFrom" class="formPadding width100">
+								<select name="timeFrom" id="timeFrom" class="formPadding width100" required>
 									<option selected disabled>Start time</option>
 									@php
 										//fills dropdown with options from minimum hour to maximum hour
@@ -68,13 +68,13 @@
 
 							<div class="formGroup">
 								<label for="dateTo" class="materialLabel bookingLabel">Book to*</label>
-								<input type="date" name="dateTo" id="dateTo" class="formPadding marginTop1 " min="{{date('Y-m-d')}}">
+								<input type="date" name="dateTo" id="dateTo" class="formPadding marginTop1 " min="{{date('Y-m-d')}}" required>
 								
 								<div class="mdl-tooltip" data-mdl-for="dateTo">
 									Select ending date
 								</div>
 								
-								<select name="timeTo" id="timeTo" class="formPadding width100">
+								<select name="timeTo" id="timeTo" class="formPadding width100" required>
 									<option selected disabled>End time</option>
 									@php
 										//fills dropdown with options from minimum hour to maximum hour
@@ -112,7 +112,7 @@
 							<div class="formGroup">
 								<label for="useageSelect" class="materialLabel bookingLabel">Usage*</label>
 								<br>
-								<select name="" id="useageSelect" class="formPadding marginTop1 width100">
+								<select name="" id="useageSelect" class="formPadding marginTop1 width100" required>
 									<option value="Education">Education</option>
 									<option value="Project">Projects</option>
 									<option value="Other" selected>Other</option>
@@ -125,7 +125,7 @@
 							<div class="formGroup">
 								<label for="useageSelect" class="materialLabel bookingLabel">Specify use*</label>
 								<br>
-								<select name="spesificUseageSelect" id="spesificUseageSelect" class="formPadding marginTop1 width100">
+								<select name="spesificUseageSelect" id="spesificUseageSelect" class="formPadding marginTop1 width100" required>
 									<span id="spesificUseageItems">
 										<option disabled selected>Choose useage</option>
 										@foreach($allCategories as $category)
@@ -157,7 +157,7 @@
 								</span>
 								<span>
 									<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="others_can_use" id="others_can_use_label">
-										<input type="radio" id="others_can_use" class="mdl-radio__button" name="roomPrivacy" value="0" >
+										<input type="radio" id="others_can_use" class="mdl-radio__button" name="roomPrivacy" value="0">
 										<span class="mdl-radio__label">
 											Public
 										</span>
@@ -175,7 +175,8 @@
 						<section id="equipmentsSection" class="marginTop1 marginBottom1 width100">
 			
 						</section>
-
+				
+				<!--booking button is disabled until a room is selected -->
 				<div class="mdl-card__actions mdl-card--border">
 					<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" style="float:right" disabled id="bookingButton">
 						Book

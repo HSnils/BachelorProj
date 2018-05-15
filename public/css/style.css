@@ -443,6 +443,38 @@ main{
 #numberFound .bookError{
 	color:  darkred;
 }
+/*tablet media queries*/
+@media only screen and (max-width: 1200px) {
+	.page-content{
+		margin-top: 5em;
+		padding: 0 5% 0 5%;
+	}
+
+	.flex100{
+		flex-basis: auto;
+		width: 100%;
+	}
+
+	.hideOnTablet{
+		display: none;
+	}
+
+	.fixedOnMobile {
+		position: fixed;
+	}
+
+	tr{
+		width: 250px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	table{
+		display: block;
+		overflow-x: auto;
+	}
+}
+
 @media only screen and (max-width: 600px) {
 	.roomPrivacyBox{
 		width: 100%;
@@ -463,8 +495,8 @@ main{
 	}
 
 	.categoriesTable{
-			width: 100%;
-    		flex-basis: 100%;
+		width: 100%;
+    	flex-basis: 100%;
 	}
 
 	tr{
