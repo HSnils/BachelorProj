@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Equipments;
 use App\Rooms;
 use App\Bookings;
+use Validator;
+use Redirect;
 
 use Carbon\Carbon;
 
@@ -76,7 +78,7 @@ class EquipmentsController extends Controller
 		return view('equipments.show', compact('equipment','bookingsOnThisEquipment'));
 	}
 
-	public function reportDamage($id){
+	public function reportDamage($id, Request $request){
 		//validates input (checks if they are filled in)
 		$validator = Validator::make($request->all(), [
 			'report' => 'required',
