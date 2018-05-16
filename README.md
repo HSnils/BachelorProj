@@ -31,35 +31,31 @@ can be found in the ```database/seeds/UserTableSeeder``` php file.
 For this project we've used **XAMMP** and **php artisan serve** as our server, so this guide will be specific to that software.
 
 Step 1:
-	Copy the repository/project folder to htdocs in the xampp folder.
+- Copy the repository/project folder to htdocs in the xampp folder.
 
 Step 2: Install composer
-	Open the command line/terminal and navigate to the project folder in htdocs.
-	Once there, type ```composer install``` and hit enter.
+- Open the command line/terminal and navigate to the project folder in htdocs.
+- Once there, type ```composer install``` and hit enter.
 
 Step 3: Install the package for creating CSV files.
-	Open the command line/terminal and navigate to the project folder in htdocs.
-	Once there, type ```composer require league/csv``` and hit enter
+- Open the command line/terminal and navigate to the project folder in htdocs.
+- Once there, type ```composer require league/csv``` and hit enter
 
 Step 4:
-	Update the .env file in the project folder with the necessary database information.
+- Update the .env file in the project folder with the necessary database information.
 
-Step 5:
-	Start server.
-	Start XAMPP mySQL and apache servers from the XAMPP application,
+Step 5: Start server.
+- Start XAMPP mySQL and apache servers from the XAMPP application,
 	or navigate to the folder using commandline/terminal and type:
 	```php artisan serve``` and hit enter.
 Step 5: 
-	Open the command line/terminal and navigate to the project folder in htdocs.
-	Once there, type ```php artisan make:database```. 
-	This will create the database based on the details in the .env file, as well as run
+- Open the command line/terminal and navigate to the project folder in htdocs.
+- Once there, type ```php artisan make:database```. 
+- This will create the database based on the details in the .env file, as well as run
 the necessary migrations.
 
 Step 6 (Optional): 
-	During the project, we've operated with a simple test environment.
-	Simply type ```php artisan db:seed``` to fill the database with dummy data.
+- During the project, we've operated with a simple test environment.
+- Simply type ```php artisan db:seed``` to fill the database with dummy data.
 
 Thats it!
-
-
-
