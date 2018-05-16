@@ -21,41 +21,45 @@ Another issue brought up by the employer is that equipment which is broken or mi
 To solve these issues, the Colorlab want a new, responsive system that works on all devices and is easy and fast to use to ensure that everyone uses it. They are going to put tablets outside (and inside) the labs so that you can easily log your usage even if you haven't booked it prior. The system needs to contain different roles so that they can log what equipment or rooms different roles use the most. They want it to be flexible for administrators to add new equipment and rooms if necessary.
 
 ## General Information
-Once set up, one can go to either ```localhost/Bachelorproj/public``` or ```localhost/Bachelorproj/public/home``` 
+Once set up, one can go to either ```localhost/Bachelorproj/public/``` or ```localhost/Bachelorproj/public/home``` 
 to get to the frontpage.
 
 If one wishes to make use of the user accounts in the database seeds, then the login information
 can be found in the ```database/seeds/UserTableSeeder``` php file.
 
-## Setting up the project---
-For this project we've used **XAMMP**, so this guide will be specific to that software.
+## Setting up the project
+For this project we've used **XAMMP** and **php artisan serve** as our server, so this guide will be specific to that software.
 
 Step 1:
-	Copy the project folder to htdocs in the xampp folder.
+	Copy the repository/project folder to htdocs in the xampp folder.
 
-Step 2:
-	Install composer
-
-Step 3:
+Step 2: Install composer
 	Open the command line/terminal and navigate to the project folder in htdocs.
 	Once there, type ```composer install``` and hit enter.
 
-Thats it!
+Step 3: Install the package for creating CSV files.
+	Open the command line/terminal and navigate to the project folder in htdocs.
+	Once there, type ```composer require league/csv``` and hit enter
 
-## Setting up the database
-
-Step 1:
+Step 4:
 	Update the .env file in the project folder with the necessary database information.
 
-Step 2:
+Step 5:
+	Start server.
+	Start XAMPP mySQL and apache servers from the XAMPP application,
+	or navigate to the folder using commandline/terminal and type:
+	```php artisan serve``` and hit enter.
+Step 5: 
 	Open the command line/terminal and navigate to the project folder in htdocs.
 	Once there, type ```php artisan make:database```. 
 	This will create the database based on the details in the .env file, as well as run
 the necessary migrations.
 
-Step 3 (Optional):
+Step 6 (Optional): 
 	During the project, we've operated with a simple test environment.
 	Simply type ```php artisan db:seed``` to fill the database with dummy data.
+
+Thats it!
 
 
 

@@ -9,16 +9,20 @@
 
 	</div>
 	<div class="mdl-grid">
-		<div class="mdl-cell mdl-cell--12-col">
-			<div class="mdl-typography--display-5 mdl-color-text--grey-600  headers mdl-cell mdl-cell--6-col">
+		<div class="mdl-cell mdl-cell--4-col">
+		</div>
+		<div class="mdl-cell mdl-cell--4-col">
+			<div class="mdl-typography--display-5 mdl-color-text--grey-600  headers ">
 				Type: {{$room->type}}
 			</div>
-			<div class="mdl-typography--display-5 mdl-color-text--grey-600  headers mdl-cell mdl-cell--6-col">
+			<div class="mdl-typography--display-5 mdl-color-text--grey-600  headers">
 				Building: {{$room->building}}
 			</div>
-			<div class="mdl-typography--display-5 mdl-color-text--grey-600  headers mdl-cell mdl-cell--6-col">
+			<div class="mdl-typography--display-5 mdl-color-text--grey-600  headers">
 				<a href="{{url('equipments')}}?room_number={{$room->room_number}}">See equipment located in this room.</a>
 			</div>
+		</div>
+		<div class="mdl-cell mdl-cell--4-col">
 		</div>
 	</div>
 

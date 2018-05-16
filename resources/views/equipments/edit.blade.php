@@ -44,8 +44,8 @@
 			</div>
 
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				<input class="mdl-textfield__input" type="text" id="ntnu_id" name="ntnu_id" value="{{$thisEquipment[0]->ntnu_id}}"disabled>
-				<label class="mdl-textfield__label" for="ntnu_id">NTNU ID... (disabled)</label>
+				<input class="mdl-textfield__input" type="text" id="ntnu_id" name="ntnu_id" value="{{$thisEquipment[0]->ntnu_id}}">
+				<label class="mdl-textfield__label" for="ntnu_id">NTNU ID...</label>
 				<span class="mdl-textfield__error"></span>
 			</div>
 

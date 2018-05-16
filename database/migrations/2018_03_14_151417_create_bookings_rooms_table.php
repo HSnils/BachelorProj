@@ -16,7 +16,7 @@ class CreateBookingsRoomsTable extends Migration
 		Schema::create('bookings_rooms', function (Blueprint $table) {
 			$table->increments('bookings_id');
 			$table->string('room_number', 30);
-			$table->boolean('private')->default(1);
+			$table->boolean('private')->default(0);
 			
 			$table->foreign('bookings_id')->references('id')->on('bookings')->onUpdate('cascade')->onDelete('cascade');
 			

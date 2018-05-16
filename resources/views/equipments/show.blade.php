@@ -10,26 +10,39 @@
 	</div>
 	<div class="mdl-grid">
 			<div class="mdl-cell mdl-cell--3-col"></div>
-			<div class="mdl-cell mdl-cell--3-col">
+			<div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone textCenter">
 				Type: {{$equipment->type}}
 			</div>
-			<div class="mdl-cell mdl-cell--3-col">
-				Location: {{$equipment->location}}
+			<div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone textCenter">
+				Location: <a href="{{url('rooms')}}/{{$equipment->location}}">{{$equipment->location}}</a>
 			</div>
 			<div class="mdl-cell mdl-cell--3-col"></div>
-			<div class="mdl-cell mdl-cell--4-col"></div>
-			<div class=" mdl-cell mdl-cell--4-col">
-				<a href="{{url('rooms')}}/{{$equipment->location}}">See more information about the location.</a>
-			</div>
-			<div class="mdl-cell mdl-cell--4-col"></div>
+			<div class="mdl-cell mdl-cell--3-col"></div>
 
-		<div class="mdl-cell mdl-cell--12-col">
+			<div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone textCenter">
+				NTNU ID: 
+				@if(!$equipment->ntnu_id == '')
+					{{$equipment->ntnu_id}}
+				@else
+					<i>No id specified</i>
+				@endif
+			</div>
+			<div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone textCenter">
+				Status: {{$equipment->status}}
+			</div>
+			<div class="mdl-cell mdl-cell--3-col"></div>
+
+		<div class="mdl-cell mdl-cell--3-col"></div>
+		<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
 			<div class="mdl-typography--display-1 mdl-color-text--grey-600">
 				Description:
 			</div>
 			{{$equipment->desc}}
 		</div>
-		<div class="mdl-cell mdl-cell--12-col">
+		<div class="mdl-cell mdl-cell--3-col"></div>
+
+		<div class="mdl-cell mdl-cell--3-col"></div>
+		<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
 			<div class="mdl-typography--display-1 mdl-color-text--grey-600">
 				Other Documentation:
 			</div>
@@ -42,25 +55,8 @@
 				<i>No information specified</i>
 			@endif
 		</div>
-		<div class="mdl-cell mdl-cell--4-col">
-			NTNU ID: 
-			@if(!$equipment->ntnu_id == '')
-				{{$equipment->ntnu_id}}
-			@else
-				<i>No id specified</i>
-			@endif
-		</div>
-		<div class="mdl-cell mdl-cell--4-col">
-			Status: {{$equipment->status}}
-		</div>
-		<div class="mdl-cell mdl-cell--4-col">
-			Lockdown status: {{$equipment->lockdown}}
-		</div>
-
+		<div class="mdl-cell mdl-cell--3-col"></div>
 		
-	</div>
-
-	<div class="mdl-grid">
 		<div class="mdl-cell mdl-cell--12-col contentWrapper">
 			<div class="mdl-typography--display-2 mdl-color-text--grey-600 flex100 headers">
 				Bookings on this equipment:
@@ -96,24 +92,51 @@
 		</div>
 		<br>
 		<!--REPORT DAMAGE FORM -->
+		<div class="mdl-cell mdl-cell--5-col"></div>
+		<div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">
+			<!-- Accent-colored raised button with ripple -->
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent reportingOpen">
+				<i class="material-icons">report_problem</i>Report damage
+			</button>
+		</div>
+		<div class="mdl-cell mdl-cell--5-col"></div>
 
-		<div class="mdl-cell mdl-cell--4-col"></div>
-		<div class="mdl-cell mdl-cell--4-col">
-			<div class="mdl-typography--display-1 mdl-color-text--grey-600">
-				Report damage on equipment:
-			</div>
-			<form action="" method="post">
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	</div>
+
+	<!--Reporting dialog -->
+	<dialog class="mdl-dialog">
+		<div class="mdl-dialog__content">
+			<div><i class="material-icons reportingClose">clear</i></div>
+			<div id="sortingBox">
+				<form action="" method="post">
 					{{ csrf_field() }}
-					<input class="mdl-textfield__input" type="text" id="report" name="report">
-					<label class="mdl-textfield__label" for="report">Text...</label>
-				</div>
-				<input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="Send report">
+					<div class="mdl-typography--display-1 mdl-color-text--grey-600">
+						Report damage:
+					</div>
+
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="text" id="report" name="report">
+						<label class="mdl-textfield__label" for="report">Report message...</label>
+					</div>
+			</div>
+		</div>
+		<div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+			<button type="submit" class="mdl-button">Send report</button>
 			</form>
 		</div>
-		<div class="mdl-cell mdl-cell--4-col"></div>
-	</div>
-	
+	</dialog>
+	<script>
+	var dialog = document.querySelector('dialog');
+	if (! dialog.showModal) {
+		dialogPolyfill.registerDialog(dialog);
+	}
+	$('.reportingOpen').click( function() {
+		dialog.showModal();
+	});
+	$('.reportingClose').click( function() {
+		dialog.close();
+	});
+	</script>
 	<script type="text/javascript" src="{{asset('js/sortTables.js')}}"></script>
 
 @endsection

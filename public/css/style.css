@@ -336,6 +336,10 @@ main{
 	color: rgb(63,81,181);
 }
 
+.textCenter{
+	text-align: center;
+}
+
 .activeTab{
 	background-color: rgba(0,0,0,0.1);
 	/*color: rgb(255,152,0) !important;*/
@@ -398,11 +402,11 @@ main{
 	border-bottom: 0px !important;
 }
 
-.sortingClose{
+.sortingClose, .reportingClose{
 	float: right;
 }
 
-.sortingClose, .sortingOpen{
+.sortingClose, .sortingOpen, .reportingClose{
 	cursor: pointer;
 }
 
@@ -426,48 +430,55 @@ main{
 .mdl-mini-footer {
   flex: 0 0 auto;
 }
-/*.calendarHead{
-	display: flex;
-	justify-content: space-between;
-	background-color: blue;
-	color: white;
-	padding: 0.2em;
-	box-sizing: border-box;
-	margin: 0;
-}
-
-.calendarColums{
-	display: flex;
-	justify-content: space-between;
-	margin: 0;
-	height: 200px;
-	position: relative;
-}
-
-.calendarCell{
-	display: inline-flex;
-	width: 100%;
-	
-}
-
-.calendarCell .calendarBooked{
-	border-right: 1px black solid;
-
-}
-
-.calendarBooked{
-	position: absolute;
-	background: red;
-	padding: 0.2em;
-	box-sizing: border-box;
-	top: 20%;
-	height: 40px
-}
-*/
 
 .signOutNav{
 	margin-left: 2em;
 }
+
+#numberFound{
+	text-align: center;
+
+}
+
+#numberFound .bookSuccess{
+	color:  green;
+}
+
+#numberFound .bookError{
+	color:  darkred;
+}
+/*tablet media queries*/
+@media only screen and (max-width: 1200px) {
+	.page-content{
+		margin-top: 5em;
+		padding: 0 5% 0 5%;
+	}
+
+	.flex100{
+		flex-basis: auto;
+		width: 100%;
+	}
+
+	.hideOnTablet{
+		display: none;
+	}
+
+	.fixedOnMobile {
+		position: fixed;
+	}
+
+	tr{
+		width: 250px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	table{
+		display: block;
+		overflow-x: auto;
+	}
+}
+
 @media only screen and (max-width: 600px) {
 	.roomPrivacyBox{
 		width: 100%;
@@ -488,8 +499,8 @@ main{
 	}
 
 	.categoriesTable{
-			width: 100%;
-    		flex-basis: 100%;
+		width: 100%;
+    	flex-basis: 100%;
 	}
 
 	tr{
@@ -508,78 +519,3 @@ main{
 		overflow-x: auto;
 	}
 }
-
-#numberFound{
-	text-align: center;
-
-}
-
-#numberFound .bookSuccess{
-	color:  green;
-}
-
-#numberFound .bookError{
-	color:  darkred;
-}
-
-
-/* tried to make tables more responsive
-@media only screen and (max-width: 992px){
-	table{
-		width: 100%;
-	    border-collapse: collapse;
-	    border-spacing: 0;
-	    display: block;
-	    position: relative;
-	}
-
-	table, th, td {
-    	border: none;
-	}
-
-	thead {
-	    border: 0;
-	    border-right: 1px solid rgba(0,0,0,0.12);
-	    display: block;
-    float: left;
-    vertical-align: middle;
-	}
-
-	tr{
-		border-bottom: none;
-    padding: 0 10px;
-        vertical-align: inherit;
-    border-color: inherit;
-	}
-
-	th{
-		display: block;
-    text-align: right;
-    margin: 0;
-    vertical-align: top;
-
-	}
-
-	tbody{
-		display: block;
-    width: auto;
-    position: relative;
-    overflow-x: auto;
-    white-space: nowrap;
-        vertical-align: middle;
-    border-color: inherit;
-	}
-
-	tbody tr{
-		display: inline-block;
-    vertical-align: top;
-        border-bottom: none;
-    padding: 0 10px;
-	}
-
-	td{
-		display: block;
-    min-height: 1.25em;
-    text-align: left;
-	}
-}*/

@@ -32,9 +32,9 @@
 				<th onclick="sortTable(0, this, 'categoriesTable')" class="mdl-data-table__cell--non-numeric th">Name</th>
 				<th onclick="sortTable(1, this, 'categoriesTable')" class="mdl-data-table__cell--non-numeric th">Type</th>
 				<th onclick="sortTable(2, this, 'categoriesTable')" class="mdl-data-table__cell--non-numeric th">User</th>
-				<th onclick="sortTable(4, this, 'categoriesTable')" class="mdl-data-table__cell--non-numeric th">Start date</th>
-				<th onclick="sortTable(5, this, 'categoriesTable')" class="mdl-data-table__cell--non-numeric th">End date</th>
-				<th onclick="sortTable(6, this, 'categoriesTable')" class="mdl-data-table__cell--non-numeric th">Hours spent</th>
+				<th onclick="sortTable(3, this, 'categoriesTable')" class="mdl-data-table__cell--non-numeric th">Start date</th>
+				<th onclick="sortTable(4, this, 'categoriesTable')" class="mdl-data-table__cell--non-numeric th">End date</th>
+				<th onclick="sortTable(5, this, 'categoriesTable')" class="mdl-data-table__cell--non-numeric th">Hours spent</th>
 			</tr>
 		</thead>
 		<tbody class="">

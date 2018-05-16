@@ -43,7 +43,6 @@ Route::delete('bookings/delete/{booking}', 'BookingsController@userDelete')->mid
 //users report damage to equipement
 Route::post('/equipments/{id}', 'EquipmentsController@reportDamage')->middleware('auth');
 
-
 //---- ADMIN STUFF ----//
 // Routes to Admin views
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('auth');
@@ -71,7 +70,7 @@ Route::get('admin/rooms/newRoom', 'RoomsController@newRoom')->name('newRoom')->m
 Route::post('admin/rooms/create', 'RoomsController@createRoom')->middleware('auth');
 Route::get('admin/rooms/edit/{room_number}', 'RoomsController@showEdit')->middleware('auth');
 Route::post('admin/rooms/edit', 'RoomsController@editRoom')->middleware('auth');
-Route::delete('admin/rooms/delete/{room_number}', 'RoomsController@delete')->middleware('auth');
+//Route::delete('admin/rooms/delete/{room_number}', 'RoomsController@delete')->middleware('auth');
 
 //Admin - Create/edit equipments
 Route::get('admin/equipments/newEquipment', 'EquipmentsController@newEquipment')->name('newEquipment')->middleware('auth');
@@ -86,7 +85,7 @@ Route::get('categories/edit/{category}', 'CategoriesController@showEdit')->middl
 Route::post('categories/edit/{category}', 'CategoriesController@editCategory')->middleware('auth');
 
 //Admin - accept/delete booking
-Route::get('admin/bookings/accept/{booking}', 'BookingsController@accept')->middleware('auth');
+Route::get('admin/bookings/accept/{booking}', 'BookingsController@approve')->middleware('auth');
 Route::delete('admin/bookings/delete/{booking}', 'BookingsController@delete')->middleware('auth');
 
 //Admin - Log Download to cvs
