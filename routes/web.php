@@ -85,7 +85,7 @@ Route::get('categories/edit/{category}', 'CategoriesController@showEdit')->middl
 Route::post('categories/edit/{category}', 'CategoriesController@editCategory')->middleware('auth');
 
 //Admin - accept/delete booking
-Route::get('admin/bookings/accept/{booking}', 'BookingsController@accept')->middleware('auth');
+Route::get('admin/bookings/accept/{booking}', 'BookingsController@approve')->middleware('auth');
 Route::delete('admin/bookings/delete/{booking}', 'BookingsController@delete')->middleware('auth');
 
 //Admin - Log Download to cvs

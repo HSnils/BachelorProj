@@ -24,18 +24,15 @@
 
 				<form action="{{url('admin/approve/user')}}/{{$user->id}}" method="post">
 					{{ csrf_field() }}
-					<td class="mdl-data-table__cell--non-numeric ">
-						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label selectInput">
-							<select id="selectRole{{$user->id}}" name="role" required class="mdl-textfield__input">
-								@foreach ($allRoles as $role)
-									<option value="{{$role->role}}">{{$role->role}}</option>
-								@endforeach
-							</select>
-							<label class="mdl-textfield__label" for="selectRole{{$user->id}}">Select role</label>
-							<!-- Simple Tooltip -->
-							<div class="mdl-tooltip" data-mdl-for="selectRole{{$user->id}}">
-							Select role
-							</div>
+					<td class="mdl-data-table__cell--non-numeric">
+						<select id="selectRole{{$user->id}}" name="role" required class="formPadding">
+							@foreach ($allRoles as $role)
+								<option value="{{$role->role}}">{{$role->role}}</option>
+							@endforeach
+						</select>
+						<!-- Simple Tooltip -->
+						<div class="mdl-tooltip" data-mdl-for="selectRole{{$user->id}}">
+								Select role
 						</div>
 					</td>
 					<td class="mdl-data-table__cell--non-numeric">
