@@ -14,7 +14,7 @@
 				Type: {{$equipment->type}}
 			</div>
 			<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone textCenter">
-				Location: {{$equipment->location}}
+				Location: <a href="{{url('rooms')}}/{{$equipment->location}}">{{$equipment->location}}</a>
 			</div>
 			<div class="mdl-cell mdl-cell--3-col"></div>
 			<div class="mdl-cell mdl-cell--3-col"></div>
@@ -31,12 +31,6 @@
 				Status: {{$equipment->status}}
 			</div>
 			<div class="mdl-cell mdl-cell--3-col"></div>
-
-			<div class="mdl-cell mdl-cell--4-col"></div>
-			<div class=" mdl-cell mdl-cell--4-col textCenter">
-				<a href="{{url('rooms')}}/{{$equipment->location}}">See more information about the location.</a>
-			</div>
-			<div class="mdl-cell mdl-cell--4-col"></div>
 
 		<div class="mdl-cell mdl-cell--3-col"></div>
 		<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
