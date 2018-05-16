@@ -10,16 +10,16 @@
 	</div>
 	<div class="mdl-grid">
 			<div class="mdl-cell mdl-cell--3-col"></div>
-			<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone textCenter">
+			<div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone textCenter">
 				Type: {{$equipment->type}}
 			</div>
-			<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone textCenter">
+			<div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone textCenter">
 				Location: <a href="{{url('rooms')}}/{{$equipment->location}}">{{$equipment->location}}</a>
 			</div>
 			<div class="mdl-cell mdl-cell--3-col"></div>
 			<div class="mdl-cell mdl-cell--3-col"></div>
 
-			<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone textCenter">
+			<div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone textCenter">
 				NTNU ID: 
 				@if(!$equipment->ntnu_id == '')
 					{{$equipment->ntnu_id}}
@@ -27,7 +27,7 @@
 					<i>No id specified</i>
 				@endif
 			</div>
-			<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone textCenter">
+			<div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone textCenter">
 				Status: {{$equipment->status}}
 			</div>
 			<div class="mdl-cell mdl-cell--3-col"></div>
