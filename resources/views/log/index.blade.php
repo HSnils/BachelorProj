@@ -5,7 +5,7 @@
 <div class="mdl-grid">
 	<div class="mdl-cell mdl-cell--12-col">
 		<div class="mdl-typography--display-1 mdl-color-text--grey-600 flex100 page-content">
-			Bookings this past month
+			Bookings past 30 days
 		</div>
 	</div>
 	<div class="mdl-cell mdl-cell--4-col">
