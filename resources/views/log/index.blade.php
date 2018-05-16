@@ -84,7 +84,7 @@
 
 	<div class="mdl-cell mdl-cell--12-col">
 		<div class=" flex100 page-content">
-			Total hours spent this month: <b>{{$totalHoursSpentThisMonth}}</b>
+			Total hours spent past 30 days: <b>{{$totalHoursSpentThisMonth}}</b>
 		</div>
 	</div>
 
