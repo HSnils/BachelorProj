@@ -336,6 +336,10 @@ main{
 	color: rgb(63,81,181);
 }
 
+.textCenter{
+	text-align: center;
+}
+
 .activeTab{
 	background-color: rgba(0,0,0,0.1);
 	/*color: rgb(255,152,0) !important;*/
@@ -398,11 +402,11 @@ main{
 	border-bottom: 0px !important;
 }
 
-.sortingClose{
+.sortingClose, .reportingClose{
 	float: right;
 }
 
-.sortingClose, .sortingOpen{
+.sortingClose, .sortingOpen, .reportingClose{
 	cursor: pointer;
 }
 

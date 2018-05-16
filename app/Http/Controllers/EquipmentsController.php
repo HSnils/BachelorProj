@@ -86,7 +86,10 @@ class EquipmentsController extends Controller
 			->update([
 				'other_documentation' => $new_other_doc
 		]);
-
+		
+		//Flashes the session with a value for notify user
+		//Flash only lasts for 1 redriect
+		session()->flash('notifyUser', 'Report sent!');	
 		return redirect()->back();
 	}
 
