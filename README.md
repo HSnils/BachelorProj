@@ -66,13 +66,14 @@ Step 5: Start server.
 - Start XAMPP mySQL and apache servers from the XAMPP application,
 	or navigate to the folder using commandline/terminal and type:
 	```php artisan serve``` and hit enter.
-Step 5: 
+	
+Step 6: 
 - Open the command line/terminal and navigate to the project folder in htdocs.
 - Once there, type ```php artisan make:database```. 
 - This will create the database based on the details in the .env file, as well as run
 the necessary migrations.
 
-Step 6 (Optional): 
+Step 7 (Optional): 
 - During the project, we've operated with a simple test environment.
 - Simply type ```php artisan db:seed``` to fill the database with dummy data.
 
