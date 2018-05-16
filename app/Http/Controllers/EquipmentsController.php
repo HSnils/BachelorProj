@@ -76,16 +76,31 @@ class EquipmentsController extends Controller
 		return view('equipments.show', compact('equipment','bookingsOnThisEquipment'));
 	}
 
-	public function reportDamage($id){	
+	public function reportDamage($id){
+		//validates input (checks if they are filled in)
+		$validator = Validator::make($request->all(), [
+			'report' => 'required',
+
+		]);
+
 		$dateReported = new Carbon();
 		$prev_other_doc = Equipments::where('id', $id)->select('other_documentation')->first()->other_documentation;
 		$report = \Request::input('report');
-
 		$new_other_doc = $prev_other_doc.' Reported damage: '.$report.' Date reported: '.$dateReported;
+
+		if(strlen($new_other_doc) > 500){
+			$validatorStatus = "Can not send report, other documentation field is too full! Contact admin";
+			$validator->getMessageBag()->add('tooLong', $validatorStatus);
+			session()->flash('notifyUser', 'Report could not be sent!');
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
+
 		Equipments::where('id', $id)
 			->update([
 				'other_documentation' => $new_other_doc
 		]);
+
+
 		
 		//Flashes the session with a value for notify user
 		//Flash only lasts for 1 redriect

@@ -98,6 +98,8 @@
 			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent reportingOpen">
 				<i class="material-icons">report_problem</i>Report damage
 			</button>
+			<!--errors-->
+			@include('partials.errors')
 		</div>
 		<div class="mdl-cell mdl-cell--5-col"></div>
 
