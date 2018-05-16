@@ -20,7 +20,7 @@ class CreateEquipmentsTable extends Migration
 			$table->string('location', 30);
 			$table->string('type', 30);
 			$table->boolean('status')->default(false);
-			$table->string('ntnu_id', 50)->nullable();
+			$table->string('ntnu_id', 50)->default('No id specified');
 			$table->string('desc', 155);
 			$table->boolean('lockdown')->default(false);
 			$table->dateTime('last_service')->nullable();

@@ -146,27 +146,29 @@
 							<span class="materialLabel bookingLabel marginTop1 marginBottom1">Room privacy*</span>
 							<br>
 							<span class="roomPrivacyBox">
-								<span>
-									<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="room_is_private" id="room_is_private_label">
-										<input type="radio" id="room_is_private" class="mdl-radio__button" name="roomPrivacy" value="1" checked>
-										<span class="mdl-radio__label">Private</span>
-									</label>
-									<div class="mdl-tooltip" data-mdl-for="room_is_private_label">
-									Only you<br>can use room
-									</div>
-								</span>
+								
 								<span>
 									<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="others_can_use" id="others_can_use_label">
-										<input type="radio" id="others_can_use" class="mdl-radio__button" name="roomPrivacy" value="0">
+										<input type="radio" id="others_can_use" class="mdl-radio__button" name="roomPrivacy" value="0" checked>
 										<span class="mdl-radio__label">
 											Public
 										</span>
 
 									</label>
 									<div class="mdl-tooltip" data-mdl-for="others_can_use_label">
-									Others can<br> use room
+										Others can<br> use room
 									</div>
 
+								</span>
+
+								<span>
+									<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="room_is_private" id="room_is_private_label">
+										<input type="radio" id="room_is_private" class="mdl-radio__button" name="roomPrivacy" value="1" >
+										<span class="mdl-radio__label">Private</span>
+									</label>
+									<div class="mdl-tooltip" data-mdl-for="room_is_private_label">
+										Only you<br> can use room
+									</div>
 								</span>
 								
 							</span>
