@@ -1,5 +1,11 @@
-# BachelorProj
-Bachelor project repository for *Henrik Reff Snilsberg*, *Ole Martin Ibsen* og *Fredrik Paulsen*.
+# BachelorProject - Colourlab Logging system
+## Authors
+
+* [Henrik Reff Snilsberg](https://github.com/HSnils)
+* [Ole Martin Ibsen](https://github.com/omieh)
+* [Fredrik Paulsen](https://github.com/freddypauls)
+
+## Background
 
 This project is made for the **ColorLab at NTNU Gjøvik**. The representative for the Color Lab and our client is *Marius Pedersen*. 
 
@@ -19,6 +25,18 @@ Another issue brought up by the employer is that equipment which is broken or mi
 
 ## The solution
 To solve these issues, the Colorlab want a new, responsive system that works on all devices and is easy and fast to use to ensure that everyone uses it. They are going to put tablets outside (and inside) the labs so that you can easily log your usage even if you haven't booked it prior. The system needs to contain different roles so that they can log what equipment or rooms different roles use the most. They want it to be flexible for administrators to add new equipment and rooms if necessary.
+
+## Built With
+
+* [Laravel](https://laravel.com/) - The back-end framework
+* PHP
+* SQL (Eloquent ORM)
+* [getMDL.io](http://getmdl.io) - A modern responsive front-end framework based on Material Design 
+* [JQuery-UI](https://jqueryui.com/) - Mainly used JQuery which is a JavaScript Library
+* JavaScript
+* AJAX
+* HTML5
+* CSS3
 
 ## General Information
 Once set up, one can go to either ```localhost/Bachelorproj/public/``` or ```localhost/Bachelorproj/public/home``` 
